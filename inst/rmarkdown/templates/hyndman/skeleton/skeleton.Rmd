@@ -9,9 +9,7 @@ twitter: mariecurie
 github: mariecurie
 linkedin: mariecurie
 date: "`r format(Sys.time(), '%B %Y')`"
-output:
-  vitae::cv:
-    keep_tex: yes
+output: vitae::hyndman
 ---
 
 ```{r setup, include=FALSE}
