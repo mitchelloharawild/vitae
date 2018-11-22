@@ -1,0 +1,3 @@
+#' @keywords internal
+"_PACKAGE"
+
