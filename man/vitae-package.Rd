@@ -11,7 +11,12 @@
 Provides templates and functions to simplify the production and maintenance of curriculum vitae.
 }
 \author{
-\strong{Maintainer}: Mitchell O'Hara-Wild \email{mail@mitchelloharawild.com}
+\strong{Maintainer}: Mitchell O'Hara-Wild \email{mail@mitchelloharawild.com} (0000-0001-6729-7695)
+
+Authors:
+\itemize{
+  \item Rob Hyndman \email{Rob.Hyndman@monash.edu} (0000-0002-2140-5352)
+}
 
 }
 \keyword{internal}
