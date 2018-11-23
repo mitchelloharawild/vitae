@@ -190,6 +190,8 @@ $endfor$
 \makeatother
 
 % Header box
+\usepackage{tabularx}
+
 \makeatletter
 \def\name#1{\def\@name{#1}}
 \def\info#1{\def\@info{#1}}
@@ -213,7 +215,7 @@ $if(position)$\\[0.1cm]\large $position$\\[0.6cm]$else$\\[0.7cm]$endif$
 \normalsize $if(date)$$date$$else$\today$endif$
 \end{tabular}
 \hfill\hbox{\fontsize{9}{12}\sf
-\begin{tabular}{@{}rl@{}}
+\begin{tabular}{@{}rp{6.5cm}@{}}
 \@info
 \end{tabular}}}\hfil
 }
@@ -327,7 +329,9 @@ $endif$
 
 \name{$name$}
 
-\info{\faicon{map-marker} & $address$%
+
+
+\info{\faicon{map-marker} & \begin{minipage}[t]{6.5cm}\raggedright $address$\end{minipage}\\[-0.3cm]%
 $if(www)$\\\faicon{home} & \href{http://$www$}{$www$}$endif$%
 $if(phone)$\\\faicon{phone} & $phone$$endif$%
 $if(email)$\\\faicon{envelope} & $email$$endif$%

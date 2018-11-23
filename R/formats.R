@@ -13,7 +13,7 @@
 hyndman <- function(...) {
   template <- system.file("rmarkdown", "templates", "hyndman",
   	"resources", "hyndmantemplate.tex", package="vitae")
-   bookdown::pdf_document2(..., template = template)
+   bookdown::pdf_document2(..., template = template, citation_package="biblatex")
 }
 
 #' @rdname hyndman
@@ -29,5 +29,5 @@ twentyseconds <- function(...) {
        		f, package="vitae"), ".", recursive=TRUE)
 		  }
   }
-   bookdown::pdf_document2(..., template = template)
+   bookdown::pdf_document2(..., template = template, citation_package="biblatex")
 }

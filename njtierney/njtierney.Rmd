@@ -9,9 +9,7 @@ twitter: nj_tierney
 github: njtierney
 date: "`r format(Sys.time(), '%B %Y')`"
 aboutme: "Constantly excited about #rstats"
-output:
-  vitae::hyndman:
-    keep_tex: yes
+output: vitae::twentyseconds
 ---
 
 ```{r setup, include=FALSE}
