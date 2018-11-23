@@ -75,8 +75,10 @@ $endif$
 
 %----------------------------------------------------------------------------------------
 
+
+\usepackage{etoolbox}
 \def\educationitem#1#2#3#4#5{
-\twentyitem{#4}{#1}{#2}{#3\\\begin{minipage}{0.7\textwidth}\begin{itemize}\tightlist #5\end{itemize}\end{minipage}}}
+\twentyitem{#3}{#1}{#2}{\ifx#4\empty\else#4\par\fi\ifx#5\empty\else{\begin{minipage}{0.7\textwidth}\begin{itemize}#5\end{itemize}\end{minipage}}\fi}}
 \def\educationsection#1{\begin{twenty}#1\end{twenty}}
 
 \begin{document}
