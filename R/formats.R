@@ -47,5 +47,5 @@ awesomecv <- function(...) {
                             f, package="vitae"), ".", recursive=TRUE)
     }
   }
-  bookdown::pdf_document2(..., template = template, citation_package="biblatex")
+  bookdown::pdf_document2(..., template = template, citation_package="biblatex", latex_engine="xelatex")
 }
