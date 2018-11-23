@@ -17,7 +17,7 @@ education <- function(data, qualification, institution, location, years, items){
   if(!missing(items)){
     data <- group_by(data, !!!edu_exprs)
     edu_exprs$items <- enexpr(items)
-    data <- summarise(data, "items" := list(!!edu_exprs$items))
+    data <- summarise(data, "items" := compact_list(!!edu_exprs$items))
     data <- ungroup(data)
   }
   else{
@@ -33,7 +33,7 @@ knit_print.vitae_education <- function(x, options){
     x <- dplyr::mutate(x,
       "items" := map(items, ~ glue_collapse(
         glue("\\item{<<.x>>}", .open = "<<", .close = ">>")
-      ))
+      ) %empty% "")
     )
   }
   else{
