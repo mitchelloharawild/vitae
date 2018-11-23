@@ -65,17 +65,16 @@ $else$
 $endif$
 
 \cvname{$name$} % Your name
-\cvjobtitle{$position$} % Job title/career
 
-\cvdate{$date$} % Date of birth or date of CV??
-\cvaddress{$address$} % Short address/location, use \newline if more than 1 line is required
-\cvnumberphone{$phone$} % Phone number
-\cvsite{$www$} % Personal website
-\cvmail{$email$} % Email address
-
-\cvtwitter{$twitter$}
-\cvgithub{$github$}
-\cvlinkedin{$linkedin$}
+$if(position)$\cvjobtitle{$position$}$else$\cvjobtitle{}$endif$ % Job title/career
+$if(date)$\cvdate{$date$}$else$\cvdate{}$endif$ % Date of birth or date of CV??
+$if(address)$\cvaddress{$address$}$else$\cvaddress{}$endif$ % Short address/location, use \newline if more than 1 line is required
+$if(phone)$\cvnumberphone{$phone$}$else$\cvnumberphone{}$endif$ % Phone number
+$if(www)$\cvsite{\href{http://$www$}{$www$}}$else$\cvsite{}$endif$ % Personal website
+$if(email)$\cvmail{$email$}$else$\cvmail{}$endif$ % Email address
+$if(twitter)$\cvtwitter{\href{https://twitter.com/$twitter$}{$twitter$}}$else$\cvtwitter{}$endif$
+$if(github)$\cvgithub{\href{https://github.com/$github$}{$github$}}$else$\cvgithub{}$endif$
+$if(linkedin)$\cvlinkedin{\href{https://www.linkedin.com/in/$linkedin$}{$linkedin$}}$else$\cvlinkedin{}$endif$
 
 % Templates for detailed entries
 % Arguments: what when with where why
