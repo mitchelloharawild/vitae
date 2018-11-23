@@ -23,3 +23,12 @@ You can install the **development** version from
 # install.packages("devtools")
 devtools::install_github("ropenscilabs/vitae")
 ```
+
+## Getting started
+
+The documentation for this package is [still
+underway](https://github.com/ropenscilabs/vitae/issues/5).
+
+For now, the slides presented at
+[ozunconf2018](https://ozunconf18.ropensci.org/) is a good place to find
+out how to use the package: <https://mitchelloharawild.com/vitae/>
