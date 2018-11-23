@@ -31,3 +31,21 @@ twentyseconds <- function(...) {
   }
    bookdown::pdf_document2(..., template = template, citation_package="biblatex")
 }
+
+
+
+#' @rdname hyndman
+#' @export
+awesomecv <- function(...) {
+  template <- system.file("rmarkdown", "templates", "awesomecv",
+                          "resources", "awesome-cv.tex", package="vitae")
+
+  # Copy class and style files
+  for (f in c("awesome-cv.cls", "fonts")) {
+    if (!file.exists(f)) {
+      file.copy(system.file("rmarkdown", "templates", "awesomecv", "skeleton",
+                            f, package="vitae"), ".", recursive=TRUE)
+    }
+  }
+  bookdown::pdf_document2(..., template = template, citation_package="biblatex")
+}

@@ -2,6 +2,7 @@
 
 S3method(knit_print,vitae_brief)
 S3method(knit_print,vitae_detailed)
+export(awesomecv)
 export(brief_entries)
 export(detailed_entries)
 export(hyndman)
