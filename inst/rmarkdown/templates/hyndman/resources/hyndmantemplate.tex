@@ -21,16 +21,37 @@ $endif$
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[$if(fontenc)$$fontenc$$else$T1$endif$]{fontenc}
   \usepackage[utf8]{inputenc}
-  \usepackage{csquotes}
 $if(euro)$
   \usepackage{eurosym}
 $endif$
-$for(fontfamilies)$
-  \newfontfamily{$fontfamilies.name$}[$fontfamilies.options$]{$fontfamilies.font$}
-$endfor$
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
 $if(euro)$
   \newcommand{\euro}{€}
 $endif$
+$if(mainfont)$
+    \setmainfont[$for(mainfontoptions)$$mainfontoptions$$sep$,$endfor$]{$mainfont$}
+$endif$
+$if(sansfont)$
+    \setsansfont[$for(sansfontoptions)$$sansfontoptions$$sep$,$endfor$]{$sansfont$}
+$endif$
+$if(monofont)$
+    \setmonofont[Mapping=tex-ansi$if(monofontoptions)$,$for(monofontoptions)$$monofontoptions$$sep$,$endfor$$endif$]{$monofont$}
+$endif$
+$if(mathfont)$
+    \setmathfont(Digits,Latin,Greek)[$for(mathfontoptions)$$mathfontoptions$$sep$,$endfor$]{$mathfont$}
+$endif$
+$if(CJKmainfont)$
+    \usepackage{xeCJK}
+    \setCJKmainfont[$for(CJKoptions)$$CJKoptions$$sep$,$endfor$]{$CJKmainfont$}
+$endif$
+\fi
+
 % use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 % use microtype if available
@@ -298,7 +319,7 @@ $endif$
   }
 }
 
-\usepackage{booktabs,fontawesome,academicons}
+\usepackage{booktabs,fontawesome}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 %\usepackage[t1,scale=0.86]{sourcecodepro}
@@ -312,8 +333,8 @@ $if(email)$\\\faicon{envelope} & $email$$endif$%
 $if(twitter)$\\\faicon{twitter} & @$twitter$$endif$%
 $if(github)$\\\faicon{github} & $github$$endif$%
 $if(linkedin)$\\\faicon{linkedin} & $linkedin$$endif$%
-$if(scholar)$\\\aiicon{googlescholar} & $scholar$$endif$%
-$if(orcid)$\\\aiicon{orcid} & $orcid$$endif$%
+$if(scholar)$\\\faicon{google} & $scholar$$endif$%
+$if(orcid)$\\\faicon{openid} & $orcid$$endif$%
 }
 
 \ExecuteBibliographyOptions{useprefix=true}
