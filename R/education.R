@@ -36,9 +36,12 @@ knit_print.vitae_education <- function(x, options){
       ))
     )
   }
+  else{
+    x <- dplyr::mutate(x, "items" := "")
+  }
 
   out <- glue_data(x,
-            "\\education_item
+            "\\educationitem
             {<<qualification>>}
             {<<institution>>}
             {<<location>>}
@@ -46,5 +49,5 @@ knit_print.vitae_education <- function(x, options){
             {<<items>>}",
             .open = "<<", .close = ">>")
 
-  knitr::asis_output(glue("\\education_section{<<glue_collapse(out)>>}", .open = "<<", .close = ">>"))
+  knitr::asis_output(glue("\\educationsection{<<glue_collapse(out)>>}", .open = "<<", .close = ">>"))
 }
