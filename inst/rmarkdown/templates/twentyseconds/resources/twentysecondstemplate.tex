@@ -1,0 +1,106 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Twenty Seconds Resume/CV
+% LaTeX Template
+% Version 1.1 (8/1/17)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Carmine Spagnuolo (cspagnuolo@unisa.it) with major modifications by
+% Vel (vel@LaTeXTemplates.com)
+%
+% Adapted to be an Rmarkdown template by Rob J Hyndman
+% 23 November 2018
+%
+% License:
+% The MIT License (see included LICENSE file)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[$if(fontsize)$$fontsize$$else$10pt$endif$,$if(lang)$$babel-lang$,$endif$$if(papersize)$$papersize$$else$a4paper$endif$,$for(classoption)$$classoption$$sep$,$endfor$]{twentysecondcv}
+
+$if(fontfamily)$
+\usepackage[$for(fontfamilyoptions)$$fontfamilyoptions$$sep$,$endfor$]{$fontfamily$}
+$else$
+\usepackage[scaled=0.86]{DejaVuSansMono}
+$endif$
+
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[$if(fontenc)$$fontenc$$else$T1$endif$]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{csquotes}
+
+$if(geometry)$
+\usepackage[$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
+$endif$
+
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+$if(numbersections)$
+\setcounter{secnumdepth}{$if(secnumdepth)$$secnumdepth$$else$5$endif$}
+$else$
+\setcounter{secnumdepth}{0}
+$endif$
+
+
+%----------------------------------------------------------------------------------------
+%	 PERSONAL INFORMATION
+%----------------------------------------------------------------------------------------
+
+% If you don't need one or more of the below, just remove the content leaving the command, e.g. \cvnumberphone{}
+
+% Profile pic
+$if(profilepic)$
+\profilepic{$profilepic$}
+$else$
+\profilepic{mariecurie.jpg}
+$endif$
+
+\cvname{$name$} % Your name
+\cvjobtitle{$position$} % Job title/career
+
+\cvdate{$date$} % Date of birth or date of CV??
+\cvaddress{$address$} % Short address/location, use \newline if more than 1 line is required
+\cvnumberphone{$phone$} % Phone number
+\cvsite{$www$} % Personal website
+\cvmail{$email$} % Email address
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\aboutme{$if(aboutme)$$aboutme$$endif$}
+
+% Skill bar section, each skill must have a value between 0 an 6 (float)
+%\skills{{pursuer of rabbits/5.8},{good manners/4},{outgoing/4.3},{polite/4},{Java/0.01}}
+
+% Skill text section, each skill must have a value between 0 an 6
+%\skillstext{{lovely/4},{narcissistic/3}}
+
+\makeprofile % Print the sidebar
+
+
+$if(linestretch)$
+\setstretch{$linestretch$}
+$endif$
+
+$for(include-before)$
+$include-before$
+$endfor$
+
+$body$
+
+$for(include-after)$
+$include-after$
+$endfor$
+
+
+\end{document}

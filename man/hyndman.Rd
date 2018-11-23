@@ -2,9 +2,12 @@
 % Please edit documentation in R/formats.R
 \name{hyndman}
 \alias{hyndman}
+\alias{twentyseconds}
 \title{Output formats for CVs}
 \usage{
 hyndman(...)
+
+twentyseconds(...)
 }
 \arguments{
 \item{\dots}{Arguments passed to \code{\link[bookdown]{pdf_document2}}.}

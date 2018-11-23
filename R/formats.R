@@ -15,3 +15,19 @@ hyndman <- function(...) {
   	"resources", "hyndmantemplate.tex", package="vitae")
    bookdown::pdf_document2(..., template = template)
 }
+
+#' @rdname hyndman
+#' @export
+twentyseconds <- function(...) {
+  template <- system.file("rmarkdown", "templates", "twentyseconds",
+  	"resources", "twentysecondstemplate.tex", package="vitae")
+
+  # Copy class and style files
+  for (f in c("mariecurie.jpg","twentysecondcv.cls")) {
+		  if (!file.exists(f)) {
+    		file.copy(system.file("rmarkdown", "templates", "twentyseconds", "skeleton",
+       		f, package="vitae"), ".", recursive=TRUE)
+		  }
+  }
+   bookdown::pdf_document2(..., template = template)
+}
