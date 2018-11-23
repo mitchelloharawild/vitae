@@ -30,7 +30,7 @@ knit_print.vitae_education <- function(x, options){
   x <- dplyr::mutate(x,
                      "items" := map_chr(items, ~ glue_collapse(
                        glue("\\item{<<.x>>}", .open = "<<", .close = ">>")
-                     ) %empty% "\empty")
+                     ) %empty% "\\empty")
   )
 
   x[is.na(x)] <- ""
