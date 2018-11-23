@@ -9,36 +9,31 @@ sample_education <- tibble::tribble(
 #' @export
 education <- function(data, qualification, institution, location, years, items){
   edu_exprs <- list(
-    qualification = enexpr(qualification),
-    institution = enexpr(institution),
-    location = enexpr(location),
-    years = enexpr(years)
+    qualification = enexpr(qualification) %missing% NA,
+    institution = enexpr(institution) %missing% NA,
+    location = enexpr(location) %missing% NA,
+    years = enexpr(years) %missing% NA,
+    items = enexpr(items) %missing% NA
   )
-  if(!missing(items)){
-    data <- group_by(data, !!!edu_exprs)
-    edu_exprs$items <- enexpr(items)
-    data <- summarise(data, "items" := compact_list(!!edu_exprs$items))
-    data <- ungroup(data)
-  }
-  else{
-    data <- dplyr::rename(data,  !!!edu_exprs)
-  }
+
+  data <- dplyr::transmute(data,  !!!edu_exprs)
+  data <- group_by(data, !!!syms(names(edu_exprs))[-5])
+  data <- summarise(data, "items" := compact_list(!!edu_exprs$items))
+  data <- ungroup(data)
+
   add_class(data, "vitae_education")
 }
 
 #' @importFrom knitr knit_print
 #' @export
 knit_print.vitae_education <- function(x, options){
-  if("items" %in% colnames(x)){
-    x <- dplyr::mutate(x,
-      "items" := map(items, ~ glue_collapse(
-        glue("\\item{<<.x>>}", .open = "<<", .close = ">>")
-      ) %empty% "")
-    )
-  }
-  else{
-    x <- dplyr::mutate(x, "items" := "")
-  }
+  x <- dplyr::mutate(x,
+                     "items" := map_chr(items, ~ glue_collapse(
+                       glue("\\item{<<.x>>}", .open = "<<", .close = ">>")
+                     ) %empty% "")
+  )
+
+  x[is.na(x)] <- ""
 
   out <- glue_data(x,
             "\\educationitem
