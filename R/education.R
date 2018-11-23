@@ -36,13 +36,15 @@ knit_print.vitae_education <- function(x, options){
       ))
     )
   }
+
   out <- glue_data(x,
-            "\\education
+            "\\education_item
             {<<qualification>>}
             {<<institution>>}
             {<<location>>}
             {<<years>>}
             {<<items>>}",
             .open = "<<", .close = ">>")
-  knitr::asis_output(out)
+
+  knitr::asis_output(glue("\\education_section{<<glue_collapse(out)>>}", .open = "<<", .close = ">>"))
 }
