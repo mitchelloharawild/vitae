@@ -44,10 +44,6 @@ options(htmltools.dir.version = FALSE, width = 120)
 
 ---
 
-# Background
-
----
-
 class: inverse, top
 
 .sticker-float[![vitae](resources/vitae.svg)]
@@ -61,9 +57,13 @@ class: inverse, top
 
 # hyndman
 
+![hyndman](resources/hyndman.png)
+
 ---
 
 # twentyseconds
+
+![twentyseconds](resources/twentyseconds.png)
 
 ---
 
