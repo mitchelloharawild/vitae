@@ -9,7 +9,9 @@ twitter: nj_tierney
 github: njtierney
 date: "`r format(Sys.time(), '%B %Y')`"
 aboutme: "Constantly excited about #rstats"
-output: vitae::hyndman
+output:
+  vitae::hyndman:
+    keep_tex: yes
 ---
 
 ```{r setup, include=FALSE}
@@ -25,10 +27,10 @@ This is my resume, I'd like some jobs please.
 # Education
 ```{r education}
 edu <- rorcid::orcid_educations("0000-0003-1460-8722")
-edu$`0000-0003-1460-8722`$`education-summary` %>% 
+edu$`0000-0003-1460-8722`$`education-summary` %>%
   detailed_entries(
-    what = `role-title`, 
-    when = glue::glue("{`start-date.year.value`} - {`end-date.year.value`}"), 
+    what = `role-title`,
+    when = glue::glue("{`start-date.year.value`} - {`end-date.year.value`}"),
     with = organization.name,
     where = organization.address.city
   )
@@ -37,17 +39,17 @@ edu$`0000-0003-1460-8722`$`education-summary` %>%
 # R Packages
 ```{r rpkgs}
 pkgsearch::ps("Tierney",size = 100) %>%
-  filter(maintainer_name == "Nicholas Tierney") %>% 
+  filter(maintainer_name == "Nicholas Tierney") %>%
   brief_entries(
-    what = title, 
-    when = lubridate::year(date), 
+    what = title,
+    when = lubridate::year(date),
     with = description
   )
 ```
 
 # Publications
 ```{r publications}
-scholar::get_publications("o4eVsQEAAAAJ") %>% 
+scholar::get_publications("o4eVsQEAAAAJ") %>%
   detailed_entries(
     what = title,
     when = year,
@@ -61,10 +63,10 @@ scholar::get_publications("o4eVsQEAAAAJ") %>%
 ```{r talks}
 tibble::tribble(
   ~name, ~event, ~location, ~year,
-  "Empowering people with community, software, and peer review", "**RUCK: R Users Conference Korea (Invited Keynote speaker)**", "Seoul, Korea", 2018, 
+  "Empowering people with community, software, and peer review", "**RUCK: R Users Conference Korea (Invited Keynote speaker)**", "Seoul, Korea", 2018,
   "Now you see it?  Now you don’t?  The role of graphics in identifying MCMC convergence (Awarded Runner up Pitman Prize for Young Statistician)", "ISCB-ASC", "Melbourne, Australia", 2018,
   "Find the best locations for facilities using `maxcovr`", "UseR! 2018", "Brisbane, Australia", 2018
-) %>% 
+) %>%
   detailed_entries(
     what = name,
     when = year,

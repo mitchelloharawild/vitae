@@ -353,12 +353,12 @@ $endif$
 \usepackage{etoolbox}
 \def\detaileditem#1#2#3#4#5{
 #2 & #1 & #3 & #4\\\ifx#5\empty\else\multicolumn{4}{p{\textwidth}}{\begin{minipage}{\textwidth}\renewcommand{\labelitemi}{{\footnotesize\ding{228}}}\begin{itemize}#5\end{itemize}\end{minipage}}\\\fi}
-\def\detailedsection#1{\begin{tabular}{llll}#1\end{tabular}}
+\def\detailedsection#1{\begin{tabular}{lp{6cm}p{6cm}p{3cm}}#1\end{tabular}}
 
 % Templates for brief entries
 % Arguments: what when with
 \def\briefitem#1#2#3{#2 & #1 & #3 \\}
-\def\briefsection#1{\begin{tabular}{lll}#1\end{tabular}}
+\def\briefsection#1{\begin{tabular}{lp{6cm}p{10cm}}#1\end{tabular}}
 
 \begin{document}
 \maketitle
