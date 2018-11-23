@@ -208,3 +208,22 @@ tibble::tribble(
 '`'
 ```
 
+---
+
+class: inverse, top
+
+.sticker-float[![vitae](resources/vitae.svg)]
+
+.title[Thanks! `r fa("comments", fill = "white")`]
+
+<br>
+
+.larger[
+`r fa("github", fill = "white")` Learn more on GitHub: [ropenscilabs/vitae](https://github.com/ropenscilabs/vitae)
+
+`r fa("desktop", fill = "white")` Review slides: [mitchelloharawild.com/vitae](https://mitchelloharawild.com/vitae)
+
+<br>
+
+.footnote[This work is licensed as `r fa("creative-commons", fill="white")` BY-NC 4.0.]
+]
