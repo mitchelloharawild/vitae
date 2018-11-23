@@ -7,7 +7,8 @@ Description: Provides templates and functions to simplify the production and mai
 Imports: 
     bookdown,
     rlang,
-    glue
+    glue,
+    dplyr
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
