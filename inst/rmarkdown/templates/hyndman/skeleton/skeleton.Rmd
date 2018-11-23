@@ -2,7 +2,7 @@
 name: Marie Curie
 position: "Professor"
 address: "School of Physics & Chemistry, École Normale Supérieure"
-phone: +61 3 9905 5141
+phone: +1 22 3333 4444
 www: mariecurie.com
 email: "Marie.Curie@ens.fr"
 twitter: mariecurie
