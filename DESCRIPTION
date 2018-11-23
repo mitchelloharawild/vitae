@@ -4,7 +4,10 @@ Version: 0.0.0.9000
 Authors@R:
     person(given = "Mitchell", family = "O'Hara-Wild", role = c("aut", "cre"), email = "mail@mitchelloharawild.com")
 Description: Provides templates and functions to simplify the production and maintenance of curriculum vitae.
-Imports: bookdown
+Imports: 
+    bookdown,
+    rlang,
+    glue
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
