@@ -326,15 +326,10 @@ $endif$
 
 %% Education
 
-%
+\usepackage{etoolbox}
 \def\educationitem#1#2#3#4#5{
-#4 & #1 & #2 & #3 \\ \multicolumn{4}{p{\textwidth}}{\begin{minipage}{\textwidth}\renewcommand{\labelitemi}{{\footnotesize\ding{228}}}
-\begin{itemize}#5\end{itemize}\end{minipage}} \\
-}
-\def\educationsection#1{
-\begin{tabular}{llll}#1\end{tabular}}
-
-
+#3 & #1 & #2 & #4\\\ifx#5\empty\else\multicolumn{4}{p{\textwidth}}{\begin{minipage}{\textwidth}\renewcommand{\labelitemi}{{\footnotesize\ding{228}}}\begin{itemize}#5\end{itemize}\end{minipage}}\\\fi}
+\def\educationsection#1{\begin{tabular}{llll}#1\end{tabular}}
 
 \begin{document}
 \maketitle
