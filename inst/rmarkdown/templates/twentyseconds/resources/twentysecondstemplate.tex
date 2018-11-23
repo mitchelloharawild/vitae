@@ -61,7 +61,7 @@ $endif$
 $if(profilepic)$
 \profilepic{$profilepic$}
 $else$
-\profilepic{mariecurie.jpg}
+\profilepic{}
 $endif$
 
 \cvname{$name$} % Your name
@@ -83,6 +83,12 @@ $endif$
 \def\detaileditem#1#2#3#4#5{
 \twentyitem{#2}{#1}{#3}{\ifx#4\empty\else#4\par\fi\ifx#5\empty\else{\begin{minipage}{0.7\textwidth}\begin{itemize}#5\end{itemize}\end{minipage}}\fi}}
 \def\detailedsection#1{\begin{twenty}#1\end{twenty}}
+
+% Templates for brief entries
+% Arguments: what when with
+\def\briefitem#1#2#3#4#5{\twentyitemshort{#2}{#1. #3}}
+\def\briefsection#1{\begin{twentyshort}#1\end{twentyshort}}
+
 
 \begin{document}
 
