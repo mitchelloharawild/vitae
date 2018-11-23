@@ -328,14 +328,14 @@ $endif$
 \name{$name$}
 
 \info{\faicon{map-marker} & $address$%
-$if(www)$\\\faicon{home} & \href{$www$}{Test}$endif$%
+$if(www)$\\\faicon{home} & \href{http://$www$}{$www$}$endif$%
 $if(phone)$\\\faicon{phone} & $phone$$endif$%
 $if(email)$\\\faicon{envelope} & $email$$endif$%
-$if(twitter)$\\\faicon{twitter} & @$twitter$$endif$%
-$if(github)$\\\faicon{github} & $github$$endif$%
-$if(linkedin)$\\\faicon{linkedin} & $linkedin$$endif$%
-$if(scholar)$\\\faicon{google} & $scholar$$endif$%
-$if(orcid)$\\\faicon{openid} & $orcid$$endif$%
+$if(twitter)$\\\faicon{twitter} & \href{https://twitter.com/$twitter$}{@$twitter$}$endif$%
+$if(github)$\\\faicon{github} & \href{https://github.com/$github$}{$github$}$endif$%
+$if(linkedin)$\\\faicon{linkedin} & \href{https://www.linkedin.com/in/$linkedin$}{$linkedin$}$endif$%
+$if(scholar)$\\\faicon{google} & \href{https://scholar.google.com/citations?user=$scholar$}{$scholar$}$endif$%
+$if(orcid)$\\\faicon{openid} & \href{https://orcid.org/$orcid$}{$orcid$}$endif$%
 }
 
 \ExecuteBibliographyOptions{useprefix=true}
