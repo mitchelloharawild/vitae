@@ -1,0 +1,43 @@
+---
+title: "vitae"
+subtitle: "Résumés and CVs for R Markdown"
+author: "ozunconf18"
+date: '23/11/2018'
+output:
+  xaringan::moon_reader:
+    chakra: libs/remark-latest.min.js
+    css: ["libs/slides.css",  "libs/animate.css"]
+    lib_dir: libs
+    seal: false
+    nature:
+      highlightStyle: github
+      ratio: '16:9'
+      highlightLines: true
+      countIncrementalSlides: false
+vignette: >
+  %\VignetteIndexEntry{ozunconf presentation}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+class: inverse
+
+```{r setup, include=FALSE}
+library(fontawesome)
+library(tidyverse)
+options(htmltools.dir.version = FALSE, width = 120)
+```
+
+.title[vitae]
+.sticker-float[![vitae](resources/vitae.svg)]
+
+*/ˈviːteɪ/* 
+
+
+## Résumés and CVs for R Markdown
+
+.bottom[
+- Mitchell O'Hara-Wild (`r fa("twitter", fill="#1da1f2")`[@mitchoharawild](https://twitter.com/mitchoharawild))
+- Rob Hyndman (`r fa("twitter", fill="#1da1f2")`[@robjhyndman](https://twitter.com/robjhyndman/))
+
+23 November 2018
+]

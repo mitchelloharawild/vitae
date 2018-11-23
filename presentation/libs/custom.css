@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,500,600');
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,600');
+
+h1, h2, h3 {
+  font-family: 'Raleway', Helvetica, sans-serif;
+  margin-bottom: 0;
+}
+
+body {
+  font-family: 'Source Sans Pro', Helvetica, sans-serif;
+}
+
+.inverse {
+  background-color: #f4f4f4;
+  color: #333333;
+}
+
+.remark-code {
+	text-shadow: 0 0 0 #fff
+}
+
+.sticker-float img{
+	height: 200px;
+	float: right;
+}
+
+.table{
+	width: 100%;
+	text-align: center;
+}
+
+.table > tbody > tr > td.success {
+	background-color: #dff0d8;
+}
+
+.table > tbody > tr > td.warning {
+	background-color: #fcf8e3;
+}
+
+.table > tbody > tr > td.danger {
+	background-color: #f2dede;
+}
+
+.mjx-chtml{ font-size: 110% !important; }
