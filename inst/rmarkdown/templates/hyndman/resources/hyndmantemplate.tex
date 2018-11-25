@@ -299,6 +299,15 @@ $if(position)$\\[0.1cm]\large $position$\\[0.6cm]$else$\\[0.7cm]$endif$
 % Counters for keeping track of papers
 \newcounter{papers}
 
+\DeclareSortingScheme{ty}{
+  \sort{
+    \field{title}
+  }
+  \sort{
+    \field{year}
+  }
+}
+
 $if(bibliography)$
 \bibliography{$for(bibliography)$$bibliography$,$endfor$}
 $endif$
@@ -310,14 +319,6 @@ $endif$
 
 \renewcommand{\labelitemi}{\ding{228}}
 
-\DeclareSortingScheme{ty}{
-  \sort{
-    \field{title}
-  }
-  \sort{
-    \field{year}
-  }
-}
 
 \usepackage{booktabs,fontawesome}
 \usepackage[utf8]{inputenc}
@@ -371,6 +372,8 @@ $endif$
 #2 & \parbox[t]{0.85\textwidth}{%
       \textbf{#1}\\{\footnotesize #3}}\\}
 \def\briefsection#1{\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ll}#1\end{tabular*}}
+
+\def\endfirstpage{\newpage}
 
 \begin{document}
 \maketitle
