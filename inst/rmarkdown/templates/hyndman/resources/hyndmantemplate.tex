@@ -53,6 +53,9 @@ $if(CJKmainfont)$
 $endif$
 \fi
 
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
 % use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 % use microtype if available
@@ -295,7 +298,7 @@ $if(position)$\\[0.1cm]\large $position$\\[0.6cm]$else$\\[0.7cm]$endif$
 {\endlist}
 {\bibitem}
 
-\renewcommand{\bibfont}{\normalfont\fontsize{10}{12.4}\rmfamily}
+\renewcommand{\bibfont}{\normalfont\fontsize{10}{12.4}\selectfont}
 % Counters for keeping track of papers
 \newcounter{papers}
 
@@ -312,17 +315,10 @@ $if(bibliography)$
 \bibliography{$for(bibliography)$$bibliography$,$endfor$}
 $endif$
 
-% Add all papers in the bib file.
-\nocite{*}
-
 % Make nicer bullets
-
 \renewcommand{\labelitemi}{\ding{228}}
 
-
 \usepackage{booktabs,fontawesome}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
 %\usepackage[t1,scale=0.86]{sourcecodepro}
 
 \name{$name$}
