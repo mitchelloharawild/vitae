@@ -13,3 +13,15 @@ compact_list <- function(x){
 `%missing%` <- function(x, y){
   if(rlang::is_missing(x)) y else x
 }
+
+map_mold <-  function (.x, .f, .mold, ...)
+{
+  out <- vapply(.x, .f, .mold, ..., USE.NAMES = FALSE)
+  names(out) <- names(.x)
+  out
+}
+
+map_chr <- function (.x, .f, ...)
+{
+  map_mold(.x, .f, character(1), ...)
+}

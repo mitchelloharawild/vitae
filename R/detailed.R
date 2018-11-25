@@ -20,7 +20,7 @@ detailed_entries <- function(data, what, when, with, where, why){
 #' @export
 knit_print.vitae_detailed <- function(x, options){
   x <- dplyr::mutate(x,
-                     "why" := purrr::map_chr(!!sym("why"), ~ glue_collapse(
+                     "why" := map_chr(!!sym("why"), ~ glue_collapse(
                        glue("\\item{<<.x>>}", .open = "<<", .close = ">>")
                      ) %empty% "\\empty")
   )
