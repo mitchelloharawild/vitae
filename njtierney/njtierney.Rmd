@@ -45,18 +45,6 @@ pkgsearch::ps("Tierney",size = 100) %>%
   )
 ```
 
-# Publications
-```{r publications}
-scholar::get_publications("o4eVsQEAAAAJ") %>%
-  detailed_entries(
-    what = title,
-    when = year,
-    with = author,
-    where = journal,
-    why = cites
-  )
-```
-
 # Selected talks
 ```{r talks}
 tibble::tribble(
@@ -70,5 +58,19 @@ tibble::tribble(
     when = year,
     with = event,
     where = location
+  )
+```
+
+\endfirstpage
+
+# Publications
+```{r publications}
+scholar::get_publications("o4eVsQEAAAAJ") %>%
+  detailed_entries(
+    what = title,
+    when = year,
+    with = author,
+    where = journal,
+    why = cites
   )
 ```
