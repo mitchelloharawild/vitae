@@ -46,7 +46,11 @@ $else$
 \setcounter{secnumdepth}{0}
 $endif$
 
+\usepackage{booktabs}
 
+$for(header-includes)$
+$header-includes$
+$endfor$
 %----------------------------------------------------------------------------------------
 %	 PERSONAL INFORMATION
 %----------------------------------------------------------------------------------------
@@ -88,8 +92,6 @@ $if(linkedin)$\cvlinkedin{\href{https://www.linkedin.com/in/$linkedin$}{$linkedi
 \rfoot{\sf\thepage}
 
 \begin{document}
-\newgeometry{left=7.6cm,top=0.1cm,right=1cm,bottom=0.1cm,nohead,nofoot}
-
 \aboutme{$if(aboutme)$$aboutme$$endif$}
 
 % Skill bar section, each skill must have a value between 0 an 6 (float)
@@ -99,6 +101,7 @@ $if(linkedin)$\cvlinkedin{\href{https://www.linkedin.com/in/$linkedin$}{$linkedi
 %\skillstext{{lovely/4},{narcissistic/3}}
 
 \makeprofile % Print the sidebar
+
 
 $if(linestretch)$
 \setstretch{$linestretch$}
