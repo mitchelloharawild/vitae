@@ -1,4 +1,4 @@
-#' @importFrom rlang enexpr expr_text !! :=
+#' @importFrom rlang enexpr expr_text !! := sym
 #' @export
 detailed_entries <- function(data, what, when, with, where, why){
   edu_exprs <- list(
