@@ -46,6 +46,7 @@
 % If you would like to change the social information separator from a pipe (|) to something else
 \renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
 
+\def\endfirstpage{\newpage}
 
 %-------------------------------------------------------------------------------
 %	PERSONAL INFORMATION
@@ -93,6 +94,7 @@ $if(aboutme)$
 \quote{$aboutme$}
 $endif$
 
+\usepackage{booktabs}
 
 % Templates for detailed entries
 % Arguments: what when with where why
@@ -109,7 +111,12 @@ $endif$
 \providecommand{\tightlist}{%
 	\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
-%-------------------------------------------------------------------------------
+%------------------------------------------------------------------------------
+
+$for(header-includes)$
+$header-includes$
+$endfor$
+
 \begin{document}
 
 % Print the header with above personal informations
@@ -127,9 +134,19 @@ $endif$
 %-------------------------------------------------------------------------------
 %	CV/RESUME CONTENT
 %	Each section is imported separately, open each file in turn to modify content
-%-------------------------------------------------------------------------------
+%------------------------------------------------------------------------------
+
+$if(linestretch)$
+\setstretch{$linestretch$}
+$endif$
+
+$for(include-before)$
+$include-before$
+$endfor$
 
 $body$
 
-%-------------------------------------------------------------------------------
+$for(include-after)$
+$include-after$
+$endfor$
 \end{document}
