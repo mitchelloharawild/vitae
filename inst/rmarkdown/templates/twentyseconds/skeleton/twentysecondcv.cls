@@ -132,7 +132,7 @@
 
 		%------------------------------------------------
 
-		\ifthenelse{\equal{\profilepic}{}}{}{
+		\ifthenelse{\equal{\profilepic}{}}{\vspace*{0.5cm}}{
 			\begin{center}
 				\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
 					\clip (600/2, 567/2) circle (567/2);
