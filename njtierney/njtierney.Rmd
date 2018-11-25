@@ -71,6 +71,6 @@ scholar::get_publications("o4eVsQEAAAAJ") %>%
     when = year,
     with = author,
     where = journal,
-    why = cites
+    why = glue::glue("citations: {cites}")
   )
 ```
