@@ -23,7 +23,7 @@
 \RequirePackage{pgffor}
 \RequirePackage{marvosym}
 \RequirePackage{parskip}
-
+\RequirePackage[left=7.6cm,top=0.1cm,right=1cm,bottom=0.1cm,nohead,nofoot]{geometry}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \ProcessOptions\relax
 
@@ -42,9 +42,14 @@
 %----------------------------------------------------------------------------------------
 
 \renewcommand{\bfseries}{\color{gray}} % Make \textbf produce coloured text instead
-
-\pagestyle{empty} % Disable headers and footers
-
+\def\endfirstpage{\newpage\newgeometry{left=1.5cm,top=1.5cm,right=1.5cm,bottom=1.5cm}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lfoot{\sf\textcolor[gray]{0.4}{Curriculum Vitae: \@name}}
+\rfoot{\sf\textcolor[gray]{0.4}{\thepage}}
+\cfoot{}
+\def\headrule{}
+\def\footrule{{\color[gray]{0.4}\hrule\@height\headrulewidth\@width\headwidth \vskip 3pt}}
 \setlength{\parindent}{0pt} % Disable paragraph indentation
 
 %----------------------------------------------------------------------------------------
@@ -116,6 +121,7 @@
 %----------------------------------------------------------------------------------------
 
 \newcommand{\makeprofile}{
+\thispagestyle{empty}
 	\begin{tikzpicture}[remember picture,overlay]
    		\node [rectangle, fill=sidecolor, anchor=north, minimum width=9cm, minimum height=\paperheight+1cm] (box) at (-5cm,0.5cm){};
 	\end{tikzpicture}
@@ -179,6 +185,7 @@
 		%------------------------------------------------
 
 	\end{textblock}
+	%\AddThispageHook{\newpage\restoregeometry}
 }
 
 %----------------------------------------------------------------------------------------
@@ -269,7 +276,5 @@
 %----------------------------------------------------------------------------------------
 %	 MARGINS AND LINKS
 %----------------------------------------------------------------------------------------
-
-\RequirePackage[left=7.6cm,top=0.1cm,right=1cm,bottom=0.2cm,nohead,nofoot]{geometry}
 
 \RequirePackage{hyperref}
