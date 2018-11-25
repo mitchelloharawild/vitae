@@ -6,7 +6,7 @@
 #'
 #' Given a bib file, this function will generate bibliographic entries for one or more types of bib entry.
 #'
-#' @param bib Name of bib file
+#' @param bib An object of class "bibentry", created using \code{\link[bibtex]{read.bib}} or \code{\link[RefManageR]{ReadBib}}
 #' @param category A character vector specifying the types of bib entries to include
 #' @param title Character string giving section title
 #' @param sorting Character stringing specifying how entries should be sorted. Default is "ynt" meaning
@@ -19,7 +19,7 @@
 #' @author Rob J Hyndman
 #'
 #' @export
-printbibliography <- function(bib,
+print_bibliography <- function(bib,
                               category = c("Article"),
                               title = "Refereed journal papers",
                               sorting = "ynt",
