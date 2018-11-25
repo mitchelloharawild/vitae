@@ -9,7 +9,8 @@ Imports:
     bookdown,
     rlang,
     glue,
-    dplyr
+    dplyr,
+    knitr
 License: GPL-3
 Encoding: UTF-8
 LazyData: true

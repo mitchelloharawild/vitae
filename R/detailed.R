@@ -1,4 +1,4 @@
-#' @importFrom rlang enexpr expr_text !!
+#' @importFrom rlang enexpr expr_text !! :=
 #' @export
 detailed_entries <- function(data, what, when, with, where, why){
   edu_exprs <- list(
@@ -11,7 +11,7 @@ detailed_entries <- function(data, what, when, with, where, why){
 
   data <- dplyr::group_by(data, !!!edu_exprs[-5])
   data <- dplyr::summarise(data, "why" := compact_list(!!edu_exprs[["why"]]))
-  data <- ungroup(data)
+  data <- dplyr::ungroup(data)
 
   add_class(data, "vitae_detailed")
 }
@@ -20,7 +20,7 @@ detailed_entries <- function(data, what, when, with, where, why){
 #' @export
 knit_print.vitae_detailed <- function(x, options){
   x <- dplyr::mutate(x,
-                     "why" := map_chr(why, ~ glue_collapse(
+                     "why" := purrr::map_chr(!!sym("why"), ~ glue_collapse(
                        glue("\\item{<<.x>>}", .open = "<<", .close = ">>")
                      ) %empty% "\\empty")
   )
