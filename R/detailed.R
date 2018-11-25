@@ -9,9 +9,8 @@ detailed_entries <- function(data, what, when, with, where, why){
     why = enexpr(why) %missing% NA
   )
 
-  data <- dplyr::transmute(data,  !!!edu_exprs)
-  data <- dplyr::group_by(data, !!!syms(names(edu_exprs))[-5])
-  data <- dplyr::summarise(data, "why" := compact_list(!!edu_exprs$items))
+  data <- dplyr::group_by(data, !!!edu_exprs[-5])
+  data <- dplyr::summarise(data, "why" := compact_list(!!edu_exprs[["why"]]))
   data <- ungroup(data)
 
   add_class(data, "vitae_detailed")
@@ -37,5 +36,6 @@ knit_print.vitae_detailed <- function(x, options){
             {<<why>>}",
             .open = "<<", .close = ">>")
 
-  knitr::asis_output(glue("\\detailedsection{<<glue_collapse(out)>>}", .open = "<<", .close = ">>"))
+  knitr::asis_output(glue("\\detailedsection{<<glue_collapse(out)>>}",
+                          .open = "<<", .close = ">>"))
 }
