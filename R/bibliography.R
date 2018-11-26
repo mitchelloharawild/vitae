@@ -33,23 +33,23 @@ print_bibliography <- function(bib,
   if (...calls > 15) {
     stop("Sorry, I'm out of memory")
   }
-  types <- as_tibble(bib) %>% pull(bibtype)
+  types <- dplyr::as_tibble(bib)[["bibtype"]]
   bibsubset <- bib[types %in% category]
   items <- paste(unlist(bibsubset$key), sep = "")
   bibname <- paste("bib", ...calls, sep = "")
-  cat("\n\\defbibheading{", bibname, "}{\\subsection{", title, "}}",
-    ifelse(!is.null(startlabel), paste("\\label{", startlabel, "}", sep = ""), ""),
-    sep = ""
+  out <- glue(
+    "
+    \\defbibheading{<<bibname>>}{\\subsection{<<title>>}}<<startlabel>>
+    \\addtocategory{<<bibname>>}{<<items>>}
+    \\newrefcontext[sorting=<<sorting>>]\\setcounter{papers}{0}\\pagebreak[3]
+    \\printbibliography[category=<<bibname>>,heading=<<bibname>>]\\setcounter{papers}{0}
+
+    \\nocite{<<items>>}
+    ",
+    startlabel = ifelse(!is.null(startlabel), glue("\\label{{startlabel}}"), ""),
+    endlabel = ifelse(!is.null(endlabel), glue("\\label{{endlabel}}"), ""),
+    items = glue_collapse(items, sep = ",\n"),
+    .open = "<<", .close = ">>"
   )
-  cat("\n\\addtocategory{", bibname, "}{",
-    paste(items, ",", sep = "", collapse = "\n"),
-    "}",
-    sep = ""
-  )
-  cat("\n\\newrefcontext[sorting=", sorting, "]\\setcounter{papers}{0}\\pagebreak[3]", sep = "")
-  cat("\n\\printbibliography[category=", bibname, ",heading=", bibname, "]\\setcounter{papers}{0}\n", sep = "")
-  if (!is.null(endlabel)) {
-    cat("\\label{", endlabel, "}", sep = "")
-  }
-  cat("\n\\nocite{", paste(items, ",", sep = "", collapse = "\n"), "}", sep="")
+  knitr::asis_output(out)
 }
