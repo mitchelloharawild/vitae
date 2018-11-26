@@ -10,6 +10,14 @@
 
 Provides templates and functions to simplify the production and maintenance of curriculum vitae.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/ropenscilabs/vitae}
+  \item Report bugs at \url{https://github.com/ropenscilabs/vitae/issues}
+}
+
+}
 \author{
 \strong{Maintainer}: Mitchell O'Hara-Wild \email{mail@mitchelloharawild.com} (0000-0001-6729-7695)
 

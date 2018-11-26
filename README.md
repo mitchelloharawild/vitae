@@ -7,6 +7,8 @@
 
 [![CRAN
 status](https://www.r-pkg.org/badges/version/vitae)](https://cran.r-project.org/package=vitae)
+[![Travis build
+status](https://travis-ci.org/ropenscilabs/vitae.svg?branch=master)](https://travis-ci.org/ropenscilabs/vitae)
 
 ## Templates and tools for making a Résumé/CV
 
