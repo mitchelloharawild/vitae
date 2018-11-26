@@ -25,3 +25,17 @@ map_chr <- function (.x, .f, ...)
 {
   map_mold(.x, .f, character(1), ...)
 }
+
+protect_tex_input <- function(x, ...){
+  if(is.character(x)){
+    x <- gsub("'([^ ']*)'", "`\\1'", x, useBytes = TRUE)
+    x <- gsub("\"([^\"]*)\"", "``\\1''", x, useBytes = TRUE)
+    x <- gsub("\\", "\\textbackslash ", x, fixed = TRUE,
+                   useBytes = TRUE)
+    x <- gsub("([{}&$#_^%])", "\\\\\\1", x, useBytes = TRUE)
+    x
+  }
+  else{
+    x
+  }
+}

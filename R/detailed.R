@@ -22,7 +22,7 @@ knit_print.vitae_detailed <- function(x, options){
   x <- dplyr::mutate(x,
                      "why" := map_chr(!!sym("why"), function(x){
                        glue_collapse(
-                         glue("\\item{<<x>>}", .open = "<<", .close = ">>")
+                         glue("\\item{<<protect_tex_input(x)>>}", .open = "<<", .close = ">>")
                        ) %empty% "\\empty"
                      })
   )
@@ -31,10 +31,10 @@ knit_print.vitae_detailed <- function(x, options){
 
   out <- glue_data(x,
             "\\detaileditem
-            {<<what>>}
-            {<<when>>}
-            {<<with>>}
-            {<<where>>}
+            {<<protect_tex_input(what)>>}
+            {<<protect_tex_input(when)>>}
+            {<<protect_tex_input(with)>>}
+            {<<protect_tex_input(where)>>}
             {<<why>>}",
             .open = "<<", .close = ">>")
 

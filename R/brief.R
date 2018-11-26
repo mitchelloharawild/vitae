@@ -17,7 +17,7 @@ brief_entries <- function(data, what, when, with){
 knit_print.vitae_brief <- function(x, options){
   x[is.na(x)] <- ""
 
-  out <- glue_data(x, "\\briefitem{<<what>>}{<<when>>}{<<with>>}",
+  out <- glue_data(x, "\\briefitem{<<protect_tex_input(what)>>}{<<protect_tex_input(when)>>}{<<protect_tex_input(with)>>}",
                    .open = "<<", .close = ">>")
 
   knitr::asis_output(glue("\\briefsection{<<glue_collapse(out)>>}",
