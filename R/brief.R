@@ -1,3 +1,4 @@
+#' @rdname cventries
 #' @importFrom rlang enexpr expr_text !!
 #' @export
 brief_entries <- function(data, what, when, with){

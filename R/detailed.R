@@ -1,3 +1,22 @@
+#' CV entries
+#'
+#' This function accepts a data object (such as a tibble) and formats the output
+#' into a suitable format for the template used. The inputs can also involve
+#' further calculations, which will be done using the provided data.
+#'
+#' All non-data inputs are optional, and will result in an empty space if omitted.
+#'
+#' @param data A `data.frame` or `tibble`.
+#' @param what The primary value of the entry (such as workplace title or degree).
+#' @param when The time of the entry (such as the period spent in the role).
+#' @param with The company or organisation.
+#' @param where The location of the entry.
+#' @param why Any additional information, to be included as dot points. Each
+#' entry for why is provided in long form (where the what, when, with, and where
+#' is duplicated)
+#'
+#' @rdname cventries
+#'
 #' @importFrom rlang enexpr expr_text !! := sym
 #' @export
 detailed_entries <- function(data, what, when, with, where, why){
