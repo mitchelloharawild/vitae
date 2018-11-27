@@ -42,12 +42,12 @@ print_bibliography <- function(bib,
     \\defbibheading{<<bibname>>}{\\subsection{<<title>>}}<<startlabel>>
     \\addtocategory{<<bibname>>}{<<items>>}
     \\newrefcontext[sorting=<<sorting>>]\\setcounter{papers}{0}\\pagebreak[3]
-    \\printbibliography[category=<<bibname>>,heading=<<bibname>>]\\setcounter{papers}{0}
+    \\printbibliography[category=<<bibname>>,heading=<<bibname>>]<<endlabel>>\\setcounter{papers}{0}
 
     \\nocite{<<items>>}
     ",
     startlabel = ifelse(!is.null(startlabel),
-                        glue("\\label{<startlabel>}", .open = "<", .close = ),
+                        glue("\\label{<startlabel>}", .open = "<", .close = ">"),
                         ""),
     endlabel = ifelse(!is.null(endlabel),
                       glue("\\label{<endlabel>}", .open = "<", .close = ">"),
