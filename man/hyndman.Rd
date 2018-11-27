@@ -4,6 +4,7 @@
 \alias{hyndman}
 \alias{twentyseconds}
 \alias{awesomecv}
+\alias{moderncv}
 \title{Output formats for CVs}
 \usage{
 hyndman(...)
@@ -11,6 +12,8 @@ hyndman(...)
 twentyseconds(...)
 
 awesomecv(...)
+
+moderncv(...)
 }
 \arguments{
 \item{\dots}{Arguments passed to \code{\link[bookdown]{pdf_document2}}.}

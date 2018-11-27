@@ -1,0 +1,190 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% "ModernCV" CV and Cover Letter
+% LaTeX Template
+% Version 1.3 (29/10/16)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Xavier Danaux (xdanaux@gmail.com) with modifications by:
+% Vel (vel@latextemplates.com)
+%
+% Adapted to be an Rmarkdown template by Mitchell O'Hara-Wild
+% 23 November 2018
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Important note:
+% This template requires the moderncv.cls and .sty files to be in the same 
+% directory as this .tex file. These files provide the resume style and themes 
+% used for structuring the document.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[$if(fontsize)$$fontsize$$else$11pt$endif$,$if(lang)$$babel-lang$,$endif$$if(papersize)$$papersize$$else$a4paper$endif$,$for(classoption)$$classoption$$sep$,$endfor$]{moderncv}
+
+$if(fontfamily)$
+\usepackage[$for(fontfamilyoptions)$$fontfamilyoptions$$sep$,$endfor$]{$fontfamily$}
+$else$
+\usepackage[scaled=0.86]{DejaVuSansMono}
+$endif$
+
+\moderncvstyle{casual} % CV theme - options include: 'casual' (default), 'classic', 'oldstyle' and 'banking'
+\definecolor{color0}{rgb}{0,0,0}% black
+\definecolor{color1}{HTML}{$if(headcolor)$$headcolor$$else$3873B3$endif$}% light blue
+\definecolor{color2}{rgb}{0.45,0.45,0.45}% dark grey
+
+\providecommand{\tightlist}{%
+	\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\usepackage[scale=0.75]{geometry} % Reduce document margins
+%\setlength{\hintscolumnwidth}{3cm} % Uncomment to change the width of the dates column
+%\setlength{\makecvtitlenamewidth}{10cm} % For the 'classic' style, uncomment to adjust the width of the space allocated to your name
+
+$for(header-includes)$
+$header-includes$
+$endfor$
+
+
+%%%% BIBLIOGRAPHY
+% Bibliography formatting
+
+\usepackage[sorting=ynt,citestyle=authoryear,bibstyle=authoryear-comp,defernumbers=true,maxnames=20,giveninits=true, bibencoding=utf8, terseinits=true, uniquename=init,dashed=false,doi=false,isbn=false,natbib=true,backend=biber]{biblatex}
+
+\DeclareFieldFormat{url}{\url{#1}}
+\DeclareFieldFormat[article]{pages}{#1}
+\DeclareFieldFormat[inproceedings]{pages}{\lowercase{pp.}#1}
+\DeclareFieldFormat[incollection]{pages}{\lowercase{pp.}#1}
+\DeclareFieldFormat[article]{volume}{\mkbibbold{#1}}
+\DeclareFieldFormat[article]{number}{\mkbibparens{#1}}
+\DeclareFieldFormat[article]{title}{\MakeCapital{#1}}
+\DeclareFieldFormat[article]{url}{}
+\DeclareFieldFormat[inproceedings]{title}{#1}
+\DeclareFieldFormat{shorthandwidth}{#1}
+\DeclareFieldFormat{extradate}{}
+
+% No dot before number of articles
+\usepackage{xpatch}
+\xpatchbibmacro{volume+number+eid}{\setunit*{\adddot}}{}{}{}
+
+% Remove In: for an article.
+\renewbibmacro{in:}{%
+	\ifentrytype{article}{}{%
+		\printtext{\bibstring{in}\intitlepunct}}}
+
+%\makeatletter
+%\DeclareDelimFormat[cbx@textcite]{nameyeardelim}{\addspace}
+%\makeatother
+
+% Bibliography categories
+\DeclareBibliographyCategory{bib1}
+\DeclareBibliographyCategory{bib2}
+\DeclareBibliographyCategory{bib3}
+\DeclareBibliographyCategory{bib4}
+\DeclareBibliographyCategory{bib5}
+\DeclareBibliographyCategory{bib6}
+\DeclareBibliographyCategory{bib7}
+\DeclareBibliographyCategory{bib8}
+\DeclareBibliographyCategory{bib9}
+\DeclareBibliographyCategory{bib10}
+\DeclareBibliographyCategory{bib11}
+\DeclareBibliographyCategory{bib12}
+\DeclareBibliographyCategory{bib13}
+\DeclareBibliographyCategory{bib14}
+\DeclareBibliographyCategory{bib15}
+
+\setlength{\bibitemsep}{1.8pt}
+\setlength{\bibhang}{.9cm}
+%\renewcommand{\bibfont}{\fontsize{12}{14}}
+
+\renewcommand*{\bibitem}{\addtocounter{papers}{1}\item \mbox{}\hskip-0.9cm\hbox to 0.9cm{\hfill\arabic{papers}.~\,}}
+\defbibenvironment{bibliography}
+{\list{}
+	{\setlength{\leftmargin}{\bibhang}%
+		\setlength{\itemsep}{\bibitemsep}%
+		\setlength{\parsep}{\bibparsep}}}
+{\endlist}
+{\bibitem}
+
+\renewcommand{\bibfont}{\normalfont\fontsize{10}{12.4}\selectfont}
+% Counters for keeping track of papers
+\newcounter{papers}
+
+\DeclareSortingScheme{ty}{
+	\sort{
+		\field{title}
+	}
+	\sort{
+		\field{year}
+	}
+}
+
+$if(bibliography)$
+\bibliography{$for(bibliography)$$bibliography$,$endfor$}
+$endif$
+
+%----------------------------------------------------------------------------------------
+%	NAME AND CONTACT INFORMATION SECTION
+%----------------------------------------------------------------------------------------
+
+\firstname{} % Your first name
+\familyname{$name$} % Your first name
+$if(position)$\title{$position$}$endif$ % Job title/career
+% $if(date)$\cvdate{$date$}$else$\cvdate{}$endif$ % Date of birth or date of CV??
+$if(address)$\address{$address$}{}$endif$ % Short address/location, use \newline if more than 1 line is required
+$if(phone)$\phone{$phone$}$endif$ % Phone number
+$if(www)$\homepage{http://$www$}{$www$}$endif$ % Personal website
+$if(email)$\email{$email$}$endif$ % Email address
+% $if(twitter)$\cvtwitter{\href{https://twitter.com/$twitter$}{$twitter$}}$else$\cvtwitter{}$endif$
+% $if(github)$\cvgithub{\href{https://github.com/$github$}{$github$}}$else$\cvgithub{}$endif$
+% $if(linkedin)$\cvlinkedin{\href{https://www.linkedin.com/in/$linkedin$}{$linkedin$}}$else$\cvlinkedin{}$endif$
+$if(profilepic)$\photo[70pt][0.4pt]{$profilepic$}$endif$
+\extrainfo{
+	$if(twitter)$\hspace*{1em}\href{https://twitter.com/$twitter$}{twitter: $twitter$}\hspace*{1em}$endif$	$if(github)$\hspace*{1em}\href{https://github.com/$github$}{github: $github$}\hspace*{1em}$endif$	$if(linkedin)$\hspace*{1em}\href{https://linkedin.com/in/$linkedin$}{linkedin: $linkedin$}\hspace*{1em}$endif$
+}
+
+
+$if(aboutme)$
+\quote{$aboutme$}
+$endif$
+
+
+% Templates for detailed entries
+% Arguments: what when with where why
+\usepackage{etoolbox}
+\def\detaileditem#1#2#3#4#5{
+	\cventry{#2}{#1}{#3}{#4}{}{{\ifx#5\empty\else{\begin{itemize}#5\end{itemize}}\fi}}}
+\def\detailedsection#1{\nopagebreak#1}
+
+% Templates for brief entries
+% Arguments: what when with
+\def\briefitem#1#2#3{\cvitem{#2}{#1. #3}}
+\def\briefsection#1{\nopagebreak#1}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\makecvtitle % Print the CV title
+
+$if(linestretch)$
+\setstretch{$linestretch$}
+$endif$
+
+$for(include-before)$
+$include-before$
+$endfor$
+
+$body$
+
+$for(include-after)$
+$include-after$
+$endfor$
+
+\end{document}

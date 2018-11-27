@@ -49,3 +49,19 @@ awesomecv <- function(...) {
   }
   bookdown::pdf_document2(..., template = template, citation_package="biblatex", latex_engine="xelatex")
 }
+
+#' @rdname hyndman
+#' @export
+moderncv <- function(...) {
+  template <- system.file("rmarkdown", "templates", "moderncv",
+                          "resources", "moderncv.tex", package="vitae")
+
+  # Copy class and style files
+  for (f in c("moderncv.cls", "moderncvstylecasual.sty", "moderncvstyleclassic.sty", "moderncvcompatibility.sty", "tweaklist.sty")) {
+    if (!file.exists(f)) {
+      file.copy(system.file("rmarkdown", "templates", "moderncv", "skeleton",
+                            f, package="vitae"), ".", recursive=TRUE)
+    }
+  }
+  bookdown::pdf_document2(..., template = template, citation_package="biblatex", latex_engine="xelatex")
+}
