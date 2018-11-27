@@ -46,8 +46,12 @@ print_bibliography <- function(bib,
 
     \\nocite{<<items>>}
     ",
-    startlabel = ifelse(!is.null(startlabel), glue("\\label{{startlabel}}"), ""),
-    endlabel = ifelse(!is.null(endlabel), glue("\\label{{endlabel}}"), ""),
+    startlabel = ifelse(!is.null(startlabel),
+                        glue("\\label{<startlabel>}", .open = "<", .close = ),
+                        ""),
+    endlabel = ifelse(!is.null(endlabel),
+                      glue("\\label{<endlabel>}", .open = "<", .close = ">"),
+                      ""),
     items = glue_collapse(items, sep = ",\n"),
     .open = "<<", .close = ">>"
   )
