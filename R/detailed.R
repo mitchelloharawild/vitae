@@ -29,10 +29,11 @@ detailed_entries <- function(data, what, when, with, where, why){
   )
 
   data <- dplyr::group_by(data, !!!edu_exprs[-5])
+  out <- distinct(data, !!!syms(names(edu_exprs)[-5]))
   data <- dplyr::summarise(data, "why" := compact_list(!!edu_exprs[["why"]]))
-  data <- dplyr::ungroup(data)
+  out <- dplyr::left_join(out, data, by = names(edu_exprs[-5]))
 
-  add_class(data, "vitae_detailed")
+  add_class(out, "vitae_detailed")
 }
 
 #' @importFrom knitr knit_print
