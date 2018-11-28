@@ -14,7 +14,7 @@ output: vitae::awesomecv
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
-library(tidyverse)
+library(vitae)
 ```
 
 # Some stuff about me
