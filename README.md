@@ -34,3 +34,9 @@ underway](https://github.com/ropenscilabs/vitae/issues/5).
 For now, the slides presented at
 [ozunconf2018](https://ozunconf18.ropensci.org/) is a good place to find
 out how to use the package: <https://mitchelloharawild.com/vitae/>
+
+-----
+
+Please note that the ‘vitae’ project is released with a [Contributor
+Code of Conduct](.github/CODE_OF_CONDUCT.md). By contributing to this
+project, you agree to abide by its terms.

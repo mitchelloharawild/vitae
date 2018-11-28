@@ -1,3 +1,4 @@
+^\.github$
 ^\.travis\.yml$
 ^README\.Rmd$
 ^vitae\.Rproj$
