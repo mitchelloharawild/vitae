@@ -17,7 +17,7 @@
 #'
 #' @rdname cventries
 #'
-#' @importFrom rlang enexpr expr_text !! := sym
+#' @importFrom rlang enexpr expr_text !! := sym syms
 #' @export
 detailed_entries <- function(data, what, when, with, where, why){
   edu_exprs <- list(
@@ -29,7 +29,7 @@ detailed_entries <- function(data, what, when, with, where, why){
   )
 
   data <- dplyr::group_by(data, !!!edu_exprs[-5])
-  out <- distinct(data, !!!syms(names(edu_exprs)[-5]))
+  out <- dplyr::distinct(data, !!!syms(names(edu_exprs)[-5]))
   data <- dplyr::summarise(data, "why" := compact_list(!!edu_exprs[["why"]]))
   out <- dplyr::left_join(out, data, by = names(edu_exprs[-5]))
 
