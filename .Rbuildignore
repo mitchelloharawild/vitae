@@ -9,3 +9,4 @@ hex
 presentation
 njtierney
 ^\.httr-oauth$
+^_pkgdown\.yml$
