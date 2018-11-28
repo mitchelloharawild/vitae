@@ -1,3 +1,5 @@
+^tic\.R$
+^appveyor\.yml$
 ^\.github$
 ^\.travis\.yml$
 ^README\.Rmd$
