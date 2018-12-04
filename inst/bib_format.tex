@@ -1,0 +1,55 @@
+%%%% BIBLIOGRAPHY
+% Bibliography formatting
+
+\usepackage[sorting=ynt,citestyle=authoryear,bibstyle=authoryear-comp,defernumbers=true,maxnames=20,giveninits=true, bibencoding=utf8, terseinits=true, uniquename=init,dashed=false,doi=false,isbn=false,natbib=true,backend=biber]{biblatex}
+
+\DeclareFieldFormat{url}{\url{#1}}
+\DeclareFieldFormat[article]{pages}{#1}
+\DeclareFieldFormat[inproceedings]{pages}{\lowercase{pp.}#1}
+\DeclareFieldFormat[incollection]{pages}{\lowercase{pp.}#1}
+\DeclareFieldFormat[article]{volume}{\mkbibbold{#1}}
+\DeclareFieldFormat[article]{number}{\mkbibparens{#1}}
+\DeclareFieldFormat[article]{title}{\MakeCapital{#1}}
+\DeclareFieldFormat[article]{url}{}
+\DeclareFieldFormat[inproceedings]{title}{#1}
+\DeclareFieldFormat{shorthandwidth}{#1}
+\DeclareFieldFormat{extradate}{}
+
+% No dot before number of articles
+\usepackage{xpatch}
+\xpatchbibmacro{volume+number+eid}{\setunit*{\adddot}}{}{}{}
+
+% Remove In: for an article.
+\renewbibmacro{in:}{%
+  \ifentrytype{article}{}{%
+  \printtext{\bibstring{in}\intitlepunct}}}
+
+%\makeatletter
+%\DeclareDelimFormat[cbx@textcite]{nameyeardelim}{\addspace}
+%\makeatother
+
+\setlength{\bibitemsep}{1.8pt}
+\setlength{\bibhang}{.9cm}
+%\renewcommand{\bibfont}{\fontsize{12}{14}}
+
+\renewcommand*{\bibitem}{\addtocounter{papers}{1}\item \mbox{}\hskip-0.9cm\hbox to 0.9cm{\hfill\arabic{papers}.~\,}}
+\defbibenvironment{bibliography}
+{\list{}
+  {\setlength{\leftmargin}{\bibhang}%
+   \setlength{\itemsep}{\bibitemsep}%
+   \setlength{\parsep}{\bibparsep}}}
+{\endlist}
+{\bibitem}
+
+\renewcommand{\bibfont}{\normalfont\fontsize{10}{12.4}\selectfont}
+% Counters for keeping track of papers
+\newcounter{papers}
+
+\DeclareSortingScheme{ty}{
+  \sort{
+    \field{title}
+  }
+  \sort{
+    \field{year}
+  }
+}

@@ -13,7 +13,7 @@
 hyndman <- function(...) {
   template <- system.file("rmarkdown", "templates", "hyndman",
   	"resources", "hyndmantemplate.tex", package="vitae")
-   bookdown::pdf_document2(..., template = template, citation_package="biblatex")
+  cv_document(..., template = template, citation_package="biblatex")
 }
 
 #' @rdname hyndman
@@ -29,7 +29,7 @@ twentyseconds <- function(...) {
        		f, package="vitae"), ".", recursive=TRUE)
 		  }
   }
-   bookdown::pdf_document2(..., template = template, citation_package="biblatex")
+  cv_document(..., template = template, citation_package="biblatex")
 }
 
 
@@ -47,7 +47,7 @@ awesomecv <- function(...) {
                             f, package="vitae"), ".", recursive=TRUE)
     }
   }
-  bookdown::pdf_document2(..., template = template, citation_package="biblatex", latex_engine="xelatex")
+  cv_document(..., template = template, citation_package="biblatex", latex_engine="xelatex")
 }
 
 #' @rdname hyndman
@@ -63,5 +63,6 @@ moderncv <- function(...) {
                             f, package="vitae"), ".", recursive=TRUE)
     }
   }
-  bookdown::pdf_document2(..., template = template, citation_package="biblatex", latex_engine="xelatex")
+  cv_document(..., template = template, citation_package="biblatex", latex_engine="xelatex")
 }
+
