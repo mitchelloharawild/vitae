@@ -73,7 +73,7 @@ bibliography_header <- function(bibs){
   files <- lapply(bibs, function(x) x[["file"]])
   c(
     paste0("\\DeclareBibliographyCategory{", titles, "}"),
-    paste0("\\bibliography{", files, "}", collapse = ", ")
+    paste0("\\bibliography{", unique(files), "}", collapse = ", ")
   )
 }
 
