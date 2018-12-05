@@ -30,6 +30,7 @@ bibliography_entries <- function(file,
             title = title,
             sorting = sorting,
             startlabel = startlabel,
+            endlabel = endlabel,
             preserve = "key",
             class = c("vitae_bibliography", "vitae_preserve", class(out)))
 }
