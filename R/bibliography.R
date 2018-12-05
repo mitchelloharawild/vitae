@@ -20,16 +20,30 @@
 #'
 #' @export
 bibliography_entries <- function(file,
-                                 category = c("Article"),
                                  title = "Refereed journal papers",
                                  sorting = "ynt",
                                  startlabel = NULL,
                                  endlabel = NULL) {
   bib <- RefManageR::ReadBib(file, check = FALSE)
-  types <- dplyr::as_tibble(bib)[["bibtype"]]
-  bibsubset <- bib[types %in% category]
-  items <- paste(unlist(bibsubset$key), sep = "")
+  out <- dplyr::as_tibble(bib)
+  structure(mutate(out, key = names(bib$key)),
+            file = file,
+            title = title,
+            sorting = sorting,
+            startlabel = startlabel,
+            class = c("vitae_bibliography", class(out)))
+}
+
+
+#' @importFrom knitr knit_print
+#' @export
+knit_print.vitae_bibliography <- function(x, options){
+  title <- x%@%"title"
   bibname <- paste("bib", title, sep = "")
+  items <- x$key
+  sorting <- x%@%"sorting"
+  startlabel <- x%@%"startlabel"
+  endlabel <- x%@%"endlabel"
   out <- glue(
     "
     \\defbibheading{<<bibname>>}{\\subsection{<<title>>}}<<startlabel>>
@@ -50,7 +64,8 @@ bibliography_entries <- function(file,
   )
   knitr::asis_output(out,
                      meta = list(structure(
-                       list(title = title, file = file),
-                       class = "biliography_entry"))
+                       list(title = bibname, file = x%@%"file"),
+                       class = "biliography_entry")
                      )
+  )
 }
