@@ -7,7 +7,6 @@
 #' Given a bib file, this function will generate bibliographic entries for one or more types of bib entry.
 #'
 #' @param file A path to a .bib file.
-#' @param category A character vector specifying the types of bib entries to include.
 #' @param title Character string giving section title.
 #' @param sorting Character stringing specifying how entries should be sorted. Default is "ynt" meaning
 #' sort by year first, then name, then title.
@@ -31,7 +30,8 @@ bibliography_entries <- function(file,
             title = title,
             sorting = sorting,
             startlabel = startlabel,
-            class = c("vitae_bibliography", class(out)))
+            preserve = "key",
+            class = c("vitae_bibliography", "vitae_preserve", class(out)))
 }
 
 

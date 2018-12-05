@@ -8,9 +8,11 @@ brief_entries <- function(data, what, when, with){
     with = enexpr(with) %missing% NA
   )
 
-  data <- dplyr::transmute(data,  !!!edu_exprs)
-
-  add_class(data, "vitae_brief")
+  out <- dplyr::transmute(data,  !!!edu_exprs)
+  structure(out,
+            preserve = names(edu_exprs),
+            class = c("vitae_brief", "vitae_preserve", class(data))
+  )
 }
 
 #' @importFrom knitr knit_print

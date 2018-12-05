@@ -33,7 +33,10 @@ detailed_entries <- function(data, what, when, with, where, why){
   data <- dplyr::summarise(data, "why" := compact_list(!!edu_exprs[["why"]]))
   out <- dplyr::left_join(out, data, by = names(edu_exprs[-5]))
 
-  add_class(out, "vitae_detailed")
+  structure(out,
+            preserve = names(edu_exprs),
+            class = c("vitae_detailed", "vitae_preserve", class(data))
+  )
 }
 
 #' @importFrom knitr knit_print

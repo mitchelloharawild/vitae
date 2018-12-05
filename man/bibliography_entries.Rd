@@ -4,14 +4,11 @@
 \alias{bibliography_entries}
 \title{Print bibliography section}
 \usage{
-bibliography_entries(file, category = c("Article"),
-  title = "Refereed journal papers", sorting = "ynt",
-  startlabel = NULL, endlabel = NULL)
+bibliography_entries(file, title = "Refereed journal papers",
+  sorting = "ynt", startlabel = NULL, endlabel = NULL)
 }
 \arguments{
 \item{file}{A path to a .bib file.}
-
-\item{category}{A character vector specifying the types of bib entries to include.}
 
 \item{title}{Character string giving section title.}
 
