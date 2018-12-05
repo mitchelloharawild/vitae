@@ -21,14 +21,7 @@ hyndman <- function(...) {
 twentyseconds <- function(...) {
   template <- system.file("rmarkdown", "templates", "twentyseconds",
   	"resources", "twentysecondstemplate.tex", package="vitae")
-
-  # Copy class and style files
-  for (f in c("mariecurie.jpg","twentysecondcv.cls")) {
-		  if (!file.exists(f)) {
-    		file.copy(system.file("rmarkdown", "templates", "twentyseconds", "skeleton",
-       		f, package="vitae"), ".", recursive=TRUE)
-		  }
-  }
+  copy_supporting_files("twentyseconds")
   cv_document(..., template = template, citation_package="biblatex")
 }
 
@@ -39,14 +32,7 @@ twentyseconds <- function(...) {
 awesomecv <- function(...) {
   template <- system.file("rmarkdown", "templates", "awesomecv",
                           "resources", "awesome-cv.tex", package="vitae")
-
-  # Copy class and style files
-  for (f in c("awesome-cv.cls", "fonts")) {
-    if (!file.exists(f)) {
-      file.copy(system.file("rmarkdown", "templates", "awesomecv", "skeleton",
-                            f, package="vitae"), ".", recursive=TRUE)
-    }
-  }
+  copy_supporting_files("awesomecv")
   cv_document(..., template = template, citation_package="biblatex", latex_engine="xelatex")
 }
 
@@ -55,14 +41,7 @@ awesomecv <- function(...) {
 moderncv <- function(...) {
   template <- system.file("rmarkdown", "templates", "moderncv",
                           "resources", "moderncv.tex", package="vitae")
-
-  # Copy class and style files
-  for (f in c("moderncv.cls", "moderncvstylecasual.sty", "moderncvstyleclassic.sty", "moderncvcompatibility.sty", "tweaklist.sty")) {
-    if (!file.exists(f)) {
-      file.copy(system.file("rmarkdown", "templates", "moderncv", "skeleton",
-                            f, package="vitae"), ".", recursive=TRUE)
-    }
-  }
+  copy_supporting_files("moderncv")
   cv_document(..., template = template, citation_package="biblatex", latex_engine="xelatex")
 }
 

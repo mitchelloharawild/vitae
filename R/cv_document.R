@@ -94,3 +94,14 @@ has_meta <- function(knit_meta, class) {
   }
   FALSE
 }
+
+copy_supporting_files <- function(template){
+  path <- system.file("rmarkdown", "templates", template, "skeleton", package="vitae")
+  files <- list.files(path)
+  # Copy class and style files
+  for (f in files[files!="skeleton.Rmd"]) {
+    if (!file.exists(f)) {
+      file.copy(file.path(path, f), ".", recursive=TRUE)
+    }
+  }
+}
