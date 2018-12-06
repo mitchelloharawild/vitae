@@ -9,6 +9,8 @@
 #'
 #' @author Rob J Hyndman
 #'
+#' @rdname cv_formats
+#'
 #' @export
 hyndman <- function(...) {
   template <- system.file("rmarkdown", "templates", "hyndman",
@@ -16,7 +18,7 @@ hyndman <- function(...) {
   cv_document(..., template = template, citation_package="biblatex")
 }
 
-#' @rdname hyndman
+#' @rdname cv_formats
 #' @export
 twentyseconds <- function(...) {
   template <- system.file("rmarkdown", "templates", "twentyseconds",
@@ -27,7 +29,7 @@ twentyseconds <- function(...) {
 
 
 
-#' @rdname hyndman
+#' @rdname cv_formats
 #' @export
 awesomecv <- function(...) {
   template <- system.file("rmarkdown", "templates", "awesomecv",
@@ -36,7 +38,7 @@ awesomecv <- function(...) {
   cv_document(..., template = template, citation_package="biblatex", latex_engine="xelatex")
 }
 
-#' @rdname hyndman
+#' @rdname cv_formats
 #' @export
 moderncv <- function(...) {
   template <- system.file("rmarkdown", "templates", "moderncv",
