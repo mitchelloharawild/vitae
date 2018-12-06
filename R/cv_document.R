@@ -1,3 +1,11 @@
+#' Output format for vitae
+#'
+#' This output format provides support for including LaTeX dependencies and
+#' bibliography entries in extension of the bookdown::pdf_document2() format.
+#'
+#' @param ... Arguments passed to bookdown::pdf_document2()
+#'
+#' @export
 cv_document <- function(...){
   config <- bookdown::pdf_document2(...)
 
