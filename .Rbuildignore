@@ -1,3 +1,5 @@
+^Meta$
+^doc$
 ^tic\.R$
 ^appveyor\.yml$
 ^\.github$

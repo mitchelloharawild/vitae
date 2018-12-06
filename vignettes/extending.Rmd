@@ -1,0 +1,187 @@
+---
+title: "Creating vitae templates"
+author: "Mitchell O'Hara-Wild"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Creating vitae templates}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+
+Résumé/CV templates are abundantly available in many varieties of themes and layouts. The `vitae` package provides a few of the more popular templates that are suitable for most resumes. The included templates are far from comprehensive - your favourite template may not be included, or perhaps you have created your own template. This vignette explains how your LaTeX CV can be used within the package using custom templates.
+
+## Creating a vitae template
+
+Extending `vitae` to support new templates involves a similar process to creating new `rmarkdown` document templates. An extended explanation for creating `rmarkdown` templates can be found in the [*Document Templates* chapter](https://bookdown.org/yihui/rmarkdown/document-templates.html) in ["R Markdown: The Definitive Guide"](https://bookdown.org/yihui/rmarkdown/).
+
+Creating a template for vitae can be broken into three parts:
+- Converting a CV into a Pandoc template
+- Adding LaTeX macros for displaying CV entries
+- Using the template with `rmarkdown`
+
+### Converting a CV into a Pandoc template
+
+Most elements that are included in the YAML header of an `rmarkdown` document are passed to your template via Pandoc variables. Pandoc variables can be included in your template file by surrounding the variable with `$`. These can be used to fill in basic CV details such as your name, occupation, and social links.
+
+For example, if your document contained this YAML header:
+```
+name: "Mitchell O'Hara-Wild"
+position: "vitae maintainer"
+output: vitae::awesomecv
+```
+
+The `$name$` variable in the template would be substituted with `Mitchell O'Hara-Wild` and similarly, `$position$` would become `vitae maintainer`. Many templates won't follow this same structure exactly (some may split the name into first and last names), but most of the time there is a reasonable place for these variables. It is recommended that a consistent set of variables are used to make switching between templates easy.
+
+The current list of variables used in the `vitae` templates are:
+
+- name
+- position
+- address
+- date
+- profilepic
+- www
+- email
+- twitter
+- github
+- linkedin
+- aboutme
+- headcolor
+
+In the [moderncv template](https://github.com/xdanaux/moderncv), the position of 'vitae maintainer' is specified using `\position{vitae maintainer}`. Using Pandoc variables, this would be replaced with `\position{$position$}`, which allows the position to be defined in the `rmarkdown` document's YAML header.
+
+However if a `position` has not been provided in the YAML header, this would leave us with `\position{}` (which might be okay for some templates, but is undesirable for most templates). To resolve this, we can use Pandoc to conditionally include this section with `$if(position)$\position{$position$}$endif$`.
+
+The main content from an `rmarkdown` document is also included using Pandoc variables. The results from the main section of the document is stored in `$body$`. So in a typical LaTeX CV template, where there is usually pre-filled details about experience and employment, this can be completely replaced with `$body$`. There are a few other common variables to place within the template, which are typically placed in the same location as other templates. These variables include:
+
+- body
+- header-includes
+- fontfamily
+- fontfamilyoptions
+- fontsize
+- lang
+- papersize
+- classoption
+- linestretch
+- include-before
+- include-after
+
+Placement of these variables can be found by looking at other template files provided in the package. The conversion of the moderncv template into a Pandoc template for `vitae` can be found on [GitHub](https://github.com/ropenscilabs/vitae/blob/master/inst/rmarkdown/templates/moderncv/resources/moderncv.tex).
+
+### Adding LaTeX macros for displaying CV entries
+
+The interface for producing entries in a CV varies greatly between templates. To support these various formats, LaTeX macros are used to transfer the format provided by `vitae` into a format suitable for each template.
+
+The moderncv template provides many different layouts, of which I have selected the two that best suit `brief_entries` and `detailed_entries`.
+
+#### brief_entries
+
+The moderncv template `\cvitem` command seems generate an appropriate layout for brief entries. It expects inputs in this format:
+
+```
+\cvitem{Title}{Description}
+```
+
+The `vitae` package returns `brief_entries` in this format:
+
+```
+\briefsection{
+  \briefitem{what}{when}{with}
+}
+```
+
+So in our pandoc template's header, we need to define a macro for `\briefsection` and `\briefitem` that produces an appropriately structured `\cvitem`. The `\briefitem` provides 3 inputs, and `\cventry` expects 2, so we will need to combine two of the `\briefitem` inputs. A suitable LaTeX macro could be defined as:
+
+```
+% Templates for brief entries
+% Arguments: what when with
+\def\briefitem#1#2#3{\cvitem{#2}{#1. #3}}
+\def\briefsection#1{\nopagebreak#1}
+```
+
+Here the `\briefsection` macro is essentially doing nothing (other than ensuring there will be no page break). Other CV templates use special environments for entries, where this macro is more useful (such as `twentyseconds`). The `\briefitem` macro is mapping `when` to the `Title` of the item (as this is more consistently formatted with `detailed_items`), and combining `what` and `with` to form the item's `Description`.
+
+#### detailed_entries
+
+For detailed CV entires, the moderncv `\cventry` command is reasonable. It expects inputs in this format:
+
+```
+\cventry{Year}{Degree}{Institution}{City}{Grade}{Description}
+```
+
+The `vitae` package returns `detailed_entries` in this format:
+
+```
+\detailedsection{
+  \detaileditem{what}{when}{with}{where}{\item{why1}\item{why2}...}
+}
+```
+
+The `\detaileditem` provides 5 inputs, and `\cventry` expects 6, so we will leave the `Grade` section blank, as it is better suited in the "why" argument for the `vitae` package. The code below shows how the order of inputs to `\detaileditem` can be mapped onto the inputs of `\cventry`. To appropriately format the list of `why` items, we are conditionally wrapping this input in an `itemize` environment.
+
+```
+% Templates for detailed entries
+% Arguments: what when with where why
+\usepackage{etoolbox}
+\def\detaileditem#1#2#3#4#5{
+	\cventry{#2}{#1}{#3}{#4}{}{{\ifx#5\empty\else{\begin{itemize}#5\end{itemize}}\fi}}}
+\def\detailedsection#1{\nopagebreak#1}
+```
+
+### Using the template with rmarkdown
+
+Once the Pandoc variables and LaTeX CV entry macros are set in the template, it is ready for use with the `vitae` package. The package provides the `cv_document` output format, which is suitable for use with custom templates. To use the custom template, your `rmarkdown` document's YAML header would look like this:
+
+```
+output:
+  vitae::cv_document:
+    template: my_custom_template.tex
+```
+
+You will also need to copy all of the LaTeX class (`.cls`) and style (`.sty`) files provided with the template into the same folder as your `rmarkdown` document. Once that is done, your new template should be ready to use with the `vitae` package.
+
+## Contributing to the vitae package
+
+If you've gone to the effort of successfully creating a new template with the `vitae` package, you may be interested in making it available for others to use. You can contribute to this package by [submitting a pull request](http://r-pkgs.had.co.nz/git.html#git-pullreq) that adds your template to the package.
+
+Adding your template to the package can be done with:
+
+```{r add-template, eval = FALSE}
+usethis::use_rmarkdown_template(
+  template_name = "Curriculum Vitae (ModernCV format)", 
+  template_dir = "moderncv",
+  template_description = "The ModernCV template (https://github.com/xdanaux/moderncv) for vitae",
+  template_create_dir = TRUE)
+```
+
+Then by navigating to the package's `inst/rmarkdown/templates/moderncv` folder, you can add your Pandoc template to the `resources` folder, and your `.cls` and `.sty` files to the `skeleton` folder.
+
+Once that is done, we can create a new `rmarkdown` output format that uses your template. These are added to the "R/formats.R" file, and will usually follow the same structure as other templates. The template argument to `cv_document` is a link your Pandoc template in the package (accessed using `system.file`), and it is recommended that the supporting `.cls` and `.sty` files are copied using `copy_supporting_files`.
+
+```{r}
+#' @rdname cv_formats
+#' @export
+moderncv <- function(...) {
+  template <- system.file("rmarkdown", "templates", "moderncv",
+                          "resources", "moderncv.tex", package="vitae")
+  copy_supporting_files("moderncv")
+  cv_document(..., template = template, citation_package="biblatex", latex_engine="xelatex")
+}
+```
+
+The automatically generated `skeleton.Rmd` document in the `skeleton` folder should be modified to be a basic example of using your template. Examples of this file can be found in other templates, and this template file can act as a useful test for your template!
+
+All done! You should now be able to install your new version of the package with `devtools::install()`, and test out your new output format with:
+
+```
+output:
+  vitae::moderncv
+```
