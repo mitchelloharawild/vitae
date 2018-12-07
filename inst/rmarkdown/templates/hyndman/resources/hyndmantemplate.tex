@@ -248,9 +248,9 @@ $if(position)$\\[0.1cm]\large $position$\\[0.6cm]$else$\\[0.7cm]$endif$
 \name{$name$}
 \def\imagetop#1{\vtop{\null\hbox{#1}}}
 \info{%
-$if(address)$\raisebox{-0.05cm}{\imagetop{\faicon{map-marker}}} & \imagetop{\begin{tabular}{@{}l@{}}$address$\end{tabular}}\\$endif$
-$if(www)$\faicon{home} & \href{http://$www$}{$www$}\\$endif$%
-$if(phone)$\faicon{phone} & $phone$\\$endif$%
+$if(address)$\raisebox{-0.05cm}{\imagetop{\faicon{map-marker}}} &  \imagetop{\begin{tabular}{@{}l@{}}$address$\end{tabular}}\\$endif$ %
+$if(www)$\faicon{home} & \href{http://$www$}{$www$}\\$endif$% %
+$if(phone)$\faicon{phone} & $phone$\\$endif$% 
 $if(email)$\faicon{envelope} & $email$\\$endif$%
 $if(twitter)$\faicon{twitter} & \href{https://twitter.com/$twitter$}{@$twitter$}\\$endif$%
 $if(github)$\faicon{github} & \href{https://github.com/$github$}{$github$}\\$endif$%
