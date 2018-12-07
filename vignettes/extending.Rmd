@@ -16,7 +16,6 @@ knitr::opts_chunk$set(
 )
 ```
 
-
 Résumé/CV templates are abundantly available in many varieties of themes and layouts. The `vitae` package provides a few of the more popular templates that are suitable for most resumes. The included templates are far from comprehensive - your favourite template may not be included, or perhaps you have created your own template. This vignette explains how your LaTeX CV can be used within the package using custom templates.
 
 ## Creating a vitae template
@@ -32,7 +31,7 @@ Creating a template for vitae can be broken into three parts:
 
 Most elements that are included in the YAML header of an `rmarkdown` document are passed to your template via Pandoc variables. Pandoc variables can be included in your template file by surrounding the variable with `$`. These can be used to fill in basic CV details such as your name, occupation, and social links.
 
-For example, if your document contained this YAML header:
+For example, suppose your document contains this YAML header:
 ```
 name: "Mitchell O'Hara-Wild"
 position: "vitae maintainer"
@@ -84,7 +83,7 @@ The moderncv template provides many different layouts, of which I have selected 
 
 #### brief_entries
 
-The moderncv template `\cvitem` command seems generate an appropriate layout for brief entries. It expects inputs in this format:
+The moderncv template `\cvitem` command generates an appropriate layout for brief entries. It expects inputs in this format:
 
 ```
 \cvitem{Title}{Description}
@@ -98,7 +97,7 @@ The `vitae` package returns `brief_entries` in this format:
 }
 ```
 
-So in our pandoc template's header, we need to define a macro for `\briefsection` and `\briefitem` that produces an appropriately structured `\cvitem`. The `\briefitem` provides 3 inputs, and `\cventry` expects 2, so we will need to combine two of the `\briefitem` inputs. A suitable LaTeX macro could be defined as:
+So in our pandoc template's header, we need to define macros for `\briefsection` and `\briefitem` that produce an appropriately structured `\cvitem`. The `\briefitem` provides 3 inputs, and `\cventry` expects 2, so we will need to combine two of the `\briefitem` inputs. A suitable LaTeX macro could be defined as:
 
 ```
 % Templates for brief entries
@@ -111,7 +110,7 @@ Here the `\briefsection` macro is essentially doing nothing (other than ensuring
 
 #### detailed_entries
 
-For detailed CV entires, the moderncv `\cventry` command is reasonable. It expects inputs in this format:
+For detailed CV entries, the moderncv `\cventry` command is reasonable. It expects inputs in this format:
 
 ```
 \cventry{Year}{Degree}{Institution}{City}{Grade}{Description}
@@ -156,7 +155,7 @@ Adding your template to the package can be done with:
 
 ```{r add-template, eval = FALSE}
 usethis::use_rmarkdown_template(
-  template_name = "Curriculum Vitae (ModernCV format)", 
+  template_name = "Curriculum Vitae (ModernCV format)",
   template_dir = "moderncv",
   template_description = "The ModernCV template (https://github.com/xdanaux/moderncv) for vitae",
   template_create_dir = TRUE)
@@ -164,7 +163,7 @@ usethis::use_rmarkdown_template(
 
 Then by navigating to the package's `inst/rmarkdown/templates/moderncv` folder, you can add your Pandoc template to the `resources` folder, and your `.cls` and `.sty` files to the `skeleton` folder.
 
-Once that is done, we can create a new `rmarkdown` output format that uses your template. These are added to the "R/formats.R" file, and will usually follow the same structure as other templates. The template argument to `cv_document` is a link your Pandoc template in the package (accessed using `system.file`), and it is recommended that the supporting `.cls` and `.sty` files are copied using `copy_supporting_files`.
+Once that is done, we can create a new `rmarkdown` output format that uses your template. These are added to the "R/formats.R" file, and will usually follow the same structure as other templates. The template argument to `cv_document` is a link to your Pandoc template in the package (accessed using `system.file`), and it is recommended that the supporting `.cls` and `.sty` files are copied using `copy_supporting_files`.
 
 ```{r}
 #' @rdname cv_formats
