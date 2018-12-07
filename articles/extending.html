@@ -79,9 +79,7 @@
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1>Creating vitae templates</h1>
-                        <h4 class="author">Mitchell O’Hara-Wild</h4>
             
-            <h4 class="date">2018-12-07</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/ropenscilabs/vitae/blob/master/vignettes/extending.Rmd"><code>vignettes/extending.Rmd</code></a></small>
       <div class="hidden name"><code>extending.Rmd</code></div>
@@ -194,23 +192,23 @@ output: vitae::awesomecv</code></pre>
 <p>Adding your template to the package can be done with:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">usethis<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/usethis/topics/use_rmarkdown_template">use_rmarkdown_template</a></span>(</a>
 <a class="sourceLine" id="cb9-2" data-line-number="2">  <span class="dt">template_name =</span> <span class="st">"Curriculum Vitae (ModernCV format)"</span>,</a>
-<a class="sourceLine" id="cb9-3" data-line-number="3">  <span class="dt">template_dir =</span> <span class="st">"moderncv"</span>,</a>
+<a class="sourceLine" id="cb9-3" data-line-number="3">  <span class="dt">template_dir =</span> <span class="st">"my_template"</span>,</a>
 <a class="sourceLine" id="cb9-4" data-line-number="4">  <span class="dt">template_description =</span> <span class="st">"The ModernCV template (https://github.com/xdanaux/moderncv) for vitae"</span>,</a>
 <a class="sourceLine" id="cb9-5" data-line-number="5">  <span class="dt">template_create_dir =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
-<p>Then by navigating to the package’s <code>inst/rmarkdown/templates/moderncv</code> folder, you can add your Pandoc template to the <code>resources</code> folder, and your <code>.cls</code> and <code>.sty</code> files to the <code>skeleton</code> folder.</p>
+<p>Then by navigating to the package’s <code>inst/rmarkdown/templates/my_template</code> folder, you can add your Pandoc template to the <code>resources</code> folder, and your <code>.cls</code> and <code>.sty</code> files to the <code>skeleton</code> folder.</p>
 <p>Once that is done, we can create a new <code>rmarkdown</code> output format that uses your template. These are added to the “R/formats.R” file, and will usually follow the same structure as other templates. The template argument to <code>cv_document</code> is a link to your Pandoc template in the package (accessed using <code>system.file</code>), and it is recommended that the supporting <code>.cls</code> and <code>.sty</code> files are copied using <code>copy_supporting_files</code>.</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="co">#' @rdname cv_formats</span></a>
 <a class="sourceLine" id="cb10-2" data-line-number="2"><span class="co">#' @export</span></a>
 <a class="sourceLine" id="cb10-3" data-line-number="3">moderncv &lt;-<span class="st"> </span><span class="cf">function</span>(...) {</a>
-<a class="sourceLine" id="cb10-4" data-line-number="4">  template &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/system.file">system.file</a></span>(<span class="st">"rmarkdown"</span>, <span class="st">"templates"</span>, <span class="st">"moderncv"</span>,</a>
+<a class="sourceLine" id="cb10-4" data-line-number="4">  template &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/system.file">system.file</a></span>(<span class="st">"rmarkdown"</span>, <span class="st">"templates"</span>, <span class="st">"my_template"</span>,</a>
 <a class="sourceLine" id="cb10-5" data-line-number="5">                          <span class="st">"resources"</span>, <span class="st">"moderncv.tex"</span>, <span class="dt">package=</span><span class="st">"vitae"</span>)</a>
-<a class="sourceLine" id="cb10-6" data-line-number="6">  <span class="kw">copy_supporting_files</span>(<span class="st">"moderncv"</span>)</a>
+<a class="sourceLine" id="cb10-6" data-line-number="6">  <span class="kw">copy_supporting_files</span>(<span class="st">"my_template"</span>)</a>
 <a class="sourceLine" id="cb10-7" data-line-number="7">  <span class="kw"><a href="../reference/cv_document.html">cv_document</a></span>(..., <span class="dt">template =</span> template, <span class="dt">citation_package=</span><span class="st">"biblatex"</span>, <span class="dt">latex_engine=</span><span class="st">"xelatex"</span>)</a>
 <a class="sourceLine" id="cb10-8" data-line-number="8">}</a></code></pre></div>
 <p>The automatically generated <code>skeleton.Rmd</code> document in the <code>skeleton</code> folder should be modified to be a basic example of using your template. Examples of this file can be found in other templates, and this template file can act as a useful test for your template!</p>
 <p>All done! You should now be able to install your new version of the package with <code><a href="https://www.rdocumentation.org/packages/devtools/topics/install">devtools::install()</a></code>, and test out your new output format with:</p>
 <pre><code>output:
-  vitae::moderncv</code></pre>
+  vitae::my_template</code></pre>
 </div>
   </div>
 
