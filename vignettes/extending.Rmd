@@ -154,12 +154,12 @@ Adding your template to the package can be done with:
 ```{r add-template, eval = FALSE}
 usethis::use_rmarkdown_template(
   template_name = "Curriculum Vitae (ModernCV format)",
-  template_dir = "moderncv",
+  template_dir = "my_template",
   template_description = "The ModernCV template (https://github.com/xdanaux/moderncv) for vitae",
   template_create_dir = TRUE)
 ```
 
-Then by navigating to the package's `inst/rmarkdown/templates/moderncv` folder, you can add your Pandoc template to the `resources` folder, and your `.cls` and `.sty` files to the `skeleton` folder.
+Then by navigating to the package's `inst/rmarkdown/templates/my_template` folder, you can add your Pandoc template to the `resources` folder, and your `.cls` and `.sty` files to the `skeleton` folder.
 
 Once that is done, we can create a new `rmarkdown` output format that uses your template. These are added to the "R/formats.R" file, and will usually follow the same structure as other templates. The template argument to `cv_document` is a link to your Pandoc template in the package (accessed using `system.file`), and it is recommended that the supporting `.cls` and `.sty` files are copied using `copy_supporting_files`.
 
@@ -167,9 +167,9 @@ Once that is done, we can create a new `rmarkdown` output format that uses your 
 #' @rdname cv_formats
 #' @export
 moderncv <- function(...) {
-  template <- system.file("rmarkdown", "templates", "moderncv",
+  template <- system.file("rmarkdown", "templates", "my_template",
                           "resources", "moderncv.tex", package="vitae")
-  copy_supporting_files("moderncv")
+  copy_supporting_files("my_template")
   cv_document(..., template = template, citation_package="biblatex", latex_engine="xelatex")
 }
 ```
@@ -180,5 +180,5 @@ All done! You should now be able to install your new version of the package with
 
 ```
 output:
-  vitae::moderncv
+  vitae::my_template
 ```
