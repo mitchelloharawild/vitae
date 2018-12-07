@@ -70,6 +70,7 @@ The main content from an `rmarkdown` document is also included using Pandoc vari
 - linestretch
 - include-before
 - include-after
+- highlighting-macros
 
 Placement of these variables can be found by looking at other template files provided in the package. The conversion of the moderncv template into a Pandoc template for `vitae` can be found on [GitHub](https://github.com/ropenscilabs/vitae/blob/master/inst/rmarkdown/templates/moderncv/resources/moderncv.tex).
 
