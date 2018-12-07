@@ -26,25 +26,26 @@ bibliography_entries <- function(file,
   bib <- RefManageR::ReadBib(file, check = FALSE)
   out <- dplyr::as_tibble(bib)
   structure(mutate(out, key = names(bib$key)),
-            file = file,
-            title = title,
-            sorting = sorting,
-            startlabel = startlabel,
-            endlabel = endlabel,
-            preserve = "key",
-            class = c("vitae_bibliography", "vitae_preserve", class(out)))
+    file = file,
+    title = title,
+    sorting = sorting,
+    startlabel = startlabel,
+    endlabel = endlabel,
+    preserve = "key",
+    class = c("vitae_bibliography", "vitae_preserve", class(out))
+  )
 }
 
 
 #' @importFrom knitr knit_print
 #' @export
-knit_print.vitae_bibliography <- function(x, options){
-  title <- x%@%"title"
+knit_print.vitae_bibliography <- function(x, options) {
+  title <- x %@% "title"
   bibname <- paste("bib", title, sep = "")
   items <- x$key
-  sorting <- x%@%"sorting"
-  startlabel <- x%@%"startlabel"
-  endlabel <- x%@%"endlabel"
+  sorting <- x %@% "sorting"
+  startlabel <- x %@% "startlabel"
+  endlabel <- x %@% "endlabel"
   out <- glue(
     "
     \\defbibheading{<<bibname>>}{\\subsection{<<title>>}}<<startlabel>>
@@ -55,18 +56,20 @@ knit_print.vitae_bibliography <- function(x, options){
     \\nocite{<<items>>}
     ",
     startlabel = ifelse(!is.null(startlabel),
-                        glue("\\label{<startlabel>}", .open = "<", .close = ">"),
-                        ""),
+      glue("\\label{<startlabel>}", .open = "<", .close = ">"),
+      ""
+    ),
     endlabel = ifelse(!is.null(endlabel),
-                      glue("\\label{<endlabel>}", .open = "<", .close = ">"),
-                      ""),
+      glue("\\label{<endlabel>}", .open = "<", .close = ">"),
+      ""
+    ),
     items = glue_collapse(items, sep = ",\n"),
     .open = "<<", .close = ">>"
   )
   knitr::asis_output(out,
-                     meta = list(structure(
-                       list(title = bibname, file = x%@%"file"),
-                       class = "biliography_entry")
-                     )
+    meta = list(structure(
+      list(title = bibname, file = x %@% "file"),
+      class = "biliography_entry"
+    ))
   )
 }

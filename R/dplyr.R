@@ -1,13 +1,15 @@
 # dplyr methods to preserve attributes
 #' @importFrom rlang !!! set_names %@%
-preserve_attributes <- function(fn){
-  function(.data, ...){
+preserve_attributes <- function(fn) {
+  function(.data, ...) {
     out <- NextMethod()
-    if(any(miss_col <- !(.data%@%"key" %in% colnames(out)))){
+    if (any(miss_col <- !(.data %@% "key" %in% colnames(out)))) {
       miss_nm <- colnames(.data)[miss_col]
-      rlang::warn(glue("This function lost the ",
-                       glue_collapse(miss_nm, sep = ", ", last = " and "),
-                       " columns! These values will be removed from the report."))
+      rlang::warn(glue(
+        "This function lost the ",
+        glue_collapse(miss_nm, sep = ", ", last = " and "),
+        " columns! These values will be removed from the report."
+      ))
       out <- mutate(out, !!!set_names(rep(list(NA), sum(miss_col)), miss_nm))
     }
     out <- structure(out, class = union(class(.data), class(out)))

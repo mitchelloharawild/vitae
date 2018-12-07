@@ -6,12 +6,12 @@
 #' @param ... Arguments passed to bookdown::pdf_document2()
 #'
 #' @export
-cv_document <- function(...){
+cv_document <- function(...) {
   config <- bookdown::pdf_document2(...)
 
   pre <- config$pre_processor
-  config$pre_processor = function(metadata, input_file, runtime, knit_meta,
-                               files_dir, output_dir) {
+  config$pre_processor <- function(metadata, input_file, runtime, knit_meta,
+                                     files_dir, output_dir) {
     args <- pre(metadata, input_file, runtime, knit_meta, files_dir, output_dir)
 
     header_contents <- NULL
@@ -28,17 +28,17 @@ cv_document <- function(...){
     if (has_meta(knit_meta, "biliography_entry")) {
       header_contents <- c(
         header_contents,
-        readLines(system.file("bib_format.tex", package="vitae")),
+        readLines(system.file("bib_format.tex", package = "vitae")),
         bibliography_header(
           flatten_meta(knit_meta, function(x) inherits(x, "biliography_entry"))
         )
       )
     }
 
-    if("--include-in-header" %in% args){
-      header_file <- args[which(args == "--include-in-header")+1]
+    if ("--include-in-header" %in% args) {
+      header_file <- args[which(args == "--include-in-header") + 1]
     }
-    else{
+    else {
       header_file <- tempfile("cv-header", fileext = ".tex")
       if ("header-includes" %in% names(metadata)) {
         cat(c("", metadata[["header-includes"]]), sep = "\n", file = header_file, append = TRUE)
@@ -76,7 +76,7 @@ latex_dependencies_as_string <- function(dependencies) {
   paste(unique(lines), collapse = "\n")
 }
 
-bibliography_header <- function(bibs){
+bibliography_header <- function(bibs) {
   titles <- lapply(bibs, function(x) x[["title"]])
   files <- lapply(bibs, function(x) x[["file"]])
   c(
@@ -86,30 +86,33 @@ bibliography_header <- function(bibs){
 }
 
 has_meta <- function(knit_meta, class) {
-  if (inherits(knit_meta, class))
+  if (inherits(knit_meta, class)) {
     return(TRUE)
+  }
 
   if (is.list(knit_meta)) {
     for (meta in knit_meta) {
       if (is.null(names(meta))) {
-        if (has_meta(meta, class))
+        if (has_meta(meta, class)) {
           return(TRUE)
+        }
       } else {
-        if (inherits(meta, class))
+        if (inherits(meta, class)) {
           return(TRUE)
+        }
       }
     }
   }
   FALSE
 }
 
-copy_supporting_files <- function(template){
-  path <- system.file("rmarkdown", "templates", template, "skeleton", package="vitae")
+copy_supporting_files <- function(template) {
+  path <- system.file("rmarkdown", "templates", template, "skeleton", package = "vitae")
   files <- list.files(path)
   # Copy class and style files
-  for (f in files[files!="skeleton.Rmd"]) {
+  for (f in files[files != "skeleton.Rmd"]) {
     if (!file.exists(f)) {
-      file.copy(file.path(path, f), ".", recursive=TRUE)
+      file.copy(file.path(path, f), ".", recursive = TRUE)
     }
   }
 }

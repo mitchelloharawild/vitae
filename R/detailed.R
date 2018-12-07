@@ -19,7 +19,7 @@
 #'
 #' @importFrom rlang enexpr expr_text !! := sym syms
 #' @export
-detailed_entries <- function(data, what, when, with, where, why){
+detailed_entries <- function(data, what, when, with, where, why) {
   edu_exprs <- list(
     what = enexpr(what) %missing% NA,
     when = enexpr(when) %missing% NA,
@@ -34,33 +34,36 @@ detailed_entries <- function(data, what, when, with, where, why){
   out <- dplyr::left_join(out, data, by = names(edu_exprs[-5]))
 
   structure(out,
-            preserve = names(edu_exprs),
-            class = c("vitae_detailed", "vitae_preserve", class(data))
+    preserve = names(edu_exprs),
+    class = c("vitae_detailed", "vitae_preserve", class(data))
   )
 }
 
 #' @importFrom knitr knit_print
 #' @export
-knit_print.vitae_detailed <- function(x, options){
-  x <- dplyr::mutate(x,
-                     "why" := map_chr(!!sym("why"), function(x){
-                       glue_collapse(
-                         glue("\\item{<<protect_tex_input(x)>>}", .open = "<<", .close = ">>")
-                       ) %empty% "\\empty"
-                     })
+knit_print.vitae_detailed <- function(x, options) {
+  x <- dplyr::mutate(
+    x,
+    "why" := map_chr(!!sym("why"), function(x) {
+      glue_collapse(
+        glue("\\item{<<protect_tex_input(x)>>}", .open = "<<", .close = ">>")
+      ) %empty% "\\empty"
+    })
   )
 
   x[is.na(x)] <- ""
 
   out <- glue_data(x,
-            "\\detaileditem
+    "\\detaileditem
             {<<protect_tex_input(what)>>}
             {<<protect_tex_input(when)>>}
             {<<protect_tex_input(with)>>}
             {<<protect_tex_input(where)>>}
             {<<why>>}",
-            .open = "<<", .close = ">>")
+    .open = "<<", .close = ">>"
+  )
 
   knitr::asis_output(glue("\\detailedsection{<<glue_collapse(out)>>}",
-                          .open = "<<", .close = ">>"))
+    .open = "<<", .close = ">>"
+  ))
 }
