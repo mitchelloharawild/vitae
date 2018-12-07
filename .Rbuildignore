@@ -1,3 +1,4 @@
+^codecov\.yml$
 ^\.github$
 ^\.travis\.yml$
 ^README\.Rmd$

@@ -14,7 +14,8 @@ Imports:
     knitr,
     RefManageR
 Suggests:
-    bibtex
+    bibtex,
+    covr
 License: GPL-3
 Encoding: UTF-8
 BugReports: https://github.com/ropenscilabs/vitae/issues
