@@ -1,4 +1,5 @@
 *.sty linguist-vendored
 *.cls linguist-vendored
 *.tex linguist-vendored
+*.html linguist-vendored
 *.R linguist-vendored=false
