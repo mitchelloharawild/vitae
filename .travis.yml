@@ -11,7 +11,7 @@ matrix:
     - Rscript -e 'covr::codecov()'
     before_deploy:
     - R CMD INSTALL .
-    - Rscript -e 'install.packages(c("pkgdown", "rorcid"))'
+    - Rscript -e 'install.packages("pkgdown")'
     deploy:
       provider: script
       script: Rscript -e 'pkgdown::deploy_site_github(verbose = TRUE)'
