@@ -5,9 +5,9 @@
 \alias{detailed_entries}
 \title{CV entries}
 \usage{
-brief_entries(data, what, when, with)
+brief_entries(data, what, when, with, .protect = TRUE)
 
-detailed_entries(data, what, when, with, where, why)
+detailed_entries(data, what, when, with, where, why, .protect = TRUE)
 }
 \arguments{
 \item{data}{A \code{data.frame} or \code{tibble}.}
@@ -17,6 +17,9 @@ detailed_entries(data, what, when, with, where, why)
 \item{when}{The time of the entry (such as the period spent in the role).}
 
 \item{with}{The company or organisation.}
+
+\item{.protect}{When TRUE, inputs to the previous arguments will be protected
+from being parsed as LaTeX code.}
 
 \item{where}{The location of the entry.}
 

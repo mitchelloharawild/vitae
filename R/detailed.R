@@ -14,12 +14,14 @@
 #' @param why Any additional information, to be included as dot points. Each
 #' entry for why is provided in long form (where the what, when, with, and where
 #' is duplicated)
+#' @param .protect When TRUE, inputs to the previous arguments will be protected
+#' from being parsed as LaTeX code.
 #'
 #' @rdname cventries
 #'
 #' @importFrom rlang enexpr expr_text !! := sym syms
 #' @export
-detailed_entries <- function(data, what, when, with, where, why) {
+detailed_entries <- function(data, what, when, with, where, why, .protect = TRUE) {
   edu_exprs <- list(
     what = enexpr(what) %missing% NA,
     when = enexpr(when) %missing% NA,
@@ -35,6 +37,7 @@ detailed_entries <- function(data, what, when, with, where, why) {
 
   structure(out,
     preserve = names(edu_exprs),
+    protect = .protect,
     class = c("vitae_detailed", "vitae_preserve", class(data))
   )
 }
@@ -42,6 +45,12 @@ detailed_entries <- function(data, what, when, with, where, why) {
 #' @importFrom knitr knit_print
 #' @export
 knit_print.vitae_detailed <- function(x, options) {
+  x[is.na(x)] <- ""
+
+  if(!(x%@%"protect")){
+    protect_tex_input <- identity
+  }
+
   x <- dplyr::mutate(
     x,
     "why" := map_chr(!!sym("why"), function(x) {
@@ -50,8 +59,6 @@ knit_print.vitae_detailed <- function(x, options) {
       ) %empty% "\\empty"
     })
   )
-
-  x[is.na(x)] <- ""
 
   out <- glue_data(x,
     "\\detaileditem
