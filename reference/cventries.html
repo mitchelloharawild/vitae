@@ -128,9 +128,9 @@ further calculations, which will be done using the provided data.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>brief_entries</span>(<span class='no'>data</span>, <span class='no'>what</span>, <span class='no'>when</span>, <span class='no'>with</span>)
+    <pre class="usage"><span class='fu'>brief_entries</span>(<span class='no'>data</span>, <span class='no'>what</span>, <span class='no'>when</span>, <span class='no'>with</span>, <span class='kw'>.protect</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
-<span class='fu'>detailed_entries</span>(<span class='no'>data</span>, <span class='no'>what</span>, <span class='no'>when</span>, <span class='no'>with</span>, <span class='no'>where</span>, <span class='no'>why</span>)</pre>
+<span class='fu'>detailed_entries</span>(<span class='no'>data</span>, <span class='no'>what</span>, <span class='no'>when</span>, <span class='no'>with</span>, <span class='no'>where</span>, <span class='no'>why</span>, <span class='kw'>.protect</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -150,6 +150,11 @@ further calculations, which will be done using the provided data.</p>
     <tr>
       <th>with</th>
       <td><p>The company or organisation.</p></td>
+    </tr>
+    <tr>
+      <th>.protect</th>
+      <td><p>When TRUE, inputs to the previous arguments will be protected
+from being parsed as LaTeX code.</p></td>
     </tr>
     <tr>
       <th>where</th>
