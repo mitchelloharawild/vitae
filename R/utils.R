@@ -25,7 +25,7 @@ map_chr <- function(.x, .f, ...) {
 }
 
 protect_tex_input <- function(x, ...) {
-  if (is.character(x)) {
+  if (is.character(x) || is.factor(x)) {
     x <- gsub("'([^ ']*)'", "`\\1'", x, useBytes = TRUE)
     x <- gsub("\"([^\"]*)\"", "``\\1''", x, useBytes = TRUE)
     x <- gsub("\\", "\\textbackslash ", x,
