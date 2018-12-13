@@ -95,6 +95,13 @@ Additional examples of using this package can be found in the slides
 presented at [ozunconf2018](https://ozunconf18.ropensci.org/):
 <https://mitchelloharawild.com/vitae/>
 
+## Examples of using vitae
+
+  - [Mitchell O’Hara-Wild](https://github.com/mitchelloharawild/CV)
+  - [Rob Hyndman](https://github.com/robjhyndman/CV)
+
+Add your vitae to the list using a PR.
+
 -----
 
 Please note that the ‘vitae’ project is released with a [Contributor
