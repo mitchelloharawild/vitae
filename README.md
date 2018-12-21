@@ -99,6 +99,7 @@ presented at [ozunconf2018](https://ozunconf18.ropensci.org/):
 
   - [Mitchell O’Hara-Wild](https://github.com/mitchelloharawild/CV)
   - [Rob Hyndman](https://github.com/robjhyndman/CV)
+  - [Eric R. Scott](https://github.com/Aariq/curriculum-vitae)
 
 Add your vitae to the list using a PR.
 
