@@ -16,7 +16,9 @@ Imports:
 Suggests:
     bibtex,
     covr,
-    rorcid
+    rorcid,
+    testthat,
+    stringr
 License: GPL-3
 Encoding: UTF-8
 BugReports: https://github.com/ropenscilabs/vitae/issues
