@@ -1,13 +1,15 @@
 #' Output formats for CVs
 #'
-#' Each function is a wrapper for \code{\link[bookdown]{pdf_document2}} to
+#' Each function is a wrapper for \code{\link[vitae]{cv_document}} to
 #' produce curriculum vitae
 #'
-#' @param \dots Arguments passed to \code{\link[bookdown]{pdf_document2}}.
+#' @param \dots Arguments passed to \code{\link[vitae]{cv_document}}.
 #'
 #' @return An R Markdown output format object.
 #'
-#' @author Rob J Hyndman
+#' @author Mitchell O'Hara-Wild and Rob J Hyndman
+#'
+#' @name cv_formats
 #'
 #' @rdname cv_formats
 #'
