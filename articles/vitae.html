@@ -166,11 +166,11 @@ This is a good opportunity to introduce yourself professionally and summarise
 why your skills are well suited to the job you are applying for!")</code>
 </pre>
 <p>The setup chunk is useful to load in any packages that you may use, and also prevent R code and warnings/notes from appearing in your CV. The above code also includes a professional summary using markdown syntax, which will appear in the final CV.</p>
-<p>Unlike other R markdown formats, the vitae package and its templates support functions to generate CV entries from data: <code><a href="../reference/cv_entries.html">detailed_entries()</a></code> and <code><a href="../reference/cv_entries.html">brief_entries()</a></code>. Both functions provide sections for <code>what</code>, <code>when</code>, and <code>with</code>, and the <code><a href="../reference/cv_entries.html">detailed_entries()</a></code> additionally supports <code>where</code> and <code>why</code>. They use an interface similar to <a href="https://cran.r-project.org/web/packages/dplyr/index.html">dplyr</a>, in that the data can be piped (<code>%&gt;%</code>) into these functions, and the arguments can involve some calculations.</p>
+<p>Unlike other R markdown formats, the vitae package and its templates support functions to generate CV entries from data: <code><a href="../reference/cv_entries.html">detailed_entries()</a></code> and <code><a href="../reference/cv_entries.html">brief_entries()</a></code>. Both functions provide sections for <code>what</code>, <code>when</code>, and <code>with</code>, and the <code><a href="../reference/cv_entries.html">detailed_entries()</a></code> additionally supports <code>where</code> and <code>why</code>. They use an interface similar to <a href="https://CRAN.R-project.org/package=dplyr">dplyr</a>, in that the data can be piped (<code>%&gt;%</code>) into these functions, and the arguments can involve some calculations.</p>
 <div id="detailed-entries" class="section level4">
 <h4 class="hasAnchor">
 <a href="#detailed-entries" class="anchor"></a>Detailed entries</h4>
-<p>Let’s add to the main body with some education history. These details are available on <a href="https://orcid.org">ORCID</a> with my ID of <a href="https://orcid.org/0000-0001-6729-7695">0000-0001-6729-7695</a>, which can be dynamically accessed using the <a href="https://cran.r-project.org/web/packages/rorcid/index.html">rorcid</a> package.</p>
+<p>Let’s add to the main body with some education history. These details are available on <a href="https://orcid.org">ORCID</a> with my ID of <a href="https://orcid.org/0000-0001-6729-7695">0000-0001-6729-7695</a>, which can be dynamically accessed using the <a href="https://CRAN.R-project.org/package=rorcid">rorcid</a> package.</p>
 <pre>
 <code># Education
 
@@ -186,12 +186,12 @@ edu$`0000-0001-6729-7695`$`education-summary` %&gt;%
   )
 ```</code>
 </pre>
-<p>In the example above, the <a href="https://cran.r-project.org/web/packages/glue/index.html">glue</a> package has been used to combine the start and end years for our <code>when</code> input. Excluding any arguments is also okay (as is done for <code>why</code>), it will just be left blank in the CV.</p>
+<p>In the example above, the <a href="https://CRAN.R-project.org/package=glue">glue</a> package has been used to combine the start and end years for our <code>when</code> input. Excluding any arguments is also okay (as is done for <code>why</code>), it will just be left blank in the CV.</p>
 </div>
 <div id="brief-entries" class="section level4">
 <h4 class="hasAnchor">
 <a href="#brief-entries" class="anchor"></a>Brief entries</h4>
-<p>Brief entries can be included with the same interface as <code><a href="../reference/cv_entries.html">detailed_entries()</a></code>, and is appropriate for entries that do not need as much detail (such as skills). Another application of this is to include a list of R packages that you have published to CRAN using the <a href="https://cran.r-project.org/web/packages/pkgsearch/index.html">pkgsearch</a> package.</p>
+<p>Brief entries can be included with the same interface as <code><a href="../reference/cv_entries.html">detailed_entries()</a></code>, and is appropriate for entries that do not need as much detail (such as skills). Another application of this is to include a list of R packages that you have published to CRAN using the <a href="https://CRAN.R-project.org/package=pkgsearch">pkgsearch</a> package.</p>
 <pre>
 <code># R Packages
 
@@ -206,7 +206,7 @@ pkgsearch::ps("O'Hara-Wild",size = 100) %&gt;%
   )
 ```</code>
 </pre>
-<p>This example also uses several other packages to prepare the data: - <a href="https://cran.r-project.org/web/packages/dplyr/index.html">dplyr</a> to <code><a href="http://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> my contributed packages, and <code><a href="http://dplyr.tidyverse.org/reference/arrange.html">arrange()</a></code> the data by downloads - <a href="https://cran.r-project.org/web/packages/purrr/index.html">purrr</a> to map over <code>package_data</code> column to find packages I’ve contributed to - <a href="https://cran.r-project.org/web/packages/lubridate/index.html">lubridate</a> to display only the year from the <code>date</code> column</p>
+<p>This example also uses several other packages to prepare the data: - <a href="https://CRAN.R-project.org/package=dplyr">dplyr</a> to <code><a href="http://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> my contributed packages, and <code><a href="http://dplyr.tidyverse.org/reference/arrange.html">arrange()</a></code> the data by downloads - <a href="https://CRAN.R-project.org/package=purrr">purrr</a> to map over <code>package_data</code> column to find packages I’ve contributed to - <a href="https://CRAN.R-project.org/package=lubridate">lubridate</a> to display only the year from the <code>date</code> column</p>
 </div>
 <div id="bibliography-entries" class="section level4">
 <h4 class="hasAnchor">
