@@ -18,8 +18,14 @@ helpful functions to add content to the documents.
 
 ## Installation
 
+You can install the **release** version from CRAN.
+
+``` r
+install.packages('forecast')
+```
+
 You can install the **development** version from
-[Github](https://github.com/ropenscilabs/vitae)
+[GitHub](https://github.com/ropenscilabs/vitae).
 
 ``` r
 # install.packages("devtools")
