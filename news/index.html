@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Print bibliography section — bibliography_entries • vitae</title>
+<title>Changelog • vitae</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,9 +30,7 @@
 
 
 
-<meta property="og:title" content="Print bibliography section — bibliography_entries" />
-
-<meta property="og:description" content="Given a bib file, this function will generate bibliographic entries for one or more types of bib entry." />
+<meta property="og:title" content="Changelog" />
 
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
@@ -52,7 +50,7 @@
   </head>
 
   <body>
-    <div class="container template-reference-topic">
+    <div class="container template-news">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -119,63 +117,32 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Print bibliography section</h1>
-    <small class="dont-index">Source: <a href='https://github.com/ropenscilabs/vitae/blob/master/R/bibliography.R'><code>R/bibliography.R</code></a></small>
-    <div class="hidden name"><code>bibliography_entries.Rd</code></div>
+      <h1>Changelog <small></small></h1>
+      <small>Source: <a href='https://github.com/ropenscilabs/vitae/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
-    <div class="ref-description">
-    
-    <p>Given a bib file, this function will generate bibliographic entries for one or more types of bib entry.</p>
-    
-    </div>
-
-    <pre class="usage"><span class='fu'>bibliography_entries</span>(<span class='no'>file</span>, <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Refereed journal papers"</span>,
-  <span class='kw'>sorting</span> <span class='kw'>=</span> <span class='st'>"ynt"</span>, <span class='kw'>startlabel</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>endlabel</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
-    
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>file</th>
-      <td><p>A path to a .bib file.</p></td>
-    </tr>
-    <tr>
-      <th>title</th>
-      <td><p>Character string giving section title.</p></td>
-    </tr>
-    <tr>
-      <th>sorting</th>
-      <td><p>Character stringing specifying how entries should be sorted. Default is "ynt" meaning
-sort by year first, then name, then title.</p></td>
-    </tr>
-    <tr>
-      <th>startlabel</th>
-      <td><p>Optional label for first reference in the section.</p></td>
-    </tr>
-    <tr>
-      <th>endlabel</th>
-      <td><p>Optional label for last reference in the section.</p></td>
-    </tr>
-    </table>
-    
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
-
-    <p>Prints bibliographic entries</p>
-    
-
+    <div id="vitae-0-1-0" class="section level1">
+<h1 class="page-header">
+<a href="#vitae-0-1-0" class="anchor"></a>vitae 0.1.0</h1>
+<p>First release of the package, containing:</p>
+<ul>
+<li>Four CV templates: <code>hyndman</code>, <code>twentyseconds</code>, <code>awesomecv</code>, <code>moderncv</code>.</li>
+<li>Three CV entries functions: <code><a href="../reference/cv_entries.html">detailed_entries()</a></code>, <code><a href="../reference/cv_entries.html">brief_entries()</a></code> and <code><a href="../reference/bibliography_entries.html">bibliography_entries()</a></code>.</li>
+<li>Two vignettes: <em>Creating vitae templates</em> and <em>Introduction to vitae</em>
+</li>
+</ul>
+</div>
   </div>
+
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#value">Value</a></li>
-          </ul>
-
-    <h2>Author</h2>
-    <p>Rob J Hyndman &amp; Mitchell O'Hara-Wild</p>
+    <div id="tocnav">
+      <h2>Contents</h2>
+      <ul class="nav nav-pills nav-stacked">
+        <li><a href="#vitae-0-1-0">0.1.0</a></li>
+      </ul>
+    </div>
   </div>
+
 </div>
 
       <footer>
