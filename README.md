@@ -35,7 +35,7 @@ templates](https://ropenscilabs.github.io/vitae/articles/extending.html)
 vignette).
 
 Creating a new CV with `vitae` can be done using the RStudio R Markdown
-template selector: ![](presentation/resources/template_gui.png)
+template selector: ![](man/figures/template_gui.png)
 
 These templates leverage the strength of rmarkdown to include common
 information in the YAML header (name, position, social links…) and
