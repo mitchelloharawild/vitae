@@ -21,7 +21,7 @@ helpful functions to add content to the documents.
 You can install the **release** version from CRAN.
 
 ``` r
-install.packages('forecast')
+install.packages('vitae')
 ```
 
 You can install the **development** version from
