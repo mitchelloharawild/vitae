@@ -157,7 +157,7 @@ output: vitae::awesomecv</code></pre>
 <pre><code>\briefsection{
   \briefitem{what}{when}{with}
 }</code></pre>
-<p>So in our pandoc template’s header, we need to define macros for <code>\briefsection</code> and <code>\briefitem</code> that produce an appropriately structured <code>\cvitem</code>. The <code>\briefitem</code> provides 3 inputs, and <code>\cventry</code> expects 2, so we will need to combine two of the <code>\briefitem</code> inputs. A suitable LaTeX macro could be defined as:</p>
+<p>So in our Pandoc template’s header, we need to define macros for <code>\briefsection</code> and <code>\briefitem</code> that produce an appropriately structured <code>\cvitem</code>. The <code>\briefitem</code> provides 3 inputs, and <code>\cventry</code> expects 2, so we will need to combine two of the <code>\briefitem</code> inputs. A suitable LaTeX macro could be defined as:</p>
 <pre><code>% Templates for brief entries
 % Arguments: what when with
 \def\briefitem#1#2#3{\cvitem{#2}{#1. #3}}
