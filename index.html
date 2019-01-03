@@ -102,9 +102,11 @@
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<p>You can install the <strong>development</strong> version from <a href="https://github.com/ropenscilabs/vitae">Github</a></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># install.packages("devtools")</span></a>
-<a class="sourceLine" id="cb1-2" data-line-number="2">devtools<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/devtools/topics/reexports">install_github</a></span>(<span class="st">"ropenscilabs/vitae"</span>)</a></code></pre></div>
+<p>You can install the <strong>release</strong> version from CRAN.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/install.packages">install.packages</a></span>(<span class="st">'forecast'</span>)</a></code></pre></div>
+<p>You can install the <strong>development</strong> version from <a href="https://github.com/ropenscilabs/vitae">GitHub</a>.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co"># install.packages("devtools")</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">devtools<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/devtools/topics/reexports">install_github</a></span>(<span class="st">"ropenscilabs/vitae"</span>)</a></code></pre></div>
 </div>
 <div id="getting-started" class="section level2">
 <h2 class="hasAnchor">
@@ -113,7 +115,7 @@
 <p>Creating a new CV with <code>vitae</code> can be done using the RStudio R Markdown template selector: <img src="reference/figures/template_gui.png"></p>
 <p>These templates leverage the strength of rmarkdown to include common information in the YAML header (name, position, social links…) and extended information in the main body. The main body of the CV is written using markdown, and allows for data-driven generation of entries using the <a href="https://ropenscilabs.github.io/vitae/reference/cventries.html"><code>*_entries</code> functions</a>. This allows you to import your working history from other sources (such as ORCID, Google Scholar, or a maintained dataset), and include them programatically into your CV.</p>
 <p>For example, the <a href="https://github.com/ropensci/rorcid">rorcid package</a> can be used to extract <a href="https://orcid.org/0000-0002-2140-5352">Rob Hyndman</a>’s education history:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">orcid_data &lt;-<span class="st"> </span>rorcid<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/rorcid/topics/orcid_educations">orcid_educations</a></span>(<span class="st">"0000-0002-2140-5352"</span>)<span class="op">$</span><span class="st">`</span><span class="dt">0000-0002-2140-5352</span><span class="st">`</span></a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">orcid_data &lt;-<span class="st"> </span>rorcid<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/rorcid/topics/orcid_educations">orcid_educations</a></span>(<span class="st">"0000-0002-2140-5352"</span>)<span class="op">$</span><span class="st">`</span><span class="dt">0000-0002-2140-5352</span><span class="st">`</span></a></code></pre></div>
 <pre><code>#&gt; 
 #&gt; Attaching package: 'dplyr'
 #&gt; The following objects are masked from 'package:stats':
@@ -129,13 +131,13 @@
 #&gt; 1 University of Melbourne                 Melbourne
 #&gt; 2 University of Melbourne                 Melbourne</code></pre>
 <p>The package provides two types of entries from data, which are <code>detailed_entries</code> and <code>brief_entries</code>. Both functions provide sections for <code>what</code>, <code>when</code>, and <code>with</code>, and the <code>detailed_entries</code> additionally supports <code>where</code> and <code>why</code>. These arguments support operations, so for this example, we have used <code>glue</code> to combine the start and end years for our <code>when</code> input. Excluding any inputs is also okay (as is done for <code>why</code>), it will just be left blank in the CV.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">orcid_data<span class="op">$</span><span class="st">`</span><span class="dt">education-summary</span><span class="st">`</span> <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="reference/cv_entries.html">detailed_entries</a></span>(</a>
-<a class="sourceLine" id="cb4-3" data-line-number="3">    <span class="dt">what =</span> <span class="st">`</span><span class="dt">role-title</span><span class="st">`</span>,</a>
-<a class="sourceLine" id="cb4-4" data-line-number="4">    <span class="dt">when =</span> glue<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/glue/topics/glue">glue</a></span>(<span class="st">"{`start-date.year.value`} - {`end-date.year.value`}"</span>),</a>
-<a class="sourceLine" id="cb4-5" data-line-number="5">    <span class="dt">with =</span> organization.name,</a>
-<a class="sourceLine" id="cb4-6" data-line-number="6">    <span class="dt">where =</span> organization.address.city</a>
-<a class="sourceLine" id="cb4-7" data-line-number="7">  )</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">orcid_data<span class="op">$</span><span class="st">`</span><span class="dt">education-summary</span><span class="st">`</span> <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="reference/cv_entries.html">detailed_entries</a></span>(</a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">    <span class="dt">what =</span> <span class="st">`</span><span class="dt">role-title</span><span class="st">`</span>,</a>
+<a class="sourceLine" id="cb5-4" data-line-number="4">    <span class="dt">when =</span> glue<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/glue/topics/glue">glue</a></span>(<span class="st">"{`start-date.year.value`} - {`end-date.year.value`}"</span>),</a>
+<a class="sourceLine" id="cb5-5" data-line-number="5">    <span class="dt">with =</span> organization.name,</a>
+<a class="sourceLine" id="cb5-6" data-line-number="6">    <span class="dt">where =</span> organization.address.city</a>
+<a class="sourceLine" id="cb5-7" data-line-number="7">  )</a></code></pre></div>
 <p><img src="reference/figures/education.png"></p>
 <p>Additional examples of using this package can be found in the slides presented at <a href="https://ozunconf18.ropensci.org/">ozunconf2018</a>: <a href="https://mitchelloharawild.com/vitae/" class="uri">https://mitchelloharawild.com/vitae/</a></p>
 </div>
