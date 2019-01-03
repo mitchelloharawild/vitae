@@ -63,26 +63,26 @@ Like other R Markdown documents, the body allows you to mix R code with markdown
 
 The setup chunk is useful to load in any packages that you may use, and also prevent R code and warnings/notes from appearing in your CV. The above code also includes a professional summary using markdown syntax, which will appear in the final CV.
 
-Unlike other R markdown formats, the vitae package and its templates support functions to generate CV entries from data: `detailed_entries()` and `brief_entries()`. Both functions provide sections for `what`, `when`, and `with`, and the `detailed_entries()` additionally supports `where` and `why`. They use an interface similar to [dplyr](https://cran.r-project.org/web/packages/dplyr/index.html), in that the data can be piped (`%>%`) into these functions, and the arguments can involve some calculations.
+Unlike other R markdown formats, the vitae package and its templates support functions to generate CV entries from data: `detailed_entries()` and `brief_entries()`. Both functions provide sections for `what`, `when`, and `with`, and the `detailed_entries()` additionally supports `where` and `why`. They use an interface similar to [dplyr](https://CRAN.R-project.org/package=dplyr), in that the data can be piped (`%>%`) into these functions, and the arguments can involve some calculations.
 
 #### Detailed entries
 
-Let's add to the main body with some education history. These details are available on [ORCID](https://orcid.org) with my ID of  [0000-0001-6729-7695](https://orcid.org/0000-0001-6729-7695), which can be dynamically accessed using the [rorcid](https://cran.r-project.org/web/packages/rorcid/index.html) package.
+Let's add to the main body with some education history. These details are available on [ORCID](https://orcid.org) with my ID of  [0000-0001-6729-7695](https://orcid.org/0000-0001-6729-7695), which can be dynamically accessed using the [rorcid](https://CRAN.R-project.org/package=rorcid) package.
 
 `r htmltools::pre(htmltools::code(paste0(readLines("sample.txt")[23:35],collapse = "\n")))`
 
-In the example above, the [glue](https://cran.r-project.org/web/packages/glue/index.html) package has been used to combine the start and end years for our `when` input. Excluding any arguments is also okay (as is done for `why`), it will just be left blank in the CV.
+In the example above, the [glue](https://CRAN.R-project.org/package=glue) package has been used to combine the start and end years for our `when` input. Excluding any arguments is also okay (as is done for `why`), it will just be left blank in the CV.
 
 #### Brief entries
 
-Brief entries can be included with the same interface as `detailed_entries()`, and is appropriate for entries that do not need as much detail (such as skills). Another application of this is to include a list of R packages that you have published to CRAN using the [pkgsearch](https://cran.r-project.org/web/packages/pkgsearch/index.html) package.
+Brief entries can be included with the same interface as `detailed_entries()`, and is appropriate for entries that do not need as much detail (such as skills). Another application of this is to include a list of R packages that you have published to CRAN using the [pkgsearch](https://CRAN.R-project.org/package=pkgsearch) package.
 
 `r htmltools::pre(htmltools::code(paste0(readLines("sample.txt")[37:48],collapse = "\n")))`
 
 This example also uses several other packages to prepare the data:
-- [dplyr](https://cran.r-project.org/web/packages/dplyr/index.html) to `filter()` my contributed packages, and `arrange()` the data by downloads
-- [purrr](https://cran.r-project.org/web/packages/purrr/index.html) to map over `package_data` column to find packages I've contributed to
-- [lubridate](https://cran.r-project.org/web/packages/lubridate/index.html) to display only the year from the `date` column
+- [dplyr](https://CRAN.R-project.org/package=dplyr) to `filter()` my contributed packages, and `arrange()` the data by downloads
+- [purrr](https://CRAN.R-project.org/package=purrr) to map over `package_data` column to find packages I've contributed to
+- [lubridate](https://CRAN.R-project.org/package=lubridate) to display only the year from the `date` column
 
 #### Bibliography entries
 
