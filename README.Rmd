@@ -26,7 +26,7 @@ The *vitae* package makes creating and maintaining a Résumé or CV with R Markd
 You can install the **release** version from CRAN.
 
 ```{r cran-installation, eval = FALSE}
-install.packages('forecast')
+install.packages('vitae')
 ```
 
 You can install the **development** version from
