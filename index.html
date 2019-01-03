@@ -44,6 +44,9 @@
   </a>
 </li>
 <li>
+  <a href="articles/vitae.html">Get started</a>
+</li>
+<li>
   <a href="reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
@@ -124,7 +127,7 @@
 #&gt; 2 University of Melbourne                 Melbourne</code></pre>
 <p>The package provides two types of entries from data, which are <code>detailed_entries</code> and <code>brief_entries</code>. Both functions provide sections for <code>what</code>, <code>when</code>, and <code>with</code>, and the <code>detailed_entries</code> additionally supports <code>where</code> and <code>why</code>. These arguments support operations, so for this example, we have used <code>glue</code> to combine the start and end years for our <code>when</code> input. Excluding any inputs is also okay (as is done for <code>why</code>), it will just be left blank in the CV.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">orcid_data<span class="op">$</span><span class="st">`</span><span class="dt">education-summary</span><span class="st">`</span> <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="reference/cventries.html">detailed_entries</a></span>(</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="reference/cv_entries.html">detailed_entries</a></span>(</a>
 <a class="sourceLine" id="cb4-3" data-line-number="3">    <span class="dt">what =</span> <span class="st">`</span><span class="dt">role-title</span><span class="st">`</span>,</a>
 <a class="sourceLine" id="cb4-4" data-line-number="4">    <span class="dt">when =</span> glue<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/glue/topics/glue">glue</a></span>(<span class="st">"{`start-date.year.value`} - {`end-date.year.value`}"</span>),</a>
 <a class="sourceLine" id="cb4-5" data-line-number="5">    <span class="dt">with =</span> organization.name,</a>

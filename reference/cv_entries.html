@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>NA • vitae</title>
+<title>CV entries — brief_entries • vitae</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -25,12 +25,16 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
-<link href="pkgdown.css" rel="stylesheet">
-<script src="pkgdown.js"></script>
+<link href="../pkgdown.css" rel="stylesheet">
+<script src="../pkgdown.js"></script>
 
 
 
-<meta property="og:title" content="NA" />
+<meta property="og:title" content="CV entries — brief_entries" />
+
+<meta property="og:description" content="This function accepts a data object (such as a tibble) and formats the output
+into a suitable format for the template used. The inputs can also involve
+further calculations, which will be done using the provided data." />
 
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
@@ -50,7 +54,7 @@
   </head>
 
   <body>
-    <div class="container template-title-body">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -62,7 +66,7 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="index.html">vitae</a>
+        <a class="navbar-link" href="../index.html">vitae</a>
         <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9000</span>
       </span>
     </div>
@@ -70,16 +74,16 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="index.html">
+  <a href="../index.html">
     <span class="fa fa-home fa-lg"></span>
      
   </a>
 </li>
 <li>
-  <a href="articles/vitae.html">Get started</a>
+  <a href="../articles/vitae.html">Get started</a>
 </li>
 <li>
-  <a href="reference/index.html">Reference</a>
+  <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -89,7 +93,7 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="articles/extending.html">Creating vitae templates</a>
+      <a href="../articles/extending.html">Creating vitae templates</a>
     </li>
   </ul>
 </li>
@@ -112,23 +116,77 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>NA</h1>
+    <h1>CV entries</h1>
+    <small class="dont-index">Source: <a href='https://github.com/ropenscilabs/vitae/blob/master/R/brief.R'><code>R/brief.R</code></a>, <a href='https://github.com/ropenscilabs/vitae/blob/master/R/detailed.R'><code>R/detailed.R</code></a></small>
+    <div class="hidden name"><code>cv_entries.Rd</code></div>
     </div>
 
+    <div class="ref-description">
+    
+    <p>This function accepts a data object (such as a tibble) and formats the output
+into a suitable format for the template used. The inputs can also involve
+further calculations, which will be done using the provided data.</p>
+    
+    </div>
 
-<p>Please briefly describe your problem and what output you expect.</p>
-<p>Please include a minimal reproducible example (AKA a reprex). Reproducible examples can be easily produced using the <a href="http://reprex.tidyverse.org/">reprex package</a>.</p>
-<hr>
-<p>Brief description of the problem</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># insert reprex here</span></a></code></pre></div>
+    <pre class="usage"><span class='fu'>brief_entries</span>(<span class='no'>data</span>, <span class='no'>what</span>, <span class='no'>when</span>, <span class='no'>with</span>, <span class='kw'>.protect</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
+<span class='fu'>detailed_entries</span>(<span class='no'>data</span>, <span class='no'>what</span>, <span class='no'>when</span>, <span class='no'>with</span>, <span class='no'>where</span>, <span class='no'>why</span>, <span class='kw'>.protect</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>data</th>
+      <td><p>A <code>data.frame</code> or <code>tibble</code>.</p></td>
+    </tr>
+    <tr>
+      <th>what</th>
+      <td><p>The primary value of the entry (such as workplace title or degree).</p></td>
+    </tr>
+    <tr>
+      <th>when</th>
+      <td><p>The time of the entry (such as the period spent in the role).</p></td>
+    </tr>
+    <tr>
+      <th>with</th>
+      <td><p>The company or organisation.</p></td>
+    </tr>
+    <tr>
+      <th>.protect</th>
+      <td><p>When TRUE, inputs to the previous arguments will be protected
+from being parsed as LaTeX code.</p></td>
+    </tr>
+    <tr>
+      <th>where</th>
+      <td><p>The location of the entry.</p></td>
+    </tr>
+    <tr>
+      <th>why</th>
+      <td><p>Any additional information, to be included as dot points. Each
+entry for why is provided in long form (where the what, when, with, and where
+is duplicated)</p></td>
+    </tr>
+    </table>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>All non-data inputs are optional, and will result in an empty space if omitted.</p>
+    
 
   </div>
+  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+    <h2>Contents</h2>
+    <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#details">Details</a></li>
+          </ul>
 
+  </div>
 </div>
-
 
       <footer>
       <div class="copyright">
