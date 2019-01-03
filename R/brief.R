@@ -1,4 +1,4 @@
-#' @rdname cventries
+#' @rdname cv_entries
 #' @importFrom rlang enexpr expr_text !!
 #' @export
 brief_entries <- function(data, what, when, with, .protect = TRUE) {

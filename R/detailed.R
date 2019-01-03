@@ -17,7 +17,8 @@
 #' @param .protect When TRUE, inputs to the previous arguments will be protected
 #' from being parsed as LaTeX code.
 #'
-#' @rdname cventries
+#' @name cv_entries
+#' @rdname cv_entries
 #'
 #' @importFrom rlang enexpr expr_text !! := sym syms
 #' @export

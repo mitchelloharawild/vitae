@@ -2,6 +2,7 @@
 % Please edit documentation in R/brief.R, R/detailed.R
 \name{brief_entries}
 \alias{brief_entries}
+\alias{cv_entries}
 \alias{detailed_entries}
 \title{CV entries}
 \usage{
