@@ -96,7 +96,7 @@ The `vitae` package returns `brief_entries` in this format:
 }
 ```
 
-So in our pandoc template's header, we need to define macros for `\briefsection` and `\briefitem` that produce an appropriately structured `\cvitem`. The `\briefitem` provides 3 inputs, and `\cventry` expects 2, so we will need to combine two of the `\briefitem` inputs. A suitable LaTeX macro could be defined as:
+So in our Pandoc template's header, we need to define macros for `\briefsection` and `\briefitem` that produce an appropriately structured `\cvitem`. The `\briefitem` provides 3 inputs, and `\cventry` expects 2, so we will need to combine two of the `\briefitem` inputs. A suitable LaTeX macro could be defined as:
 
 ```
 % Templates for brief entries
