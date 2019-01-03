@@ -18,7 +18,8 @@ Suggests:
     covr,
     rorcid,
     testthat,
-    stringr
+    stringr,
+    htmltools
 License: GPL-3
 Encoding: UTF-8
 BugReports: https://github.com/ropenscilabs/vitae/issues

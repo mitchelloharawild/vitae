@@ -1,0 +1,53 @@
+---
+name: Mitchell O'Hara-Wild
+date: "`r format(Sys.time(), '%B, %Y')`"
+profilepic: pic.jpg
+website: mitchelloharawild.com
+github: mitchelloharawild
+linkedin: mitchelloharawild
+twitter: mitchoharawild
+headcolor: 414141
+output: vitae::awesomecv
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(vitae)
+```
+
+# Professional Summary
+
+This is a good opportunity to introduce yourself professionally and summarise
+why your skills are well suited to the job you are applying for!")
+
+# Education
+
+```{r education}
+library(vitae)
+edu <- rorcid::orcid_educations("0000-0001-6729-7695")
+edu$`0000-0001-6729-7695`$`education-summary` %>%
+  detailed_entries(
+    what = `role-title`,
+    when = glue::glue("{`start-date.year.value`} - {`end-date.year.value`}"),
+    with = organization.name,
+    where = organization.address.city
+  )
+```
+
+# R Packages
+
+```{r rpkgs}
+pkgsearch::ps("O'Hara-Wild",size = 100) %>%
+  filter(purrr::map_lgl(package_data, ~ grepl("Mitchell O'Hara-Wild", .x$Author, fixed = TRUE))) %>%
+  arrange(desc(downloads_last_month)) %>%
+  brief_entries(
+    what = title,
+    when = lubridate::year(date),
+    with = description
+  )
+```
+
+```{r publications}
+bibliography_entries("publications.bib", "Publications")
+```
+
