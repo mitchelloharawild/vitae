@@ -8,7 +8,7 @@
 #'
 #' @param file A path to a .bib file.
 #' @param title Character string giving section title.
-#' @param sorting Character stringing specifying how entries should be sorted. Default is "ynt" meaning
+#' @param sorting Character string specifying how entries should be sorted. Default is "ynt" meaning
 #' sort by year first, then name, then title.
 #' @param startlabel Optional label for first reference in the section.
 #' @param endlabel Optional label for last reference in the section.

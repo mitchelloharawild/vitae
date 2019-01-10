@@ -12,7 +12,7 @@ bibliography_entries(file, title = "Refereed journal papers",
 
 \item{title}{Character string giving section title.}
 
-\item{sorting}{Character stringing specifying how entries should be sorted. Default is "ynt" meaning
+\item{sorting}{Character string specifying how entries should be sorted. Default is "ynt" meaning
 sort by year first, then name, then title.}
 
 \item{startlabel}{Optional label for first reference in the section.}
