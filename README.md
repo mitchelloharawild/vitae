@@ -32,6 +32,16 @@ You can install the **development** version from
 devtools::install_github("ropenscilabs/vitae")
 ```
 
+This package requires LaTeX to be installed on your computer. If you’re
+encountering issues, please check that LaTeX is installed. The [tinytex
+package](https://github.com/yihui/tinytex) makes it easy to setup LaTeX
+within R:
+
+``` r
+install.packages('tinytex')
+tinytex::install_tinytex()
+```
+
 ## Getting started
 
 The *vitae* package currently supports 4 popular CV templates, and
