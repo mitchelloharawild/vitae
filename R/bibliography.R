@@ -33,19 +33,19 @@ bibliography_entries <- function(file,
 #' @importFrom knitr knit_print
 #' @export
 knit_print.vitae_bibliography <- function(x, options) {
-  bibname <- paste("bib", title, sep = "")
+  bibname <- paste("bib", x %@% "file", format((as.numeric(Sys.time())%%60)*1e5, nsmall = 0), sep = "-")
   items <- x$key
   startlabel <- x %@% "startlabel"
   endlabel <- x %@% "endlabel"
   out <- glue(
-    "
+    '
     \\defbibheading{<<bibname>>}{}<<startlabel>>
     \\addtocategory{<<bibname>>}{<<items>>}
-    \\newrefcontext[sorting='none']\\setcounter{papers}{0}\\pagebreak[3]
+    \\newrefcontext[sorting=none]\\setcounter{papers}{0}\\pagebreak[3]
     \\printbibliography[category=<<bibname>>,heading=none]<<endlabel>>\\setcounter{papers}{0}
 
     \\nocite{<<items>>}
-    ",
+    ',
     startlabel = ifelse(!is.null(startlabel),
       glue("\\label{<startlabel>}", .open = "<", .close = ">"),
       ""
