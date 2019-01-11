@@ -7,9 +7,6 @@
 #' Given a bib file, this function will generate bibliographic entries for one or more types of bib entry.
 #'
 #' @param file A path to a .bib file.
-#' @param title Character string giving section title.
-#' @param sorting Character string specifying how entries should be sorted. Default is "ynt" meaning
-#' sort by year first, then name, then title.
 #' @param startlabel Optional label for first reference in the section.
 #' @param endlabel Optional label for last reference in the section.
 #'
@@ -19,16 +16,12 @@
 #'
 #' @export
 bibliography_entries <- function(file,
-                                 title = "Refereed journal papers",
-                                 sorting = "ynt",
                                  startlabel = NULL,
                                  endlabel = NULL) {
   bib <- RefManageR::ReadBib(file, check = FALSE)
   out <- dplyr::as_tibble(bib)
   structure(mutate(out, key = names(bib$key)),
     file = file,
-    title = title,
-    sorting = sorting,
     startlabel = startlabel,
     endlabel = endlabel,
     preserve = "key",
@@ -40,18 +33,16 @@ bibliography_entries <- function(file,
 #' @importFrom knitr knit_print
 #' @export
 knit_print.vitae_bibliography <- function(x, options) {
-  title <- x %@% "title"
   bibname <- paste("bib", title, sep = "")
   items <- x$key
-  sorting <- x %@% "sorting"
   startlabel <- x %@% "startlabel"
   endlabel <- x %@% "endlabel"
   out <- glue(
     "
-    \\defbibheading{<<bibname>>}{\\subsection{<<title>>}}<<startlabel>>
+    \\defbibheading{<<bibname>>}{}<<startlabel>>
     \\addtocategory{<<bibname>>}{<<items>>}
-    \\newrefcontext[sorting=<<sorting>>]\\setcounter{papers}{0}\\pagebreak[3]
-    \\printbibliography[category=<<bibname>>,heading=<<bibname>>]<<endlabel>>\\setcounter{papers}{0}
+    \\newrefcontext[sorting='none']\\setcounter{papers}{0}\\pagebreak[3]
+    \\printbibliography[category=<<bibname>>,heading=none]<<endlabel>>\\setcounter{papers}{0}
 
     \\nocite{<<items>>}
     ",
