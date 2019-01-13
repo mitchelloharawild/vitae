@@ -59,6 +59,8 @@ $endfor$
 %	NAME AND CONTACT INFORMATION SECTION
 %----------------------------------------------------------------------------------------
 
+\def\donothing#1{#1}
+\def\emaillink#1{#1}
 \firstname{} % Your first name
 \familyname{$name$} % Your first name
 $if(position)$\title{$position$}$endif$ % Job title/career
@@ -66,7 +68,7 @@ $if(position)$\title{$position$}$endif$ % Job title/career
 $if(address)$\address{$address$}{}$endif$ % Short address/location, use \newline if more than 1 line is required
 $if(phone)$\phone{$phone$}$endif$ % Phone number
 $if(www)$\homepage{http://$www$}{$www$}$endif$ % Personal website
-$if(email)$\email{$email$}$endif$ % Email address
+$if(email)$\email{\donothing{$email$}}$endif$ % Email address
 % $if(twitter)$\cvtwitter{\href{https://twitter.com/$twitter$}{$twitter$}}$else$\cvtwitter{}$endif$
 % $if(github)$\cvgithub{\href{https://github.com/$github$}{$github$}}$else$\cvgithub{}$endif$
 % $if(linkedin)$\cvlinkedin{\href{https://www.linkedin.com/in/$linkedin$}{$linkedin$}}$else$\cvlinkedin{}$endif$
