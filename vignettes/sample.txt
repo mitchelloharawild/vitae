@@ -2,7 +2,7 @@
 name: Mitchell O'Hara-Wild
 date: "`r format(Sys.time(), '%B, %Y')`"
 profilepic: pic.jpg
-website: mitchelloharawild.com
+www: mitchelloharawild.com
 github: mitchelloharawild
 linkedin: mitchelloharawild
 twitter: mitchoharawild
