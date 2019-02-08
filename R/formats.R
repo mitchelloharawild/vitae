@@ -46,11 +46,13 @@ awesomecv <- function(...) {
 
 #' @rdname cv_formats
 #' @export
-moderncv <- function(...) {
+moderncv <- function(..., theme = c("casual", "classic", "oldstyle", "banking")) {
+  theme <- match.arg(theme)
   template <- system.file("rmarkdown", "templates", "moderncv",
     "resources", "moderncv.tex",
     package = "vitae"
   )
   copy_supporting_files("moderncv")
-  cv_document(..., template = template, citation_package = "biblatex", latex_engine = "xelatex")
+  cv_document(..., pandoc_vars = list(theme = theme),
+              template = template, citation_package = "biblatex", latex_engine = "xelatex")
 }
