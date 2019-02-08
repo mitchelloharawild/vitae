@@ -45,6 +45,9 @@ awesomecv <- function(...) {
 }
 
 #' @rdname cv_formats
+#'
+#' @param theme The theme for the vitae template.
+#'
 #' @export
 moderncv <- function(..., theme = c("casual", "classic", "oldstyle", "banking", "fancy")) {
   theme <- match.arg(theme)

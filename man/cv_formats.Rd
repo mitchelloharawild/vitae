@@ -14,10 +14,13 @@ twentyseconds(...)
 
 awesomecv(...)
 
-moderncv(...)
+moderncv(..., theme = c("casual", "classic", "oldstyle", "banking",
+  "fancy"))
 }
 \arguments{
 \item{\dots}{Arguments passed to \code{\link[vitae]{cv_document}}.}
+
+\item{theme}{The theme for the vitae template.}
 }
 \value{
 An R Markdown output format object.

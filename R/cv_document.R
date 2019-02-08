@@ -3,7 +3,9 @@
 #' This output format provides support for including LaTeX dependencies and
 #' bibliography entries in extension of the bookdown::pdf_document2() format.
 #'
-#' @param ... Arguments passed to bookdown::pdf_document2()
+#' @inheritParams rmarkdown::pdf_document
+#' @param ... Arguments passed to bookdown::pdf_document2().
+#' @param pandoc_vars Pandoc variables to be passed to the template.
 #'
 #' @export
 cv_document <- function(..., pandoc_args = NULL, pandoc_vars = NULL) {
