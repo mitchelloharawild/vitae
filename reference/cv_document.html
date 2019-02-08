@@ -132,14 +132,22 @@ bibliography entries in extension of the bookdown::pdf_document2() format.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>cv_document</span>(<span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>cv_document</span>(<span class='no'>...</span>, <span class='kw'>pandoc_args</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>pandoc_vars</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>...</th>
-      <td><p>Arguments passed to bookdown::pdf_document2()</p></td>
+      <td><p>Arguments passed to bookdown::pdf_document2().</p></td>
+    </tr>
+    <tr>
+      <th>pandoc_args</th>
+      <td><p>Additional command line options to pass to pandoc</p></td>
+    </tr>
+    <tr>
+      <th>pandoc_vars</th>
+      <td><p>Pandoc variables to be passed to the template.</p></td>
     </tr>
     </table>
     
