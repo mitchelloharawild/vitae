@@ -1,33 +1,22 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% "ModernCV" CV and Cover Letter
-% LaTeX Template
-% Version 1.3 (29/10/16)
-%
-% This template has been downloaded from:
-% http://www.LaTeXTemplates.com
-%
-% Original author:
-% Xavier Danaux (xdanaux@gmail.com) with modifications by:
-% Vel (vel@latextemplates.com)
+%% start of file `template.tex'.
+%% Copyright 2006-2015 Xavier Danaux (xdanaux@gmail.com).
 %
 % Adapted to be an Rmarkdown template by Mitchell O'Hara-Wild
-% 23 November 2018
+% 8 February 2019
 %
-% License:
-% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
-%
-% Important note:
-% This template requires the moderncv.cls and .sty files to be in the same
-% directory as this .tex file. These files provide the resume style and themes
-% used for structuring the document.
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
 
-%----------------------------------------------------------------------------------------
-%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
-%----------------------------------------------------------------------------------------
 
 \documentclass[$if(fontsize)$$fontsize$$else$11pt$endif$,$if(lang)$$babel-lang$,$endif$$if(papersize)$$papersize$$else$a4paper$endif$,$for(classoption)$$classoption$$sep$,$endfor$]{moderncv}
+
+% moderncv themes
+\moderncvstyle{$theme$}                             % style options are 'casual' (default), 'classic', 'banking', 'oldstyle' and 'fancy'
+
+\definecolor{color0}{rgb}{0,0,0}% black
+\definecolor{color1}{HTML}{$if(headcolor)$$headcolor$$else$3873B3$endif$}% custom
+\definecolor{color2}{rgb}{0.45,0.45,0.45}% dark grey
 
 $if(fontfamily)$
 \usepackage[$for(fontfamilyoptions)$$fontfamilyoptions$$sep$,$endfor$]{$fontfamily$}
@@ -35,17 +24,21 @@ $else$
 \usepackage[scaled=0.86]{DejaVuSansMono}
 $endif$
 
-\moderncvstyle{casual} % CV theme - options include: 'casual' (default), 'classic', 'oldstyle' and 'banking'
-\definecolor{color0}{rgb}{0,0,0}% black
-\definecolor{color1}{HTML}{$if(headcolor)$$headcolor$$else$3873B3$endif$}% light blue
-\definecolor{color2}{rgb}{0.45,0.45,0.45}% dark grey
-
 \providecommand{\tightlist}{%
 	\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\def\donothing#1{#1}
+\def\emaillink#1{#1}
 
-\usepackage[scale=0.75]{geometry} % Reduce document margins
-%\setlength{\hintscolumnwidth}{3cm} % Uncomment to change the width of the dates column
-%\setlength{\makecvtitlenamewidth}{10cm} % For the 'classic' style, uncomment to adjust the width of the space allocated to your name
+%\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
+
+% character encoding
+%\usepackage[utf8]{inputenc}                       % if you are not using xelatex ou lualatex, replace by the encoding you are using
+%\usepackage{CJKutf8}                              % if you need to use CJK to typeset your resume in Chinese, Japanese or Korean
+
+% adjust the page margins
+\usepackage[scale=0.75]{geometry}
+%\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
+%\setlength{\makecvheadnamewidth}{10cm}            % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
 
 $if(highlighting-macros)$
 $highlighting-macros$
@@ -55,31 +48,23 @@ $for(header-includes)$
 $header-includes$
 $endfor$
 
-%----------------------------------------------------------------------------------------
-%	NAME AND CONTACT INFORMATION SECTION
-%----------------------------------------------------------------------------------------
+% personal data
+\name{}{$name$}
+$if(position)$\title{$position$}$endif$
+$if(address)$\address{$address$}{}{}$endif$
+$if(phone)$\phone[mobile]{$phone$}$endif$ % Phone number
+$if(email)$\email{\donothing{$email$}}$endif$
+$if(www)$\homepage{$www$}$endif$ % Personal website
+$if(linkedin)$\social[linkedin]{$linkedin$}$endif$
+$if(twitter)$\social[twitter]{$twitter$}$endif$
+$if(github)$\social[github]{$github$}$endif$
+% \extrainfo{additional information}                 % optional, remove / comment the line if not wanted
 
-\firstname{} % Your first name
-\familyname{$name$} % Your first name
-$if(position)$\title{$position$}$endif$ % Job title/career
-% $if(date)$\cvdate{$date$}$else$\cvdate{}$endif$ % Date of birth or date of CV??
-$if(address)$\address{$address$}{}$endif$ % Short address/location, use \newline if more than 1 line is required
-$if(phone)$\phone{$phone$}$endif$ % Phone number
-$if(www)$\homepage{http://$www$}{$www$}$endif$ % Personal website
-$if(email)$\email{$email$}$endif$ % Email address
-% $if(twitter)$\cvtwitter{\href{https://twitter.com/$twitter$}{$twitter$}}$else$\cvtwitter{}$endif$
-% $if(github)$\cvgithub{\href{https://github.com/$github$}{$github$}}$else$\cvgithub{}$endif$
-% $if(linkedin)$\cvlinkedin{\href{https://www.linkedin.com/in/$linkedin$}{$linkedin$}}$else$\cvlinkedin{}$endif$
 $if(profilepic)$\photo[70pt][0.4pt]{$profilepic$}$endif$
-\extrainfo{
-	$if(twitter)$\hspace*{1em}\href{https://twitter.com/$twitter$}{twitter: $twitter$}\hspace*{1em}$endif$	$if(github)$\hspace*{1em}\href{https://github.com/$github$}{github: $github$}\hspace*{1em}$endif$	$if(linkedin)$\hspace*{1em}\href{https://linkedin.com/in/$linkedin$}{linkedin: $linkedin$}\hspace*{1em}$endif$
-}
-
 
 $if(aboutme)$
 \quote{$aboutme$}
 $endif$
-
 
 % Templates for detailed entries
 % Arguments: what when with where why
@@ -93,11 +78,13 @@ $endif$
 \def\briefitem#1#2#3{\cvitem{#2}{#1. #3}}
 \def\briefsection#1{\nopagebreak#1}
 
-%----------------------------------------------------------------------------------------
-
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
 \begin{document}
-
-\makecvtitle % Print the CV title
+%\begin{CJK*}{UTF8}{gbsn}                          % to typeset your resume in Chinese using CJK
+%-----       resume       ---------------------------------------------------------
+\makecvtitle
 
 $if(linestretch)$
 \setstretch{$linestretch$}
@@ -114,3 +101,9 @@ $include-after$
 $endfor$
 
 \end{document}
+
+%\clearpage\end{CJK*}                              % if you are typesetting your resume in Chinese using CJK; the \clearpage is required for fancyhdr to work correctly with CJK, though it kills the page numbering by making \lastpage undefined
+\end{document}
+
+
+%% end of file `template.tex'.

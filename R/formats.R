@@ -46,7 +46,7 @@ awesomecv <- function(...) {
 
 #' @rdname cv_formats
 #' @export
-moderncv <- function(..., theme = c("casual", "classic", "oldstyle", "banking")) {
+moderncv <- function(..., theme = c("casual", "classic", "oldstyle", "banking", "fancy")) {
   theme <- match.arg(theme)
   template <- system.file("rmarkdown", "templates", "moderncv",
     "resources", "moderncv.tex",
