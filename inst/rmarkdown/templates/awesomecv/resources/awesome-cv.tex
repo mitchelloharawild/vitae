@@ -139,8 +139,8 @@ $endfor$
 % 2019-02-14 Chris Umphlett - add flexibility to the document name in footer, rather than have it be static Curriculum Vitae
 \makecvfooter
   {$date$}
-  $if(footer_docname)$
-    {$name$~~~·~~~$footer_docname$}
+  $if(docname)$
+    {$name$~~~·~~~$docname$}
   $endif$	
   {\thepage}
 
