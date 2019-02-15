@@ -106,7 +106,7 @@ $endif$
 % Templates for detailed entries
 % Arguments: what when with where why
 \usepackage{etoolbox}
-\def\detaileditem#1#2#3#4#5{
+\def\detaileditem#1#2#3#4#5{%
 \cventry{#1}{#3}{#4}{#2}{\ifx#5\empty\else{\begin{cvitems}#5\end{cvitems}}\fi}}
 \def\detailedsection#1{\begin{cventries}#1\end{cventries}}
 
