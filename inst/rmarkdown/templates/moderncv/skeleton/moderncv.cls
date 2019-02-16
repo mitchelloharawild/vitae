@@ -191,7 +191,8 @@
 % compatibility package with older versions of moderncv
 \RequirePackageWithOptions{moderncvcompatibility}
 
-\RequirePackage{l3regex}
+%\RequirePackage{l3regex}
+\RequirePackage{expl3}
 
 %-------------------------------------------------------------------------------
 %                class definition
@@ -508,7 +509,7 @@
   \ifthenelse{\equal{#1}{}}%
     {\href{mailto:#2}{#2}}%
     {\href{mailto:#2}{#1}}}
-    
+
 % makes a tel hyperlink
 % usage: \tellink[optional text]{link}
 \newcommand*{\tellink}[2][]{%
