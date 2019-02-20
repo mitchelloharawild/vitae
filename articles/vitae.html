@@ -121,8 +121,8 @@ github: mitchelloharawild
 linkedin: mitchelloharawild
 twitter: mitchoharawild
 headcolor: 414141
-output: vitae::awesomecv
----</code>
+docname: CV/Resume
+output: vitae::awesomecv</code>
 </pre></code></pre>
 <p>You can also see that the output is set to <code><a href="../reference/cv_formats.html">vitae::awesomecv</a></code>, which indicates that this CV uses the <a href="https://github.com/posquit0/Awesome-CV">Awesome CV</a> template.</p>
 <p>Currently, the YAML header allows these fields to be specified:</p>
@@ -158,15 +158,15 @@ output: vitae::awesomecv
 <a href="#the-document-body" class="anchor"></a>The document body</h3>
 <p>Like other R Markdown documents, the body allows you to mix R code with markdown to create the main content for your document. Below is an example of the start for a typical CV:</p>
 <pre>
-<code>```{r setup, include=FALSE}
+<code>
+```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 library(vitae)
 ```
 
 # Professional Summary
 
-This is a good opportunity to introduce yourself professionally and summarise
-why your skills are well suited to the job you are applying for!")</code>
+This is a good opportunity to introduce yourself professionally and summarise</code>
 </pre>
 <p>The setup chunk is useful to load in any packages that you may use, and also prevent R code and warnings/notes from appearing in your CV. The above code also includes a professional summary using markdown syntax, which will appear in the final CV.</p>
 <p>Unlike other R markdown formats, the vitae package and its templates support functions to generate CV entries from data: <code><a href="../reference/cv_entries.html">detailed_entries()</a></code> and <code><a href="../reference/cv_entries.html">brief_entries()</a></code>. Both functions provide sections for <code>what</code>, <code>when</code>, and <code>with</code>, and the <code><a href="../reference/cv_entries.html">detailed_entries()</a></code> additionally supports <code>where</code> and <code>why</code>. They use an interface similar to <a href="https://CRAN.R-project.org/package=dplyr">dplyr</a>, in that the data can be piped (<code>%&gt;%</code>) into these functions, and the arguments can involve some calculations.</p>
@@ -175,7 +175,8 @@ why your skills are well suited to the job you are applying for!")</code>
 <a href="#detailed-entries" class="anchor"></a>Detailed entries</h4>
 <p>Let’s add to the main body with some education history. These details are available on <a href="https://orcid.org">ORCID</a> with my ID of <a href="https://orcid.org/0000-0001-6729-7695">0000-0001-6729-7695</a>, which can be dynamically accessed using the <a href="https://CRAN.R-project.org/package=rorcid">rorcid</a> package.</p>
 <pre>
-<code># Education
+<code>
+# Education
 
 ```{r education}
 library(vitae)
@@ -186,8 +187,7 @@ edu$`0000-0001-6729-7695`$`education-summary` %&gt;%
     when = glue::glue("{`start-date.year.value`} - {`end-date.year.value`}"),
     with = organization.name,
     where = organization.address.city
-  )
-```</code>
+  )</code>
 </pre>
 <p>In the example above, the <a href="https://CRAN.R-project.org/package=glue">glue</a> package has been used to combine the start and end years for our <code>when</code> input. Excluding any arguments is also okay (as is done for <code>why</code>), it will just be left blank in the CV.</p>
 </div>
@@ -196,7 +196,8 @@ edu$`0000-0001-6729-7695`$`education-summary` %&gt;%
 <a href="#brief-entries" class="anchor"></a>Brief entries</h4>
 <p>Brief entries can be included with the same interface as <code><a href="../reference/cv_entries.html">detailed_entries()</a></code>, and is appropriate for entries that do not need as much detail (such as skills). Another application of this is to include a list of R packages that you have published to CRAN using the <a href="https://CRAN.R-project.org/package=pkgsearch">pkgsearch</a> package.</p>
 <pre>
-<code># R Packages
+<code>
+# R Packages
 
 ```{r rpkgs}
 pkgsearch::ps("O'Hara-Wild",size = 100) %&gt;%
@@ -206,8 +207,7 @@ pkgsearch::ps("O'Hara-Wild",size = 100) %&gt;%
     what = title,
     when = lubridate::year(date),
     with = description
-  )
-```</code>
+  )</code>
 </pre>
 <p>This example also uses several other packages to prepare the data: - <a href="https://CRAN.R-project.org/package=dplyr">dplyr</a> to <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> my contributed packages, and <code><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange()</a></code> the data by downloads - <a href="https://CRAN.R-project.org/package=purrr">purrr</a> to map over <code>package_data</code> column to find packages I’ve contributed to - <a href="https://CRAN.R-project.org/package=lubridate">lubridate</a> to display only the year from the <code>date</code> column</p>
 </div>
@@ -216,9 +216,9 @@ pkgsearch::ps("O'Hara-Wild",size = 100) %&gt;%
 <a href="#bibliography-entries" class="anchor"></a>Bibliography entries</h4>
 <p>The package also supports bibliography entries from a <code>*.bib</code> file using the <code><a href="../reference/bibliography_entries.html">bibliography_entries()</a></code> function. This outputs the contents of a bibliography using a citation style, and is suitable for CVs containing publications.</p>
 <pre>
-<code>```{r publications}
-bibliography_entries("publications.bib", "Publications")
-```</code>
+<code>
+```{r publications}
+bibliography_entries("publications.bib", "Publications")</code>
 </pre>
 </div>
 </div>
