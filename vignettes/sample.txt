@@ -7,6 +7,7 @@ github: mitchelloharawild
 linkedin: mitchelloharawild
 twitter: mitchoharawild
 headcolor: 414141
+docname: CV/Resume
 output: vitae::awesomecv
 ---
 

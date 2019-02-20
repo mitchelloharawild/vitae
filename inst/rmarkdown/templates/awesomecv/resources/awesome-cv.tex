@@ -136,9 +136,12 @@ $endfor$
 
 % Print the footer with 3 arguments(<left>, <center>, <right>)
 % Leave any of these blank if they are not needed
+% 2019-02-14 Chris Umphlett - add flexibility to the document name in footer, rather than have it be static Curriculum Vitae
 \makecvfooter
   {$date$}
-  {$name$~~~·~~~Curriculum Vitae}
+  $if(docname)$
+    {$name$~~~·~~~$docname$}
+  $endif$	
   {\thepage}
 
 
