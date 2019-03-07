@@ -62,12 +62,7 @@ knit_print.vitae_detailed <- function(x, options) {
   )
 
   out <- glue_data(x,
-    "\\detaileditem
-            {<<protect_tex_input(what)>>}
-            {<<protect_tex_input(when)>>}
-            {<<protect_tex_input(with)>>}
-            {<<protect_tex_input(where)>>}
-            {<<why>>}",
+    "\\detaileditem{<<protect_tex_input(what)>>}{<<protect_tex_input(when)>>}{<<protect_tex_input(with)>>}{<<protect_tex_input(where)>>}{<<why>>}",
     .open = "<<", .close = ">>"
   )
 
