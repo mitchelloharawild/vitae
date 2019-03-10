@@ -7,6 +7,8 @@
 #' Given a bib file, this function will generate bibliographic entries for one or more types of bib entry.
 #'
 #' @param file A path to a .bib file.
+#' @param title Deprecated, use markdown sub-headers.
+#' @param sorting Deprecated, use [dplyr::arrange()] to re-order the bibliography.
 #' @param startlabel Optional label for first reference in the section.
 #' @param endlabel Optional label for last reference in the section.
 #'
@@ -15,9 +17,15 @@
 #' @author Rob J Hyndman & Mitchell O'Hara-Wild
 #'
 #' @export
-bibliography_entries <- function(file,
+bibliography_entries <- function(file, title = NULL, sorting = NULL,
                                  startlabel = NULL,
                                  endlabel = NULL) {
+  if(!missing(title)){
+    warning("The `title` argument is deprecated. Please add bibliography titles using markdown sub-headers. This argument will be removed in the next release of vitae.")
+  }
+  if(!missing(sorting)){
+    warning("The `sorting` argument is deprecated. Please sort bibliography entries using `dplyr::arrange()`. This argument will be removed in the next release of vitae.")
+  }
   bib <- RefManageR::ReadBib(file, check = FALSE)
   family <- map_chr(bib, function(x){
     map_chr(x$author, function(names){
