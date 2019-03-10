@@ -59,3 +59,16 @@ moderncv <- function(..., theme = c("casual", "classic", "oldstyle", "banking", 
   cv_document(..., pandoc_vars = list(theme = theme),
               template = template, citation_package = "biblatex", latex_engine = "xelatex")
 }
+
+#' @rdname cv_formats
+#'
+#' @export
+latexcv <- function(..., theme = c("classic", "modern", "rows", "sidebar", "two_column")) {
+  theme <- match.arg(theme)
+  template <- system.file("rmarkdown", "templates", "latexcv",
+                          "resources", theme, "main.tex",
+                          package = "vitae"
+  )
+  copy_supporting_files("latexcv")
+  cv_document(..., template = template, citation_package = "biblatex")
+}
