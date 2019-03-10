@@ -183,7 +183,7 @@ $endfor$
 % Header and footer
 \pagestyle{fancy}
 \makeatletter
-\lhead{\sf\textcolor[gray]{0.4}{Curriculum Vitae: \@name}}
+\lhead{\sf\textcolor[gray]{0.4}{$if(docname)$$docname$$else$Curriculum Vitae$endif$: \@name}}
 \rhead{\sf\textcolor[gray]{0.4}{\thepage}}
 \cfoot{}
 \def\headrule{{\color[gray]{0.4}\hrule\@height\headrulewidth\@width\headwidth \vskip-\headrulewidth}}
@@ -211,7 +211,7 @@ $endfor$
 \\[-0.3cm]
 \LARGE\textbf{\@name}
 $if(position)$\\[0.1cm]\large $position$\\[0.6cm]$else$\\[0.7cm]$endif$
-\normalsize\textbf{Curriculum Vitae}\\
+\normalsize\textbf{$if(docname)$$docname$$else$Curriculum Vitae$endif$}\\
 \normalsize $if(date)$$date$$else$\today$endif$
 \end{tabular}
 \hfill\hbox{\fontsize{9}{12}\sf
