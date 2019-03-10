@@ -130,7 +130,8 @@
     
     </div>
 
-    <pre class="usage"><span class='fu'>bibliography_entries</span>(<span class='no'>file</span>, <span class='kw'>startlabel</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>endlabel</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>bibliography_entries</span>(<span class='no'>file</span>, <span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>sorting</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>startlabel</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>endlabel</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -138,6 +139,14 @@
     <tr>
       <th>file</th>
       <td><p>A path to a .bib file.</p></td>
+    </tr>
+    <tr>
+      <th>title</th>
+      <td><p>Deprecated, use markdown sub-headers.</p></td>
+    </tr>
+    <tr>
+      <th>sorting</th>
+      <td><p>Deprecated, use <code><a href='https://dplyr.tidyverse.org/reference/arrange.html'>dplyr::arrange()</a></code> to re-order the bibliography.</p></td>
     </tr>
     <tr>
       <th>startlabel</th>
