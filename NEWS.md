@@ -4,6 +4,7 @@
 * Simplified `bibliography_entries` entries by removing `title` and `sorting`
   arguments. The title can be included using markdown, and sorting now respects
   the order of the tibble created by the function.
+* Added support for controlling document name with `docname` (@chrisumphlett, #42)
 * Bugfixes
 
 # vitae 0.1.0
