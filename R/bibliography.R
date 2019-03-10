@@ -19,7 +19,13 @@ bibliography_entries <- function(file,
                                  startlabel = NULL,
                                  endlabel = NULL) {
   bib <- RefManageR::ReadBib(file, check = FALSE)
-  out <- dplyr::as_tibble(bib)
+  family <- map_chr(bib, function(x){
+    map_chr(x$author, function(names){
+      paste(names$family, collapse = " ")
+    }) %>% paste(collapse = ", ")
+  })
+  out <- dplyr::as_tibble(bib) %>%
+    mutate(surnames = family)
   structure(mutate(out, key = names(bib$key)),
     file = file,
     startlabel = startlabel,
