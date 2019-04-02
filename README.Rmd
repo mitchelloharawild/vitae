@@ -89,6 +89,7 @@ Additional examples of using this package can be found in the slides presented a
 - [Rob Hyndman](https://github.com/robjhyndman/CV)
 - [Eric R. Scott](https://github.com/Aariq/curriculum-vitae)
 - [Chris Umphlett](https://chrisumphlett.github.io/posts/vitae-package/)
+- [Nat Price](https://github.com/natbprice/cv)
 
 Add your vitae to the list using a PR.
 

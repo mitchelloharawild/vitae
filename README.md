@@ -44,7 +44,7 @@ tinytex::install_tinytex()
 
 ## Getting started
 
-The *vitae* package currently supports 4 popular CV templates, and
+The *vitae* package currently supports 5 popular CV templates, and
 adding more is a relatively simple process (details in the [creating
 vitae
 templates](https://ropenscilabs.github.io/vitae/articles/extending.html)
@@ -118,6 +118,7 @@ presented at [ozunconf2018](https://ozunconf18.ropensci.org/):
   - [Eric R. Scott](https://github.com/Aariq/curriculum-vitae)
   - [Chris
     Umphlett](https://chrisumphlett.github.io/posts/vitae-package/)
+  - [Nat Price](https://github.com/natbprice/cv)
 
 Add your vitae to the list using a PR.
 
