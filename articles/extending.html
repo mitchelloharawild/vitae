@@ -197,7 +197,7 @@ output: vitae::awesomecv</code></pre>
 <a href="#contributing-to-the-vitae-package" class="anchor"></a>Contributing to the vitae package</h2>
 <p>If you’ve gone to the effort of successfully creating a new template with the <code>vitae</code> package, you may be interested in making it available for others to use. You can contribute to this package by <a href="http://r-pkgs.had.co.nz/git.html#git-pullreq">submitting a pull request</a> that adds your template to the package.</p>
 <p>Adding your template to the package can be done with:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">usethis<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/usethis/topics/use_rmarkdown_template">use_rmarkdown_template</a></span>(</a>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">usethis<span class="op">::</span><span class="kw">use_rmarkdown_template</span>(</a>
 <a class="sourceLine" id="cb9-2" data-line-number="2">  <span class="dt">template_name =</span> <span class="st">"Curriculum Vitae (ModernCV format)"</span>,</a>
 <a class="sourceLine" id="cb9-3" data-line-number="3">  <span class="dt">template_dir =</span> <span class="st">"my_template"</span>,</a>
 <a class="sourceLine" id="cb9-4" data-line-number="4">  <span class="dt">template_description =</span> <span class="st">"The ModernCV template (https://github.com/xdanaux/moderncv) for vitae"</span>,</a>
@@ -213,7 +213,7 @@ output: vitae::awesomecv</code></pre>
 <a class="sourceLine" id="cb10-7" data-line-number="7">  <span class="kw"><a href="../reference/cv_document.html">cv_document</a></span>(..., <span class="dt">template =</span> template, <span class="dt">citation_package=</span><span class="st">"biblatex"</span>, <span class="dt">latex_engine=</span><span class="st">"xelatex"</span>)</a>
 <a class="sourceLine" id="cb10-8" data-line-number="8">}</a></code></pre></div>
 <p>The automatically generated <code>skeleton.Rmd</code> document in the <code>skeleton</code> folder should be modified to be a basic example of using your template. Examples of this file can be found in other templates, and this template file can act as a useful test for your template!</p>
-<p>All done! You should now be able to install your new version of the package with <code><a href="https://www.rdocumentation.org/packages/devtools/topics/install">devtools::install()</a></code>, and test out your new output format with:</p>
+<p>All done! You should now be able to install your new version of the package with <code>devtools::install()</code>, and test out your new output format with:</p>
 <pre><code>output:
   vitae::my_template</code></pre>
 </div>
