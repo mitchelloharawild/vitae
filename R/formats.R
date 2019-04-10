@@ -57,7 +57,7 @@ moderncv <- function(..., theme = c("casual", "classic", "oldstyle", "banking", 
   )
   copy_supporting_files("moderncv")
   cv_document(..., pandoc_vars = list(theme = theme),
-              template = template, citation_package = "biblatex", latex_engine = "xelatex")
+              template = template, citation_package = "biblatex", latex_engine = "pdflatex")
 }
 
 #' @rdname cv_formats
