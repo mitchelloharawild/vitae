@@ -1,0 +1,104 @@
+---
+title: "Data sources for vitae"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Using vitae with other packages}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+Using data to dynamically build your Résumé or CV makes many powerful integrations possible. By using data to populate entries in the document, it becomes easy to manipulate and select relevant experiences for a particular application. There are many sources of data which can be used to populate a CV with vitae, some commonly sources are summarised in this vignette.
+
+The main purpose of sourcing your CV entries from common data sources is to extend the "do not repeat yourself" programming philosophy to maintaining a CV. If you maintain publications on [ORCID](https://orcid.org/) you shouldn't need to repeat these entries in your CV. If a list of talks you've made can be found on your website, avoid repeating the list in multiple locations to ensure that they both contain the same content.
+
+This vignette is far from comprehensive, and there are no doubt many other interesting ways to populate your CV with data. If you're using a data source that you think others should know about, consider making a [pull request](https://github.com/ropenscilabs/vitae/pulls) that adds your method to this vignette.
+
+## Spreadsheets and data sets
+
+The simplest source of entries for vitae are maintained dataset(s) of past experiences and achievements. Just like any dataset, these entries can be loaded into the document as a `data.frame` or `tibble` using functions from base R or the [`readr` package](https://readr.tidyverse.org/).
+
+```r
+readr::read_csv("employment.csv") %>% 
+  detailed_entries(???)
+```
+
+It is also possible to load in data from excel using the [`readxl` package](https://readxl.tidyverse.org/) or from Google Sheets using the [`googlesheets` package](https://github.com/jennybc/googlesheets).
+
+```r
+readxl::read_excel("awards.xlsx") %>% 
+  brief_entries(???)
+```
+
+## ORCID
+
+If you maintain an [ORCID](https://orcid.org/) profile, this information can be accessed using the [`rorcid` package](https://github.com/ropensci/rorcid). It will require an ORCID authentication token to be setup, as rendering the CV is done non-interactively. From the `rorcid` documentation:
+
+> The token is a alphanumeric UUID, e.g. dc0a6b6b-b4d4-4276-bc89-78c1e9ede56e. You can get this token by running orcid_auth(), then storing that key (the uuid alone, not the "Bearer " part) either as en environment variable in your .Renviron file in your home directory, or as an R option in your .Rprofile file. See ?Startup for more information. Either an environment variable or R option work. If we don't find either we do the next option.
+
+Essentially, use `rorcid::orcid_auth()` to obtain a token, which is added to either the `.Renviron` (`usethis::edit_r_environ()`) or `.Rprofile` (`usethis::edit_r_profile()`) using `ORCID_TOKEN=<YOUR TOKEN HERE>`.
+
+With the token setup, it is now possible to pull data from ORCID. As an example, here I source and display my education history using my ORCID ID of `"0000-0001-6729-7695"`.
+
+```r
+edu <- rorcid::orcid_educations("0000-0001-6729-7695")
+edu$`0000-0001-6729-7695`$`education-summary` %>%
+  detailed_entries(
+    what = `role-title`,
+    when = glue::glue("{`start-date.year.value`} - {`end-date.year.value`}"),
+    with = organization.name,
+    where = organization.address.city
+  )
+```
+
+## Google scholar
+
+Google Scholar does not require authentication to extract publications. Using the [`scholar` package](https://github.com/jkeirstead/scholar), it is easy to extract a user's publications from their Google Scholar ID. To obtain publications for an individual, you would first find your ID which is accessible from your profile URL. For example, Rob Hyndman's ID would be `"vamErfkAAAAJ"` (https://scholar.google.com/citations?user=vamErfkAAAAJ&hl=en).
+
+```r
+scholar::get_publications("vamErfkAAAAJ") %>% 
+  detailed_entries(
+    what = title,
+    when = year,
+    with = author,
+    where = journal,
+    why = cites
+  )
+```
+
+## Bibliography files
+
+The vitae package directly supports loading `*.bib` files using the `bibliography_entries()` function, which formats the entries in a bibliography style.
+
+```r
+bibliography_entries("publications.bib")
+```
+
+It is also possible to display the contents of your bibliography using template specific entries formats.
+
+```r
+bibliography_entries("publications.bib") %>% 
+  detailed_entries(???)
+```
+
+## R packages
+
+A list of R packages that you have helped develop can be obtained using the [`pkgsearch` package](https://github.com/r-hub/pkgsearch).
+
+```r
+pkgsearch::ps("O'Hara-Wild",size = 100) %>%
+  filter(map_lgl(package_data, ~ grepl("Mitchell O'Hara-Wild", .x$Author, fixed = TRUE))) %>% 
+  as_tibble() %>% 
+  brief_entries(
+    what = title, 
+    when = lubridate::year(date), 
+    with = description
+  )
+```
+
