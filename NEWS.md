@@ -1,11 +1,12 @@
 # vitae 0.1.0.9000
 
-* Added support for other `moderncv` themes: classic, banking, oldstyle, fancy
+* Added support for other `moderncv` themes: classic, banking, oldstyle, fancy.
 * Simplified `bibliography_entries` entries by removing `title` and `sorting`
   arguments. The title can be included using markdown, and sorting now respects
   the order of the tibble created by the function.
 * Added support for controlling document name with `docname` (@chrisumphlett, #42)
-* Bugfixes
+* Better support for manipulating and re-ordering output using dplyr verbs.
+* Bugfixes.
 
 # vitae 0.1.0
 
