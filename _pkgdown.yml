@@ -1,0 +1,20 @@
+authors:
+  Mitchell O'Hara-Wild:
+    href: http://mitchelloharawild.com
+  Rob Hyndman:
+    href: http://robjhyndman.com
+
+reference:
+- title: Templates
+  desc: >
+    CV templates made available in the vitae package.
+  contents:
+    - cv_formats
+    - cv_document
+- title: Entries
+  desc: >
+    Include your experiencies, skills, achievements and publications with these functions.
+  contents:
+    - brief_entries
+    - detailed_entries
+    - bibliography_entries
