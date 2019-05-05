@@ -31,7 +31,7 @@
 %============================================================================%
 
 %we use article class because we want to fully customize the page and dont use a cv template
-\documentclass[$if(fontsize)$$fontsize$$else$10pt$endif$,$if(lang)$$babel-lang$,$endif$$if(papersize)$$papersize$$else$A4$endif$,$for(classoption)$$classoption$$sep$,$endfor$]{article}
+\documentclass[$if(fontsize)$$fontsize$$else$10pt$endif$,$if(lang)$$babel-lang$,$endif$$if(papersize)$$papersize$$else$a4paper$endif$,$for(classoption)$$classoption$$sep$,$endfor$]{article}
 
 %----------------------------------------------------------------------------------------
 %	ENCODING
@@ -86,7 +86,7 @@ $endif$
 \pagestyle{fancy}
 
 %less space between header and content
-\setlength{\headheight}{-5pt}
+\setlength{\headheight}{12pt}
 
 
 %customize entries left, center and right
@@ -141,7 +141,6 @@ $endif$
 \usepackage{color}
 
 %accent color
-
 $if(headcolor)$
 \definecolor{sectcol}{HTML}{$headcolor$}
 $else$
@@ -298,7 +297,7 @@ $endif$
 
 % Templates for brief entries
 % Arguments: what when with
-\def\briefitem#1#2#3{\cvevent{#2}{#1. #3}}
+\def\briefitem#1#2#3{\cvevent{#2}{#1}{#3}}
 \def\briefsection#1{#1}
 
 
@@ -327,7 +326,7 @@ $endif$
 $if(profilepic)$
 \begin{figure}[H]
 \begin{flushright}
-\includegraphics[width=0.2\linewidth]{$profilepic$}	%trimming relative to image size!
+\includegraphics[width=0.2\linewidth]{$profilepic$}
 \end{flushright}
 \end{figure}
 $else$
@@ -388,7 +387,6 @@ $for(include-after)$
 $include-after$
 $endfor$
 
-
 %--------------------------------------------------------------------------------------------------
 %	ARTIFICIAL FOOTER (fancy footer cannot exceed linewidth)
 %--------------------------------------------------------------------------------------------------
@@ -399,7 +397,6 @@ $endfor$
 $if(twitter)$ - \textcolor{sectcol}{\href{https://twitter.com/$twitter$}{\faicon{twitter} $twitter$}}$else$$endif$
 $if(github)$ - \textcolor{sectcol}{\href{https://github.com/$github$}{\faicon{github} $github$}}$else$$endif$
 $if(linkedin)$ - \textcolor{sectcol}{\href{https://www.linkedin.com/in/$linkedin$}{\faicon{linkedin} $linkedin$}}$else$$endif$ - }}}
-
 
 %============================================================================%
 %

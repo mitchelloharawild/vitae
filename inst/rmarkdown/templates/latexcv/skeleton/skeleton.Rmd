@@ -11,7 +11,7 @@ linkedin: mariecurie
 date: "`r format(Sys.time(), '%B %Y')`"
 output: 
   vitae::latexcv:
-    keep_tex: true
+    theme: classic
 ---
 
 ```{r setup, include=FALSE}
