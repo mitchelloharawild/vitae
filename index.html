@@ -57,6 +57,9 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
+      <a href="articles/data.html">Data sources for vitae</a>
+    </li>
+    <li>
       <a href="articles/extending.html">Creating vitae templates</a>
     </li>
   </ul>
@@ -118,7 +121,10 @@
 <p>Creating a new CV with <code>vitae</code> can be done using the RStudio R Markdown template selector: <img src="reference/figures/template_gui.png"></p>
 <p>These templates leverage the strength of rmarkdown to include common information in the YAML header (name, position, social links…) and extended information in the main body. The main body of the CV is written using markdown, and allows for data-driven generation of entries using the <a href="https://ropenscilabs.github.io/vitae/reference/cventries.html"><code>*_entries</code> functions</a>. This allows you to import your working history from other sources (such as ORCID, Google Scholar, or a maintained dataset), and include them programatically into your CV.</p>
 <p>For example, the <a href="https://github.com/ropensci/rorcid">rorcid package</a> can be used to extract <a href="https://orcid.org/0000-0002-2140-5352">Rob Hyndman</a>’s education history:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">orcid_data &lt;-<span class="st"> </span>rorcid<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/rorcid/topics/orcid_educations">orcid_educations</a></span>(<span class="st">"0000-0002-2140-5352"</span>)<span class="op">$</span><span class="st">`</span><span class="dt">0000-0002-2140-5352</span><span class="st">`</span></a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">orcid_data &lt;-<span class="st"> </span>rorcid<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/rorcid/topics/orcid_educations">orcid_educations</a></span>(<span class="st">"0000-0002-2140-5352"</span>)<span class="op">$</span><span class="st">`</span><span class="dt">0000-0002-2140-5352</span><span class="st">`</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="co">#&gt; Registered S3 method overwritten by 'httr':</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="co">#&gt;   method                 from</span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co">#&gt;   as.character.form_file crul</span></a></code></pre></div>
 <pre><code>#&gt; 
 #&gt; Attaching package: 'dplyr'
 #&gt; The following objects are masked from 'package:stats':
@@ -182,8 +188,10 @@
 <div class="developers">
 <h2>Developers</h2>
 <ul class="list-unstyled">
-<li>Mitchell O'Hara-Wild <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0001-6729-7695" target="orcid.widget"><img src="https://members.orcid.org/sites/default/files/vector_iD_icon.svg" class="orcid" alt="ORCID" height="16"></a> </li>
-<li>Rob Hyndman <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0002-2140-5352" target="orcid.widget"><img src="https://members.orcid.org/sites/default/files/vector_iD_icon.svg" class="orcid" alt="ORCID" height="16"></a> </li>
+<li>
+<a href="http://mitchelloharawild.com">Mitchell O'Hara-Wild</a> <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0001-6729-7695" target="orcid.widget"><img src="https://members.orcid.org/sites/default/files/vector_iD_icon.svg" class="orcid" alt="ORCID" height="16"></a> </li>
+<li>
+<a href="http://robjhyndman.com">Rob Hyndman</a> <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0002-2140-5352" target="orcid.widget"><img src="https://members.orcid.org/sites/default/files/vector_iD_icon.svg" class="orcid" alt="ORCID" height="16"></a> </li>
 </ul>
 </div>
 
@@ -193,7 +201,7 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Mitchell O'Hara-Wild, Rob Hyndman.</p>
+  <p>Developed by <a href="http://mitchelloharawild.com">Mitchell O'Hara-Wild</a>, <a href="http://robjhyndman.com">Rob Hyndman</a>.</p>
 </div>
 
 <div class="pkgdown">

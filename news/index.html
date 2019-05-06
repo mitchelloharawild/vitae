@@ -89,6 +89,9 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
+      <a href="../articles/data.html">Data sources for vitae</a>
+    </li>
+    <li>
       <a href="../articles/extending.html">Creating vitae templates</a>
     </li>
   </ul>
@@ -125,12 +128,25 @@
 <h1 class="page-header">
 <a href="#vitae-0-1-0-9000" class="anchor"></a>vitae 0.1.0.9000<small> Unreleased </small>
 </h1>
+<div id="breaking-changes" class="section level2">
+<h2 class="hasAnchor">
+<a href="#breaking-changes" class="anchor"></a>Breaking changes</h2>
 <ul>
-<li>Added support for other <code>moderncv</code> themes: classic, banking, oldstyle, fancy</li>
 <li>Simplified <code>bibliography_entries</code> entries by removing <code>title</code> and <code>sorting</code> arguments. The title can be included using markdown, and sorting now respects the order of the tibble created by the function.</li>
-<li>Added support for controlling document name with <code>docname</code> (<a href='https://github.com/chrisumphlett'>@chrisumphlett</a>, <a href='https://github.com/ropenscilabs/vitae/issues/42'>#42</a>)</li>
-<li>Bugfixes</li>
 </ul>
+</div>
+<div id="improvements" class="section level2">
+<h2 class="hasAnchor">
+<a href="#improvements" class="anchor"></a>Improvements</h2>
+<ul>
+<li>Added support for other <code>moderncv</code> themes: classic, banking, oldstyle, fancy.</li>
+<li>Added support for controlling document name with <code>docname</code> (<a href='https://github.com/chrisumphlett'>@chrisumphlett</a>, <a href='https://github.com/ropenscilabs/vitae/issues/42'>#42</a>).</li>
+<li>Added vignette for obtaining CV data from various sources.</li>
+<li>Added surnames to bibliography_entries dataset.</li>
+<li>Better support for manipulating and re-ordering output using dplyr verbs.</li>
+<li>Bugfixes.</li>
+</ul>
+</div>
 </div>
     <div id="vitae-0-1-0" class="section level1">
 <h1 class="page-header">
@@ -140,8 +156,7 @@
 <ul>
 <li>Four CV templates: <code>hyndman</code>, <code>twentyseconds</code>, <code>awesomecv</code>, <code>moderncv</code>.</li>
 <li>Three CV entries functions: <code><a href="../reference/cv_entries.html">detailed_entries()</a></code>, <code><a href="../reference/cv_entries.html">brief_entries()</a></code> and <code><a href="../reference/bibliography_entries.html">bibliography_entries()</a></code>.</li>
-<li>Two vignettes: <em>Creating vitae templates</em> and <em>Introduction to vitae</em>
-</li>
+<li>Two vignettes: <em>Creating vitae templates</em> and <em>Introduction to vitae</em>.</li>
 </ul>
 </div>
   </div>
@@ -160,7 +175,7 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by Mitchell O'Hara-Wild, Rob Hyndman.</p>
+  <p>Developed by <a href='http://mitchelloharawild.com'>Mitchell O'Hara-Wild</a>, <a href='http://robjhyndman.com'>Rob Hyndman</a>.</p>
 </div>
 
 <div class="pkgdown">
