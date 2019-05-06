@@ -11,6 +11,7 @@ test_that("hyndman", {
                                   package = "vitae"
     ), output_file = out_pdf <- tempfile())
   )
+  cat(file = paste0(out_pdf, ".log"))
 })
 
 test_that("twentyseconds", {
@@ -18,8 +19,9 @@ test_that("twentyseconds", {
     rmarkdown::render(system.file("rmarkdown", "templates", "twentyseconds",
                                   "skeleton", "skeleton.Rmd",
                                   package = "vitae"
-    ), output_file = tempfile())
+    ), output_file = out_pdf <- tempfile())
   )
+  cat(file = paste0(out_pdf, ".log"))
 })
 
 test_that("awesomecv", {
@@ -27,8 +29,9 @@ test_that("awesomecv", {
     rmarkdown::render(system.file("rmarkdown", "templates", "awesomecv",
                                   "skeleton", "skeleton.Rmd",
                                   package = "vitae"
-    ), output_file = tempfile())
+    ), output_file = out_pdf <- tempfile())
   )
+  cat(file = paste0(out_pdf, ".log"))
 })
 
 test_that("moderncv", {
@@ -36,8 +39,9 @@ test_that("moderncv", {
     rmarkdown::render(system.file("rmarkdown", "templates", "moderncv",
                                   "skeleton", "skeleton.Rmd",
                                   package = "vitae"
-    ), output_file = tempfile())
+    ), output_file = out_pdf <- tempfile())
   )
+  cat(file = paste0(out_pdf, ".log"))
 })
 
 test_that("latexcv", {
@@ -45,6 +49,7 @@ test_that("latexcv", {
     rmarkdown::render(system.file("rmarkdown", "templates", "latexcv",
                                   "skeleton", "skeleton.Rmd",
                                   package = "vitae"
-    ), output_file = tempfile())
+    ), output_file = out_pdf <- tempfile())
   )
+  cat(file = paste0(out_pdf, ".log"))
 })
