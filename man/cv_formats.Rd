@@ -24,7 +24,7 @@ latexcv(..., theme = c("classic", "modern", "rows", "sidebar",
 \arguments{
 \item{\dots}{Arguments passed to \code{\link[vitae]{cv_document}}.}
 
-\item{theme}{The theme for the vitae template.}
+\item{theme}{The theme used for the template.}
 }
 \value{
 An R Markdown output format object.
