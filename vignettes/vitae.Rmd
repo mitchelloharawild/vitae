@@ -54,6 +54,7 @@ Currently, the YAML header allows these fields to be specified:
 - `linkedin`: Your LinkedIn username
 - `aboutme`: A short description that is included in a template specific location
 - `headcolor`: A featured colour for the template
+- `docname`: Control the document name (typically curriculum vitae, or résumé)
 
 
 ### The document body
