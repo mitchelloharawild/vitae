@@ -8,6 +8,7 @@
 ## Improvements
 * Added support for other `moderncv` themes: classic, banking, oldstyle, fancy.
 * Added support for controlling document name with `docname` (@chrisumphlett, #42).
+* Added support for template specific formatting of surnames with `surname`.
 * Added vignette for obtaining CV data from various sources.
 * Added surnames to bibliography_entries dataset.
 * Better support for manipulating and re-ordering output using dplyr verbs.

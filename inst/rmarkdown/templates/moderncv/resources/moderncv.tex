@@ -49,7 +49,7 @@ $header-includes$
 $endfor$
 
 % personal data
-\name{}{$name$}
+\name{$if(surname)$$name$$endif$}{$if(surname)$$surname$$else$$name$$endif$}
 $if(position)$\title{$position$}$endif$
 $if(address)$\address{$address$}{}{}$endif$
 $if(phone)$\phone[mobile]{$phone$}$endif$ % Phone number

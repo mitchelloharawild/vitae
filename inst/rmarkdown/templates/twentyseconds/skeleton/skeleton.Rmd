@@ -1,5 +1,6 @@
 ---
-name: Marie Curie
+name: Marie
+surname: Curie
 position: "Professor"
 address: "School of Physics & Chemistry, École Normale Supérieure"
 phone: +1 22 3333 4444
