@@ -12,7 +12,7 @@ test_that("hyndman", {
                                     package = "vitae"
       ), output_file = out_pdf <- tempfile())
     ),
-    error = function(e) stop(file = paste0(out_pdf, ".log"))
+    error = function(e) stop(readLines(paste0(out_pdf, ".log")))
   )
 })
 
@@ -24,7 +24,7 @@ test_that("twentyseconds", {
                                     package = "vitae"
       ), output_file = out_pdf <- tempfile())
     ),
-    error = function(e) stop(file = paste0(out_pdf, ".log"))
+    error = function(e) stop(readLines(paste0(out_pdf, ".log")))
   )
 })
 
@@ -36,7 +36,7 @@ test_that("awesomecv", {
                                     package = "vitae"
       ), output_file = out_pdf <- tempfile())
     ),
-    error = function(e) stop(file = paste0(out_pdf, ".log"))
+    error = function(e) stop(readLines(paste0(out_pdf, ".log")))
   )
 })
 
@@ -48,7 +48,7 @@ test_that("moderncv", {
                                     package = "vitae"
       ), output_file = out_pdf <- tempfile())
     ),
-    error = function(e) stop(file = paste0(out_pdf, ".log"))
+    error = function(e) stop(readLines(paste0(out_pdf, ".log")))
   )
 })
 
@@ -60,6 +60,6 @@ test_that("latexcv", {
                                     package = "vitae"
       ), output_file = out_pdf <- tempfile())
     ),
-    error = function(e) stop(file = paste0(out_pdf, ".log"))
+    error = function(e) stop(readLines(paste0(out_pdf, ".log")))
   )
 })
