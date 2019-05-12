@@ -291,8 +291,9 @@ $endif$
 % Arguments: what when with
 \def\briefitem#1#2#3{
 #2 & \parbox[t]{0.85\textwidth}{%
-      \textbf{#1}\\{\footnotesize #3}}\\}
-\def\briefsection#1{\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ll}#1\end{tabular*}}
+      \textbf{#1}\\[-0.1cm]{\footnotesize #3}}\\[0.4cm]}
+%\def\briefsection#1{\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ll}#1\end{tabular*}}
+\def\briefsection#1{\begin{longtable}{@{\extracolsep{\fill}}ll}#1\end{longtable}}
 
 \def\endfirstpage{\newpage}
 
