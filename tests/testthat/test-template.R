@@ -1,65 +1,32 @@
 context("test-templates")
 
-expect_knit <- function(object){
-  expect_output(expect_message(object, "Output created"), "pandoc")
+expect_knit <- function(template){
+  expect_output(
+    expect_message(
+      rmarkdown::render(
+        system.file("rmarkdown", "templates", template, "skeleton", "skeleton.Rmd", package = "vitae"),
+        output_file = sprintf("%s-test.pdf", template),
+        output_dir = file.path(getwd(), "rendered")),
+    "Output created"),
+  "pandoc")
 }
 
 test_that("hyndman", {
-  tryCatch(
-    expect_knit(
-      rmarkdown::render(system.file("rmarkdown", "templates", "hyndman",
-                                    "skeleton", "skeleton.Rmd",
-                                    package = "vitae"
-      ), output_file = out_pdf <- tempfile())
-    ),
-    error = function(e) stop(readLines(paste0(out_pdf, ".log")))
-  )
+  expect_knit("hyndman")
 })
 
 test_that("twentyseconds", {
-  tryCatch(
-    expect_knit(
-      rmarkdown::render(system.file("rmarkdown", "templates", "twentyseconds",
-                                    "skeleton", "skeleton.Rmd",
-                                    package = "vitae"
-      ), output_file = out_pdf <- tempfile())
-    ),
-    error = function(e) stop(readLines(paste0(out_pdf, ".log")))
-  )
+  expect_knit("twentyseconds")
 })
 
 test_that("awesomecv", {
-  tryCatch(
-    expect_knit(
-      rmarkdown::render(system.file("rmarkdown", "templates", "awesomecv",
-                                    "skeleton", "skeleton.Rmd",
-                                    package = "vitae"
-      ), output_file = out_pdf <- tempfile())
-    ),
-    error = function(e) stop(readLines(paste0(out_pdf, ".log")))
-  )
+  expect_knit("awesomecv")
 })
 
 test_that("moderncv", {
-  tryCatch(
-    expect_knit(
-      rmarkdown::render(system.file("rmarkdown", "templates", "moderncv",
-                                    "skeleton", "skeleton.Rmd",
-                                    package = "vitae"
-      ), output_file = out_pdf <- tempfile())
-    ),
-    error = function(e) stop(readLines(paste0(out_pdf, ".log")))
-  )
+  expect_knit("moderncv")
 })
 
 test_that("latexcv", {
-  tryCatch(
-    expect_knit(
-      rmarkdown::render(system.file("rmarkdown", "templates", "latexcv",
-                                    "skeleton", "skeleton.Rmd",
-                                    package = "vitae"
-      ), output_file = out_pdf <- tempfile())
-    ),
-    error = function(e) stop(readLines(paste0(out_pdf, ".log")))
-  )
+  expect_knit("latexcv")
 })
