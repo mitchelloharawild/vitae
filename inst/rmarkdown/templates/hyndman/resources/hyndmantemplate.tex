@@ -250,7 +250,7 @@ $if(position)$\\[0.1cm]\large $position$\\[0.6cm]$else$\\[0.7cm]$endif$
 \info{%
 $if(address)$\raisebox{-0.05cm}{\imagetop{\faicon{map-marker}}} &  \imagetop{\begin{tabular}{@{}l@{}}$address$\end{tabular}}\\$endif$ %
 $if(www)$\faicon{home} & \href{http://$www$}{$www$}\\$endif$% %
-$if(phone)$\faicon{phone} & $phone$\\$endif$% 
+$if(phone)$\faicon{phone} & $phone$\\$endif$%
 $if(email)$\faicon{envelope} & $email$\\$endif$%
 $if(twitter)$\faicon{twitter} & \href{https://twitter.com/$twitter$}{@$twitter$}\\$endif$%
 $if(github)$\faicon{github} & \href{https://github.com/$github$}{$github$}\\$endif$%
@@ -282,7 +282,10 @@ $endif$
         \begin{itemize}#5\end{itemize}%
         \end{minipage}}\fi%
       \vspace{\parsep}}\\}
-\def\detailedsection#1{\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ll}#1\end{tabular*}}
+%\def\detailedsection#1{\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ll}#1\end{tabular*}}
+\setlength\LTleft{0pt}
+\setlength\LTright{0pt}
+\def\detailedsection#1{\begin{longtable}{@{\extracolsep{\fill}}ll}#1\end{longtable}}
 
 % Templates for brief entries
 % Arguments: what when with
