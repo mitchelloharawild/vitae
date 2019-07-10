@@ -12,6 +12,7 @@
 * Added vignette for obtaining CV data from various sources.
 * Added surnames to bibliography_entries dataset.
 * Better support for manipulating and re-ordering output using dplyr verbs.
+* Extended skeleton template to include examples of using CV functions.
 * Bugfixes.
 
 # vitae 0.1.0
