@@ -61,15 +61,16 @@ using the [`*_entries`
 functions](https://ropenscilabs.github.io/vitae/reference/cventries.html).
 This allows you to import your working history from other sources (such
 as ORCID, Google Scholar, or a maintained dataset), and include them
-programatically into your CV.
+programmatically into your CV.
 
 For example, the [rorcid package](https://github.com/ropensci/rorcid)
 can be used to extract [Rob
-Hyndman](https://orcid.org/0000-0002-2140-5352)’s education
-history:
+Hyndman](https://orcid.org/0000-0002-2140-5352)’s education history:
 
 ``` r
-orcid_data <- rorcid::orcid_educations("0000-0002-2140-5352")$`0000-0002-2140-5352`
+orcid_data <- do.call("rbind",
+  rorcid::orcid_educations("0000-0002-2140-5352")$`0000-0002-2140-5352`$`affiliation-group`$summaries
+)
 ```
 
     #> 
@@ -80,12 +81,18 @@ orcid_data <- rorcid::orcid_educations("0000-0002-2140-5352")$`0000-0002-2140-53
     #> The following objects are masked from 'package:base':
     #> 
     #>     intersect, setdiff, setequal, union
-    #>                      role-title start-date.year.value end-date.year.value
-    #> 1                           PhD                  1990                1992
-    #> 2 Bachelor of Science (Honours)                  1985                1988
-    #>         organization.name organization.address.city
-    #> 1 University of Melbourne                 Melbourne
-    #> 2 University of Melbourne                 Melbourne
+    #>    education-summary.role-title education-summary.start-date.year.value
+    #> 1                           PhD                                    1990
+    #> 2 Bachelor of Science (Honours)                                    1985
+    #>   education-summary.end-date.year.value
+    #> 1                                  1992
+    #> 2                                  1988
+    #>   education-summary.organization.name
+    #> 1             University of Melbourne
+    #> 2             University of Melbourne
+    #>   education-summary.organization.address.city
+    #> 1                                   Melbourne
+    #> 2                                   Melbourne
 
 The package provides two types of entries from data, which are
 `detailed_entries` and `brief_entries`. Both functions provide sections
@@ -98,10 +105,10 @@ our `when` input. Excluding any inputs is also okay (as is done for
 ``` r
 orcid_data$`education-summary` %>%
   detailed_entries(
-    what = `role-title`,
-    when = glue::glue("{`start-date.year.value`} - {`end-date.year.value`}"),
-    with = organization.name,
-    where = organization.address.city
+    what = `education-summary.role-title`,
+    when = glue::glue("{`education-summary.start-date.year.value`} - {`education-summary.end-date.year.value`}"),
+    with = `education-summary.organization.name`,
+    where = `education-summary.organization.address.city`
   )
 ```
 

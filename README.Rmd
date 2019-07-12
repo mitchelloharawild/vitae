@@ -52,19 +52,27 @@ The *vitae* package currently supports `r length(list.dirs("inst/rmarkdown/templ
 Creating a new CV with `vitae` can be done using the RStudio R Markdown template selector:
 ![](man/figures/template_gui.png)
 
-These templates leverage the strength of rmarkdown to include common information in the YAML header (name, position, social links...) and extended information in the main body. The main body of the CV is written using markdown, and allows for data-driven generation of entries using the [`*_entries` functions](https://ropenscilabs.github.io/vitae/reference/cventries.html). This allows you to import your working history from other sources (such as ORCID, Google Scholar, or a maintained dataset), and include them programatically into your CV.
+These templates leverage the strength of rmarkdown to include common information in the YAML header (name, position, social links...) and extended information in the main body. The main body of the CV is written using markdown, and allows for data-driven generation of entries using the [`*_entries` functions](https://ropenscilabs.github.io/vitae/reference/cventries.html). This allows you to import your working history from other sources (such as ORCID, Google Scholar, or a maintained dataset), and include them programmatically into your CV.
 
 For example, the [rorcid package](https://github.com/ropensci/rorcid) can be used to extract [Rob Hyndman](https://orcid.org/0000-0002-2140-5352)'s education history:
 
 ```{r rorcid}
-orcid_data <- rorcid::orcid_educations("0000-0002-2140-5352")$`0000-0002-2140-5352`
+orcid_data <- do.call("rbind",
+  rorcid::orcid_educations("0000-0002-2140-5352")$`0000-0002-2140-5352`$`affiliation-group`$summaries
+)
 ```
 
 ```{r education-table, echo = FALSE}
 library(dplyr)
-orcid_data$`education-summary` %>% 
-  select(`role-title`, `start-date.year.value`, `end-date.year.value`,
-         organization.name, organization.address.city)
+
+orcid_data %>% 
+  select(
+    `education-summary.role-title`, 
+    `education-summary.start-date.year.value`,
+    `education-summary.end-date.year.value`,
+    `education-summary.organization.name`,
+    `education-summary.organization.address.city`
+  )
 ```
 
 The package provides two types of entries from data, which are `detailed_entries` and `brief_entries`. Both functions provide sections for `what`, `when`, and `with`, and the `detailed_entries` additionally supports `where` and `why`. These arguments support operations, so for this example, we have used `glue` to combine the start and end years for our `when` input. Excluding any inputs is also okay (as is done for `why`), it will just be left blank in the CV.
@@ -72,10 +80,10 @@ The package provides two types of entries from data, which are `detailed_entries
 ```{r education, eval = FALSE}
 orcid_data$`education-summary` %>%
   detailed_entries(
-    what = `role-title`,
-    when = glue::glue("{`start-date.year.value`} - {`end-date.year.value`}"),
-    with = organization.name,
-    where = organization.address.city
+    what = `education-summary.role-title`,
+    when = glue::glue("{`education-summary.start-date.year.value`} - {`education-summary.end-date.year.value`}"),
+    with = `education-summary.organization.name`,
+    where = `education-summary.organization.address.city`
   )
 ```
 
