@@ -6,12 +6,12 @@
   the order of the tibble created by the function.
 
 ## Improvements
-* Added support for other `moderncv` themes: classic, banking, oldstyle, fancy.
-* Added support for controlling document name with `docname` (@chrisumphlett, #42).
+* Added theme support for `moderncv`: classic, banking, oldstyle, fancy.
+* Added `docname` to change the document name (@chrisumphlett, #42).
 * Added support for template specific formatting of surnames with `surname`.
 * Added vignette for obtaining CV data from various sources.
 * Added surnames to bibliography_entries dataset.
-* Better support for manipulating and re-ordering output using dplyr verbs.
+* Improved usage of dplyr verbs for manipulating and re-ordering outputs.
 * Extended skeleton template to include examples of using CV functions.
 * Bugfixes.
 
