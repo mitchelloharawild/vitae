@@ -1,4 +1,4 @@
-# vitae 0.1.0.9000
+# vitae 0.2.0
 
 ## Breaking changes
 * Simplified `bibliography_entries` entries by removing `title` and `sorting`
