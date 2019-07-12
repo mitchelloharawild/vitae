@@ -116,7 +116,7 @@ orcid_data %>%
 
 Additional examples of using this package can be found in the slides
 presented at [ozunconf2018](https://ozunconf18.ropensci.org/):
-<https://mitchelloharawild.com/vitae/>
+<https://slides.mitchelloharawild.com/vitae/>
 
 ## Examples of using vitae
 

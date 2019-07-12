@@ -89,7 +89,7 @@ orcid_data %>%
 
 ![](man/figures/education.png)
 
-Additional examples of using this package can be found in the slides presented at [ozunconf2018](https://ozunconf18.ropensci.org/): [https://mitchelloharawild.com/vitae/](https://mitchelloharawild.com/vitae/)
+Additional examples of using this package can be found in the slides presented at [ozunconf2018](https://ozunconf18.ropensci.org/): [https://slides.mitchelloharawild.com/vitae/](https://slides.mitchelloharawild.com/vitae/)
 
 ## Examples of using vitae
 
