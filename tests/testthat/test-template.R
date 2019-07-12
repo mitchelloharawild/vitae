@@ -1,5 +1,8 @@
 context("test-templates")
 
+skip_on_cran()
+skip_on_ci()
+
 expect_knit <- function(template){
   expect_output(
     expect_message(

@@ -52,7 +52,7 @@ test_that("detailed_entries", {
 
 test_that("bibliography_entries", {
   tmpbib <- tempfile()
-  knitr::write_bib(c("vitae", "testthat"), file = tmpbib)
+  knitr::write_bib(c("rmarkdown", "testthat"), file = tmpbib)
 
   entries <- bibliography_entries(tmpbib)
 
@@ -62,6 +62,6 @@ test_that("bibliography_entries", {
   expect_match(print, "defbibheading")
   expect_equal(NROW(entries), 2)
 
-  expect_match(print, "vitae")
+  expect_match(print, "rmarkdown")
   expect_match(print, "testthat")
 })
