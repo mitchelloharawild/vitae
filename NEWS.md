@@ -9,11 +9,11 @@
 * Added theme support for `moderncv`: classic, banking, oldstyle, fancy.
 * Added `docname` to change the document name (@chrisumphlett, #42).
 * Added support for template specific formatting of surnames with `surname`.
-* Added vignette for obtaining CV data from various sources.
+* Added *Data sources for vitae* vignette for using CV data from extermal sources.
 * Added surnames to bibliography_entries dataset.
 * Improved usage of dplyr verbs for manipulating and re-ordering outputs.
 * Extended skeleton template to include examples of using CV functions.
-* Bugfixes.
+* Bugfixes and documentation improvements.
 
 # vitae 0.1.0
 
