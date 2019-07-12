@@ -180,14 +180,14 @@ This is a good opportunity to introduce yourself professionally and summarise</c
 
 ```{r education}
 library(vitae)
-edu &lt;- rorcid::orcid_educations("0000-0001-6729-7695")
-edu$`0000-0001-6729-7695`$`education-summary` %&gt;%
+edu &lt;- do.call("rbind",
+  rorcid::orcid_educations("0000-0001-6729-7695")$`0000-0001-6729-7695`$`affiliation-group`$summaries
+)
+edu %&gt;%
   detailed_entries(
-    what = `role-title`,
-    when = glue::glue("{`start-date.year.value`} - {`end-date.year.value`}"),
-    with = organization.name,
-    where = organization.address.city
-  )</code>
+    what = `education-summary.role-title`,
+    when = glue::glue("{`education-summary.start-date.year.value`} - {`education-summary.end-date.year.value`}"),
+    with = `education-summary.organization.name`,</code>
 </pre>
 <p>In the example above, the <a href="https://CRAN.R-project.org/package=glue">glue</a> package has been used to combine the start and end years for our <code>when</code> input. Excluding any arguments is also okay (as is done for <code>why</code>), it will just be left blank in the CV.</p>
 </div>
@@ -196,7 +196,9 @@ edu$`0000-0001-6729-7695`$`education-summary` %&gt;%
 <a href="#brief-entries" class="anchor"></a>Brief entries</h4>
 <p>Brief entries can be included with the same interface as <code><a href="../reference/cv_entries.html">detailed_entries()</a></code>, and is appropriate for entries that do not need as much detail (such as skills). Another application of this is to include a list of R packages that you have published to CRAN using the <a href="https://CRAN.R-project.org/package=pkgsearch">pkgsearch</a> package.</p>
 <pre>
-<code>
+<code>  )
+```
+
 # R Packages
 
 ```{r rpkgs}
@@ -205,9 +207,7 @@ pkgsearch::ps("O'Hara-Wild",size = 100) %&gt;%
   arrange(desc(downloads_last_month)) %&gt;%
   brief_entries(
     what = title,
-    when = lubridate::year(date),
-    with = description
-  )</code>
+    when = lubridate::year(date),</code>
 </pre>
 <p>This example also uses several other packages to prepare the data: - <a href="https://CRAN.R-project.org/package=dplyr">dplyr</a> to <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> my contributed packages, and <code><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange()</a></code> the data by downloads - <a href="https://CRAN.R-project.org/package=purrr">purrr</a> to map over <code>package_data</code> column to find packages I’ve contributed to - <a href="https://CRAN.R-project.org/package=lubridate">lubridate</a> to display only the year from the <code>date</code> column</p>
 </div>
@@ -216,9 +216,9 @@ pkgsearch::ps("O'Hara-Wild",size = 100) %&gt;%
 <a href="#bibliography-entries" class="anchor"></a>Bibliography entries</h4>
 <p>The package also supports bibliography entries from a <code>*.bib</code> file using the <code><a href="../reference/bibliography_entries.html">bibliography_entries()</a></code> function. This outputs the contents of a bibliography using a citation style, and is suitable for CVs containing publications.</p>
 <pre>
-<code>
-```{r publications}
-bibliography_entries("publications.bib", "Publications")</code>
+<code>  )
+```
+</code>
 </pre>
 </div>
 </div>
