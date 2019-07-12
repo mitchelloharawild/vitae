@@ -7,6 +7,7 @@
 
 ## Improvements
 * Added theme support for `moderncv`: classic, banking, oldstyle, fancy.
+* Added `latexcv` template using the classic theme.
 * Added `docname` to change the document name (@chrisumphlett, #42).
 * Added support for template specific formatting of surnames with `surname`.
 * Added *Data sources for vitae* vignette for using CV data from extermal sources.
