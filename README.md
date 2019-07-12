@@ -103,7 +103,7 @@ our `when` input. Excluding any inputs is also okay (as is done for
 `why`), it will just be left blank in the CV.
 
 ``` r
-orcid_data$`education-summary` %>%
+orcid_data %>%
   detailed_entries(
     what = `education-summary.role-title`,
     when = glue::glue("{`education-summary.start-date.year.value`} - {`education-summary.end-date.year.value`}"),

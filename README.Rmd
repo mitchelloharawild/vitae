@@ -78,7 +78,7 @@ orcid_data %>%
 The package provides two types of entries from data, which are `detailed_entries` and `brief_entries`. Both functions provide sections for `what`, `when`, and `with`, and the `detailed_entries` additionally supports `where` and `why`. These arguments support operations, so for this example, we have used `glue` to combine the start and end years for our `when` input. Excluding any inputs is also okay (as is done for `why`), it will just be left blank in the CV.
 
 ```{r education, eval = FALSE}
-orcid_data$`education-summary` %>%
+orcid_data %>%
   detailed_entries(
     what = `education-summary.role-title`,
     when = glue::glue("{`education-summary.start-date.year.value`} - {`education-summary.end-date.year.value`}"),

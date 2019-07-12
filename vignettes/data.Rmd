@@ -47,13 +47,15 @@ Essentially, use `rorcid::orcid_auth()` to obtain a token, which is added to eit
 With the token setup, it is now possible to pull data from ORCID. As an example, here I source and display my education history using my ORCID ID of `"0000-0001-6729-7695"`.
 
 ```r
-edu <- rorcid::orcid_educations("0000-0001-6729-7695")
-edu$`0000-0001-6729-7695`$`education-summary` %>%
+edu <- do.call("rbind",
+  rorcid::orcid_educations("0000-0001-6729-7695")$`0000-0001-6729-7695`$`affiliation-group`$summaries
+)
+edu %>%
   detailed_entries(
-    what = `role-title`,
-    when = glue::glue("{`start-date.year.value`} - {`end-date.year.value`}"),
-    with = organization.name,
-    where = organization.address.city
+    what = `education-summary.role-title`,
+    when = glue::glue("{`education-summary.start-date.year.value`} - {`education-summary.end-date.year.value`}"),
+    with = `education-summary.organization.name`,
+    where = `education-summary.organization.address.city`
   )
 ```
 

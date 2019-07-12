@@ -24,13 +24,15 @@ This is my resume, I'd like some jobs please.
 
 # Education
 ```{r education}
-edu <- rorcid::orcid_educations("0000-0003-1460-8722")
-edu$`0000-0003-1460-8722`$`education-summary` %>%
+edu <- do.call("rbind",
+  rorcid::orcid_educations("0000-0003-1460-8722")$`0000-0003-1460-8722`$`affiliation-group`$summaries
+)
+edu %>%
   detailed_entries(
-    what = `role-title`,
-    when = glue::glue("{`start-date.year.value`} - {`end-date.year.value`}"),
-    with = organization.name,
-    where = organization.address.city
+    what = `education-summary.role-title`,
+    when = glue::glue("{`education-summary.start-date.year.value`} - {`education-summary.end-date.year.value`}"),
+    with = `education-summary.organization.name`,
+    where = `education-summary.organization.address.city`
   )
 ```
 
