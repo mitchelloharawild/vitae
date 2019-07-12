@@ -132,5 +132,6 @@ Add your vitae to the list using a PR.
 -----
 
 Please note that the ‘vitae’ project is released with a [Contributor
-Code of Conduct](.github/CODE_OF_CONDUCT.md). By contributing to this
-project, you agree to abide by its terms.
+Code of
+Conduct](https://github.com/ropenscilabs/vitae/blob/master/.github/CODE_OF_CONDUCT.md).
+By contributing to this project, you agree to abide by its terms.
