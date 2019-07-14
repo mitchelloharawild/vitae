@@ -77,6 +77,8 @@
 \defaultfontfeatures{Extension = .otf}
 \RequirePackage{fontawesome}
 \RequirePackage[default,opentype]{sourcesanspro}
+% Needed for academia icons
+\RequirePackage{academicons}
 % Needed for the photo ID
 \RequirePackage[skins]{tcolorbox}
 % Needed to deal a paragraphs
@@ -286,6 +288,10 @@
 % Usage: \homepage{<url>}
 \newcommand*{\homepage}[1]{\def\@homepage{#1}}
 
+% Defines writer's orcid (optional)
+% Usage: \orcid{<orcid>}
+\newcommand*{\orcid}[1]{\def\@orcid{#1}}
+
 % Defines writer's github (optional)
 % Usage: \github{<github-nick>}
 \newcommand*{\github}[1]{\def\@github{#1}}
@@ -454,6 +460,12 @@
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
           \href{http://\@homepage}{\faHome\acvHeaderIconSep\@homepage}%
+        }%
+      \ifthenelse{\isundefined{\@orcid}}%
+        {}%
+        {%
+          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
+          \href{https://orcid.org/\@orcid}{\aiOrcidSquare\acvHeaderIconSep\@orcid}%
         }%
       \ifthenelse{\isundefined{\@github}}%
         {}%
