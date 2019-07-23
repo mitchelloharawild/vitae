@@ -33,9 +33,7 @@ Like other R Markdown documents, the file is split into two sections: the YAML h
 
 The YAML header contains general entries that are common across many templates, such as your name, address and social media profiles. This is also where the output format (the CV template used) is specified, along with any options that the template supports. An example of what this header may look like is shown below:
 
-```
 `r htmltools::pre(htmltools::code(paste0(readLines("sample.txt")[1:11],collapse = "\n")))`
-```
 
 You can also see that the output is set to `vitae::awesomecv`, which indicates that this CV uses the [Awesome CV](https://github.com/posquit0/Awesome-CV) template.
 
