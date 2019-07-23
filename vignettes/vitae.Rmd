@@ -33,9 +33,7 @@ Like other R Markdown documents, the file is split into two sections: the YAML h
 
 The YAML header contains general entries that are common across many templates, such as your name, address and social media profiles. This is also where the output format (the CV template used) is specified, along with any options that the template supports. An example of what this header may look like is shown below:
 
-```
 `r htmltools::pre(htmltools::code(paste0(readLines("sample.txt")[1:11],collapse = "\n")))`
-```
 
 You can also see that the output is set to `vitae::awesomecv`, which indicates that this CV uses the [Awesome CV](https://github.com/posquit0/Awesome-CV) template.
 
@@ -61,7 +59,7 @@ Currently, the YAML header allows these fields to be specified:
 
 Like other R Markdown documents, the body allows you to mix R code with markdown to create the main content for your document. Below is an example of the start for a typical CV:
 
-`r htmltools::pre(htmltools::code(paste0(readLines("sample.txt")[13:21],collapse = "\n")))`
+`r htmltools::pre(htmltools::code(paste0(readLines("sample.txt")[14:22],collapse = "\n")))`
 
 The setup chunk is useful to load in any packages that you may use, and also prevent R code and warnings/notes from appearing in your CV. The above code also includes a professional summary using markdown syntax, which will appear in the final CV.
 
@@ -71,7 +69,7 @@ Unlike other R markdown formats, the vitae package and its templates support fun
 
 Let's add to the main body with some education history. These details are available on [ORCID](https://orcid.org) with my ID of  [0000-0001-6729-7695](https://orcid.org/0000-0001-6729-7695), which can be dynamically accessed using the [rorcid](https://CRAN.R-project.org/package=rorcid) package.
 
-`r htmltools::pre(htmltools::code(paste0(readLines("sample.txt")[23:35],collapse = "\n")))`
+`r htmltools::pre(htmltools::code(paste0(readLines("sample.txt")[24:38],collapse = "\n")))`
 
 In the example above, the [glue](https://CRAN.R-project.org/package=glue) package has been used to combine the start and end years for our `when` input. Excluding any arguments is also okay (as is done for `why`), it will just be left blank in the CV.
 
@@ -79,7 +77,7 @@ In the example above, the [glue](https://CRAN.R-project.org/package=glue) packag
 
 Brief entries can be included with the same interface as `detailed_entries()`, and is appropriate for entries that do not need as much detail (such as skills). Another application of this is to include a list of R packages that you have published to CRAN using the [pkgsearch](https://CRAN.R-project.org/package=pkgsearch) package.
 
-`r htmltools::pre(htmltools::code(paste0(readLines("sample.txt")[37:48],collapse = "\n")))`
+`r htmltools::pre(htmltools::code(paste0(readLines("sample.txt")[40:51],collapse = "\n")))`
 
 This example also uses several other packages to prepare the data:
 - [dplyr](https://CRAN.R-project.org/package=dplyr) to `filter()` my contributed packages, and `arrange()` the data by downloads
@@ -90,4 +88,4 @@ This example also uses several other packages to prepare the data:
 
 The package also supports bibliography entries from a `*.bib` file using the `bibliography_entries()` function. This outputs the contents of a bibliography using a citation style, and is suitable for CVs containing publications.
 
-`r htmltools::pre(htmltools::code(paste0(readLines("sample.txt")[50:52],collapse = "\n")))`
+`r htmltools::pre(htmltools::code(paste0(readLines("sample.txt")[53:55],collapse = "\n")))`
