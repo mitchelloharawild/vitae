@@ -35,7 +35,7 @@ bibliography_entries <- function(file, title = NULL, sorting = NULL,
   out <- dplyr::as_tibble(bib) %>%
     mutate(surnames = family)
   structure(mutate(out, key = unlist(bib$key)),
-    file = file,
+    file = normalizePath(file),
     startlabel = startlabel,
     endlabel = endlabel,
     preserve = "key",
