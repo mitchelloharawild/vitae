@@ -4,8 +4,8 @@
 \alias{bibliography_entries}
 \title{Print bibliography section}
 \usage{
-bibliography_entries(file, title = NULL, sorting = NULL,
-  startlabel = NULL, endlabel = NULL)
+bibliography_entries(file, title = NULL, sorting = NULL, startlabel = NULL, 
+    endlabel = NULL)
 }
 \arguments{
 \item{file}{A path to a .bib file.}
