@@ -1,13 +1,19 @@
 # vitae (development version)
 
+## Bug fixes
+
+* Fixed issue with `bibliography_entries()` not working on Windows.
+
 # vitae 0.2.0
 
 ## Breaking changes
+
 * Simplified `bibliography_entries` entries by removing `title` and `sorting`
   arguments. The title can be included using markdown, and sorting now respects
   the order of the tibble created by the function.
 
 ## Improvements
+
 * Added theme support for `moderncv`: classic, banking, oldstyle, fancy.
 * Added `latexcv` template using the classic theme.
 * Added `docname` to change the document name (@chrisumphlett, #42).
