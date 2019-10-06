@@ -105,3 +105,5 @@ Add your vitae to the list using a PR.
 ---
 
 Please note that the 'vitae' project is released with a [Contributor Code of Conduct](https://github.com/ropenscilabs/vitae/blob/master/.github/CODE_OF_CONDUCT.md). By contributing to this project, you agree to abide by its terms.
+
+The vitae project began as at [rOpenSci](https://ropensci.org/)'s [OzUnconf 2018](https://ozunconf18.ropensci.org/). A big thank you to rOpenSci and the event organisers for their work, which has played a big role in the formation of this package.
