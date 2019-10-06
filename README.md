@@ -71,6 +71,9 @@ Hyndman](https://orcid.org/0000-0002-2140-5352)’s education history:
 orcid_data <- do.call("rbind",
   rorcid::orcid_educations("0000-0002-2140-5352")$`0000-0002-2140-5352`$`affiliation-group`$summaries
 )
+#> Registered S3 method overwritten by 'httr':
+#>   method                 from
+#>   as.character.form_file crul
 ```
 
     #> 
@@ -126,6 +129,7 @@ presented at [ozunconf2018](https://ozunconf18.ropensci.org/):
   - [Chris
     Umphlett](https://chrisumphlett.github.io/posts/vitae-package/)
   - [Nat Price](https://github.com/natbprice/cv)
+  - [Sam Abbott](https://github.com/seabbs/cv) (automatic deployment\!)
 
 Add your vitae to the list using a PR.
 
