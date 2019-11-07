@@ -1,18 +1,18 @@
 #' Output format for vitae
-#'
+#' 
 #' This output format provides support for including LaTeX dependencies and
 #' bibliography entries in extension of the bookdown::pdf_document2() format.
-#'
-#' @inheritParams rmarkdown::pdf_document
+#' 
+#' 
 #' @param ... Arguments passed to bookdown::pdf_document2().
+#' @param pandoc_args Additional command line options to pass to pandoc
 #' @param pandoc_vars Pandoc variables to be passed to the template.
-#'
-#' @export
+#' @export cv_document
 cv_document <- function(..., pandoc_args = NULL, pandoc_vars = NULL) {
   for (i in seq_along(pandoc_vars)){
     pandoc_args <- c(pandoc_args, rmarkdown::pandoc_variable_arg(names(pandoc_vars)[[i]], pandoc_vars[[i]]))
   }
-  config <- bookdown::pdf_document2(..., pandoc_args = pandoc_args)
+  config <- bookdown::pdf_document2(..., pandoc_args = c(lua_filters("multiple-bibliographies.lua"), pandoc_args), output_options = list(nocite = "@*"))
 
   pre <- config$pre_processor
   config$pre_processor <- function(metadata, input_file, runtime, knit_meta,
@@ -33,7 +33,7 @@ cv_document <- function(..., pandoc_args = NULL, pandoc_vars = NULL) {
     if (has_meta(knit_meta, "biliography_entry")) {
       header_contents <- c(
         header_contents,
-        readLines(system.file("bib_format.tex", package = "vitae")),
+        readLines(pkg_resource("tex", "bib_format.tex")),
         bibliography_header(
           flatten_meta(knit_meta, function(x) inherits(x, "biliography_entry"))
         )

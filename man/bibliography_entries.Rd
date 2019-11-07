@@ -4,15 +4,21 @@
 \alias{bibliography_entries}
 \title{Print bibliography section}
 \usage{
-bibliography_entries(file, title = NULL, sorting = NULL,
-  startlabel = NULL, endlabel = NULL)
+bibliography_entries(
+  file,
+  title = NULL,
+  sorting = NULL,
+  startlabel = NULL,
+  endlabel = NULL
+)
 }
 \arguments{
 \item{file}{A path to a .bib file.}
 
 \item{title}{Deprecated, use markdown sub-headers.}
 
-\item{sorting}{Deprecated, use \code{\link[dplyr:arrange]{dplyr::arrange()}} to re-order the bibliography.}
+\item{sorting}{Deprecated, use \code{\link[dplyr:arrange]{dplyr::arrange()}}
+to re-order the bibliography.}
 
 \item{startlabel}{Optional label for first reference in the section.}
 
@@ -22,7 +28,8 @@ bibliography_entries(file, title = NULL, sorting = NULL,
 Prints bibliographic entries
 }
 \description{
-Given a bib file, this function will generate bibliographic entries for one or more types of bib entry.
+Given a bib file, this function will generate bibliographic entries for one
+or more types of bib entry.
 }
 \author{
 Rob J Hyndman & Mitchell O'Hara-Wild

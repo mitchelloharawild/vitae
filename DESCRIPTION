@@ -3,7 +3,8 @@ Title: Curriculum Vitae for R Markdown
 Version: 0.2.0.9000
 Authors@R: c(
   person("Mitchell", "O'Hara-Wild", role=c("aut", "cre"), email = "mail@mitchelloharawild.com", comment=c(ORCID = "0000-0001-6729-7695")),
-  person("Rob", "Hyndman", email="Rob.Hyndman@monash.edu", role=c("aut"), comment = c(ORCID = "0000-0002-2140-5352")))
+  person("Rob", "Hyndman", email="Rob.Hyndman@monash.edu", role=c("aut"), comment = c(ORCID = "0000-0002-2140-5352")),
+  person("JooYoung", "Seo", role=c("aut"), email="jooyoung@psu.edu", comment = c(ORCID = "0000-0002-4064-6012")))
 Description: Provides templates and functions to simplify the production and maintenance of curriculum vitae.
 Imports:
     bookdown,
@@ -21,10 +22,11 @@ Suggests:
     stringr,
     htmltools
 License: GPL-3
+SystemRequirements: Pandoc (>= 2.2.3)
 Encoding: UTF-8
 BugReports: https://github.com/ropenscilabs/vitae/issues
 URL: https://docs.ropensci.org/vitae/, https://github.com/ropenscilabs/vitae
 LazyData: true
 Roxygen: list(markdown = TRUE, roclets=c('rd', 'collate', 'namespace'))
-RoxygenNote: 6.1.1
+RoxygenNote: 6.1.99.9001
 VignetteBuilder: knitr

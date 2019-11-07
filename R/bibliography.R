@@ -2,21 +2,25 @@
 # category is a character vector of bib types
 # title is the section heading
 
+
+
+
+
 #' Print bibliography section
-#'
-#' Given a bib file, this function will generate bibliographic entries for one or more types of bib entry.
-#'
+#' 
+#' Given a bib file, this function will generate bibliographic entries for one
+#' or more types of bib entry.
+#' 
+#' 
 #' @param file A path to a .bib file.
 #' @param title Deprecated, use markdown sub-headers.
-#' @param sorting Deprecated, use [dplyr::arrange()] to re-order the bibliography.
+#' @param sorting Deprecated, use \code{\link[dplyr:arrange]{dplyr::arrange()}}
+#' to re-order the bibliography.
 #' @param startlabel Optional label for first reference in the section.
 #' @param endlabel Optional label for last reference in the section.
-#'
 #' @return Prints bibliographic entries
-#'
 #' @author Rob J Hyndman & Mitchell O'Hara-Wild
-#'
-#' @export
+#' @export bibliography_entries
 bibliography_entries <- function(file, title = NULL, sorting = NULL,
                                  startlabel = NULL,
                                  endlabel = NULL) {

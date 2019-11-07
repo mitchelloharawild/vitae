@@ -39,3 +39,11 @@ protect_tex_input <- function(x, ...) {
     x
   }
 }
+
+pkg_resource = function(...) {
+  system.file('resources', ..., package = 'vitae', mustWork = TRUE)
+}
+
+lua_filters = function(...) {
+  c(rbind("--lua-filter", pkg_resource('lua', c(...))))
+}
