@@ -107,7 +107,7 @@ $endif$
 % Arguments: what when with where why
 \usepackage{etoolbox}
 \def\detaileditem#1#2#3#4#5{%
-\cventry{#1}{#3}{#4}{#2}{\ifx#5\empty\else{\begin{cvitems}#5\end{cvitems}}\fi}}
+\cventry{#1}{#3}{#4}{#2}{\ifx#5\empty\else{\begin{cvitems}#5\end{cvitems}}\fi}\ifx#5\empty{\vspace{-4.0mm}}\else\fi}
 \def\detailedsection#1{\begin{cventries}#1\end{cventries}}
 
 % Templates for brief entries
