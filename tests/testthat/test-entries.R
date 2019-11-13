@@ -38,7 +38,7 @@ test_that("detailed_entries", {
   print <- knitr::knit_print(entries)
 
   expect_match(print, "detailedsection")
-  expect_equal(NROW(entries), 2)
+  expect_equal(NROW(entries), length(RefManageR::ReadBib(tmpbib)))
   expect_equal(stringr::str_count(print, "detaileditem"), 2)
 
   expect_equal(stringr::str_count(print, "\\\\item"), 2)
