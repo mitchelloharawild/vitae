@@ -1,0 +1,85 @@
+---
+name: Marie
+surname: Curie
+position: "Professor"
+address: "School of Physics & Chemistry, École Normale Supérieure"
+phone: +1 22 3333 4444
+www: mariecurie.com
+email: "Marie.Curie@ens.fr"
+twitter: mariecurie
+github: mariecurie
+linkedin: mariecurie
+date: "`r format(Sys.time(), '%B %Y')`"
+output: vitae::awesomecv
+csl: "csl/apa6-cv.csl"
+nocite: "@*"  # Don't change this line if you want to print all the entries of your bib file(s).
+bibliography_key1: "bib/journal.bib"  # Put anything unique for "key1" to remember; it should be matched with bib printing block later.
+bibliography_key2: "bib/R-packages.bib"  # Likewise, put anything unique for "key2"; if more bib sections needed, make in the same way below.
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(vitae)
+```
+
+# Some stuff about me
+
+ * I poisoned myself doing research.
+ * I was the first woman to win a Nobel prize
+ * I was the first person and only woman to win a Nobel prize in two different sciences.
+
+# Education
+
+```{r}
+library(tibble)
+tribble(
+  ~ Degree, ~ Year, ~ Institution, ~ Where,
+  "Informal studies", "1889-91", "Flying University", "Warsaw, Poland",
+  "Master of Physics", "1893", "Sorbonne Université", "Paris, France",
+  "Master of Mathematics", "1894", "Sorbonne Université", "Paris, France"
+) %>% 
+  detailed_entries(Degree, Year, Institution, Where)
+```
+
+# Nobel Prizes
+
+```{r}
+tribble(
+  ~Year, ~Type, ~Desc,
+  1903, "Physics", "Awarded for her work on radioactivity with Pierre Curie and Henri Becquerel",
+  1911, "Chemistry", "Awarded for the discovery of radium and polonium"
+) %>% 
+  brief_entries(
+    glue::glue("Nobel Prize in {Type}"),
+    Year, 
+    Desc
+  )
+```
+
+# Publications
+
+## Refereed Journal Papers
+
+<!-- Notes: copy and paste the following block for any other bibliography sections with the same bibliography key matched that you assigned in YAML  -->
+\begingroup
+\setlength{\parindent}{-0.5in}
+\setlength{\leftskip}{0.5in}
+
+::: {#refs_key1}
+:::
+\endgroup
+<!-- Bib-printing block ends here. -->
+
+## R Packages
+
+```{r, cache = TRUE}
+knitr::write_bib(c('ezpickr', 'mboxr', 'vitae'), "bib/R-packages.bib")
+```
+
+\begingroup
+\setlength{\parindent}{-0.5in}
+\setlength{\leftskip}{0.5in}
+
+::: {#refs_key2}
+:::
+\endgroup

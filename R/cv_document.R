@@ -12,7 +12,7 @@ cv_document <- function(..., pandoc_args = NULL, pandoc_vars = NULL) {
   for (i in seq_along(pandoc_vars)){
     pandoc_args <- c(pandoc_args, rmarkdown::pandoc_variable_arg(names(pandoc_vars)[[i]], pandoc_vars[[i]]))
   }
-  config <- bookdown::pdf_document2(..., pandoc_args = c(lua_filters("multiple-bibliographies.lua"), pandoc_args), output_options = list(nocite = "@*"))
+  config <- bookdown::pdf_document2(..., pandoc_args = c(lua_filters("multiple-bibliographies.lua"), pandoc_args))
 
   pre <- config$pre_processor
   config$pre_processor <- function(metadata, input_file, runtime, knit_meta,

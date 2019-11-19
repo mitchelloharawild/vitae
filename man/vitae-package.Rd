@@ -2,31 +2,31 @@
 % Please edit documentation in R/vitae-package.R
 \docType{package}
 \name{vitae-package}
-\alias{vitae-package}
 \alias{vitae}
+\alias{vitae-package}
 \title{vitae: Curriculum Vitae for R Markdown}
 \description{
-\if{html\figure{logo.pngoptions: align='right' alt='logo' width='120'}}
-}
-\details{
-Provides templates and functions to simplify the production and maintenance
-of curriculum vitae.
+\if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
+
+Provides templates and functions to simplify the production and maintenance of curriculum vitae.
 }
 \seealso{
-Useful links: \itemize{ \item
-\url{https://docs.ropensci.org/vitae/} \item
-\url{https://github.com/ropenscilabs/vitae} \item Report bugs at
-\url{https://github.com/ropenscilabs/vitae/issues} }
+Useful links:
+\itemize{
+  \item \url{https://docs.ropensci.org/vitae/}
+  \item \url{https://github.com/ropenscilabs/vitae}
+  \item Report bugs at \url{https://github.com/ropenscilabs/vitae/issues}
+}
+
 }
 \author{
-\strong{Maintainer}: Mitchell O'Hara-Wild
-\email{mail@mitchelloharawild.com}
-(\href{https://orcid.org/0000-0001-6729-7695ORCID})
+\strong{Maintainer}: Mitchell O'Hara-Wild \email{mail@mitchelloharawild.com} (\href{https://orcid.org/0000-0001-6729-7695}{ORCID})
 
-Authors: \itemize{ \item Rob Hyndman \email{Rob.Hyndman@monash.edu}
-(\href{https://orcid.org/0000-0002-2140-5352ORCID}) }
+Authors:
+\itemize{
+  \item Rob Hyndman \email{Rob.Hyndman@monash.edu} (\href{https://orcid.org/0000-0002-2140-5352}{ORCID})
+  \item JooYoung Seo \email{jooyoung@psu.edu} (\href{https://orcid.org/0000-0002-4064-6012}{ORCID})
+}
 
-Authors: \itemize{ \item JooYoung Seo \email{jooyoung@psu.edu}
-(\href{https://orcid.org/0000-0002-4064-6012ORCID}) }
 }
 \keyword{internal}
