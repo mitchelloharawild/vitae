@@ -60,7 +60,7 @@ test_that("bibliography_entries", {
   print <- knitr::knit_print(entries)
 
   expect_match(print, "defbibheading")
-  expect_equal(NROW(entries), 2)
+  expect_equal(NROW(entries), length(RefManageR::ReadBib(tmpbib)))
 
   expect_match(print, "rmarkdown")
   expect_match(print, "testthat")

@@ -3,6 +3,7 @@
 ## Bug fixes
 
 * Fixed issue with `bibliography_entries()` not working on Windows.
+* Fixed issue with using `brief_entires()` / `detailed_entries()` mismatching argument order in variable names
 
 # vitae 0.2.0
 
