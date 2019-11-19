@@ -3,12 +3,12 @@
 #' @export
 brief_entries <- function(data, what, when, with, .protect = TRUE) {
   edu_exprs <- list(
-    what = enexpr(what) %missing% NA,
-    when = enexpr(when) %missing% NA,
-    with = enexpr(with) %missing% NA
+    what = enquo(what) %missing% NA,
+    when = enquo(when) %missing% NA,
+    with = enquo(with) %missing% NA
   )
 
-  out <- dplyr::transmute(data, !!!edu_exprs)
+  out <- as_tibble(map(edu_exprs, rlang::eval_tidy, data = data))
   structure(out,
     preserve = names(edu_exprs),
     protect = .protect,

@@ -20,18 +20,20 @@
 #' @name cv_entries
 #' @rdname cv_entries
 #'
-#' @importFrom rlang enexpr expr_text !! := sym syms
+#' @importFrom rlang enquo expr_text !! := sym syms
 #' @export
 detailed_entries <- function(data, what, when, with, where, why, .protect = TRUE) {
   edu_exprs <- list(
-    what = enexpr(what) %missing% NA,
-    when = enexpr(when) %missing% NA,
-    with = enexpr(with) %missing% NA,
-    where = enexpr(where) %missing% NA,
-    why = enexpr(why) %missing% NA
+    what = enquo(what) %missing% NA,
+    when = enquo(when) %missing% NA,
+    with = enquo(with) %missing% NA,
+    where = enquo(where) %missing% NA,
+    why = enquo(why) %missing% NA
   )
 
-  data <- dplyr::group_by(data, !!!edu_exprs[-5])
+  edu_vars <- as_tibble(map(edu_exprs[-5], rlang::eval_tidy, data = data))
+  data[names(edu_vars)] <- edu_vars
+  data <- dplyr::group_by(data, !!!syms(names(edu_vars)))
   out <- dplyr::distinct(data, !!!syms(names(edu_exprs)[-5]))
   data <- dplyr::summarise(data, "why" := compact_list(!!edu_exprs[["why"]]))
   out <- dplyr::left_join(out, data, by = names(edu_exprs[-5]))

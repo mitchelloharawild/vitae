@@ -11,7 +11,7 @@ compact_list <- function(x) {
 }
 
 `%missing%` <- function(x, y) {
-  if (rlang::is_missing(x)) y else x
+  if (rlang::quo_is_missing(x)) y else x
 }
 
 map_mold <- function(.x, .f, .mold, ...) {
