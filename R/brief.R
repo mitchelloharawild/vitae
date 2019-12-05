@@ -8,7 +8,7 @@ brief_entries <- function(data, what, when, with, .protect = TRUE) {
     with = enquo(with) %missing% NA
   )
 
-  out <- as_tibble(map(edu_exprs, rlang::eval_tidy, data = data))
+  out <- dplyr::as_tibble(map(edu_exprs, rlang::eval_tidy, data = data))
   structure(out,
     preserve = names(edu_exprs),
     protect = .protect,
