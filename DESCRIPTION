@@ -10,8 +10,9 @@ Imports:
     rlang,
     glue,
     dplyr,
-    rmarkdown,
+    rmarkdown (>= 1.18),
     knitr,
+    xfun,
     RefManageR
 Suggests:
     bibtex,
