@@ -16,8 +16,6 @@
 % Template license:
 % CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
 %
-
-
 %-------------------------------------------------------------------------------
 % CONFIGURATIONS
 %-------------------------------------------------------------------------------
@@ -81,6 +79,18 @@ $if(email)$
 $endif$
 $if(www)$
 \homepage{$www$}
+$endif$
+$if(orcid)$
+\orcid{$orcid$}
+$endif$
+$if(publons)$
+\publons{$publons$}
+$endif$
+$if(googlescholar)$
+\googlescholar{$googlescholar$}
+$endif$
+$if(researchgate)$
+\researchgate{$researchgate$}
 $endif$
 $if(github)$
 \github{$github$}
