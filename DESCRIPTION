@@ -26,5 +26,5 @@ BugReports: https://github.com/ropenscilabs/vitae/issues
 URL: https://docs.ropensci.org/vitae/, https://github.com/ropenscilabs/vitae
 LazyData: true
 Roxygen: list(markdown = TRUE, roclets=c('rd', 'collate', 'namespace'))
-RoxygenNote: 6.1.1
+RoxygenNote: 7.0.2
 VignetteBuilder: knitr
