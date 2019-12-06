@@ -3,15 +3,17 @@ Title: Curriculum Vitae for R Markdown
 Version: 0.2.0.9000
 Authors@R: c(
   person("Mitchell", "O'Hara-Wild", role=c("aut", "cre"), email = "mail@mitchelloharawild.com", comment=c(ORCID = "0000-0001-6729-7695")),
-  person("Rob", "Hyndman", email="Rob.Hyndman@monash.edu", role=c("aut"), comment = c(ORCID = "0000-0002-2140-5352")))
+  person("Rob", "Hyndman", email="Rob.Hyndman@monash.edu", role=c("aut"), comment = c(ORCID = "0000-0002-2140-5352")),
+  person("Yihui", "Xie", role = c("ctb"), comment = c(ORCID = "0000-0003-0645-5666")))
 Description: Provides templates and functions to simplify the production and maintenance of curriculum vitae.
 Imports:
     bookdown,
     rlang,
     glue,
     dplyr,
-    rmarkdown,
+    rmarkdown (>= 1.18),
     knitr,
+    xfun,
     RefManageR
 Suggests:
     bibtex,

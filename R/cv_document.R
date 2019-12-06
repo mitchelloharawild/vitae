@@ -40,19 +40,9 @@ cv_document <- function(..., pandoc_args = NULL, pandoc_vars = NULL) {
       )
     }
 
-    if ("--include-in-header" %in% args) {
-      header_file <- args[which(args == "--include-in-header") + 1]
-    }
-    else {
-      header_file <- tempfile("cv-header", fileext = ".tex")
-      if ("header-includes" %in% names(metadata)) {
-        cat(c("", metadata[["header-includes"]]), sep = "\n", file = header_file, append = TRUE)
-      }
-      args <- c(args, rmarkdown::includes_to_pandoc_args(rmarkdown::includes(in_header = header_file)))
-    }
-
-    cat(header_contents, sep = "\n", file = header_file, append = TRUE)
-
+    header_file <- tempfile("cv-header", fileext = ".tex")
+    xfun::write_utf8(header_contents, header_file)
+    args <- c(args, rmarkdown::includes_to_pandoc_args(rmarkdown::includes(in_header = header_file)))
     args
   }
   config
