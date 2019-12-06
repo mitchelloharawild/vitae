@@ -4,6 +4,8 @@
 
 * Fixed issue with `bibliography_entries()` not working on Windows.
 * Fixed issue with using `brief_entires()` / `detailed_entries()` mismatching argument order in variable names
+* Fixed issue with `citation_package` and `latex_engine` options not changeable by users for `cv_document` formats.
+
 
 # vitae 0.2.0
 
