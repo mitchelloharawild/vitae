@@ -8,7 +8,7 @@
 [![CRAN
 status](https://www.r-pkg.org/badges/version/vitae)](https://cran.r-project.org/package=vitae)
 [![Travis build
-status](https://travis-ci.org/ropenscilabs/vitae.svg?branch=master)](https://travis-ci.org/ropenscilabs/vitae)
+status](https://travis-ci.org/mitchelloharawild/vitae.svg?branch=master)](https://travis-ci.org/mitchelloharawild/vitae)
 
 ## Templates and tools for making a Résumé/CV
 
@@ -25,11 +25,11 @@ install.packages('vitae')
 ```
 
 You can install the **development** version from
-[GitHub](https://github.com/ropenscilabs/vitae).
+[GitHub](https://github.com/mitchelloharawild/vitae).
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("ropenscilabs/vitae")
+devtools::install_github("mitchelloharawild/vitae")
 ```
 
 This package requires LaTeX to be installed on your computer. If you’re
@@ -87,12 +87,9 @@ orcid_data <- do.call("rbind",
     #>    education-summary.role-title education-summary.start-date.year.value
     #> 1                           PhD                                    1990
     #> 2 Bachelor of Science (Honours)                                    1985
-    #>   education-summary.end-date.year.value
-    #> 1                                  1992
-    #> 2                                  1988
-    #>   education-summary.organization.name
-    #> 1             University of Melbourne
-    #> 2             University of Melbourne
+    #>   education-summary.end-date.year.value education-summary.organization.name
+    #> 1                                  1992             University of Melbourne
+    #> 2                                  1988             University of Melbourne
     #>   education-summary.organization.address.city
     #> 1                                   Melbourne
     #> 2                                   Melbourne
@@ -137,7 +134,7 @@ Add your vitae to the list using a PR.
 
 Please note that the ‘vitae’ project is released with a [Contributor
 Code of
-Conduct](https://github.com/ropenscilabs/vitae/blob/master/.github/CODE_OF_CONDUCT.md).
+Conduct](https://github.com/mitchelloharawild/vitae/blob/master/.github/CODE_OF_CONDUCT.md).
 By contributing to this project, you agree to abide by its terms.
 
 The vitae project began as at [rOpenSci](https://ropensci.org/)’s
