@@ -14,34 +14,34 @@
 #' @rdname cv_formats
 #'
 #' @export
-hyndman <- function(...) {
+hyndman <- function(citation_package = "biblatex", ...) {
   template <- system.file("rmarkdown", "templates", "hyndman",
     "resources", "hyndmantemplate.tex",
     package = "vitae"
   )
-  cv_document(..., template = template, citation_package = "biblatex")
+  cv_document(..., template = template, citation_package = citation_package)
 }
 
 #' @rdname cv_formats
 #' @export
-twentyseconds <- function(...) {
+twentyseconds <- function(citation_package = "biblatex", ...) {
   template <- system.file("rmarkdown", "templates", "twentyseconds",
     "resources", "twentysecondstemplate.tex",
     package = "vitae"
   )
   copy_supporting_files("twentyseconds")
-  cv_document(..., template = template, citation_package = "biblatex")
+  cv_document(..., template = template, citation_package = citation_package)
 }
 
 #' @rdname cv_formats
 #' @export
-awesomecv <- function(...) {
+awesomecv <- function(citation_package = "biblatex", latex_engine = "xelatex", ...) {
   template <- system.file("rmarkdown", "templates", "awesomecv",
     "resources", "awesome-cv.tex",
     package = "vitae"
   )
   copy_supporting_files("awesomecv")
-  cv_document(..., template = template, citation_package = "biblatex", latex_engine = "xelatex")
+  cv_document(..., template = template, citation_package = citation_package, latex_engine = latex_engine)
 }
 
 #' @rdname cv_formats
@@ -49,7 +49,7 @@ awesomecv <- function(...) {
 #' @param theme The theme used for the template.
 #'
 #' @export
-moderncv <- function(..., theme = c("casual", "classic", "oldstyle", "banking", "fancy")) {
+moderncv <- function(citation_package = "biblatex", latex_engine = "pdflatex", theme = c("casual", "classic", "oldstyle", "banking", "fancy"), ...) {
   theme <- match.arg(theme)
   template <- system.file("rmarkdown", "templates", "moderncv",
     "resources", "moderncv.tex",
@@ -57,13 +57,13 @@ moderncv <- function(..., theme = c("casual", "classic", "oldstyle", "banking", 
   )
   copy_supporting_files("moderncv")
   cv_document(..., pandoc_vars = list(theme = theme),
-              template = template, citation_package = "biblatex", latex_engine = "pdflatex")
+              template = template, citation_package = citation_package, latex_engine = latex_engine)
 }
 
 #' @rdname cv_formats
 #'
 #' @export
-latexcv <- function(..., theme = c("classic", "modern", "rows", "sidebar", "two_column")) {
+latexcv <- function(citation_package = "biblatex", theme = c("classic", "modern", "rows", "sidebar", "two_column"), ...) {
   theme <- match.arg(theme)
   if(theme != "classic"){
     stop("Only the classic theme is currently supported.")
@@ -73,5 +73,5 @@ latexcv <- function(..., theme = c("classic", "modern", "rows", "sidebar", "two_
                           package = "vitae"
   )
   copy_supporting_files("latexcv")
-  cv_document(..., template = template, citation_package = "biblatex")
+  cv_document(..., template = template, citation_package = citation_package)
 }
