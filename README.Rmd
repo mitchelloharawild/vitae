@@ -99,6 +99,7 @@ Additional examples of using this package can be found in the slides presented a
 - [Chris Umphlett](https://chrisumphlett.github.io/posts/vitae-package/)
 - [Nat Price](https://github.com/natbprice/cv)
 - [Sam Abbott](https://github.com/seabbs/cv) (automatic deployment!)
+- [Diogo M. Camacho](https://github.com/diogocamacho/CV)
 
 Add your vitae to the list using a PR.
 
