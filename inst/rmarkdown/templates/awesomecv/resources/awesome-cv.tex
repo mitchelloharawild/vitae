@@ -111,6 +111,27 @@ $if(aboutme)$
 \quote{$aboutme$}
 $endif$
 
+
+$if(recipientname)$
+\recipient{$recipientname$}{$recipientaddress$}
+$endif$
+
+$if(letterdate)$
+\letterdate{$letterdate$}
+$endif$
+
+$if(letteropening)$
+\letteropening{$letteropening$}
+$endif$
+
+$if(letterclosing)$
+\letterclosing{$letterclosing$}
+$endif$
+
+$if(letterenclosure)$
+\letterenclosure$if(letterenclosurename)$[$letterenclosurename$]$endif${$letterenclosure$}
+$endif$
+
 \usepackage{booktabs}
 
 % Templates for detailed entries
