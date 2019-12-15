@@ -47,7 +47,7 @@ tinytex::install_tinytex()
 The *vitae* package currently supports 5 popular CV templates, and
 adding more is a relatively simple process (details in the [creating
 vitae
-templates](https://ropenscilabs.github.io/vitae/articles/extending.html)
+templates](https://pkg.mitchelloharawild.com/vitae/articles/extending.html)
 vignette).
 
 Creating a new CV with `vitae` can be done using the RStudio R Markdown
@@ -58,7 +58,7 @@ information in the YAML header (name, position, social links…) and
 extended information in the main body. The main body of the CV is
 written using markdown, and allows for data-driven generation of entries
 using the [`*_entries`
-functions](https://ropenscilabs.github.io/vitae/reference/cventries.html).
+functions](https://pkg.mitchelloharawild.com/vitae/reference/cventries.html).
 This allows you to import your working history from other sources (such
 as ORCID, Google Scholar, or a maintained dataset), and include them
 programmatically into your CV.

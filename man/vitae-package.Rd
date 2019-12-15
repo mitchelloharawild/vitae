@@ -13,7 +13,7 @@ Provides templates and functions to simplify the production and maintenance of c
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://docs.ropensci.org/vitae/}
+  \item \url{https://pkg.mitchelloharawild.com/vitae/}
   \item \url{https://github.com/ropenscilabs/vitae}
   \item Report bugs at \url{https://github.com/ropenscilabs/vitae/issues}
 }
@@ -25,6 +25,11 @@ Useful links:
 Authors:
 \itemize{
   \item Rob Hyndman \email{Rob.Hyndman@monash.edu} (\href{https://orcid.org/0000-0002-2140-5352}{ORCID})
+}
+
+Other contributors:
+\itemize{
+  \item Yihui Xie (\href{https://orcid.org/0000-0003-0645-5666}{ORCID}) [contributor]
 }
 
 }

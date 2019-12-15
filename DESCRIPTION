@@ -25,7 +25,7 @@ Suggests:
 License: GPL-3
 Encoding: UTF-8
 BugReports: https://github.com/ropenscilabs/vitae/issues
-URL: https://docs.ropensci.org/vitae/, https://github.com/ropenscilabs/vitae
+URL: https://pkg.mitchelloharawild.com/vitae/, https://github.com/ropenscilabs/vitae
 LazyData: true
 Roxygen: list(markdown = TRUE, roclets=c('rd', 'collate', 'namespace'))
 RoxygenNote: 7.0.2
