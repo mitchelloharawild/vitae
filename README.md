@@ -127,6 +127,7 @@ presented at [ozunconf2018](https://ozunconf18.ropensci.org/):
     Umphlett](https://chrisumphlett.github.io/posts/vitae-package/)
   - [Nat Price](https://github.com/natbprice/cv)
   - [Sam Abbott](https://github.com/seabbs/cv) (automatic deployment\!)
+  - [JooYoung Seo](https://github.com/jooyoungseo/jy_CV) (printing multiple bibliographic entries according to a given csl file)
   - [Diogo M. Camacho](https://github.com/diogocamacho/CV)
 
 Add your vitae to the list using a PR.
