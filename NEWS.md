@@ -1,5 +1,7 @@
 # vitae (development version)
 
+# vitae 0.2.1
+
 ## Bug fixes
 
 * Fixed issue with `bibliography_entries()` not working on Windows.

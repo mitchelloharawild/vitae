@@ -31,7 +31,7 @@ detailed_entries <- function(data, what, when, with, where, why, .protect = TRUE
     why = enquo(why) %missing% NA
   )
 
-  edu_vars <- as_tibble(map(edu_exprs[-5], rlang::eval_tidy, data = data))
+  edu_vars <- dplyr::as_tibble(map(edu_exprs[-5], rlang::eval_tidy, data = data))
   data[names(edu_vars)] <- edu_vars
   data <- dplyr::group_by(data, !!!syms(names(edu_vars)))
   out <- dplyr::distinct(data, !!!syms(names(edu_exprs)[-5]))
