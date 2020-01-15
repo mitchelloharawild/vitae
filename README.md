@@ -71,11 +71,9 @@ Hyndman](https://orcid.org/0000-0002-2140-5352)’s education history:
 orcid_data <- do.call("rbind",
   rorcid::orcid_educations("0000-0002-2140-5352")$`0000-0002-2140-5352`$`affiliation-group`$summaries
 )
-#> Registered S3 method overwritten by 'httr':
-#>   method                 from
-#>   as.character.form_file crul
 ```
 
+    #> Warning: package 'dplyr' was built under R version 3.6.2
     #> 
     #> Attaching package: 'dplyr'
     #> The following objects are masked from 'package:stats':
@@ -127,8 +125,10 @@ presented at [ozunconf2018](https://ozunconf18.ropensci.org/):
     Umphlett](https://chrisumphlett.github.io/posts/vitae-package/)
   - [Nat Price](https://github.com/natbprice/cv)
   - [Sam Abbott](https://github.com/seabbs/cv) (automatic deployment\!)
-  - [JooYoung Seo](https://github.com/jooyoungseo/jy_CV) (printing multiple bibliographic entries according to a given csl file)
+  - [JooYoung Seo](https://github.com/jooyoungseo/jy_CV) (printing
+    multiple bibliographic entries according to a given csl file)
   - [Diogo M. Camacho](https://github.com/diogocamacho/CV)
+  - [Han Zhang](https://github.com/HanZhang-psych/CV) (custom csl files)
 
 Add your vitae to the list using a PR.
 

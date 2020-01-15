@@ -99,7 +99,9 @@ Additional examples of using this package can be found in the slides presented a
 - [Chris Umphlett](https://chrisumphlett.github.io/posts/vitae-package/)
 - [Nat Price](https://github.com/natbprice/cv)
 - [Sam Abbott](https://github.com/seabbs/cv) (automatic deployment!)
+- [JooYoung Seo](https://github.com/jooyoungseo/jy_CV) (printing multiple bibliographic entries according to a given csl file)
 - [Diogo M. Camacho](https://github.com/diogocamacho/CV)
+- [Han Zhang](https://github.com/HanZhang-psych/CV) (custom csl files)
 
 Add your vitae to the list using a PR.
 
