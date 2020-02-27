@@ -92,6 +92,8 @@
   pdfkeywords={}
 }
 
+% For RStudio Community logo
+\usepackage{graphicx}
 
 %-------------------------------------------------------------------------------
 %                Configuration for directory locations
@@ -308,6 +310,10 @@
 % Usage: \github{<github-nick>}
 \newcommand*{\github}[1]{\def\@github{#1}}
 
+% Defines writer's RStudio Community (optional)
+% Usage: \community{<community-nick>}
+\newcommand*{\community}[1]{\def\@community{#1}}
+
 % Defines writer's gitlab (optional)
 % Usage: \gitlab{<gitlab-nick>}
 \newcommand*{\gitlab}[1]{\def\@gitlab{#1}}
@@ -393,6 +399,7 @@
 \newcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
 \newcommand{\acvHeaderAfterSocialSkip}{6mm}
 \newcommand{\acvHeaderAfterQuoteSkip}{5mm}
+\newcommand{\communitySquare}{\includegraphics[scale=.011]{community_logo.png}}
 
 % Others
 \newcommand{\acvSectionTopSkip}{3mm}
@@ -502,6 +509,12 @@
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
           \href{https://github.com/\@github}{\faGithubSquare\acvHeaderIconSep\@github}%
+        }%
+      \ifthenelse{\isundefined{\@community}}%
+        {}%
+        {%
+          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
+          \href{https://community.rstudio.com/u/\@community}{\communitySquare\acvHeaderIconSep\@community}%
         }%
       \ifthenelse{\isundefined{\@gitlab}}%
         {}%
