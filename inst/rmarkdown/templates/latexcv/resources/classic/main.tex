@@ -391,15 +391,11 @@ $endfor$
 %	ARTIFICIAL FOOTER (fancy footer cannot exceed linewidth)
 %--------------------------------------------------------------------------------------------------
 
-% For RStudio Community logo
-\newcommand{\communitySquare}{\includegraphics[scale=.013]{community_logo.png}}
-
 \null
 \vspace*{\fill}
 \hspace{-0.25\linewidth}\colorbox{white}{\makebox[1.5\linewidth][c]{\mystrut  \textnormal{$if(date)$- \textcolor{sectcol}{$date$}$endif$
 $if(twitter)$ - \textcolor{sectcol}{\href{https://twitter.com/$twitter$}{\faicon{twitter} $twitter$}}$else$$endif$
 $if(github)$ - \textcolor{sectcol}{\href{https://github.com/$github$}{\faicon{github} $github$}}$else$$endif$
-$if(community)$ - \textcolor{sectcol}{\href{https://community.rstudio.com/u/$community$}{\communitySquare $community$}}$else$$endif$
 $if(linkedin)$ - \textcolor{sectcol}{\href{https://www.linkedin.com/in/$linkedin$}{\faicon{linkedin} $linkedin$}}$else$$endif$ - }}}
 
 %============================================================================%
