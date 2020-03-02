@@ -245,10 +245,6 @@ $if(position)$\\[0.1cm]\large $position$\\[0.6cm]$else$\\[0.7cm]$endif$
 \usepackage{booktabs,fontawesome}
 %\usepackage[t1,scale=0.86]{sourcecodepro}
 
-% For RStudio Community logo
-\usepackage{graphicx}
-\newcommand{\communitySquare}{\includegraphics[scale=.013]{community_logo.png}}
-
 \name{$name$$if(surname)$ $surname$$endif$}
 \def\imagetop#1{\vtop{\null\hbox{#1}}}
 \info{%
@@ -258,7 +254,6 @@ $if(phone)$\faicon{phone} & $phone$\\$endif$%
 $if(email)$\faicon{envelope} & $email$\\$endif$%
 $if(twitter)$\faicon{twitter} & \href{https://twitter.com/$twitter$}{@$twitter$}\\$endif$%
 $if(github)$\faicon{github} & \href{https://github.com/$github$}{$github$}\\$endif$%
-$if(community)$\communitySquare & \href{https://community.rstudio.com/u/$community$}{$community$}\\$endif$%
 $if(linkedin)$\faicon{linkedin} & \href{https://www.linkedin.com/in/$linkedin$}{$linkedin$}\\$endif$%
 $if(scholar)$\faicon{google} & \href{https://scholar.google.com/citations?user=$scholar$}{$scholar$}\\$endif$%
 $if(orcid)$\faicon{openid} & \href{https://orcid.org/$orcid$}{$orcid$}\\$endif$%
