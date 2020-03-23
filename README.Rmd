@@ -102,6 +102,7 @@ Additional examples of using this package can be found in the slides presented a
 - [JooYoung Seo](https://github.com/jooyoungseo/jy_CV) (printing multiple bibliographic entries according to a given csl file)
 - [Diogo M. Camacho](https://github.com/diogocamacho/CV)
 - [Han Zhang](https://github.com/HanZhang-psych/CV) (custom csl files)
+- [Bryan Jenks](https://github.com/tallguyjenks/CV)
 
 Add your vitae to the list using a PR.
 
