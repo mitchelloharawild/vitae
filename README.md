@@ -129,6 +129,7 @@ presented at [ozunconf2018](https://ozunconf18.ropensci.org/):
     multiple bibliographic entries according to a given csl file)
   - [Diogo M. Camacho](https://github.com/diogocamacho/CV)
   - [Han Zhang](https://github.com/HanZhang-psych/CV) (custom csl files)
+  - [Bryan Jenks](https://github.com/tallguyjenks/CV)
 
 Add your vitae to the list using a PR.
 
