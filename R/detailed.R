@@ -24,11 +24,11 @@
 #' @export
 detailed_entries <- function(data, what, when, with, where, why, .protect = TRUE) {
   edu_exprs <- list(
-    what = enquo(what) %missing% NA,
-    when = enquo(when) %missing% NA,
-    with = enquo(with) %missing% NA,
-    where = enquo(where) %missing% NA,
-    why = enquo(why) %missing% NA
+    what = enquo(what) %missing% NA_character_,
+    when = enquo(when) %missing% NA_character_,
+    with = enquo(with) %missing% NA_character_,
+    where = enquo(where) %missing% NA_character_,
+    why = enquo(why) %missing% NA_character_
   )
 
   edu_vars <- dplyr::as_tibble(map(edu_exprs[-5], rlang::eval_tidy, data = data))
