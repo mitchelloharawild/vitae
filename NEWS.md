@@ -1,5 +1,9 @@
 # vitae (development version)
 
+## Bug fixes
+
+* This patch resolves knit issues introduced by tibble v3.0.0.
+
 # vitae 0.2.1
 
 ## Bug fixes

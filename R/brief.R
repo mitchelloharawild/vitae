@@ -3,9 +3,9 @@
 #' @export
 brief_entries <- function(data, what, when, with, .protect = TRUE) {
   edu_exprs <- list(
-    what = enquo(what) %missing% NA,
-    when = enquo(when) %missing% NA,
-    with = enquo(with) %missing% NA
+    what = enquo(what) %missing% NA_character_,
+    when = enquo(when) %missing% NA_character_,
+    with = enquo(with) %missing% NA_character_
   )
 
   out <- dplyr::as_tibble(map(edu_exprs, rlang::eval_tidy, data = data))
