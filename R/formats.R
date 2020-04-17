@@ -19,7 +19,7 @@ hyndman <- function(...) {
     "resources", "hyndmantemplate.tex",
     package = "vitae"
   )
-  cv_document(..., template = template, citation_package = "biblatex")
+  cv_document(..., template = template)
 }
 
 #' @rdname cv_formats
@@ -30,7 +30,7 @@ twentyseconds <- function(...) {
     package = "vitae"
   )
   copy_supporting_files("twentyseconds")
-  cv_document(..., template = template, citation_package = "biblatex")
+  cv_document(..., template = template)
 }
 
 #' @rdname cv_formats
@@ -41,7 +41,7 @@ awesomecv <- function(...) {
     package = "vitae"
   )
   copy_supporting_files("awesomecv")
-  cv_document(..., template = template, citation_package = "biblatex", latex_engine = "xelatex")
+  cv_document(..., template = template, latex_engine = "xelatex")
 }
 
 #' @rdname cv_formats
@@ -57,7 +57,7 @@ moderncv <- function(..., theme = c("casual", "classic", "oldstyle", "banking", 
   )
   copy_supporting_files("moderncv")
   cv_document(..., pandoc_vars = list(theme = theme),
-              template = template, citation_package = "biblatex", latex_engine = "pdflatex")
+              template = template, latex_engine = "pdflatex")
 }
 
 #' @rdname cv_formats
@@ -73,5 +73,5 @@ latexcv <- function(..., theme = c("classic", "modern", "rows", "sidebar", "two_
                           package = "vitae"
   )
   copy_supporting_files("latexcv")
-  cv_document(..., template = template, citation_package = "biblatex")
+  cv_document(..., template = template)
 }
