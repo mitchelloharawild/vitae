@@ -84,8 +84,6 @@ end
 -- ID matches "bibliography", and uses the path contained within the div
 local function create_topic_bibliography (div)
   local is_bib = div.identifier == 'bibliography'
-  local inspect = require('inspect')
-  --print(inspect(div.content[1].content[1].text))
   if not is_bib then
     return nil
   end
