@@ -41,14 +41,20 @@ bibliography_entries <- function(file, startlabel = NULL, endlabel = NULL) {
 #' @importFrom knitr knit_print
 #' @export
 knit_print.vitae_bibliography <- function(x, options) {
+  path <- x%@%"file"
   items <- x$key
+  yaml_bib <- yaml::yaml.load(rmarkdown::pandoc_citeproc_convert(path, "yaml"))$references
+  yaml_bib <- Filter(function(x) x$id %in% items, yaml_bib)
+  file <- tempfile(fileext = ".yaml")
+  yaml::write_yaml(list(references = yaml_bib), file = file)
+
   startlabel <- x %@% "startlabel"
   endlabel <- x %@% "endlabel"
   out <- glue(
     '
 
     ::: {#bibliography}
-    << x %@% "file" >>
+    << file >>
     :::
 
     ',
