@@ -12,42 +12,9 @@ cv_document <- function(..., pandoc_args = NULL, pandoc_vars = NULL) {
   for (i in seq_along(pandoc_vars)){
     pandoc_args <- c(pandoc_args, rmarkdown::pandoc_variable_arg(names(pandoc_vars)[[i]], pandoc_vars[[i]]))
   }
-  config <- bookdown::pdf_document2(
+  bookdown::pdf_document2(
     ..., pandoc_args = c(c(rbind("--lua-filter", system.file("multiple-bibliographies.lua", package = "vitae", mustWork = TRUE))), pandoc_args)
   )
-
-  pre <- config$pre_processor
-  config$pre_processor <- function(metadata, input_file, runtime, knit_meta,
-                                     files_dir, output_dir) {
-    args <- pre(metadata, input_file, runtime, knit_meta, files_dir, output_dir)
-
-    header_contents <- NULL
-
-    if (has_meta(knit_meta, "latex_dependency")) {
-      header_contents <- c(
-        header_contents,
-        latex_dependencies_as_string(
-          flatten_meta(knit_meta, function(x) inherits(x, "latex_dependency"))
-        )
-      )
-    }
-
-    if (has_meta(knit_meta, "biliography_entry")) {
-      header_contents <- c(
-        header_contents,
-        readLines(system.file("bib_format.tex", package = "vitae")),
-        bibliography_header(
-          flatten_meta(knit_meta, function(x) inherits(x, "biliography_entry"))
-        )
-      )
-    }
-
-    header_file <- tempfile("cv-header", fileext = ".tex")
-    xfun::write_utf8(header_contents, header_file)
-    args <- c(args, rmarkdown::includes_to_pandoc_args(rmarkdown::includes(in_header = header_file)))
-    args
-  }
-  config
 }
 
 flatten_meta <- function(knit_meta, test) {

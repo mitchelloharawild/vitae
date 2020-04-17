@@ -7,24 +7,20 @@
 #' Given a bib file, this function will generate bibliographic entries for one or more types of bib entry.
 #'
 #' @param file A path to a .bib file.
-#' @param title Deprecated, use markdown sub-headers.
-#' @param sorting Deprecated, use [dplyr::arrange()] to re-order the bibliography.
-#' @param startlabel Optional label for first reference in the section.
-#' @param endlabel Optional label for last reference in the section.
+#' @param startlabel Defunct.
+#' @param endlabel Defunct.
 #'
 #' @return Prints bibliographic entries
 #'
 #' @author Rob J Hyndman & Mitchell O'Hara-Wild
 #'
 #' @export
-bibliography_entries <- function(file, title = NULL, sorting = NULL,
-                                 startlabel = NULL,
-                                 endlabel = NULL) {
-  if(!missing(title)){
-    warning("The `title` argument is deprecated. Please add bibliography titles using markdown sub-headers. This argument will be removed in the next release of vitae.")
+bibliography_entries <- function(file, startlabel = NULL, endlabel = NULL) {
+  if(!is.null(startlabel)){
+    warning("The `startlabel` argument is defunct. Please use a different approach to including labels.")
   }
-  if(!missing(sorting)){
-    warning("The `sorting` argument is deprecated. Please sort bibliography entries using `dplyr::arrange()`. This argument will be removed in the next release of vitae.")
+  if(!is.null(endlabel)){
+    warning("The `endlabel` argument is defunct. Please use a different approach to including labels.")
   }
   bib <- RefManageR::ReadBib(file, check = FALSE)
   family <- map_chr(bib, function(x){
@@ -36,8 +32,6 @@ bibliography_entries <- function(file, title = NULL, sorting = NULL,
     mutate(surnames = family)
   structure(mutate(out, key = unlist(bib$key)),
     file = normalizePath(file, winslash = .Platform$file.sep),
-    startlabel = startlabel,
-    endlabel = endlabel,
     preserve = "key",
     class = c("vitae_bibliography", "vitae_preserve", class(out))
   )
@@ -47,34 +41,19 @@ bibliography_entries <- function(file, title = NULL, sorting = NULL,
 #' @importFrom knitr knit_print
 #' @export
 knit_print.vitae_bibliography <- function(x, options) {
-  bibname <- paste("bib", x %@% "file", format((as.numeric(Sys.time())%%60)*1e5, nsmall = 0), sep = "-")
   items <- x$key
   startlabel <- x %@% "startlabel"
   endlabel <- x %@% "endlabel"
   out <- glue(
     '
-    \\defbibheading{<<bibname>>}{}<<startlabel>>
-    \\addtocategory{<<bibname>>}{<<items>>}
-    \\newrefcontext[sorting=none]\\setcounter{papers}{0}\\pagebreak[3]
-    \\printbibliography[category=<<bibname>>,heading=none]<<endlabel>>\\setcounter{papers}{0}
+    ::: {#bibliography}
+    << x %@% "file" >>
+    :::
 
     \\nocite{<<items>>}
     ',
-    startlabel = ifelse(!is.null(startlabel),
-      glue("\\label{<startlabel>}", .open = "<", .close = ">"),
-      ""
-    ),
-    endlabel = ifelse(!is.null(endlabel),
-      glue("\\label{<endlabel>}", .open = "<", .close = ">"),
-      ""
-    ),
     items = glue_collapse(items, sep = ",\n"),
     .open = "<<", .close = ">>"
   )
-  knitr::asis_output(out,
-    meta = list(structure(
-      list(title = bibname, file = x %@% "file"),
-      class = "biliography_entry"
-    ))
-  )
+  knitr::asis_output(out)
 }

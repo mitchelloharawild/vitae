@@ -4,24 +4,14 @@
 \alias{bibliography_entries}
 \title{Print bibliography section}
 \usage{
-bibliography_entries(
-  file,
-  title = NULL,
-  sorting = NULL,
-  startlabel = NULL,
-  endlabel = NULL
-)
+bibliography_entries(file, startlabel = NULL, endlabel = NULL)
 }
 \arguments{
 \item{file}{A path to a .bib file.}
 
-\item{title}{Deprecated, use markdown sub-headers.}
+\item{startlabel}{Defunct.}
 
-\item{sorting}{Deprecated, use \code{\link[dplyr:arrange]{dplyr::arrange()}} to re-order the bibliography.}
-
-\item{startlabel}{Optional label for first reference in the section.}
-
-\item{endlabel}{Optional label for last reference in the section.}
+\item{endlabel}{Defunct.}
 }
 \value{
 Prints bibliographic entries

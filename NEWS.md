@@ -1,5 +1,15 @@
 # vitae (development version)
 
+## Improvements
+
+* `bibliography_entries()` are now handled using a pandoc via a lua filter. This
+  means that typical approaches for specifying CSL and other citeproc paramaters
+  will work as expected.
+  
+## Breaking changes
+* All arguments of `bibliography_entries()` except for the bibliography `file`
+  are now defunct.
+
 # vitae 0.2.1
 
 ## Bug fixes

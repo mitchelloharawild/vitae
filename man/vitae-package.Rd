@@ -30,6 +30,7 @@ Authors:
 Other contributors:
 \itemize{
   \item Yihui Xie (\href{https://orcid.org/0000-0003-0645-5666}{ORCID}) [contributor]
+  \item Albert Krewinkel (Multiple bibliographies lua filter) [copyright holder]
 }
 
 }
