@@ -7,7 +7,7 @@
 cv_document(..., pandoc_args = NULL, pandoc_vars = NULL)
 }
 \arguments{
-\item{...}{Arguments passed to bookdown::pdf_document2().}
+\item{...}{Arguments passed to rmarkdown::pdf_document().}
 
 \item{pandoc_args}{Additional command line options to pass to pandoc}
 
@@ -15,5 +15,5 @@ cv_document(..., pandoc_args = NULL, pandoc_vars = NULL)
 }
 \description{
 This output format provides support for including LaTeX dependencies and
-bibliography entries in extension of the bookdown::pdf_document2() format.
+bibliography entries in extension of the \code{rmarkdown::pdf_document()} format.
 }

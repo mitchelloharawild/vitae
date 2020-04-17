@@ -9,7 +9,6 @@ Authors@R: c(
   person("JooYoung", "Seo", role="ctb", comment = c(ORCID = "0000-0002-4064-6012")))
 Description: Provides templates and functions to simplify the production and maintenance of curriculum vitae.
 Imports:
-    bookdown,
     rlang,
     glue,
     dplyr,
