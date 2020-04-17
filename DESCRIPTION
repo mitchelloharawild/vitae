@@ -15,7 +15,8 @@ Imports:
     rmarkdown (>= 1.18),
     knitr,
     xfun,
-    RefManageR
+    RefManageR,
+    yaml
 Suggests:
     bibtex,
     covr,

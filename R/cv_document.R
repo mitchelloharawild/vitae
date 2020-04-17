@@ -12,9 +12,26 @@ cv_document <- function(..., pandoc_args = NULL, pandoc_vars = NULL) {
   for (i in seq_along(pandoc_vars)){
     pandoc_args <- c(pandoc_args, rmarkdown::pandoc_variable_arg(names(pandoc_vars)[[i]], pandoc_vars[[i]]))
   }
-  rmarkdown::pdf_document(
+  out <- rmarkdown::pdf_document(
     ..., pandoc_args = c(c(rbind("--lua-filter", system.file("multiple-bibliographies.lua", package = "vitae", mustWork = TRUE))), pandoc_args)
   )
+  pre <- out$pre_processor
+  out$pre_processor <- function (metadata, input_file, runtime, knit_meta,
+                                 files_dir, output_dir){
+    pre(metadata, input_file, runtime, knit_meta,
+               files_dir, output_dir)
+
+    # Add citations to front matter yaml, there may be a better way to do this.
+    meta_nocite <- vapply(knit_meta, inherits, logical(1L), "vitae_nocite")
+    metadata$nocite <- c(metadata$nocite, paste0("@", do.call(c, knit_meta[meta_nocite]), collapse = ", "))
+
+    body <- partition_yaml_front_matter(xfun::read_utf8(input_file))$body
+    xfun::write_utf8(
+      c("---", yaml::as.yaml(metadata), "---", body),
+      input_file
+    )
+  }
+  out
 }
 
 flatten_meta <- function(knit_meta, test) {

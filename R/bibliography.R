@@ -49,11 +49,9 @@ knit_print.vitae_bibliography <- function(x, options) {
     ::: {#bibliography}
     << x %@% "file" >>
     :::
-
-    \\nocite{<<items>>}
     ',
     items = glue_collapse(items, sep = ",\n"),
     .open = "<<", .close = ">>"
   )
-  knitr::asis_output(out)
+  knitr::asis_output(out, meta = list(structure(x$key, class = "vitae_nocite")))
 }
