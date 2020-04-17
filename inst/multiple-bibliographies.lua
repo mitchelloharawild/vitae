@@ -2,6 +2,7 @@
 multiple-bibliographies – create multiple bibliographies
 
 Copyright © 2018-2020 Albert Krewinkel
+Modified 17/04/2020 by Mitchell O'Hara-Wild
 
 Permission to use, copy, modify, and/or distribute this software for any
 purpose with or without fee is hereby granted, provided that the above
@@ -80,14 +81,15 @@ local function meta_for_pandoc_citeproc (bibliography)
 end
 
 --- Create a bibliography for a given topic. This acts on all divs whose
--- ID starts with "refs", followed by nothing but underscores and
--- alphanumeric characters.
+-- ID matches "bibliography", and uses the path contained within the div
 local function create_topic_bibliography (div)
-  local name = div.identifier:match('^refs([_%w]*)$')
-  local bibfile = name and doc_meta['bibliography' .. name]
-  if not bibfile then
+  local is_bib = div.identifier == 'bibliography'
+  local inspect = require('inspect')
+  --print(inspect(div.content[1].content[1].text))
+  if not is_bib then
     return nil
   end
+  local bibfile = div.content[1].content[1].text
   local tmp_blocks = {pandoc.Para(all_cites), refs_div}
   local tmp_meta = meta_for_pandoc_citeproc(bibfile)
   local tmp_doc = pandoc.Pandoc(tmp_blocks, tmp_meta)
