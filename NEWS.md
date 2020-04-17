@@ -5,6 +5,8 @@
 * `bibliography_entries()` are now handled using a pandoc via a lua filter. This
   means that typical approaches for specifying CSL and other citeproc paramaters
   will work as expected.
+* The `citation_package` and `latex_engine` options are now changeable by users 
+  for all output formats.
   
 ## Breaking changes
 * All arguments of `bibliography_entries()` except for the bibliography `file`

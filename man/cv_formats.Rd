@@ -13,14 +13,21 @@ hyndman(...)
 
 twentyseconds(...)
 
-awesomecv(...)
+awesomecv(..., latex_engine = "xelatex")
 
-moderncv(..., theme = c("casual", "classic", "oldstyle", "banking", "fancy"))
+moderncv(
+  ...,
+  theme = c("casual", "classic", "oldstyle", "banking", "fancy"),
+  latex_engine = "pdflatex"
+)
 
 latexcv(..., theme = c("classic", "modern", "rows", "sidebar", "two_column"))
 }
 \arguments{
 \item{\dots}{Arguments passed to \code{\link[vitae]{cv_document}}.}
+
+\item{latex_engine}{LaTeX engine for producing PDF output. Options are
+"pdflatex", "lualatex", and "xelatex".}
 
 \item{theme}{The theme used for the template.}
 }

@@ -4,6 +4,7 @@
 #' produce curriculum vitae
 #'
 #' @param \dots Arguments passed to \code{\link[vitae]{cv_document}}.
+#' @inheritParams rmarkdown::pdf_document
 #'
 #' @return An R Markdown output format object.
 #'
@@ -35,13 +36,13 @@ twentyseconds <- function(...) {
 
 #' @rdname cv_formats
 #' @export
-awesomecv <- function(...) {
+awesomecv <- function(..., latex_engine = "xelatex") {
   template <- system.file("rmarkdown", "templates", "awesomecv",
     "resources", "awesome-cv.tex",
     package = "vitae"
   )
   copy_supporting_files("awesomecv")
-  cv_document(..., template = template, latex_engine = "xelatex")
+  cv_document(..., template = template, latex_engine = latex_engine)
 }
 
 #' @rdname cv_formats
@@ -49,7 +50,8 @@ awesomecv <- function(...) {
 #' @param theme The theme used for the template.
 #'
 #' @export
-moderncv <- function(..., theme = c("casual", "classic", "oldstyle", "banking", "fancy")) {
+moderncv <- function(..., theme = c("casual", "classic", "oldstyle", "banking", "fancy"),
+                     latex_engine = "pdflatex") {
   theme <- match.arg(theme)
   template <- system.file("rmarkdown", "templates", "moderncv",
     "resources", "moderncv.tex",
@@ -57,7 +59,7 @@ moderncv <- function(..., theme = c("casual", "classic", "oldstyle", "banking", 
   )
   copy_supporting_files("moderncv")
   cv_document(..., pandoc_vars = list(theme = theme),
-              template = template, latex_engine = "pdflatex")
+              template = template, latex_engine = latex_engine)
 }
 
 #' @rdname cv_formats

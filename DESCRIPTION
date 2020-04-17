@@ -5,7 +5,8 @@ Authors@R: c(
   person("Mitchell", "O'Hara-Wild", role=c("aut", "cre"), email = "mail@mitchelloharawild.com", comment=c(ORCID = "0000-0001-6729-7695")),
   person("Rob", "Hyndman", email="Rob.Hyndman@monash.edu", role=c("aut"), comment = c(ORCID = "0000-0002-2140-5352")),
   person("Yihui", "Xie", role = c("ctb"), comment = c(ORCID = "0000-0003-0645-5666")),
-  person("Albert", "Krewinkel", role = c("cph"), comment = c("Multiple bibliographies lua filter")))
+  person("Albert", "Krewinkel", role = c("cph"), comment = c("Multiple bibliographies lua filter")),
+  person("JooYoung", "Seo", role="ctb", comment = c(ORCID = "0000-0002-4064-6012")))
 Description: Provides templates and functions to simplify the production and maintenance of curriculum vitae.
 Imports:
     bookdown,
