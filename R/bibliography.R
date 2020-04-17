@@ -46,9 +46,11 @@ knit_print.vitae_bibliography <- function(x, options) {
   endlabel <- x %@% "endlabel"
   out <- glue(
     '
+
     ::: {#bibliography}
     << x %@% "file" >>
     :::
+
     ',
     items = glue_collapse(items, sep = ",\n"),
     .open = "<<", .close = ">>"
