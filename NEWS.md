@@ -1,23 +1,31 @@
 # vitae (development version)
 
+## Breaking changes
+
+* All arguments of `bibliography_entries()` except for the bibliography `file`
+  are now defunct.
+* The default style of bibliography entries is now the APA CV format. It can be
+  customised using the csl argument in the yaml front matter.
+  
 ## Improvements
 
-* `bibliography_entries()` are now handled using a pandoc via a lua filter. This
-  means that typical approaches for specifying CSL and other citeproc paramaters
+* `bibliography_entries()` are now handled using a pandoc's cite-proc. This
+  means that typical approaches for specifying CSL and other citeproc parameters
   will work as expected.
 * The `citation_package` and `latex_engine` options are now changeable by users 
   for all output formats.
-  
-## Breaking changes
-* All arguments of `bibliography_entries()` except for the bibliography `file`
-  are now defunct.
+
+## Bug fixes
+
+* Fixed `knit_print()` method failures introduced by tibble v3.0.0.
 
 # vitae 0.2.1
 
 ## Bug fixes
 
 * Fixed issue with `bibliography_entries()` not working on Windows.
-* Fixed issue with using `brief_entires()` / `detailed_entries()` mismatching argument order in variable names
+* Fixed issue with using `brief_entires()` / `detailed_entries()` mismatching 
+  argument order in variable names
 
 # vitae 0.2.0
 
