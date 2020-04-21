@@ -24,6 +24,7 @@ cv_document <- function(..., pandoc_args = NULL, pandoc_vars = NULL) {
     # Add citations to front matter yaml, there may be a better way to do this.
     meta_nocite <- vapply(knit_meta, inherits, logical(1L), "vitae_nocite")
     metadata$nocite <- c(metadata$nocite, paste0("@", do.call(c, knit_meta[meta_nocite]), collapse = ", "))
+    if(is.null(metadata$csl)) metadata$csl <- system.file("apa-cv.csl", package = "vitae", mustWork = TRUE)
 
     body <- partition_yaml_front_matter(xfun::read_utf8(input_file))$body
     xfun::write_utf8(
