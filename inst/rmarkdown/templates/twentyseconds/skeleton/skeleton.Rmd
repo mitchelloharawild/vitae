@@ -57,6 +57,7 @@ tribble(
 # Publications
 
 ```{r}
+library(dplyr)
 scholar::get_publications("EmD_lTEAAAAJ&EmD_lTEAAAAJ&") %>% 
   filter(cites > 30) %>% 
   distinct(title, .keep_all = TRUE) %>%
