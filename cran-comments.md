@@ -1,3 +1,5 @@
+This patch release resolves problems introduced by the tibble v3.0.0 release.
+
 ## Test environments
 * local ubuntu 18.04 install, R 3.5.3
 * ubuntu 16.04 (on travis-ci), R 3.6.0
