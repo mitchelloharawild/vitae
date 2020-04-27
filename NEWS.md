@@ -1,4 +1,4 @@
-# vitae (development version)
+# vitae 0.2.2
 
 ## Bug fixes
 

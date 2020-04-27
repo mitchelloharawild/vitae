@@ -1,6 +1,6 @@
 Package: vitae
 Title: Curriculum Vitae for R Markdown
-Version: 0.2.1.9000
+Version: 0.2.2
 Authors@R: c(
   person("Mitchell", "O'Hara-Wild", role=c("aut", "cre"), email = "mail@mitchelloharawild.com", comment=c(ORCID = "0000-0001-6729-7695")),
   person("Rob", "Hyndman", email="Rob.Hyndman@monash.edu", role=c("aut"), comment = c(ORCID = "0000-0002-2140-5352")),
@@ -28,5 +28,5 @@ BugReports: https://github.com/ropenscilabs/vitae/issues
 URL: https://pkg.mitchelloharawild.com/vitae/, https://github.com/ropenscilabs/vitae
 LazyData: true
 Roxygen: list(markdown = TRUE, roclets=c('rd', 'collate', 'namespace'))
-RoxygenNote: 7.0.2
+RoxygenNote: 7.0.2.9000
 VignetteBuilder: knitr
