@@ -31,7 +31,7 @@ bibliography_entries <- function(file, startlabel = NULL, endlabel = NULL) {
   out <- dplyr::as_tibble(bib) %>%
     mutate(surnames = family)
   structure(mutate(out, key = unlist(bib$key)),
-    file = normalizePath(file, winslash = "/"),
+    file = file,
     preserve = "key",
     class = c("vitae_bibliography", "vitae_preserve", class(out))
   )
@@ -45,7 +45,7 @@ knit_print.vitae_bibliography <- function(x, options) {
   items <- x$key
   yaml_bib <- yaml::yaml.load(rmarkdown::pandoc_citeproc_convert(path, "yaml"))$references
   yaml_bib <- Filter(function(x) x$id %in% items, yaml_bib)
-  file <- tempfile(fileext = ".yaml")
+  file <- paste0(path, ".yaml")
   yaml::write_yaml(list(references = yaml_bib), file = file)
 
   startlabel <- x %@% "startlabel"
