@@ -1,8 +1,4 @@
-# vitae 0.2.2
-
-## Bug fixes
-
-* This patch resolves knit issues introduced by tibble v3.0.0.
+# vitae (development version)
 
 ## Breaking changes
 
@@ -19,9 +15,11 @@
 * The `citation_package` and `latex_engine` options are now changeable by users 
   for all output formats.
 
+# vitae 0.2.2
+
 ## Bug fixes
 
-* Fixed `knit_print()` method failures introduced by tibble v3.0.0.
+* This patch resolves knit issues introduced by tibble v3.0.0.
 
 # vitae 0.2.1
 
