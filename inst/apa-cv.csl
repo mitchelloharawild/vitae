@@ -1397,13 +1397,6 @@
     </choose>
   </macro>
   <citation et-al-min="21" et-al-use-first="19" et-al-use-last="true">
-    <sort>
-      <key macro="date-sort-group" sort="descending"/>
-      <key macro="date-sort-date" sort="descending"/>
-      <key variable="status"/>
-      <key macro="author-bib"/>
-      <key macro="title"/>
-    </sort>
     <layout delimiter="&#13;&#10;">
       <choose>
         <if type="bill legal_case legislation treaty" match="any">
@@ -1436,13 +1429,6 @@
     </layout>
   </citation>
   <bibliography hanging-indent="true" et-al-min="21" et-al-use-first="19" et-al-use-last="true" entry-spacing="0" line-spacing="2">
-    <sort>
-      <key macro="date-sort-group" sort="descending"/>
-      <key macro="date-sort-date" sort="descending"/>
-      <key variable="status"/>
-      <key macro="author-bib"/>
-      <key macro="title"/>
-    </sort>
     <layout>
       <choose>
         <if type="bill legal_case legislation treaty" match="any">
