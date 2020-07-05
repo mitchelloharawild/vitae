@@ -45,7 +45,7 @@ knit_print.vitae_bibliography <- function(x, options) {
   items <- x$key
   yaml_bib <- yaml::yaml.load(rmarkdown::pandoc_citeproc_convert(path, "yaml"))$references
   yaml_bib <- Filter(function(x) x$id %in% items, yaml_bib)
-  file <- paste0(path, ".yaml")
+  file <- tempfile(fileext = ".yaml")
   yaml::write_yaml(list(references = yaml_bib), file = file)
 
   startlabel <- x %@% "startlabel"
