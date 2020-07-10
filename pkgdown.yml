@@ -1,9 +1,8 @@
-pandoc: '2.2'
-pkgdown: 1.5.1
-pkgdown_sha: ~
+pandoc: 2.7.3
+pkgdown: 1.4.1.9000
+pkgdown_sha: 732fb5b9ccc0ef87a73dfd0772ae661a4039b2a8
 articles:
   data: data.html
   extending: extending.html
   vitae: vitae.html
-last_built: 2020-07-10T10:50Z
 
