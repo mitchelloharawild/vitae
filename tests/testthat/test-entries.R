@@ -51,7 +51,7 @@ test_that("detailed_entries", {
 
 
 test_that("bibliography_entries", {
-  tmpbib <- tempfile()
+  tmpbib <- tempfile(fileext = ".bib")
   knitr::write_bib(c("rmarkdown", "testthat"), file = tmpbib)
 
   entries <- bibliography_entries(tmpbib)
@@ -59,9 +59,5 @@ test_that("bibliography_entries", {
   expect_s3_class(entries, "vitae_bibliography")
   print <- knitr::knit_print(entries)
 
-  expect_match(print, "defbibheading")
-  expect_equal(NROW(entries), length(RefManageR::ReadBib(tmpbib)))
-
-  expect_match(print, "rmarkdown")
-  expect_match(print, "testthat")
+  expect_match(print, "{#bibliography}", fixed = TRUE)
 })
