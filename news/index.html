@@ -79,7 +79,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">vitae</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.2.9000</span>
       </span>
     </div>
 
@@ -118,7 +118,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/ropenscilabs/vitae/">
+  <a href="https://github.com/mitchelloharawild/vitae/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -137,21 +137,50 @@
   <div class="col-md-9 contents">
     <div class="page-header">
       <h1 data-toc-skip>Changelog <small></small></h1>
-      <small>Source: <a href='https://github.com/ropenscilabs/vitae/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
+      <small>Source: <a href='https://github.com/mitchelloharawild/vitae/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
     <div id="vitae-development-version" class="section level1">
 <h1 class="page-header" data-toc-text="development version">
 <a href="#vitae-development-version" class="anchor"></a>vitae (development version)<small> Unreleased </small>
 </h1>
+<div id="breaking-changes" class="section level2">
+<h2 class="hasAnchor">
+<a href="#breaking-changes" class="anchor"></a>Breaking changes</h2>
+<ul>
+<li>All arguments of <code><a href="../reference/bibliography_entries.html">bibliography_entries()</a></code> except for the bibliography <code>file</code> are now defunct.</li>
+<li>The default style of bibliography entries is now the APA CV format. It can be customised using the csl argument in the yaml front matter.</li>
+</ul>
+</div>
+<div id="improvements" class="section level2">
+<h2 class="hasAnchor">
+<a href="#improvements" class="anchor"></a>Improvements</h2>
+<ul>
+<li>
+<code><a href="../reference/bibliography_entries.html">bibliography_entries()</a></code> are now handled using a pandoc’s cite-proc. This means that typical approaches for specifying CSL and other citeproc parameters will work as expected.</li>
+<li>The <code>citation_package</code> and <code>latex_engine</code> options are now changeable by users for all output formats.</li>
+</ul>
+</div>
+</div>
+    <div id="vitae-0-2-2" class="section level1">
+<h1 class="page-header" data-toc-text="0.2.2">
+<a href="#vitae-0-2-2" class="anchor"></a>vitae 0.2.2<small> 2020-04-27 </small>
+</h1>
+<div id="bug-fixes" class="section level2">
+<h2 class="hasAnchor">
+<a href="#bug-fixes" class="anchor"></a>Bug fixes</h2>
+<ul>
+<li>This patch resolves knit issues introduced by tibble v3.0.0.</li>
+</ul>
+</div>
 </div>
     <div id="vitae-0-2-1" class="section level1">
 <h1 class="page-header" data-toc-text="0.2.1">
 <a href="#vitae-0-2-1" class="anchor"></a>vitae 0.2.1<small> 2019-12-15 </small>
 </h1>
-<div id="bug-fixes" class="section level2">
+<div id="bug-fixes-1" class="section level2">
 <h2 class="hasAnchor">
-<a href="#bug-fixes" class="anchor"></a>Bug fixes</h2>
+<a href="#bug-fixes-1" class="anchor"></a>Bug fixes</h2>
 <ul>
 <li>Fixed issue with <code><a href="../reference/bibliography_entries.html">bibliography_entries()</a></code> not working on Windows.</li>
 <li>Fixed issue with using <code>brief_entires()</code> / <code><a href="../reference/cv_entries.html">detailed_entries()</a></code> mismatching argument order in variable names</li>
@@ -162,20 +191,20 @@
 <h1 class="page-header" data-toc-text="0.2.0">
 <a href="#vitae-0-2-0" class="anchor"></a>vitae 0.2.0<small> 2019-07-12 </small>
 </h1>
-<div id="breaking-changes" class="section level2">
+<div id="breaking-changes-1" class="section level2">
 <h2 class="hasAnchor">
-<a href="#breaking-changes" class="anchor"></a>Breaking changes</h2>
+<a href="#breaking-changes-1" class="anchor"></a>Breaking changes</h2>
 <ul>
 <li>Simplified <code>bibliography_entries</code> entries by removing <code>title</code> and <code>sorting</code> arguments. The title can be included using markdown, and sorting now respects the order of the tibble created by the function.</li>
 </ul>
 </div>
-<div id="improvements" class="section level2">
+<div id="improvements-1" class="section level2">
 <h2 class="hasAnchor">
-<a href="#improvements" class="anchor"></a>Improvements</h2>
+<a href="#improvements-1" class="anchor"></a>Improvements</h2>
 <ul>
 <li>Added theme support for <code>moderncv</code>: classic, banking, oldstyle, fancy.</li>
 <li>Added <code>latexcv</code> template using the classic theme.</li>
-<li>Added <code>docname</code> to change the document name (<a href='https://github.com/chrisumphlett'>@chrisumphlett</a>, <a href='https://github.com/ropenscilabs/vitae/issues/42'>#42</a>).</li>
+<li>Added <code>docname</code> to change the document name (<a href='https://github.com/chrisumphlett'>@chrisumphlett</a>, <a href='https://github.com/mitchelloharawild/vitae/issues/42'>#42</a>).</li>
 <li>Added support for template specific formatting of surnames with <code>surname</code>.</li>
 <li>Added <em>Data sources for vitae</em> vignette for using CV data from extermal sources.</li>
 <li>Added surnames to bibliography_entries dataset.</li>

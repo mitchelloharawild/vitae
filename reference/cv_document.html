@@ -48,7 +48,7 @@
 
 <meta property="og:title" content="Output format for vitae — cv_document" />
 <meta property="og:description" content="This output format provides support for including LaTeX dependencies and
-bibliography entries in extension of the bookdown::pdf_document2() format." />
+bibliography entries in extension of the rmarkdown::pdf_document() format." />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -81,7 +81,7 @@ bibliography entries in extension of the bookdown::pdf_document2() format." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">vitae</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.2.9000</span>
       </span>
     </div>
 
@@ -120,7 +120,7 @@ bibliography entries in extension of the bookdown::pdf_document2() format." />
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/ropenscilabs/vitae/">
+  <a href="https://github.com/mitchelloharawild/vitae/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -139,13 +139,13 @@ bibliography entries in extension of the bookdown::pdf_document2() format." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Output format for vitae</h1>
-    <small class="dont-index">Source: <a href='https://github.com/ropenscilabs/vitae/blob/master/R/cv_document.R'><code>R/cv_document.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/mitchelloharawild/vitae/blob/master/R/cv_document.R'><code>R/cv_document.R</code></a></small>
     <div class="hidden name"><code>cv_document.Rd</code></div>
     </div>
 
     <div class="ref-description">
     <p>This output format provides support for including LaTeX dependencies and
-bibliography entries in extension of the bookdown::pdf_document2() format.</p>
+bibliography entries in extension of the <code><a href='https://rdrr.io/pkg/rmarkdown/man/pdf_document.html'>rmarkdown::pdf_document()</a></code> format.</p>
     </div>
 
     <pre class="usage"><span class='fu'>cv_document</span>(<span class='no'>...</span>, <span class='kw'>pandoc_args</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>pandoc_vars</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
@@ -155,7 +155,7 @@ bibliography entries in extension of the bookdown::pdf_document2() format.</p>
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>...</th>
-      <td><p>Arguments passed to bookdown::pdf_document2().</p></td>
+      <td><p>Arguments passed to rmarkdown::pdf_document().</p></td>
     </tr>
     <tr>
       <th>pandoc_args</th>

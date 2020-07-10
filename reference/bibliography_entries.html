@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">vitae</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.2.9000</span>
       </span>
     </div>
 
@@ -119,7 +119,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/ropenscilabs/vitae/">
+  <a href="https://github.com/mitchelloharawild/vitae/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -138,7 +138,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Print bibliography section</h1>
-    <small class="dont-index">Source: <a href='https://github.com/ropenscilabs/vitae/blob/master/R/bibliography.R'><code>R/bibliography.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/mitchelloharawild/vitae/blob/master/R/bibliography.R'><code>R/bibliography.R</code></a></small>
     <div class="hidden name"><code>bibliography_entries.Rd</code></div>
     </div>
 
@@ -146,13 +146,7 @@
     <p>Given a bib file, this function will generate bibliographic entries for one or more types of bib entry.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>bibliography_entries</span>(
-  <span class='no'>file</span>,
-  <span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>sorting</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>startlabel</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>endlabel</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
-)</pre>
+    <pre class="usage"><span class='fu'>bibliography_entries</span>(<span class='no'>file</span>, <span class='kw'>startlabel</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>endlabel</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -162,20 +156,12 @@
       <td><p>A path to a .bib file.</p></td>
     </tr>
     <tr>
-      <th>title</th>
-      <td><p>Deprecated, use markdown sub-headers.</p></td>
-    </tr>
-    <tr>
-      <th>sorting</th>
-      <td><p>Deprecated, use <code><a href='https://dplyr.tidyverse.org/reference/arrange.html'>dplyr::arrange()</a></code> to re-order the bibliography.</p></td>
-    </tr>
-    <tr>
       <th>startlabel</th>
-      <td><p>Optional label for first reference in the section.</p></td>
+      <td><p>Defunct.</p></td>
     </tr>
     <tr>
       <th>endlabel</th>
-      <td><p>Optional label for last reference in the section.</p></td>
+      <td><p>Defunct.</p></td>
     </tr>
     </table>
 

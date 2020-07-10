@@ -38,7 +38,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">vitae</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.2.9000</span>
       </span>
     </div>
 
@@ -77,7 +77,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/ropenscilabs/vitae/">
+  <a href="https://github.com/mitchelloharawild/vitae/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -99,7 +99,7 @@
 <a href="#vitae" class="anchor"></a>vitae <img src="reference/figures/logo.png" align="right">
 </h1></div>
 <p><em>/ˈviːteɪ/</em></p>
-<p><a href="https://cran.r-project.org/package=vitae"><img src="https://www.r-pkg.org/badges/version/vitae" alt="CRAN status"></a> <a href="https://travis-ci.org/mitchelloharawild/vitae"><img src="https://travis-ci.org/mitchelloharawild/vitae.svg?branch=master" alt="Travis build status"></a></p>
+<p><a href="https://cran.r-project.org/package=vitae"><img src="https://www.r-pkg.org/badges/version/vitae" alt="CRAN status"></a> <img src="https://github.com/mitchelloharawild/vitae/workflows/R-CMD-check/badge.svg" alt="Check status"><a href="https://www.tidyverse.org/lifecycle/#maturing"><img src="https://img.shields.io/badge/lifecycle-maturing-blue.svg" alt="Lifecycle: maturing"></a> <a href="https://cran.r-project.org/package=vitae"><img src="https://cranlogs.r-pkg.org/badges/vitae" alt="Downloads"></a></p>
 <div id="templates-and-tools-for-making-a-resumecv" class="section level2">
 <h2 class="hasAnchor">
 <a href="#templates-and-tools-for-making-a-resumecv" class="anchor"></a>Templates and tools for making a Résumé/CV</h2>
@@ -127,24 +127,15 @@
 <div class="sourceCode" id="cb4"><pre class="r"><span class="no">orcid_data</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/do.call.html">do.call</a></span>(<span class="st">"rbind"</span>,
   <span class="kw pkg">rorcid</span><span class="kw ns">::</span><span class="fu"><a href="https://docs.ropensci.org/rorcid/reference/orcid_educations.html">orcid_educations</a></span>(<span class="st">"0000-0002-2140-5352"</span>)$<span class="no">`0000-0002-2140-5352`</span>$<span class="no">`affiliation-group`</span>$<span class="no">summaries</span>
 )</pre></div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co">#&gt; Warning: package 'dplyr' was built under R version 3.6.2</span></a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="co">#&gt; Attaching package: 'dplyr'</span></a>
-<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co">#&gt; The following objects are masked from 'package:stats':</span></a>
-<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="co">#&gt;     filter, lag</span></a>
-<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="co">#&gt; The following objects are masked from 'package:base':</span></a>
-<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb5-9" data-line-number="9"><span class="co">#&gt;     intersect, setdiff, setequal, union</span></a>
-<a class="sourceLine" id="cb5-10" data-line-number="10"><span class="co">#&gt;    education-summary.role-title education-summary.start-date.year.value</span></a>
-<a class="sourceLine" id="cb5-11" data-line-number="11"><span class="co">#&gt; 1                           PhD                                    1990</span></a>
-<a class="sourceLine" id="cb5-12" data-line-number="12"><span class="co">#&gt; 2 Bachelor of Science (Honours)                                    1985</span></a>
-<a class="sourceLine" id="cb5-13" data-line-number="13"><span class="co">#&gt;   education-summary.end-date.year.value education-summary.organization.name</span></a>
-<a class="sourceLine" id="cb5-14" data-line-number="14"><span class="co">#&gt; 1                                  1992             University of Melbourne</span></a>
-<a class="sourceLine" id="cb5-15" data-line-number="15"><span class="co">#&gt; 2                                  1988             University of Melbourne</span></a>
-<a class="sourceLine" id="cb5-16" data-line-number="16"><span class="co">#&gt;   education-summary.organization.address.city</span></a>
-<a class="sourceLine" id="cb5-17" data-line-number="17"><span class="co">#&gt; 1                                   Melbourne</span></a>
-<a class="sourceLine" id="cb5-18" data-line-number="18"><span class="co">#&gt; 2                                   Melbourne</span></a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co">#&gt;    education-summary.role-title education-summary.start-date.year.value</span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="co">#&gt; 1                           PhD                                    1990</span></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="co">#&gt; 2 Bachelor of Science (Honours)                                    1985</span></a>
+<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co">#&gt;   education-summary.end-date.year.value education-summary.organization.name</span></a>
+<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="co">#&gt; 1                                  1992             University of Melbourne</span></a>
+<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="co">#&gt; 2                                  1988             University of Melbourne</span></a>
+<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="co">#&gt;   education-summary.organization.address.city</span></a>
+<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="co">#&gt; 1                                   Melbourne</span></a>
+<a class="sourceLine" id="cb5-9" data-line-number="9"><span class="co">#&gt; 2                                   Melbourne</span></a></code></pre></div>
 <p>The package provides two types of entries from data, which are <code>detailed_entries</code> and <code>brief_entries</code>. Both functions provide sections for <code>what</code>, <code>when</code>, and <code>with</code>, and the <code>detailed_entries</code> additionally supports <code>where</code> and <code>why</code>. These arguments support operations, so for this example, we have used <code>glue</code> to combine the start and end years for our <code>when</code> input. Excluding any inputs is also okay (as is done for <code>why</code>), it will just be left blank in the CV.</p>
 <div class="sourceCode" id="cb6"><pre class="r"><span class="no">orcid_data</span> <span class="kw">%&gt;%</span>
   <span class="fu"><a href="reference/cv_entries.html">detailed_entries</a></span>(
@@ -188,9 +179,9 @@
 <ul class="list-unstyled">
 <li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=vitae">https://​cloud.r-project.org/​package=vitae</a>
 </li>
-<li>Browse source code at <br><a href="https://github.com/ropenscilabs/vitae/">https://​github.com/​ropenscilabs/​vitae/​</a>
+<li>Browse source code at <br><a href="https://github.com/mitchelloharawild/vitae/">https://​github.com/​mitchelloharawild/​vitae/​</a>
 </li>
-<li>Report a bug at <br><a href="https://github.com/ropenscilabs/vitae/issues">https://​github.com/​ropenscilabs/​vitae/​issues</a>
+<li>Report a bug at <br><a href="https://github.com/mitchelloharawild/vitae/issues">https://​github.com/​mitchelloharawild/​vitae/​issues</a>
 </li>
 </ul>
 </div>

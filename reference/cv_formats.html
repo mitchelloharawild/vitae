@@ -81,7 +81,7 @@ produce curriculum vitae" />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">vitae</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.2.9000</span>
       </span>
     </div>
 
@@ -120,7 +120,7 @@ produce curriculum vitae" />
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/ropenscilabs/vitae/">
+  <a href="https://github.com/mitchelloharawild/vitae/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -139,7 +139,7 @@ produce curriculum vitae" />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Output formats for CVs</h1>
-    <small class="dont-index">Source: <a href='https://github.com/ropenscilabs/vitae/blob/master/R/formats.R'><code>R/formats.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/mitchelloharawild/vitae/blob/master/R/formats.R'><code>R/formats.R</code></a></small>
     <div class="hidden name"><code>cv_formats.Rd</code></div>
     </div>
 
@@ -152,9 +152,13 @@ produce curriculum vitae</p>
 
 <span class='fu'>twentyseconds</span>(<span class='no'>...</span>)
 
-<span class='fu'>awesomecv</span>(<span class='no'>...</span>)
+<span class='fu'>awesomecv</span>(<span class='no'>...</span>, <span class='kw'>latex_engine</span> <span class='kw'>=</span> <span class='st'>"xelatex"</span>)
 
-<span class='fu'>moderncv</span>(<span class='no'>...</span>, <span class='kw'>theme</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"casual"</span>, <span class='st'>"classic"</span>, <span class='st'>"oldstyle"</span>, <span class='st'>"banking"</span>, <span class='st'>"fancy"</span>))
+<span class='fu'>moderncv</span>(
+  <span class='no'>...</span>,
+  <span class='kw'>theme</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"casual"</span>, <span class='st'>"classic"</span>, <span class='st'>"oldstyle"</span>, <span class='st'>"banking"</span>, <span class='st'>"fancy"</span>),
+  <span class='kw'>latex_engine</span> <span class='kw'>=</span> <span class='st'>"pdflatex"</span>
+)
 
 <span class='fu'>latexcv</span>(<span class='no'>...</span>, <span class='kw'>theme</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"classic"</span>, <span class='st'>"modern"</span>, <span class='st'>"rows"</span>, <span class='st'>"sidebar"</span>, <span class='st'>"two_column"</span>))</pre>
 
@@ -164,6 +168,11 @@ produce curriculum vitae</p>
     <tr>
       <th>...</th>
       <td><p>Arguments passed to <code><a href='cv_document.html'>cv_document</a></code>.</p></td>
+    </tr>
+    <tr>
+      <th>latex_engine</th>
+      <td><p>LaTeX engine for producing PDF output. Options are
+"pdflatex", "lualatex", and "xelatex".</p></td>
     </tr>
     <tr>
       <th>theme</th>
