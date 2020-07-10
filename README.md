@@ -7,8 +7,11 @@
 
 [![CRAN
 status](https://www.r-pkg.org/badges/version/vitae)](https://cran.r-project.org/package=vitae)
-[![Travis build
-status](https://travis-ci.org/mitchelloharawild/vitae.svg?branch=master)](https://travis-ci.org/mitchelloharawild/vitae)
+![Check
+status](https://github.com/mitchelloharawild/vitae/workflows/R-CMD-check/badge.svg)
+[![Lifecycle:
+maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
+[![Downloads](https://cranlogs.r-pkg.org/badges/vitae)](https://cran.r-project.org/package=vitae)
 
 ## Templates and tools for making a Résumé/CV
 
@@ -73,15 +76,6 @@ orcid_data <- do.call("rbind",
 )
 ```
 
-    #> Warning: package 'dplyr' was built under R version 3.6.2
-    #> 
-    #> Attaching package: 'dplyr'
-    #> The following objects are masked from 'package:stats':
-    #> 
-    #>     filter, lag
-    #> The following objects are masked from 'package:base':
-    #> 
-    #>     intersect, setdiff, setequal, union
     #>    education-summary.role-title education-summary.start-date.year.value
     #> 1                           PhD                                    1990
     #> 2 Bachelor of Science (Honours)                                    1985
