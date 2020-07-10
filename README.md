@@ -124,6 +124,7 @@ presented at [ozunconf2018](https://ozunconf18.ropensci.org/):
   - [Diogo M. Camacho](https://github.com/diogocamacho/CV)
   - [Han Zhang](https://github.com/HanZhang-psych/CV) (custom csl files)
   - [Bryan Jenks](https://github.com/tallguyjenks/CV)
+  - [Lorena Abad](https://github.com/loreabad6/R-CV)
 
 Add your vitae to the list using a PR.
 
