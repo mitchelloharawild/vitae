@@ -92,7 +92,7 @@
   pdfkeywords={}
 }
 
-% For RStudio Community logo
+% For RStudio Community and AngelList logos
 \usepackage{graphicx}
 
 %-------------------------------------------------------------------------------
@@ -314,6 +314,10 @@
 % Usage: \community{<community-nick>}
 \newcommand*{\community}[1]{\def\@community{#1}}
 
+% Defines writer's AngelList (optional)
+% Usage: \angellist{<angellist-nick>}
+\newcommand*{\angellist}[1]{\def\@angellist{#1}}
+
 % Defines writer's gitlab (optional)
 % Usage: \gitlab{<gitlab-nick>}
 \newcommand*{\gitlab}[1]{\def\@gitlab{#1}}
@@ -400,6 +404,7 @@
 \newcommand{\acvHeaderAfterSocialSkip}{6mm}
 \newcommand{\acvHeaderAfterQuoteSkip}{5mm}
 \newcommand{\communitySquare}{\includegraphics[scale=.011]{community_logo.png}}
+\newcommand{\angelList}{\includegraphics[scale=.001]{angel_list.png}}
 
 % Others
 \newcommand{\acvSectionTopSkip}{3mm}
@@ -515,6 +520,12 @@
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
           \href{https://community.rstudio.com/u/\@community}{\communitySquare\acvHeaderIconSep\@community}%
+        }%
+      \ifthenelse{\isundefined{\@angellist}}%
+        {}%
+        {%
+          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
+          \href{https://angel.co/u/\@angellist}{\angelList\acvHeaderIconSep\@angellist}%
         }%
       \ifthenelse{\isundefined{\@gitlab}}%
         {}%
