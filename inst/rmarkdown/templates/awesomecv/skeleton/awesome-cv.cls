@@ -404,7 +404,7 @@
 \newcommand{\acvHeaderAfterSocialSkip}{6mm}
 \newcommand{\acvHeaderAfterQuoteSkip}{5mm}
 \newcommand{\communitySquare}{\includegraphics[scale=.011]{community_logo.png}}
-\newcommand{\angelList}{\includegraphics[scale=.001]{angel_list.png}}
+\newcommand{\angelList}{\includegraphics[scale=.045]{angel_list.png}}
 
 % Others
 \newcommand{\acvSectionTopSkip}{3mm}
