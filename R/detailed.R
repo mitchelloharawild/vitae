@@ -57,9 +57,10 @@ knit_print.vitae_detailed <- function(x, options) {
   x <- dplyr::mutate(
     x,
     "why" := map_chr(!!sym("why"), function(x) {
+      if(identical(x, "") || length(x) == 0) return("\\empty")
       glue_collapse(
         glue("\\item{<<protect_tex_input(x)>>}", .open = "<<", .close = ">>")
-      ) %empty% "\\empty"
+      )
     })
   )
 
