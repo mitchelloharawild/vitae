@@ -12,9 +12,22 @@ cv_document <- function(..., pandoc_args = NULL, pandoc_vars = NULL) {
   for (i in seq_along(pandoc_vars)){
     pandoc_args <- c(pandoc_args, rmarkdown::pandoc_variable_arg(names(pandoc_vars)[[i]], pandoc_vars[[i]]))
   }
-  out <- rmarkdown::pdf_document(
-    ..., pandoc_args = c(c(rbind("--lua-filter", system.file("multiple-bibliographies.lua", package = "vitae", mustWork = TRUE))), pandoc_args)
+
+  # Inject multiple-bibliographies lua filter
+  mult_bib <- file.path(tempdir(), "multiple-bibliographies.lua")
+  citeproc_path <- file.path(rmarkdown::find_pandoc()$dir, "pandoc-citeproc")
+  cat(
+    gsub("<<CITEPROC_PATH>>", citeproc_path, fixed = TRUE,
+         readLines(system.file("multiple-bibliographies.lua", package = "vitae", mustWork = TRUE))),
+    file = mult_bib, sep = "\n"
   )
+
+  pandoc_args <- c(
+    c(rbind("--lua-filter", mult_bib)),
+    pandoc_args
+  )
+
+  out <- rmarkdown::pdf_document(..., pandoc_args = pandoc_args)
   pre <- out$pre_processor
   out$pre_processor <- function (metadata, input_file, runtime, knit_meta,
                                  files_dir, output_dir){
