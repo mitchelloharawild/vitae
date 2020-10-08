@@ -22,31 +22,36 @@ bibliography_entries <- function(file, startlabel = NULL, endlabel = NULL) {
   if(!is.null(endlabel)){
     warning("The `endlabel` argument is defunct. Please use a different approach to including labels.")
   }
-  bib <- RefManageR::ReadBib(file, check = FALSE)
-  family <- map_chr(bib, function(x){
-    map_chr(x$author, function(names){
-      paste(names$family, collapse = " ")
-    }) %>% paste(collapse = ", ")
-  })
-  out <- dplyr::as_tibble(bib) %>%
-    mutate(surnames = family)
-  structure(mutate(out, key = unlist(bib$key)),
-    file = file,
-    preserve = "key",
-    class = c("vitae_bibliography", "vitae_preserve", class(out))
+
+  bib <- yaml::yaml.load(rmarkdown::pandoc_citeproc_convert(file, "yaml"))$references
+
+  # Deconstruct yaml into tibble
+  bib <- purrr::map_dfr(
+    bib,
+    function(x){
+      x[is.list(x)] <- lapply(x[is.list(x)], list)
+      tibble::as_tibble(x)
+    }
   )
+  tibble::new_tibble(bib, preserve = "id",
+                     class = c("vitae_bibliography", "vitae_preserve"))
 }
 
 
 #' @importFrom knitr knit_print
 #' @export
 knit_print.vitae_bibliography <- function(x, options) {
-  path <- x%@%"file"
-  items <- x$key
-  yaml_bib <- yaml::yaml.load(rmarkdown::pandoc_citeproc_convert(path, "yaml"))$references
-  yaml_bib <- Filter(function(x) x$id %in% items, yaml_bib)
+  # Reconstruct yaml from tibble
+  yml <- lapply(
+    dplyr::group_split(dplyr::rowwise(x)),
+    function(x) {
+      x <- as.list(x)
+      to_unlist <- vapply(x, is.list, logical(1L))# & !(names(x) %in% c("author", "issued"))
+      x[to_unlist] <- lapply(x[to_unlist], `[[`, i=1)
+      Filter(function(x) !is.na(x) && lengths(x) > 0, x)
+    })
   file <- tempfile(fileext = ".yaml")
-  yaml::write_yaml(list(references = yaml_bib), file = file)
+  yaml::write_yaml(list(references = yml), file = file)
 
   startlabel <- x %@% "startlabel"
   endlabel <- x %@% "endlabel"
@@ -61,5 +66,5 @@ knit_print.vitae_bibliography <- function(x, options) {
     items = glue_collapse(items, sep = ",\n"),
     .open = "<<", .close = ">>"
   )
-  knitr::asis_output(out, meta = list(structure(x$key, class = "vitae_nocite")))
+  knitr::asis_output(out, meta = list(structure(x$id, class = "vitae_nocite")))
 }

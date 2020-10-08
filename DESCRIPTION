@@ -16,7 +16,8 @@ Imports:
     knitr,
     xfun,
     RefManageR,
-    yaml
+    yaml,
+    tibble
 Suggests:
     bibtex,
     covr,
