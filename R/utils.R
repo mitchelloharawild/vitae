@@ -61,3 +61,7 @@ partition_yaml_front_matter <- function (input_lines)
     list(front_matter = NULL, body = input_lines)
   }
 }
+
+glue_alt <- function(...) {
+  glue::glue(..., .open = "<<", .close = ">>", .envir = parent.frame())
+}

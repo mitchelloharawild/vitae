@@ -25,11 +25,10 @@ knit_print.vitae_brief <- function(x, options) {
     protect_tex_input <- identity
   }
 
-  out <- glue_data(x, "\\briefitem{<<protect_tex_input(what)>>}{<<protect_tex_input(when)>>}{<<protect_tex_input(with)>>}",
-    .open = "<<", .close = ">>"
+  knitr::asis_output(
+    entry_format_functions$format$brief(
+      protect_tex_input(x$what), protect_tex_input(x$when), protect_tex_input(x$with)
+    )
   )
 
-  knitr::asis_output(glue("\\briefsection{<<glue_collapse(out)>>}",
-    .open = "<<", .close = ">>"
-  ))
 }

@@ -54,22 +54,10 @@ knit_print.vitae_detailed <- function(x, options) {
     protect_tex_input <- identity
   }
 
-  x <- dplyr::mutate(
-    x,
-    "why" := map_chr(!!sym("why"), function(x) {
-      if(identical(x, "") || length(x) == 0) return("\\empty")
-      glue_collapse(
-        glue("\\item{<<protect_tex_input(x)>>}", .open = "<<", .close = ">>")
-      )
-    })
+  knitr::asis_output(
+    entry_format_functions$format$detailed(
+      protect_tex_input(x$what), protect_tex_input(x$when), protect_tex_input(x$with),
+      protect_tex_input(x$where), lapply(x$why,protect_tex_input)
+    )
   )
-
-  out <- glue_data(x,
-    "\\detaileditem{<<protect_tex_input(what)>>}{<<protect_tex_input(when)>>}{<<protect_tex_input(with)>>}{<<protect_tex_input(where)>>}{<<why>>}",
-    .open = "<<", .close = ">>"
-  )
-
-  knitr::asis_output(glue("\\detailedsection{<<glue_collapse(out)>>}",
-    .open = "<<", .close = ">>"
-  ))
 }
