@@ -3,6 +3,7 @@ add_class <- function(x, subclass) {
 }
 
 compact_list <- function(x) {
+  if(is.list(x)) return(x)
   list(x[!is.na(x)])
 }
 
