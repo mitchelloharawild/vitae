@@ -16,23 +16,6 @@ NULL
 
 #' @rdname cv_formats
 #'
-#' @param theme The theme used for the template.
-#'
-#' @export
-moderncv <- function(..., theme = c("casual", "classic", "oldstyle", "banking", "fancy"),
-                     latex_engine = "pdflatex") {
-  theme <- match.arg(theme)
-  template <- system.file("rmarkdown", "templates", "moderncv",
-    "resources", "moderncv.tex",
-    package = "vitae"
-  )
-  copy_supporting_files("moderncv")
-  cv_document(..., pandoc_vars = list(theme = theme),
-              template = template, latex_engine = latex_engine)
-}
-
-#' @rdname cv_formats
-#'
 #' @export
 latexcv <- function(..., theme = c("classic", "modern", "rows", "sidebar", "two_column")) {
   theme <- match.arg(theme)
