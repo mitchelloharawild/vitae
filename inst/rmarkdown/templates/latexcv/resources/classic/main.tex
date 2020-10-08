@@ -288,19 +288,6 @@ $endif$
 \newcommand{\mystrut}{\rule[-.3\baselineskip]{0pt}{\baselineskip}}
 
 
-% Templates for detailed entries
-% Arguments: what when with where why
-\usepackage{etoolbox}
-\def\detaileditem#1#2#3#4#5{
-\cvevent{#2}{#1}{#3\ifx#4\empty\else - #4\fi}{\ifx#5\empty\else{\begin{minipage}{0.7\textwidth}\begin{itemize}#5\end{itemize}\end{minipage}}\fi}}
-\def\detailedsection#1{#1}
-
-% Templates for brief entries
-% Arguments: what when with
-\def\briefitem#1#2#3{\cvevent{#2}{#1}{#3}{\empty}{\empty}}
-\def\briefsection#1{#1}
-
-
 %============================================================================%
 %
 %

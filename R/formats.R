@@ -13,19 +13,3 @@
 #' @name cv_formats
 #'
 NULL
-
-#' @rdname cv_formats
-#'
-#' @export
-latexcv <- function(..., theme = c("classic", "modern", "rows", "sidebar", "two_column")) {
-  theme <- match.arg(theme)
-  if(theme != "classic"){
-    stop("Only the classic theme is currently supported.")
-  }
-  template <- system.file("rmarkdown", "templates", "latexcv",
-                          "resources", theme, "main.tex",
-                          package = "vitae"
-  )
-  copy_supporting_files("latexcv")
-  cv_document(..., template = template)
-}
