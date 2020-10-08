@@ -27,8 +27,10 @@ templates for other output formats (like HTML and Word) can now be added.
   defunct.
 * The column names and structure of the `bibliography_entires()` tibble have
   changed for consistency with the CSL JSON format.
-* The default style of bibliography entries is now the APA CV format. It can be
-  customised using the csl argument in the yaml front matter.
+* The default style of bibliography entries is now the APA CV format, which has
+  been modified to match the order of the tibble, rather than the default of
+  reverse chronological order. This bibliography style can be customised using 
+  the csl argument in the yaml front matter.
   
 ## Improvements
 
