@@ -29,7 +29,8 @@ bibliography_entries <- function(file, startlabel = NULL, endlabel = NULL) {
   bib <- purrr::map_dfr(
     bib,
     function(x){
-      x[is.list(x)] <- lapply(x[is.list(x)], list)
+      el_is_list <- vapply(x, is.list, logical(1L))
+      x[el_is_list] <- lapply(x[el_is_list], list)
       tibble::as_tibble(x)
     }
   )
@@ -46,8 +47,8 @@ knit_print.vitae_bibliography <- function(x, options) {
     dplyr::group_split(dplyr::rowwise(x)),
     function(x) {
       x <- as.list(x)
-      to_unlist <- vapply(x, is.list, logical(1L))# & !(names(x) %in% c("author", "issued"))
-      x[to_unlist] <- lapply(x[to_unlist], `[[`, i=1)
+      el_is_list <- vapply(x, is.list, logical(1L))
+      x[el_is_list] <- lapply(x[el_is_list], `[[`, i=1)
       Filter(function(x) !is.na(x) && lengths(x) > 0, x)
     })
   file <- tempfile(fileext = ".yaml")
