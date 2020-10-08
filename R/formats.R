@@ -35,17 +35,6 @@ twentyseconds <- function(...) {
 }
 
 #' @rdname cv_formats
-#' @export
-awesomecv <- function(..., latex_engine = "xelatex") {
-  template <- system.file("rmarkdown", "templates", "awesomecv",
-    "resources", "awesome-cv.tex",
-    package = "vitae"
-  )
-  copy_supporting_files("awesomecv")
-  cv_document(..., template = template, latex_engine = latex_engine)
-}
-
-#' @rdname cv_formats
 #'
 #' @param theme The theme used for the template.
 #'
