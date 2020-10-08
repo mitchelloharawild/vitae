@@ -26,14 +26,14 @@ bibliography_entries <- function(file, startlabel = NULL, endlabel = NULL) {
   bib <- yaml::yaml.load(rmarkdown::pandoc_citeproc_convert(file, "yaml"))$references
 
   # Deconstruct yaml into tibble
-  bib <- purrr::map_dfr(
+  bib <- dplyr::bind_rows(lapply(
     bib,
     function(x){
       el_is_list <- vapply(x, is.list, logical(1L))
       x[el_is_list] <- lapply(x[el_is_list], list)
       tibble::as_tibble(x)
     }
-  )
+  ))
   tibble::new_tibble(bib, preserve = "id",
                      class = c("vitae_bibliography", "vitae_preserve"))
 }
@@ -64,7 +64,6 @@ knit_print.vitae_bibliography <- function(x, options) {
     :::
 
     ',
-    items = glue_collapse(items, sep = ",\n"),
     .open = "<<", .close = ">>"
   )
   knitr::asis_output(out, meta = list(structure(x$id, class = "vitae_nocite")))
