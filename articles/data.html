@@ -142,7 +142,7 @@
 <h2 class="hasAnchor">
 <a href="#google-scholar" class="anchor"></a>Google scholar</h2>
 <p>Google Scholar does not require authentication to extract publications. Using the <a href="https://github.com/jkeirstead/scholar"><code>scholar</code> package</a>, it is easy to extract a user’s publications from their Google Scholar ID. To obtain publications for an individual, you would first find your ID which is accessible from your profile URL. For example, Rob Hyndman’s ID would be <code>"vamErfkAAAAJ"</code> (<a href="https://scholar.google.com/citations?user=vamErfkAAAAJ&amp;hl=en" class="uri">https://scholar.google.com/citations?user=vamErfkAAAAJ&amp;hl=en</a>).</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>scholar<span class="op">::</span><span class="kw">get_publications</span>(<span class="st">"vamErfkAAAAJ"</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>scholar<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/scholar/man/get_publications.html">get_publications</a></span>(<span class="st">"vamErfkAAAAJ"</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
 <span id="cb4-2"><a href="#cb4-2"></a><span class="st">  </span><span class="kw"><a href="../reference/cv_entries.html">detailed_entries</a></span>(</span>
 <span id="cb4-3"><a href="#cb4-3"></a>    <span class="dt">what =</span> title,</span>
 <span id="cb4-4"><a href="#cb4-4"></a>    <span class="dt">when =</span> year,</span>
