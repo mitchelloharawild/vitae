@@ -15,17 +15,6 @@
 NULL
 
 #' @rdname cv_formats
-#' @export
-twentyseconds <- function(...) {
-  template <- system.file("rmarkdown", "templates", "twentyseconds",
-    "resources", "twentysecondstemplate.tex",
-    package = "vitae"
-  )
-  copy_supporting_files("twentyseconds")
-  cv_document(..., template = template)
-}
-
-#' @rdname cv_formats
 #'
 #' @param theme The theme used for the template.
 #'
