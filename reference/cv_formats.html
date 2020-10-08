@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Output formats for CVs — cv_formats • vitae</title>
+<title>Output formats for CVs — awesomecv • vitae</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -42,7 +42,7 @@
 
 
 
-<meta property="og:title" content="Output formats for CVs — cv_formats" />
+<meta property="og:title" content="Output formats for CVs — awesomecv" />
 <meta property="og:description" content="Each function is a wrapper for cv_document to
 produce curriculum vitae" />
 <meta property="og:image" content="/logo.png" />
@@ -136,7 +136,7 @@ produce curriculum vitae" />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Output formats for CVs</h1>
-    <small class="dont-index">Source: <a href='https://github.com/mitchelloharawild/vitae/blob/master/R/formats.R'><code>R/formats.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/mitchelloharawild/vitae/blob/master/R/awesomecv.R'><code>R/awesomecv.R</code></a>, <a href='https://github.com/mitchelloharawild/vitae/blob/master/R/formats.R'><code>R/formats.R</code></a>, <a href='https://github.com/mitchelloharawild/vitae/blob/master/R/hyndman.R'><code>R/hyndman.R</code></a>, and 4 more</small>
     <div class="hidden name"><code>cv_formats.Rd</code></div>
     </div>
 
@@ -145,11 +145,11 @@ produce curriculum vitae" />
 produce curriculum vitae</p>
     </div>
 
-    <pre class="usage"><span class='fu'>hyndman</span>(<span class='no'>...</span>)
+    <pre class="usage"><span class='fu'>awesomecv</span>(<span class='no'>...</span>, <span class='kw'>latex_engine</span> <span class='kw'>=</span> <span class='st'>"xelatex"</span>)
 
-<span class='fu'>twentyseconds</span>(<span class='no'>...</span>)
+<span class='fu'>hyndman</span>(<span class='no'>...</span>)
 
-<span class='fu'>awesomecv</span>(<span class='no'>...</span>, <span class='kw'>latex_engine</span> <span class='kw'>=</span> <span class='st'>"xelatex"</span>)
+<span class='fu'>latexcv</span>(<span class='no'>...</span>, <span class='kw'>theme</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"classic"</span>, <span class='st'>"modern"</span>, <span class='st'>"rows"</span>, <span class='st'>"sidebar"</span>, <span class='st'>"two_column"</span>))
 
 <span class='fu'>moderncv</span>(
   <span class='no'>...</span>,
@@ -157,7 +157,7 @@ produce curriculum vitae</p>
   <span class='kw'>latex_engine</span> <span class='kw'>=</span> <span class='st'>"pdflatex"</span>
 )
 
-<span class='fu'>latexcv</span>(<span class='no'>...</span>, <span class='kw'>theme</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"classic"</span>, <span class='st'>"modern"</span>, <span class='st'>"rows"</span>, <span class='st'>"sidebar"</span>, <span class='st'>"two_column"</span>))</pre>
+<span class='fu'>twentyseconds</span>(<span class='no'>...</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
