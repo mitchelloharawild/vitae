@@ -264,34 +264,8 @@ $if(linestretch)$
 \usepackage{setspace}
 $endif$
 
-
-% Templates for detailed entries
-% Arguments: what when with where why
-\usepackage{etoolbox}
-
-% Templates for detailed entries
-% Arguments: what when with where why
-\def\detaileditem#1#2#3#4#5{
-#2 & \parbox[t]{0.85\textwidth}{%
-      \textbf{#1}\hfill{\footnotesize #3}\\
-      \ifx#4\empty\else#4\par\fi%
-      \ifx#5\empty\else{%
-        \vspace{0.1cm}\begin{minipage}{0.7\textwidth}%
-        \begin{itemize}#5\end{itemize}%
-        \end{minipage}}\fi%
-      \vspace{\parsep}}\\}
-%\def\detailedsection#1{\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ll}#1\end{tabular*}}
 \setlength\LTleft{0pt}
 \setlength\LTright{0pt}
-\def\detailedsection#1{\begin{longtable}{@{\extracolsep{\fill}}ll}#1\end{longtable}}
-
-% Templates for brief entries
-% Arguments: what when with
-\def\briefitem#1#2#3{
-#2 & \parbox[t]{0.85\textwidth}{%
-      \textbf{#1}\\[-0.1cm]{\footnotesize #3}}\\[0.4cm]}
-%\def\briefsection#1{\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ll}#1\end{tabular*}}
-\def\briefsection#1{\begin{longtable}{@{\extracolsep{\fill}}ll}#1\end{longtable}}
 
 \def\endfirstpage{\newpage}
 

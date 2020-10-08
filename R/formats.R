@@ -12,16 +12,7 @@
 #'
 #' @name cv_formats
 #'
-#' @rdname cv_formats
-#'
-#' @export
-hyndman <- function(...) {
-  template <- system.file("rmarkdown", "templates", "hyndman",
-    "resources", "hyndmantemplate.tex",
-    package = "vitae"
-  )
-  cv_document(..., template = template)
-}
+NULL
 
 #' @rdname cv_formats
 #' @export
