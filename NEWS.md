@@ -39,6 +39,8 @@ templates for other output formats (like HTML and Word) can now be added.
   will work as expected.
 * The `citation_package` and `latex_engine` options are now changeable by users 
   for all output formats.
+* The `why` argument of `detailed_entries()` can now optionally be provided as a
+  list of characters.
 
 # vitae 0.2.2
 
