@@ -2,7 +2,7 @@
 multiple-bibliographies – create multiple bibliographies
 
 Copyright © 2018-2020 Albert Krewinkel
-Modified 17/04/2020 by Mitchell O'Hara-Wild
+Modified 19/10/2020 by Mitchell O'Hara-Wild
 
 Permission to use, copy, modify, and/or distribute this software for any
 purpose with or without fee is hereby granted, provided that the above
@@ -30,6 +30,10 @@ local doc_meta = pandoc.Meta{}
 local refs_div = pandoc.Div({}, pandoc.Attr('refs'))
 
 local supports_quiet_flag = (function ()
+  -- We use pandoc instead of pandoc-citeproc starting with pandoc 2.11
+  if PANDOC_VERSION >= "2.11" then
+    return true
+  end
   local version = pandoc.pipe('<<CITEPROC_PATH>>', {'--version'}, '')
   local major, minor, patch = version:match 'pandoc%-citeproc (%d+)%.(%d+)%.?(%d*)'
   major, minor, patch = tonumber(major), tonumber(minor), tonumber(patch)
@@ -37,6 +41,24 @@ local supports_quiet_flag = (function ()
     or minor > 14
     or (minor == 14 and patch >= 5)
 end)()
+
+local function run_citeproc(doc, quiet)
+  if PANDOC_VERSION >= "2.11" then
+    return run_json_filter(
+      doc,
+      'pandoc',
+      {'--from=json', '--to=json', '--citeproc', quiet and '--quiet' or nil}
+    )
+  else
+    -- doc = run_json_filter(doc, '<<CITEPROC_PATH>>')
+    return run_json_filter(
+      doc,
+      '<<CITEPROC_PATH>>',
+      {FORMAT, (quiet and supports_quiet_flag) and '-q' or nil}
+    )
+  end
+end
+
 
 --- Resolve citations in the document by combining all bibliographies
 -- before running pandoc-citeproc on the full document.
@@ -53,7 +75,8 @@ local function resolve_doc_citations (doc)
   -- add dummy div to catch the created bibliography
   table.insert(doc.blocks, refs_div)
   -- resolve all citations
-  doc = run_json_filter(doc, '<<CITEPROC_PATH>>')
+  -- doc = run_json_filter(doc, '<<CITEPROC_PATH>>')
+  doc = run_citeproc(doc)
   -- remove catch-all bibliography
   table.remove(doc.blocks)
   -- restore bibliography to original value
@@ -83,6 +106,7 @@ end
 --- Create a bibliography for a given topic. This acts on all divs whose
 -- ID matches "bibliography", and uses the path contained within the div
 local function create_topic_bibliography (div)
+
   local is_bib = div.identifier == 'bibliography'
   if not is_bib then
     return nil
@@ -91,8 +115,7 @@ local function create_topic_bibliography (div)
   local tmp_blocks = {pandoc.Para(all_cites), refs_div}
   local tmp_meta = meta_for_pandoc_citeproc(bibfile)
   local tmp_doc = pandoc.Pandoc(tmp_blocks, tmp_meta)
-  local filter_args = {FORMAT, supports_quiet_flag and '-q' or nil}
-  local res = run_json_filter(tmp_doc, '<<CITEPROC_PATH>>', filter_args)
+  local res = run_citeproc(tmp_doc, true) -- try to be quiet
   -- First block of the result contains the dummy paragraph, second is
   -- the refs Div filled by pandoc-citeproc.
   div.content = res.blocks[2].content
