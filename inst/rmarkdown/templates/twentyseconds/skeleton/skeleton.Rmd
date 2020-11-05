@@ -58,15 +58,9 @@ tribble(
 
 ```{r}
 library(dplyr)
-scholar::get_publications("EmD_lTEAAAAJ&EmD_lTEAAAAJ&") %>% 
-  filter(cites > 30) %>% 
-  distinct(title, .keep_all = TRUE) %>%
-  transmute(bibtype = "Article", author = as.character(author),
-            title = as.character(title),
-            journaltitle = as.character(journal), year, key = row_number()) %>% 
-  RefManageR::as.BibEntry() %>% 
-  RefManageR::WriteBib("curie.bib")
+knitr::write_bib(c("vitae", "tibble"), "packages.bib")
 
-bibliography_entries("curie.bib")
+bibliography_entries("packages.bib") %>%
+  arrange(desc(author$family), issued)
 ```
 

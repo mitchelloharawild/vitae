@@ -21,7 +21,6 @@ Imports:
     pillar
 Suggests:
     bibtex,
-    RefManageR,
     covr,
     rorcid,
     testthat,
