@@ -15,11 +15,11 @@ Imports:
     rmarkdown (>= 1.18),
     knitr,
     xfun,
-    RefManageR,
     yaml,
     tibble
 Suggests:
     bibtex,
+    RefManageR,
     covr,
     rorcid,
     testthat,
