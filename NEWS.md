@@ -5,7 +5,9 @@ document. The package now uses pandoc-citeproc for handling bibliographies,
 rather than biblatex and the RefManageR package (partly due to CRAN archival).
 This is more consistent with how bibliographies are generated in other rmarkdown
 documents, and importantly it now allows custom CSL formats to be used (the most
-common request).
+common request). Another advantage of this change is that non-bib citation 
+formats can now be used (including YAML and CSL-JSON), and that changes to the 
+table are directly applied to the resulting bibliography output.
 
 The same `bibliography_entires("/path/to/file.bib")` interface 
 applies, however the result may now differ slightly:
@@ -20,6 +22,8 @@ applies, however the result may now differ slightly:
 
 Another advantage to moving to use pandoc-citeproc for bibliographies is that
 templates for other output formats (like HTML and Word) can now be added.
+
+More details can be found here: https://pkg.mitchelloharawild.com/vitae/reference/bibliography_entries.html
 
 ## Breaking changes
 

@@ -1,26 +1,42 @@
-# Main function for printing bibliography section
-# category is a character vector of bib types
-# title is the section heading
-
 #' Print bibliography section
 #'
-#' Given a bib file, this function will generate bibliographic entries for one or more types of bib entry.
+#' Given a bibliography file, this function will generate bibliographic entries
+#' for one or more types of bib entry.
 #'
-#' @param file A path to a .bib file.
+#' @param file A path to a bibliography file understood by [`rmarkdown::pandoc_citeproc_convert()`].
 #' @param startlabel Defunct.
 #' @param endlabel Defunct.
 #'
-#' @return Prints bibliographic entries
+#' @return A dataset representing the bibliographic entries, suitable for
+#' generating a reference section in a document.
 #'
 #' @author Rob J Hyndman & Mitchell O'Hara-Wild
+#'
+#' @examples
+#'
+#' # Create a bibliography from a set of packages
+#' bib <- tempfile(fileext = ".bib")
+#' knitr::write_bib(c("vitae", "tibble"), bib)
+#'
+#' # Import the bibliography entries into a CV
+#' bibliography_entries(bib)
+#'
+#' # The order of these entries can be customised using `dplyr::arrange()`
+#' bibliography_entries(bib) %>%
+#'   arrange(desc(title))
+#'
+#' # For more complex fields like author, you can also sort by component fields.
+#' # For example, use `author$family` to sort by family names.
+#' bibliography_entries(bib) %>%
+#'   arrange(desc(author$family))
 #'
 #' @export
 bibliography_entries <- function(file, startlabel = NULL, endlabel = NULL) {
   if(!is.null(startlabel)){
-    warning("The `startlabel` argument is defunct. Please use a different approach to including labels.")
+    warning("The `startlabel` argument is defunct and will be removed in the next release.\nPlease use a different approach to including labels.")
   }
   if(!is.null(endlabel)){
-    warning("The `endlabel` argument is defunct. Please use a different approach to including labels.")
+    warning("The `endlabel` argument is defunct and will be removed in the next release.\n. Please use a different approach to including labels.")
   }
 
   bib <- yaml::yaml.load(rmarkdown::pandoc_citeproc_convert(file, "yaml"))$references
