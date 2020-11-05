@@ -11,9 +11,23 @@ csl_name <- function(x) {
   vctrs::new_vctr(x, class = "csl_name")
 }
 
+csl_name_fields <- c("dropping-particle", "non-dropping-particle", "given", "family", "literal", "suffix")
+
 display_name <- function(name) {
-  field_order <- c("dropping-particle", "non-dropping-particle", "given", "family", "literal", "suffix")
-  do.call(paste, Filter(Negate(is.null), name[field_order]))
+  do.call(paste, Filter(Negate(is.null), name[csl_name_fields]))
+}
+
+#' @export
+names.csl_name <- function(x) csl_name_fields
+
+#' @export
+`$.csl_name` <- function(x, name) {
+  vapply(x, function(authors) {
+    authors <- vapply(authors, function(author, field) {
+      if(field %in% names(author)) author[[field]] else NA_character_
+    }, character(1L), field = name)
+    paste(authors[!is.na(authors)], collapse = ", ")
+  }, character(1L))
 }
 
 #' @export
