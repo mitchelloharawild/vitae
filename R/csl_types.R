@@ -90,7 +90,7 @@ vec_ptype_abbr.csl_date <- function(x) "csl_date"
 
 #' @export
 xtfrm.csl_date <- function(x) {
-  vapply(x, function(x) x[[1]][[1]], numeric(1L))
+  vapply(x, function(x) if(is.null(x)) NA_real_ else x[[1]][[1]], numeric(1L))
 }
 
 #' @importFrom vctrs vec_proxy_order
