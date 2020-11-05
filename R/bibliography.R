@@ -56,6 +56,10 @@ knit_print.vitae_bibliography <- function(x, options) {
 
   startlabel <- x %@% "startlabel"
   endlabel <- x %@% "endlabel"
+
+  # Convert file separator to format expected by citeproc
+  file <- gsub("\\", "/", file, fixed = TRUE)
+
   out <- glue(
     '
 
