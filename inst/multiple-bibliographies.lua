@@ -34,7 +34,7 @@ local supports_quiet_flag = (function ()
   if PANDOC_VERSION >= "2.11" then
     return true
   end
-  local version = pandoc.pipe('<<CITEPROC_PATH>>', {'--version'}, '')
+  local version = pandoc.pipe('<<PANDOC_PATH>>/pandoc-citeproc', {'--version'}, '')
   local major, minor, patch = version:match 'pandoc%-citeproc (%d+)%.(%d+)%.?(%d*)'
   major, minor, patch = tonumber(major), tonumber(minor), tonumber(patch)
   return major > 0
@@ -46,14 +46,14 @@ local function run_citeproc(doc, quiet)
   if PANDOC_VERSION >= "2.11" then
     return run_json_filter(
       doc,
-      'pandoc',
+      '<<PANDOC_PATH>>/pandoc',
       {'--from=json', '--to=json', '--citeproc', quiet and '--quiet' or nil}
     )
   else
-    -- doc = run_json_filter(doc, '<<CITEPROC_PATH>>')
+    -- doc = run_json_filter(doc, '<<PANDOC_PATH>>/pandoc-citeproc')
     return run_json_filter(
       doc,
-      '<<CITEPROC_PATH>>',
+      '<<PANDOC_PATH>>/pandoc-citeproc',
       {FORMAT, (quiet and supports_quiet_flag) and '-q' or nil}
     )
   end
@@ -75,7 +75,7 @@ local function resolve_doc_citations (doc)
   -- add dummy div to catch the created bibliography
   table.insert(doc.blocks, refs_div)
   -- resolve all citations
-  -- doc = run_json_filter(doc, '<<CITEPROC_PATH>>')
+  -- doc = run_json_filter(doc, '<<PANDOC_PATH>>/pandoc-citeproc')
   doc = run_citeproc(doc)
   -- remove catch-all bibliography
   table.remove(doc.blocks)

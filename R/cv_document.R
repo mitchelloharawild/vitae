@@ -15,9 +15,8 @@ cv_document <- function(..., pandoc_args = NULL, pandoc_vars = NULL) {
 
   # Inject multiple-bibliographies lua filter
   mult_bib <- file.path(tempdir(), "multiple-bibliographies.lua")
-  citeproc_path <- file.path(rmarkdown::find_pandoc()$dir, "pandoc-citeproc")
   cat(
-    gsub("<<CITEPROC_PATH>>", citeproc_path, fixed = TRUE,
+    gsub("<<PANDOC_PATH>>", rmarkdown::find_pandoc()$dir, fixed = TRUE,
          readLines(system.file("multiple-bibliographies.lua", package = "vitae", mustWork = TRUE))),
     file = mult_bib, sep = "\n"
   )
