@@ -53,7 +53,8 @@ bibliography_entries <- function(file, startlabel = NULL, endlabel = NULL) {
   bib$author <- csl_name(bib$author)
   bib$issued <- csl_date(bib$issued)
   tibble::new_tibble(bib, preserve = "id",
-                     class = c("vitae_bibliography", "vitae_preserve"))
+                     class = c("vitae_bibliography", "vitae_preserve"),
+                     nrow = nrow(bib))
 }
 
 
