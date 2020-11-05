@@ -3,8 +3,10 @@
 #' This class provides helper utilities to display, sort, and select attributes
 #' from a name in the CSL format.
 #'
+#' @param x A list of names conforming to the structure outlined in the CSL schema
+#'
 #' @seealso
-#' [https://citeproc-js.readthedocs.io/en/latest/csl-json/markup.html#name-fields]
+#' <https://citeproc-js.readthedocs.io/en/latest/csl-json/markup.html#name-fields>
 #'
 #' @export
 csl_name <- function(x) {
@@ -31,12 +33,14 @@ names.csl_name <- function(x) csl_name_fields
 }
 
 #' @export
-format.csl_name <- function(x) {
+format.csl_name <- function(x, ...) {
   vapply(x, function(authors) {
     paste(vapply(authors, display_name, character(1L)), collapse = ", ")
   }, character(1L))
 }
 
+#' @importFrom vctrs vec_ptype_abbr
+#' @method vec_ptype_abbr csl_name
 #' @export
 vec_ptype_abbr.csl_name <- function(x) "csl name"
 
@@ -62,8 +66,10 @@ pillar_shaft.csl_name <- function(x, ...) {
 #' This class provides helper utilities to display, sort, and select attributes
 #' from a date in the CSL format.
 #'
+#' @param x A list of dates conforming to the structure outlined in the CSL schema
+#'
 #' @seealso
-#' [https://citeproc-js.readthedocs.io/en/latest/csl-json/markup.html#date-fields]
+#' <https://citeproc-js.readthedocs.io/en/latest/csl-json/markup.html#date-fields>
 #'
 #' @export
 csl_date <- function(x) {
@@ -71,12 +77,14 @@ csl_date <- function(x) {
 }
 
 #' @export
-format.csl_date <- function(x) {
+format.csl_date <- function(x, ...) {
   vapply(x, function(date) {
     paste(vctrs::vec_c(!!!date), collapse = "-")
   }, character(1L))
 }
 
+#' @importFrom vctrs vec_ptype_abbr
+#' @method vec_ptype_abbr csl_date
 #' @export
 vec_ptype_abbr.csl_date <- function(x) "csl_date"
 

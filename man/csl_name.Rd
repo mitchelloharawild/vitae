@@ -6,10 +6,13 @@
 \usage{
 csl_name(x)
 }
+\arguments{
+\item{x}{A list of names conforming to the structure outlined in the CSL schema}
+}
 \description{
 This class provides helper utilities to display, sort, and select attributes
 from a name in the CSL format.
 }
 \seealso{
-\link{https://citeproc-js.readthedocs.io/en/latest/csl-json/markup.html#name-fields}
+\url{https://citeproc-js.readthedocs.io/en/latest/csl-json/markup.html#name-fields}
 }
