@@ -47,16 +47,17 @@ bibliography_entries <- function(file, startlabel = NULL, endlabel = NULL) {
     function(x){
       el_is_list <- vapply(x, is.list, logical(1L))
       x[el_is_list] <- lapply(x[el_is_list], list)
+      chr_fields <- intersect(names(x), c("number", "issue", "page", "volume", "version"))
+      x[chr_fields] <- lapply(x[chr_fields], as.character)
       tibble::as_tibble(x)
     }
   ))
   bib$author <- csl_name(bib$author)
-  bib$issued <- csl_date(bib$issued)
+  if(is.list(bib$issued)) bib$issued <- csl_date(bib$issued)
   tibble::new_tibble(bib, preserve = "id",
                      class = c("vitae_bibliography", "vitae_preserve"),
                      nrow = nrow(bib))
 }
-
 
 #' @importFrom knitr knit_print
 #' @export
