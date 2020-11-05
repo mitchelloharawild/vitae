@@ -16,7 +16,9 @@ Imports:
     knitr,
     xfun,
     yaml,
-    tibble
+    tibble,
+    vctrs,
+    pillar
 Suggests:
     bibtex,
     RefManageR,
