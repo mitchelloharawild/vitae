@@ -141,13 +141,14 @@
 <h1 class="page-header">
 <a href="#vitae-development-version" class="anchor"></a>vitae (development version)<small> Unreleased </small>
 </h1>
-<p>This release makes substantial changes to how bibliographies included in a document. The package now uses pandoc-citeproc for handling bibliographies, rather than biblatex and the RefManageR package (partly due to CRAN archival). This is more consistent with how bibliographies are generated in other rmarkdown documents, and importantly it now allows custom CSL formats to be used (the most common request).</p>
+<p>This release makes substantial changes to how bibliographies included in a document. The package now uses pandoc-citeproc for handling bibliographies, rather than biblatex and the RefManageR package (partly due to CRAN archival). This is more consistent with how bibliographies are generated in other rmarkdown documents, and importantly it now allows custom CSL formats to be used (the most common request). Another advantage of this change is that non-bib citation formats can now be used (including YAML and CSL-JSON), and that changes to the table are directly applied to the resulting bibliography output.</p>
 <p>The same <code>bibliography_entires("/path/to/file.bib")</code> interface applies, however the result may now differ slightly:</p>
 <ol>
 <li>The column names and structure of the intermediate tibble has been changed to better align with the CSL JSON format used by pandoc. This allows the modified contents of the tibble to be correctly reflected in the resulting output.</li>
 <li>The default style of the bibliographies is now the APA CV format, which is similar but not identical to the previous default. This should be easier to customise now by providing a custom CSL (much like any other rmarkdown document).</li>
 </ol>
 <p>Another advantage to moving to use pandoc-citeproc for bibliographies is that templates for other output formats (like HTML and Word) can now be added.</p>
+<p>More details can be found here: <a href="https://pkg.mitchelloharawild.com/vitae/reference/bibliography_entries.html" class="uri">https://pkg.mitchelloharawild.com/vitae/reference/bibliography_entries.html</a></p>
 <div id="breaking-changes" class="section level2">
 <h2 class="hasAnchor">
 <a href="#breaking-changes" class="anchor"></a>Breaking changes</h2>
