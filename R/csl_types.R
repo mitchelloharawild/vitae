@@ -45,6 +45,11 @@ format.csl_name <- function(x, ...) {
 vec_ptype_abbr.csl_name <- function(x) "csl name"
 
 #' @export
+vec_cast.character.csl_name <- function(x, to, ...) {
+  format(x)
+}
+
+#' @export
 xtfrm.csl_name <- function(x) {
   xtfrm(format(x))
 }
@@ -89,8 +94,24 @@ format.csl_date <- function(x, ...) {
 vec_ptype_abbr.csl_date <- function(x) "csl_date"
 
 #' @export
-xtfrm.csl_date <- function(x) {
+vec_ptype2.csl_date.double <- function(x, y, ...) {
+  double()
+}
+#' @export
+vec_ptype2.double.csl_date <- vec_ptype2.csl_date.double
+
+#' @export
+vec_cast.double.csl_date <- function(x, to, ...) {
   vapply(x, function(x) if(is.null(x)) NA_real_ else x[[1]][[1]], numeric(1L))
+}
+#' @export
+vec_cast.character.csl_date <- function(x, to, ...) {
+  format(x)
+}
+
+#' @export
+xtfrm.csl_date <- function(x) {
+  as.numeric(x)
 }
 
 #' @importFrom vctrs vec_proxy_order
