@@ -25,8 +25,7 @@ Suggests:
     rorcid,
     testthat,
     stringr,
-    htmltools,
-    scholar
+    htmltools
 License: GPL-3
 Encoding: UTF-8
 BugReports: https://github.com/mitchelloharawild/vitae/issues
