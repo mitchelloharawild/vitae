@@ -61,7 +61,7 @@ bibliography_entries <- function(file, startlabel = NULL, endlabel = NULL) {
 
 #' @importFrom knitr knit_print
 #' @export
-knit_print.vitae_bibliography <- function(x, options) {
+knit_print.vitae_bibliography <- function(x, options = knitr::opts_current$get()) {
   # Reconstruct yaml from tibble
   yml <- lapply(
     dplyr::group_split(dplyr::rowwise(x)),
@@ -71,7 +71,7 @@ knit_print.vitae_bibliography <- function(x, options) {
       x[el_is_list] <- lapply(x[el_is_list], `[[`, i=1)
       Filter(function(x) !is.na(x) && lengths(x) > 0, x)
     })
-  if(options$cache == 0) {
+  if((options$cache %||% 0) == 0) {
     file <- tempfile(fileext = ".yaml")
   } else {
     file <- paste0(options$cache.path, options$label, ".yaml")

@@ -7,6 +7,10 @@ compact_list <- function(x) {
   list(x[!is.na(x)])
 }
 
+`%||%` <- function(x, y) {
+  if (is.null(x)) y else x
+}
+
 `%empty%` <- function(x, y) {
   if (length(x) == 0) y else x
 }
