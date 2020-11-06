@@ -44,6 +44,7 @@ format.csl_name <- function(x, ...) {
 #' @export
 vec_ptype_abbr.csl_name <- function(x) "csl name"
 
+#' @method vec_cast.character csl_name
 #' @export
 vec_cast.character.csl_name <- function(x, to, ...) {
   format(x)
@@ -97,13 +98,16 @@ vec_ptype_abbr.csl_date <- function(x) "csl_date"
 vec_ptype2.csl_date.double <- function(x, y, ...) {
   double()
 }
+#' @method vec_ptype2.double csl_date
 #' @export
 vec_ptype2.double.csl_date <- vec_ptype2.csl_date.double
 
+#' @method vec_cast.double csl_date
 #' @export
 vec_cast.double.csl_date <- function(x, to, ...) {
   vapply(x, function(x) if(is.null(x)) NA_real_ else x[[1]][[1]], numeric(1L))
 }
+#' @method vec_cast.character csl_date
 #' @export
 vec_cast.character.csl_date <- function(x, to, ...) {
   format(x)
