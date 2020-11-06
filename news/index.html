@@ -154,7 +154,13 @@
 <a href="#breaking-changes" class="anchor"></a>Breaking changes</h2>
 <ul>
 <li>The <code>startlabel</code> and <code>endlabel</code> arguments of <code><a href="../reference/bibliography_entries.html">bibliography_entries()</a></code> are now defunct.</li>
-<li>The column names and structure of the <code>bibliography_entires()</code> tibble have changed for consistency with the CSL JSON format.</li>
+<li>The column names and structure of the <code>bibliography_entires()</code> tibble have changed for consistency with the CSL JSON format. The mapping of commonly used column names are:
+<ul>
+<li>bibtype -&gt; type (note that the values are converted to CSL JSON format)</li>
+<li>key -&gt; id</li>
+<li>year -&gt; issued</li>
+</ul>
+</li>
 <li>The default style of bibliography entries is now the APA CV format, which has been modified to match the order of the tibble, rather than the default of reverse chronological order. This bibliography style can be customised using the csl argument in the yaml front matter.</li>
 </ul>
 </div>
