@@ -1,4 +1,4 @@
-# vitae (development version)
+# vitae 0.3.0
 
 This release makes substantial changes to how bibliographies included in a
 document. The package now uses pandoc-citeproc for handling bibliographies, 
