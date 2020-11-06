@@ -71,7 +71,11 @@ knit_print.vitae_bibliography <- function(x, options) {
       x[el_is_list] <- lapply(x[el_is_list], `[[`, i=1)
       Filter(function(x) !is.na(x) && lengths(x) > 0, x)
     })
-  file <- tempfile(fileext = ".yaml")
+  if(options$cache == 0) {
+    file <- tempfile(fileext = ".yaml")
+  } else {
+    file <- paste0(options$cache.path, options$label, ".yaml")
+  }
   yaml::write_yaml(list(references = yml), file = file)
 
   startlabel <- x %@% "startlabel"
