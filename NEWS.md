@@ -30,7 +30,11 @@ More details can be found here: https://pkg.mitchelloharawild.com/vitae/referenc
 * The `startlabel` and `endlabel` arguments of `bibliography_entries()` are now
   defunct.
 * The column names and structure of the `bibliography_entires()` tibble have
-  changed for consistency with the CSL JSON format.
+  changed for consistency with the CSL JSON format. The mapping of commonly used
+  column names are:
+  - bibtype -> type (note that the values are converted to CSL JSON format)
+  - key -> id
+  - year -> issued
 * The default style of bibliography entries is now the APA CV format, which has
   been modified to match the order of the tibble, rather than the default of
   reverse chronological order. This bibliography style can be customised using 
