@@ -12,7 +12,7 @@ table are directly applied to the resulting bibliography output.
 The same `bibliography_entires("/path/to/file.bib")` interface 
 applies, however the result may now differ slightly:
 1. The column names and structure of the intermediate tibble has been changed to
-   better align with the CSL JSON format used by pandoc. This allows the 
+   better align with the CSL-JSON format used by pandoc. This allows the 
    modified contents of the tibble to be correctly reflected in the resulting 
    output.
 2. The default style of the bibliographies is now the APA CV format, which is 
@@ -30,9 +30,9 @@ More details can be found here: https://pkg.mitchelloharawild.com/vitae/referenc
 * The `startlabel` and `endlabel` arguments of `bibliography_entries()` are now
   defunct.
 * The column names and structure of the `bibliography_entires()` tibble have
-  changed for consistency with the CSL JSON format. The mapping of commonly used
+  changed for consistency with the CSL-JSON format. The mapping of commonly used
   column names are:
-  - bibtype -> type (note that the values are converted to CSL JSON format)
+  - bibtype -> type (note that the values are converted to CSL-JSON format)
   - key -> id
   - year -> issued
 * The default style of bibliography entries is now the APA CV format, which has
