@@ -1,12 +1,15 @@
-This patch release resolves problems introduced by the tibble v3.0.0 release.
+This submission resolves issues with the package being archived from CRAN due to
+the archival of RefManageR.
 
 ## Test environments
-* local ubuntu 18.04 install, R 3.5.3
-* ubuntu 16.04 (on travis-ci), R 3.6.0
-* ubuntu 16.04 (on rhub), R-devel, R 3.6.0
-* Windows Server 2012 (rhub), R-devel
-* win-builder (devel and release)
+* local kubuntu 20.04 install, R 4.0.2
+* ubuntu 16.04 (on GitHub actions), R-devel, R 4.0.0, R 3.6.3, R 3.5.3
+* macOS (on GitHub actions), R 4.0.0
+* windows (on GitHub actions), R 4.0.0
+* win-builder, R-devel, R-release, R-oldrelease
 
 ## R CMD check results
 
-0 errors | 0 warnings | 0 notes
+0 errors | 0 warnings | 1 notes
+
+Package was archived on CRAN
