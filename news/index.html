@@ -144,7 +144,7 @@
 <p>This release makes substantial changes to how bibliographies included in a document. The package now uses pandoc-citeproc for handling bibliographies, rather than biblatex and the RefManageR package (partly due to CRAN archival). This is more consistent with how bibliographies are generated in other rmarkdown documents, and importantly it now allows custom CSL formats to be used (the most common request). Another advantage of this change is that non-bib citation formats can now be used (including YAML and CSL-JSON), and that changes to the table are directly applied to the resulting bibliography output.</p>
 <p>The same <code>bibliography_entires("/path/to/file.bib")</code> interface applies, however the result may now differ slightly:</p>
 <ol>
-<li>The column names and structure of the intermediate tibble has been changed to better align with the CSL JSON format used by pandoc. This allows the modified contents of the tibble to be correctly reflected in the resulting output.</li>
+<li>The column names and structure of the intermediate tibble has been changed to better align with the CSL-JSON format used by pandoc. This allows the modified contents of the tibble to be correctly reflected in the resulting output.</li>
 <li>The default style of the bibliographies is now the APA CV format, which is similar but not identical to the previous default. This should be easier to customise now by providing a custom CSL (much like any other rmarkdown document).</li>
 </ol>
 <p>Another advantage to moving to use pandoc-citeproc for bibliographies is that templates for other output formats (like HTML and Word) can now be added.</p>
@@ -154,9 +154,9 @@
 <a href="#breaking-changes" class="anchor"></a>Breaking changes</h2>
 <ul>
 <li>The <code>startlabel</code> and <code>endlabel</code> arguments of <code><a href="../reference/bibliography_entries.html">bibliography_entries()</a></code> are now defunct.</li>
-<li>The column names and structure of the <code>bibliography_entires()</code> tibble have changed for consistency with the CSL JSON format. The mapping of commonly used column names are:
+<li>The column names and structure of the <code>bibliography_entires()</code> tibble have changed for consistency with the CSL-JSON format. The mapping of commonly used column names are:
 <ul>
-<li>bibtype -&gt; type (note that the values are converted to CSL JSON format)</li>
+<li>bibtype -&gt; type (note that the values are converted to CSL-JSON format)</li>
 <li>key -&gt; id</li>
 <li>year -&gt; issued</li>
 </ul>
