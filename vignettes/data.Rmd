@@ -18,7 +18,7 @@ Using data to dynamically build your Résumé or CV makes many powerful integrat
 
 The main purpose of sourcing your CV entries from common data sources is to extend the "do not repeat yourself" programming philosophy to maintaining a CV. If you maintain publications on [ORCID](https://orcid.org/) you shouldn't need to repeat these entries in your CV. If a list of talks you've made can be found on your website, avoid repeating the list in multiple locations to ensure that they both contain the same content.
 
-This vignette is far from comprehensive, and there are no doubt many other interesting ways to populate your CV with data. If you're using a data source that you think others should know about, consider making a [pull request](https://github.com/ropenscilabs/vitae/pulls) that adds your method to this vignette.
+This vignette is far from comprehensive, and there are no doubt many other interesting ways to populate your CV with data. If you're using a data source that you think others should know about, consider making a [pull request](https://github.com/mitchelloharawild/vitae/pulls) that adds your method to this vignette.
 
 ## Spreadsheets and data sets
 
