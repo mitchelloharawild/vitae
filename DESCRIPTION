@@ -22,7 +22,6 @@ Imports:
     vctrs,
     pillar
 Suggests:
-    bibtex,
     covr,
     rorcid,
     testthat,
