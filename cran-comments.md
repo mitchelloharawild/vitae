@@ -13,3 +13,9 @@ the archival of RefManageR.
 0 errors | 0 warnings | 1 notes
 
 Package was archived on CRAN
+
+## Re-submission
+
+This is a re-submission, which corrects the following issues:
+* Corrected redirected URLs
+* Removed bibtex dependency
