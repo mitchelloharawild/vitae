@@ -112,23 +112,22 @@ presented at [ozunconf2018](https://ozunconf18.ropensci.org/):
 
 ## Examples of using vitae
 
-  - [Mitchell O’Hara-Wild](https://github.com/mitchelloharawild/CV)
-  - [Rob Hyndman](https://github.com/robjhyndman/CV)
-  - [Eric R. Scott](https://github.com/Aariq/curriculum-vitae)
-  - [Chris
-    Umphlett](https://chrisumphlett.github.io/posts/vitae-package/)
-  - [Nat Price](https://github.com/natbprice/cv)
-  - [Sam Abbott](https://github.com/seabbs/cv) (automatic deployment\!)
-  - [JooYoung Seo](https://github.com/jooyoungseo/jy_CV) (printing
+-   [Mitchell O’Hara-Wild](https://github.com/mitchelloharawild/CV)
+-   [Rob Hyndman](https://github.com/robjhyndman/CV)
+-   [Eric R. Scott](https://github.com/Aariq/curriculum-vitae)
+-   [Chris Umphlett](http://chrisumphlett.com/posts/vitae-package/)
+-   [Nat Price](https://github.com/natbprice/cv)
+-   [Sam Abbott](https://github.com/seabbs/cv) (automatic deployment!)
+-   [JooYoung Seo](https://github.com/jooyoungseo/jy_CV) (printing
     multiple bibliographic entries according to a given csl file)
-  - [Diogo M. Camacho](https://github.com/diogocamacho/CV)
-  - [Han Zhang](https://github.com/HanZhang-psych/CV) (custom csl files)
-  - [Bryan Jenks](https://github.com/tallguyjenks/CV)
-  - [Lorena Abad](https://github.com/loreabad6/R-CV)
+-   [Diogo M. Camacho](https://github.com/diogocamacho/CV)
+-   [Han Zhang](https://github.com/HanZhang-psych/CV) (custom csl files)
+-   [Bryan Jenks](https://github.com/tallguyjenks/CV)
+-   [Lorena Abad](https://github.com/loreabad6/R-CV)
 
 Add your vitae to the list using a PR.
 
------
+------------------------------------------------------------------------
 
 Please note that the ‘vitae’ project is released with a [Contributor
 Code of
