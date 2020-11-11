@@ -1,3 +1,5 @@
+# vitae (development version)
+
 # vitae 0.3.0
 
 This release makes substantial changes to how bibliographies included in a

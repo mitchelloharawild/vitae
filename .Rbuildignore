@@ -10,3 +10,4 @@ presentation
 njtierney
 ^\.httr-oauth$
 ^_pkgdown\.yml$
+^CRAN-RELEASE$
