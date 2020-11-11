@@ -76,7 +76,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">vitae</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0.9000</span>
       </span>
     </div>
 
@@ -137,9 +137,14 @@
       <small>Source: <a href='https://github.com/mitchelloharawild/vitae/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
+    <div id="vitae-development-version" class="section level1">
+<h1 class="page-header">
+<a href="#vitae-development-version" class="anchor"></a>vitae (development version)<small> Unreleased </small>
+</h1>
+</div>
     <div id="vitae-030" class="section level1">
 <h1 class="page-header">
-<a href="#vitae-030" class="anchor"></a>vitae 0.3.0<small> Unreleased </small>
+<a href="#vitae-030" class="anchor"></a>vitae 0.3.0<small> 2020-11-11 </small>
 </h1>
 <p>This release makes substantial changes to how bibliographies included in a document. The package now uses pandoc-citeproc for handling bibliographies, rather than biblatex and the RefManageR package (partly due to CRAN archival). This is more consistent with how bibliographies are generated in other rmarkdown documents, and importantly it now allows custom CSL formats to be used (the most common request). Another advantage of this change is that non-bib citation formats can now be used (including YAML and CSL-JSON), and that changes to the table are directly applied to the resulting bibliography output.</p>
 <p>The same <code>bibliography_entires("/path/to/file.bib")</code> interface applies, however the result may now differ slightly:</p>
@@ -244,6 +249,7 @@
     <div id="tocnav">
       <h2>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
+        <li><a href="#vitae-development-version">development version</a></li>
         <li><a href="#vitae-030">0.3.0</a></li>
         <li><a href="#vitae-022">0.2.2</a></li>
         <li><a href="#vitae-021">0.2.1</a></li>
