@@ -24,16 +24,16 @@ awesome_cv_entries <- new_entry_formats(
   detailed = function(what, when, with, where, why){
     why <- lapply(why, function(x) {
       if(length(x) == 0) {
-        "\\vspace{-4mm}"
+        "{}\\vspace{-4.0mm}"
       } else {
-        paste(c("\\begin{cvitems}", paste("\\item", x), "\\end{cvitems}"),
+        paste(c("{\\begin{cvitems}", paste("\\item", x), "\\end{cvitems}}"),
               collapse = "\n")
       }
     })
 
     paste(c(
       "\\begin{cventries}",
-      glue_alt("\t\\cventry{<<what>>}{<<with>>}{<<where>>}{<<when>>}{<<why>>}"),
+      glue_alt("\t\\cventry{<<what>>}{<<with>>}{<<where>>}{<<when>>}<<why>>"),
       "\\end{cventries}"
     ), collapse = "\n")
   }
