@@ -116,7 +116,7 @@
 <h2 class="hasAnchor">
 <a href="#creating-a-cv" class="anchor"></a>Creating a CV</h2>
 <p>If using RStudio, a new CV document can be easily produced from one of the templates provided in the package. This using the RStudio R Markdown template selector, accessible via <code>File</code> &gt; <code>New File</code> &gt; <code>R Markdown...</code>, and lastly <code>From Template</code>. This will show a list of R Markdown templates provided by all installed packages, and you should be able to find some templates from the vitae package to use.</p>
-<p>If not using RStudio, you can create a new <code>*.Rmd</code> document and use an output format that is provided by the package. A list of output formats provided by the package can be found with <code><a href="../reference/cv_formats.html">?cv_formats</a></code>. Examples of a YAML header that use one of these output formats is shown below.</p>
+<p>If not using RStudio, you can create a new <code>*.Rmd</code> document and use an output format that is provided by the package. A list of output formats provided by the package can be found with <code>?cv_formats</code>. Examples of a YAML header that use one of these output formats is shown below.</p>
 <p>Like other R Markdown documents, the file is split into two sections: the YAML header, and the main body.</p>
 <div id="the-yaml-header" class="section level3">
 <h3 class="hasAnchor">
@@ -135,7 +135,7 @@ headcolor: 414141
 docname: CV/Resume
 output: vitae::awesomecv</code>
 </pre>
-<p>You can also see that the output is set to <code><a href="../reference/cv_formats.html">vitae::awesomecv</a></code>, which indicates that this CV uses the <a href="https://github.com/posquit0/Awesome-CV">Awesome CV</a> template.</p>
+<p>You can also see that the output is set to <code><a href="../reference/awesomecv.html">vitae::awesomecv</a></code>, which indicates that this CV uses the <a href="https://github.com/posquit0/Awesome-CV">Awesome CV</a> template.</p>
 <p>Currently, the YAML header allows these fields to be specified:</p>
 <ul>
 <li>

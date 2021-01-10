@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Output format for vitae — cv_document • vitae</title>
+<title>Hyndman CV template — hyndman • vitae</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -42,9 +42,9 @@
 
 
 
-<meta property="og:title" content="Output format for vitae — cv_document" />
-<meta property="og:description" content="This output format provides support for including LaTeX dependencies and
-bibliography entries in extension of the rmarkdown::pdf_document() format." />
+<meta property="og:title" content="Hyndman CV template — hyndman" />
+<meta property="og:description" content="Produces a CV using the style used in Rob Hyndman's CV:
+https://robjhyndman.com/hyndsight/cv/" />
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -135,43 +135,47 @@ bibliography entries in extension of the rmarkdown::pdf_document() format." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Output format for vitae</h1>
-    <small class="dont-index">Source: <a href='https://github.com/mitchelloharawild/vitae/blob/master/R/cv_document.R'><code>R/cv_document.R</code></a></small>
-    <div class="hidden name"><code>cv_document.Rd</code></div>
+    <h1>Hyndman CV template</h1>
+    <small class="dont-index">Source: <a href='https://github.com/mitchelloharawild/vitae/blob/master/R/hyndman.R'><code>R/hyndman.R</code></a></small>
+    <div class="hidden name"><code>hyndman.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>This output format provides support for including LaTeX dependencies and
-bibliography entries in extension of the <code><a href='https://rdrr.io/pkg/rmarkdown/man/pdf_document.html'>rmarkdown::pdf_document()</a></code> format.</p>
+    <p>Produces a CV using the style used in Rob Hyndman's CV:
+https://robjhyndman.com/hyndsight/cv/</p>
     </div>
 
-    <pre class="usage"><span class='fu'>cv_document</span>(<span class='no'>...</span>, <span class='kw'>pandoc_args</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>pandoc_vars</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>hyndman</span>(<span class='no'>...</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>...</th>
-      <td><p>Arguments passed to rmarkdown::pdf_document().</p></td>
-    </tr>
-    <tr>
-      <th>pandoc_args</th>
-      <td><p>Additional command line options to pass to pandoc</p></td>
-    </tr>
-    <tr>
-      <th>pandoc_vars</th>
-      <td><p>Pandoc variables to be passed to the template.</p></td>
+      <td><p>Arguments passed to <code><a href='cv_document.html'>cv_document</a></code>.</p></td>
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>An R Markdown output format object.</p>
+    <h2 class="hasAnchor" id="preview"><a class="anchor" href="#preview"></a>Preview</h2>
+
+    
+
+<p><img src='figures/preview_hyndman.png' alt='Template preview' /></p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
+      <li><a href="#value">Value</a></li>
+      <li><a href="#preview">Preview</a></li>
     </ul>
 
+    <h2>Author</h2>
+    <p>Rob J Hyndman &amp; Mitchell O'Hara-Wild</p>
   </div>
 </div>
 

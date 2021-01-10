@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Output format for vitae — cv_document • vitae</title>
+<title>Moderncv template — moderncv • vitae</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -42,9 +42,11 @@
 
 
 
-<meta property="og:title" content="Output format for vitae — cv_document" />
-<meta property="og:description" content="This output format provides support for including LaTeX dependencies and
-bibliography entries in extension of the rmarkdown::pdf_document() format." />
+<meta property="og:title" content="Moderncv template — moderncv" />
+<meta property="og:description" content="Moderncv provides a documentclass for typesetting curricula vitae in various
+styles. Moderncv aims to be both straightforward to use and customizable,
+providing five ready-made styles (classic, casual, banking, oldstyle and
+fancy): https://github.com/xdanaux/moderncv" />
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -135,43 +137,63 @@ bibliography entries in extension of the rmarkdown::pdf_document() format." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Output format for vitae</h1>
-    <small class="dont-index">Source: <a href='https://github.com/mitchelloharawild/vitae/blob/master/R/cv_document.R'><code>R/cv_document.R</code></a></small>
-    <div class="hidden name"><code>cv_document.Rd</code></div>
+    <h1>Moderncv template</h1>
+    <small class="dont-index">Source: <a href='https://github.com/mitchelloharawild/vitae/blob/master/R/moderncv.R'><code>R/moderncv.R</code></a></small>
+    <div class="hidden name"><code>moderncv.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>This output format provides support for including LaTeX dependencies and
-bibliography entries in extension of the <code><a href='https://rdrr.io/pkg/rmarkdown/man/pdf_document.html'>rmarkdown::pdf_document()</a></code> format.</p>
+    <p>Moderncv provides a documentclass for typesetting curricula vitae in various
+styles. Moderncv aims to be both straightforward to use and customizable,
+providing five ready-made styles (classic, casual, banking, oldstyle and
+fancy): https://github.com/xdanaux/moderncv</p>
     </div>
 
-    <pre class="usage"><span class='fu'>cv_document</span>(<span class='no'>...</span>, <span class='kw'>pandoc_args</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>pandoc_vars</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>moderncv</span>(
+  <span class='no'>...</span>,
+  <span class='kw'>theme</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"casual"</span>, <span class='st'>"classic"</span>, <span class='st'>"oldstyle"</span>, <span class='st'>"banking"</span>, <span class='st'>"fancy"</span>),
+  <span class='kw'>latex_engine</span> <span class='kw'>=</span> <span class='st'>"pdflatex"</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>...</th>
-      <td><p>Arguments passed to rmarkdown::pdf_document().</p></td>
+      <td><p>Arguments passed to <code><a href='cv_document.html'>cv_document</a></code>.</p></td>
     </tr>
     <tr>
-      <th>pandoc_args</th>
-      <td><p>Additional command line options to pass to pandoc</p></td>
+      <th>theme</th>
+      <td><p>The theme used for the template.</p></td>
     </tr>
     <tr>
-      <th>pandoc_vars</th>
-      <td><p>Pandoc variables to be passed to the template.</p></td>
+      <th>latex_engine</th>
+      <td><p>LaTeX engine for producing PDF output. Options are
+"pdflatex", "lualatex", and "xelatex".</p></td>
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>An R Markdown output format object.</p>
+    <h2 class="hasAnchor" id="preview"><a class="anchor" href="#preview"></a>Preview</h2>
+
+    
+
+<p><img src='figures/preview_moderncv.png' alt='Template preview' /></p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
+      <li><a href="#value">Value</a></li>
+      <li><a href="#preview">Preview</a></li>
     </ul>
 
+    <h2>Author</h2>
+    <p>Mitchell O'Hara-Wild, theme by Xavier Danaux
+(<a href='https://github.com/xdanaux'>@xdanaux</a>)</p>
   </div>
 </div>
 
