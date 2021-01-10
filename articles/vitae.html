@@ -46,7 +46,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -78,7 +78,7 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/mitchelloharawild/vitae">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -92,8 +92,7 @@
 
       
 
-      </header><script src="vitae_files/accessible-code-block-0.0.1/empty-anchor.js"></script><link href="vitae_files/anchor-sections-1.0/anchor-sections.css" rel="stylesheet">
-<script src="vitae_files/anchor-sections-1.0/anchor-sections.js"></script><div class="row">
+      </header><script src="vitae_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1>Introduction to vitae</h1>
@@ -185,7 +184,7 @@ This is a good opportunity to introduce yourself professionally and summarise
 why your skills are well suited to the job you are applying for!")</code>
 </pre>
 <p>The setup chunk is useful to load in any packages that you may use, and also prevent R code and warnings/notes from appearing in your CV. The above code also includes a professional summary using markdown syntax, which will appear in the final CV.</p>
-<p>Unlike other R markdown formats, the vitae package and its templates support functions to generate CV entries from data: <code><a href="../reference/cv_entries.html">detailed_entries()</a></code> and <code><a href="../reference/cv_entries.html">brief_entries()</a></code>. Both functions provide sections for <code>what</code>, <code>when</code>, and <code>with</code>, and the <code><a href="../reference/cv_entries.html">detailed_entries()</a></code> additionally supports <code>where</code> and <code>why</code>. They use an interface similar to <a href="https://CRAN.R-project.org/package=dplyr">dplyr</a>, in that the data can be piped (<code><a href="https://rdrr.io/pkg/magrittr/man/pipe.html">%&gt;%</a></code>) into these functions, and the arguments can involve some calculations.</p>
+<p>Unlike other R markdown formats, the vitae package and its templates support functions to generate CV entries from data: <code><a href="../reference/cv_entries.html">detailed_entries()</a></code> and <code><a href="../reference/cv_entries.html">brief_entries()</a></code>. Both functions provide sections for <code>what</code>, <code>when</code>, and <code>with</code>, and the <code><a href="../reference/cv_entries.html">detailed_entries()</a></code> additionally supports <code>where</code> and <code>why</code>. They use an interface similar to <a href="https://CRAN.R-project.org/package=dplyr">dplyr</a>, in that the data can be piped (<code><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></code>) into these functions, and the arguments can involve some calculations.</p>
 <div id="detailed-entries" class="section level4">
 <h4 class="hasAnchor">
 <a href="#detailed-entries" class="anchor"></a>Detailed entries</h4>
