@@ -16,8 +16,21 @@ maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www
 ## Templates and tools for making a Résumé/CV
 
 The *vitae* package makes creating and maintaining a Résumé or CV with R
-Markdown simple. It provides a collection of LaTeX templates, with
-helpful functions to add content to the documents.
+Markdown simple. It provides a collection of LaTeX and HTML templates,
+with helpful functions to add content to the documents. There are
+currently 5 templates available in this package:
+
+| [**vitae::awesomecv**](https://pkg.mitchelloharawild.com/vitae/reference/awesomecv.html)                                                                   | [**vitae::hyndman**](https://pkg.mitchelloharawild.com/vitae/reference/hyndman.html)                                                                 |
+|:-----------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| [<img src="man/figures/preview_awesomecv.png" width="415" alt="Preview of awesomecv" />](https://pkg.mitchelloharawild.com/vitae/reference/awesomecv.html) | [<img src="man/figures/preview_hyndman.png" width="415" alt="Preview of hyndman" />](https://pkg.mitchelloharawild.com/vitae/reference/hyndman.html) |
+
+| [**vitae::latexcv**](https://pkg.mitchelloharawild.com/vitae/reference/latexcv.html)                                                                 | [**vitae::moderncv**](https://pkg.mitchelloharawild.com/vitae/reference/moderncv.html)                                                                  |
+|:-----------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [<img src="man/figures/preview_latexcv.png" width="415" alt="Preview of latexcv" />](https://pkg.mitchelloharawild.com/vitae/reference/latexcv.html) | [<img src="man/figures/preview_moderncv.png" width="415" alt="Preview of moderncv" />](https://pkg.mitchelloharawild.com/vitae/reference/moderncv.html) |
+
+| [**vitae::twentyseconds**](https://pkg.mitchelloharawild.com/vitae/reference/twentyseconds.html)                                                                       |
+|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [<img src="man/figures/preview_twentyseconds.png" width="415" alt="Preview of twentyseconds" />](https://pkg.mitchelloharawild.com/vitae/reference/twentyseconds.html) |
 
 ## Installation
 
@@ -76,6 +89,14 @@ orcid_data <- do.call("rbind",
 )
 ```
 
+    #> 
+    #> Attaching package: 'dplyr'
+    #> The following objects are masked from 'package:stats':
+    #> 
+    #>     filter, lag
+    #> The following objects are masked from 'package:base':
+    #> 
+    #>     intersect, setdiff, setequal, union
     #>    education-summary.role-title education-summary.start-date.year.value
     #> 1                           PhD                                    1990
     #> 2 Bachelor of Science (Honours)                                    1985

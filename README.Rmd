@@ -21,7 +21,29 @@ knitr::opts_chunk$set(
 
 ## Templates and tools for making a Résumé/CV
 
-The *vitae* package makes creating and maintaining a Résumé or CV with R Markdown simple. It provides a collection of LaTeX templates, with helpful functions to add content to the documents.
+```{r list-previews, echo = FALSE}
+template_preview <- list.files(file.path("man", "figures"), pattern = "^preview", 
+                       full.names = TRUE)
+template_name <- stringr::str_match(basename(template_preview), "preview_(.+?)\\.png")[,2]
+```
+The *vitae* package makes creating and maintaining a Résumé or CV with R Markdown simple. It provides a collection of LaTeX and HTML templates, with helpful functions to add content to the documents. There are currently `r length(template_name)` templates available in this package:
+
+```{r show-previews, echo = FALSE, results='asis'}
+preview_url <- sprintf("https://pkg.mitchelloharawild.com/vitae/reference/%s.html", template_name)
+preview_title <- sprintf("[**vitae::%s**](%s)", template_name, preview_url)
+preview_image <- sprintf("[![Preview of %s](%s){width=415px}](%s)", template_name, template_preview, preview_url)
+
+preview_row <- (seq_along(preview_title)+1)%/%2
+for(i in split(seq_along(preview_title), preview_row)) {
+  print(
+    knitr::kable(
+      tibble::new_tibble(setNames(as.list(preview_image[i]), preview_title[i]), nrow = 1),
+      escape = FALSE
+    )
+  )
+}
+```
+
 
 ## Installation
 
