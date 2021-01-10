@@ -70,3 +70,16 @@ partition_yaml_front_matter <- function (input_lines)
 glue_alt <- function(...) {
   glue::glue(..., .open = "<<", .close = ">>", .envir = parent.frame())
 }
+
+require_package <- function(pkg){
+  if(!requireNamespace(pkg, quietly = TRUE)){
+    stop(
+      sprintf('The `%s` package must be installed to use this functionality. It can be installed with install.packages("%s")', pkg, pkg),
+      call. = FALSE
+    )
+  }
+}
+
+with_ext <- function(x, ext) {
+  paste(sub("([^.]+)\\.[[:alnum:]]+$", "\\1", x), ext, sep = ".")
+}
