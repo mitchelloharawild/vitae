@@ -69,7 +69,7 @@ knit_print.vitae_bibliography <- function(x, options = knitr::opts_current$get()
       x <- as.list(x)
       el_is_list <- vapply(x, is.list, logical(1L))
       x[el_is_list] <- lapply(x[el_is_list], `[[`, i=1)
-      Filter(function(x) length(x) > 0, x)
+      Filter(function(x) !is.na(x) && length(x) > 0, x)
     })
   if((options$cache %||% 0) == 0) {
     file <- tempfile(fileext = ".yaml")

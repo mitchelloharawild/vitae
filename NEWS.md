@@ -1,5 +1,10 @@
 # vitae (development version)
 
+## Bug fixes
+
+* Fixed "na.character" entries resulting in `bibliography_entries()` that differ
+  in the fields used (#147).
+
 # vitae 0.3.0
 
 This release makes substantial changes to how bibliographies included in a
