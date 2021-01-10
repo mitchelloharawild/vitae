@@ -14,7 +14,7 @@ Imports:
     rlang,
     glue,
     dplyr,
-    rmarkdown (>= 1.18),
+    rmarkdown (>= 2.2),
     knitr,
     xfun,
     yaml,
