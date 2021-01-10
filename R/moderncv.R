@@ -1,6 +1,21 @@
-#' @rdname cv_formats
+#' Moderncv template
+#'
+#' Moderncv provides a documentclass for typesetting curricula vitae in various
+#' styles. Moderncv aims to be both straightforward to use and customizable,
+#' providing five ready-made styles (classic, casual, banking, oldstyle and
+#' fancy): https://github.com/xdanaux/moderncv
 #'
 #' @param theme The theme used for the template.
+#' @param \dots Arguments passed to \code{\link[vitae]{cv_document}}.
+#' @inheritParams rmarkdown::pdf_document
+#'
+#' @section Preview:
+#' `r insert_preview("moderncv")`
+#'
+#' @return An R Markdown output format object.
+#'
+#' @author Mitchell O'Hara-Wild, theme by Xavier Danaux
+#' ([@xdanaux](https://github.com/xdanaux))
 #'
 #' @export
 moderncv <- function(..., theme = c("casual", "classic", "oldstyle", "banking", "fancy"),

@@ -17,6 +17,3 @@ cv_document(..., pandoc_args = NULL, pandoc_vars = NULL)
 This output format provides support for including LaTeX dependencies and
 bibliography entries in extension of the \code{rmarkdown::pdf_document()} format.
 }
-\details{
-\figure{skeleton.png}{Preview}
-}

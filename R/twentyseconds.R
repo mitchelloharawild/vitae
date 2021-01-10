@@ -1,4 +1,24 @@
-#' @rdname cv_formats
+#' Twenty Seconds CV template
+#'
+#' A curriculum vitae, otherwise known as a CV or résumé, is a document used by
+#' individuals to communicate their work history, education and skill set. This
+#' is a style template for your curriculum written in LaTex. The main goal of
+#' this template is to provide a curriculum that is able to survive to the
+#' résumés screening of "twenty seconds":
+#' https://github.com/spagnuolocarmine/TwentySecondsCurriculumVitae-LaTex
+#'
+#' @param theme The theme used for the template (previews in link above).
+#' @param \dots Arguments passed to \code{\link[vitae]{cv_document}}.
+#' @inheritParams rmarkdown::pdf_document
+#'
+#' @section Preview:
+#' `r insert_preview("twentyseconds")`
+#'
+#' @return An R Markdown output format object.
+#'
+#' @author Mitchell O'Hara-Wild, theme by Carmine Spagnuolo
+#' ([@spagnuolocarmine](https://github.com/spagnuolocarmine))
+#'
 #' @export
 twentyseconds <- function(...) {
   template <- system.file("rmarkdown", "templates", "twentyseconds",

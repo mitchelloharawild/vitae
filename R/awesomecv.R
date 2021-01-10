@@ -1,4 +1,20 @@
-#' @rdname cv_formats
+#' Awesome CV template
+#'
+#' Awesome CV is LaTeX template for a CV or Résumé inspired by
+#' [Fancy CV](https://www.sharelatex.com/templates/cv-or-resume/fancy-cv):
+#' https://github.com/posquit0/Awesome-CV
+#'
+#' @param \dots Arguments passed to \code{\link[vitae]{cv_document}}.
+#' @inheritParams rmarkdown::pdf_document
+#'
+#' @section Preview:
+#' `r insert_preview("awesomecv")`
+#'
+#' @return An R Markdown output format object.
+#'
+#' @author Mitchell O'Hara-Wild, theme by Byungjin Park
+#' ([@posquit0](https://github.com/posquit0))
+#'
 #' @export
 awesomecv <- function(..., latex_engine = "xelatex") {
   template <- system.file("rmarkdown", "templates", "awesomecv",

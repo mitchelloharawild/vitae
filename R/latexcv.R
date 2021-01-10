@@ -1,4 +1,19 @@
-#' @rdname cv_formats
+#' latexcv cv and resume templates
+#'
+#' A collection of simple and easy to use, yet powerful LaTeX templates for CVs
+#' and resumes: https://github.com/jankapunkt/latexcv
+#'
+#' @param theme The theme used for the template (previews in link above).
+#' @param \dots Arguments passed to \code{\link[vitae]{cv_document}}.
+#' @inheritParams rmarkdown::pdf_document
+#'
+#' @section Preview:
+#' `r insert_preview("latexcv")`
+#'
+#' @return An R Markdown output format object.
+#'
+#' @author Mitchell O'Hara-Wild, themes by Jan Küster
+#' ([@jankapunkt](https://github.com/jankapunkt))
 #'
 #' @export
 latexcv <- function(..., theme = c("classic", "modern", "rows", "sidebar", "two_column")) {

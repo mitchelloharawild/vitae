@@ -1,4 +1,18 @@
-#' @rdname cv_formats
+#' Hyndman CV template
+#'
+#' Produces a CV using the style used in Rob Hyndman's CV:
+#' https://robjhyndman.com/hyndsight/cv/
+#'
+#' @param \dots Arguments passed to \code{\link[vitae]{cv_document}}.
+#' @inheritParams rmarkdown::pdf_document
+#'
+#' @section Preview:
+#' `r insert_preview("hyndman")`
+#'
+#' @return An R Markdown output format object.
+#'
+#' @author Rob J Hyndman & Mitchell O'Hara-Wild
+#'
 #' @export
 hyndman <- function(...) {
   template <- system.file("rmarkdown", "templates", "hyndman",
