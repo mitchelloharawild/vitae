@@ -19,7 +19,7 @@ Imports:
     xfun,
     yaml,
     tibble,
-    vctrs,
+    vctrs (>= 0.3.3),
     pillar
 Suggests:
     covr,
