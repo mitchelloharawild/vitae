@@ -176,38 +176,44 @@ output: vitae::awesomecv</code>
 <code>```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 library(vitae)
-```
+</code></pre>
+</div>
+</div>
+<div id="professional-summary" class="section level1">
+<h1 class="hasAnchor">
+<a href="#professional-summary" class="anchor"></a>Professional Summary</h1>
+This is a good opportunity to introduce yourself professionally and summarise why your skills are well suited to the job you are applying for!")
 
-# Professional Summary
+<pre><code>
 
-This is a good opportunity to introduce yourself professionally and summarise
-why your skills are well suited to the job you are applying for!")</code>
-</pre>
-<p>The setup chunk is useful to load in any packages that you may use, and also prevent R code and warnings/notes from appearing in your CV. The above code also includes a professional summary using markdown syntax, which will appear in the final CV.</p>
-<p>Unlike other R markdown formats, the vitae package and its templates support functions to generate CV entries from data: <code><a href="../reference/cv_entries.html">detailed_entries()</a></code> and <code><a href="../reference/cv_entries.html">brief_entries()</a></code>. Both functions provide sections for <code>what</code>, <code>when</code>, and <code>with</code>, and the <code><a href="../reference/cv_entries.html">detailed_entries()</a></code> additionally supports <code>where</code> and <code>why</code>. They use an interface similar to <a href="https://CRAN.R-project.org/package=dplyr">dplyr</a>, in that the data can be piped (<code><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></code>) into these functions, and the arguments can involve some calculations.</p>
-<div id="detailed-entries" class="section level4">
-<h4 class="hasAnchor">
-<a href="#detailed-entries" class="anchor"></a>Detailed entries</h4>
-<p>Let’s add to the main body with some education history. These details are available on <a href="https://orcid.org">ORCID</a> with my ID of <a href="https://orcid.org/0000-0001-6729-7695">0000-0001-6729-7695</a>, which can be dynamically accessed using the <a href="https://CRAN.R-project.org/package=rorcid">rorcid</a> package.</p>
-<pre>
-<code># Education
+The setup chunk is useful to load in any packages that you may use, and also prevent R code and warnings/notes from appearing in your CV. The above code also includes a professional summary using markdown syntax, which will appear in the final CV.
+
+Unlike other R markdown formats, the vitae package and its templates support functions to generate CV entries from data: `detailed_entries()` and `brief_entries()`. Both functions provide sections for `what`, `when`, and `with`, and the `detailed_entries()` additionally supports `where` and `why`. They use an interface similar to [dplyr](https://CRAN.R-project.org/package=dplyr), in that the data can be piped (`%&gt;%`) into these functions, and the arguments can involve some calculations.
+
+#### Detailed entries
+
+Let's add to the main body with some education history. These details are available on [ORCID](https://orcid.org) with my ID of  [0000-0001-6729-7695](https://orcid.org/0000-0001-6729-7695), which can be dynamically accessed using the [rorcid](https://CRAN.R-project.org/package=rorcid) package.
+
+
+```{=html}
+&lt;pre&gt;
+&lt;code&gt;# Education
 
 ```{r education}
 library(vitae)
-edu &lt;- do.call("rbind",
+edu &amp;lt;- do.call("rbind",
   rorcid::orcid_educations("0000-0001-6729-7695")$`0000-0001-6729-7695`$`affiliation-group`$summaries
 )
-edu %&gt;%
+edu %&amp;gt;%
   detailed_entries(
     what = `education-summary.role-title`,
     when = glue::glue("{`education-summary.start-date.year.value`} - {`education-summary.end-date.year.value`}"),
     with = `education-summary.organization.name`,
     where = `education-summary.organization.address.city`
   )
-```</code>
-</pre>
+```&lt;/code&gt;
+&lt;/pre&gt;</code></pre>
 <p>In the example above, the <a href="https://CRAN.R-project.org/package=glue">glue</a> package has been used to combine the start and end years for our <code>when</code> input. Excluding any arguments is also okay (as is done for <code>why</code>), it will just be left blank in the CV.</p>
-</div>
 <div id="brief-entries" class="section level4">
 <h4 class="hasAnchor">
 <a href="#brief-entries" class="anchor"></a>Brief entries</h4>
@@ -239,7 +245,6 @@ bibliography_entries("publications.bib", "Publications")
 </pre>
 </div>
 </div>
-</div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
@@ -249,6 +254,7 @@ bibliography_entries("publications.bib", "Publications")
 <a href="#tocnav" class="anchor"></a>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
 <li><a href="#creating-a-cv">Creating a CV</a></li>
+      <li><a href="#professional-summary">Professional Summary</a></li>
       </ul>
 </div>
       </div>
