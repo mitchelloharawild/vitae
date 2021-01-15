@@ -15,6 +15,10 @@ cv_document <- function(..., pandoc_args = NULL, pandoc_vars = NULL) {
 
   # Inject multiple-bibliographies lua filter
   mult_bib <- file.path(tempdir(), "multiple-bibliographies.lua")
+  if(rmarkdown::pandoc_version() <= package_version("2.7.3")) {
+    warn(sprintf("Detected pandoc version %s, which may cause issues with bibliography_entries().
+Please update pandoc if you have any issues knitting bibliographies (this can be done by updating RStudio).", rmarkdown::pandoc_version()))
+  }
   cat(
     gsub("<<PANDOC_PATH>>", rmarkdown::find_pandoc()$dir, fixed = TRUE,
          readLines(system.file("multiple-bibliographies.lua", package = "vitae", mustWork = TRUE))),
