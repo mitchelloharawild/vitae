@@ -141,11 +141,21 @@
 <h1 class="page-header">
 <a href="#vitae-development-version" class="anchor"></a>vitae (development version)<small> Unreleased </small>
 </h1>
+<div id="improvements" class="section level2">
+<h2 class="hasAnchor">
+<a href="#improvements" class="anchor"></a>Improvements</h2>
+<ul>
+<li>Screenshot previews of the output formats can now be found in the README and in the documentation for each output format (<a href='https://github.com/mitchelloharawild/vitae/issues/72'>#72</a>).</li>
+</ul>
+</div>
 <div id="bug-fixes" class="section level2">
 <h2 class="hasAnchor">
 <a href="#bug-fixes" class="anchor"></a>Bug fixes</h2>
 <ul>
 <li>Fixed “na.character” entries resulting in <code><a href="../reference/bibliography_entries.html">bibliography_entries()</a></code> that differ in the fields used (<a href='https://github.com/mitchelloharawild/vitae/issues/147'>#147</a>).</li>
+<li>Fixed issue with underscores in moderncv template’s Twitter social and updated template to use https. You will need to delete your moderncv.sty file to get these updates (<a href='https://github.com/mitchelloharawild/vitae/issues/117'>#117</a>).</li>
+<li>Fixed extra spacing in AwesomeCV when <code>why</code> input of <code><a href="../reference/cv_entries.html">detailed_entries()</a></code> is not used (<a href='https://github.com/mitchelloharawild/vitae/issues/144'>#144</a>).</li>
+<li>Specified minimum package versions for some more recent version dependencies.</li>
 </ul>
 </div>
 </div>
@@ -176,9 +186,9 @@
 <li>The default style of bibliography entries is now the APA CV format, which has been modified to match the order of the tibble, rather than the default of reverse chronological order. This bibliography style can be customised using the csl argument in the yaml front matter.</li>
 </ul>
 </div>
-<div id="improvements" class="section level2">
+<div id="improvements-1" class="section level2">
 <h2 class="hasAnchor">
-<a href="#improvements" class="anchor"></a>Improvements</h2>
+<a href="#improvements-1" class="anchor"></a>Improvements</h2>
 <ul>
 <li>
 <code><a href="../reference/bibliography_entries.html">bibliography_entries()</a></code> are now handled using a pandoc’s cite-proc. This means that typical approaches for specifying CSL and other citeproc parameters will work as expected.</li>
@@ -223,9 +233,9 @@
 <li>Simplified <code>bibliography_entries</code> entries by removing <code>title</code> and <code>sorting</code> arguments. The title can be included using markdown, and sorting now respects the order of the tibble created by the function.</li>
 </ul>
 </div>
-<div id="improvements-1" class="section level2">
+<div id="improvements-2" class="section level2">
 <h2 class="hasAnchor">
-<a href="#improvements-1" class="anchor"></a>Improvements</h2>
+<a href="#improvements-2" class="anchor"></a>Improvements</h2>
 <ul>
 <li>Added theme support for <code>moderncv</code>: classic, banking, oldstyle, fancy.</li>
 <li>Added <code>latexcv</code> template using the classic theme.</li>
