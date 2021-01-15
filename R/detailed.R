@@ -11,14 +11,25 @@
 #' @param when The time of the entry (such as the period spent in the role).
 #' @param with The company or organisation.
 #' @param where The location of the entry.
-#' @param why Any additional information, to be included as dot points. Each
-#' entry for why is provided in long form (where the what, when, with, and where
-#' is duplicated)
+#' @param why Any additional information, to be included as dot points. Multiple
+#' dot points can be provided via a list column.
+#' Alternatively, if the same `what`, `when`, `with`, and `where` combinations
+#' are found in multiple rows, the `why` entries of these rows will be combined
+#' into a list.
 #' @param .protect When TRUE, inputs to the previous arguments will be protected
 #' from being parsed as LaTeX code.
 #'
 #' @name cv_entries
 #' @rdname cv_entries
+#'
+#' @examples
+#' packages_used <- tibble::tribble(
+#'   ~ package, ~ date, ~ language, ~ timezone, ~ details,
+#'   "vitae", Sys.Date(), "R", Sys.timezone(), c("Making my CV with vitae.", "Producing multiple entries for the why section."),
+#'   "rmarkdown", Sys.Date()-10, "R", Sys.timezone(), "Writing reproducible, dynamic reports using R."
+#' )
+#' packages_used %>%
+#'   detailed_entries(what = package, when = date, with = language, where = timezone, why = details)
 #'
 #' @importFrom rlang enquo expr_text !! := sym syms
 #' @export

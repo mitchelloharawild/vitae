@@ -24,9 +24,11 @@ from being parsed as LaTeX code.}
 
 \item{where}{The location of the entry.}
 
-\item{why}{Any additional information, to be included as dot points. Each
-entry for why is provided in long form (where the what, when, with, and where
-is duplicated)}
+\item{why}{Any additional information, to be included as dot points. Multiple
+dot points can be provided via a list column.
+Alternatively, if the same \code{what}, \code{when}, \code{with}, and \code{where} combinations
+are found in multiple rows, the \code{why} entries of these rows will be combined
+into a list.}
 }
 \description{
 This function accepts a data object (such as a tibble) and formats the output
@@ -35,4 +37,14 @@ further calculations, which will be done using the provided data.
 }
 \details{
 All non-data inputs are optional, and will result in an empty space if omitted.
+}
+\examples{
+packages_used <- tibble::tribble(
+  ~ package, ~ date, ~ language, ~ timezone, ~ details,
+  "vitae", Sys.Date(), "R", Sys.timezone(), c("Making my CV with vitae.", "Producing multiple entries for the why section."),
+  "rmarkdown", Sys.Date()-10, "R", Sys.timezone(), "Writing reproducible, dynamic reports using R."
+)
+packages_used \%>\%
+  detailed_entries(what = package, when = date, with = language, where = timezone, why = details)
+
 }
