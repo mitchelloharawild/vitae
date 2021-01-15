@@ -1,9 +1,20 @@
 # vitae (development version)
 
+## Improvements
+
+* Screenshot previews of the output formats can now be found in the README and 
+  in the documentation for each output format (#72).
+
 ## Bug fixes
 
 * Fixed "na.character" entries resulting in `bibliography_entries()` that differ
   in the fields used (#147).
+* Fixed issue with underscores in moderncv template's Twitter social and updated
+  template to use https. You will need to delete your moderncv.sty file to get
+  these updates (#117).
+* Fixed extra spacing in AwesomeCV when `why` input of `detailed_entries()` is 
+  not used (#144).
+* Specified minimum package versions for some more recent version dependencies.
 
 # vitae 0.3.0
 
