@@ -3,11 +3,16 @@
 #' @param input Path to the CV's template rmd file
 #' @keywords internal
 insert_preview <- function(template) {
-  input <- file.path("inst", "rmarkdown", "templates", template, "skeleton", "skeleton.Rmd")
+  preview <- paste0("preview_", template, ".png")
+  if(!file.exists(file.path("man", "figures", preview))) {
+    input <- file.path("inst", "rmarkdown", "templates", template, "skeleton", "skeleton.Rmd")
+    render_preview_screenshot(input, template)
+  }
+
   knitr::asis_output(
     sprintf(
       "![](%s 'Template preview')",
-      basename(render_preview_screenshot(input, template))
+      preview
     )
   )
 }
