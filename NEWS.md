@@ -4,6 +4,7 @@
 
 * Screenshot previews of the output formats can now be found in the README and 
   in the documentation for each output format (#72).
+* Added tibble header to describe the output type in the document.
 
 ## Bug fixes
 

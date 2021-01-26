@@ -56,6 +56,13 @@ detailed_entries <- function(data, what, when, with, where, why, .protect = TRUE
   )
 }
 
+#' @importFrom tibble tbl_sum
+#' @export
+tbl_sum.vitae_detailed <- function(x) {
+  x <- NextMethod()
+  c(x, "vitae type" = "detailed entries")
+}
+
 #' @importFrom knitr knit_print
 #' @export
 knit_print.vitae_detailed <- function(x, options) {

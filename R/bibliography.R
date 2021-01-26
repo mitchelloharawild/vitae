@@ -59,6 +59,13 @@ bibliography_entries <- function(file, startlabel = NULL, endlabel = NULL) {
                      nrow = nrow(bib))
 }
 
+#' @importFrom tibble tbl_sum
+#' @export
+tbl_sum.vitae_bibliography <- function(x) {
+  x <- NextMethod()
+  c(x, "vitae type" = "bibliography entries")
+}
+
 #' @importFrom knitr knit_print
 #' @export
 knit_print.vitae_bibliography <- function(x, options = knitr::opts_current$get()) {

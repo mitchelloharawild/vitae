@@ -16,6 +16,13 @@ brief_entries <- function(data, what, when, with, .protect = TRUE) {
   )
 }
 
+#' @importFrom tibble tbl_sum
+#' @export
+tbl_sum.vitae_brief <- function(x) {
+  x <- NextMethod()
+  c(x, "vitae type" = "brief entries")
+}
+
 #' @importFrom knitr knit_print
 #' @export
 knit_print.vitae_brief <- function(x, options) {
