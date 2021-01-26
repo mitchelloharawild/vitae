@@ -27,7 +27,7 @@ Suggests:
     testthat,
     stringr,
     htmltools,
-    pagedown,
+    webshot,
     pdftools
 License: GPL-3
 Encoding: UTF-8
