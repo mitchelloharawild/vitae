@@ -41,7 +41,8 @@ bibliography_entries <- function(file, startlabel = NULL, endlabel = NULL) {
 
   bib <- rmarkdown::pandoc_citeproc_convert(file)
 
-  bib_ptype <- csl_fields[unique(vec_c(!!!lapply(bib, names)))][1,]
+  bib_ptype <- csl_fields[unique(vec_c(!!!lapply(bib, names)))]
+  bib_ptype <- vctrs::vec_init(bib_ptype, 1)
 
   # Add missing values to complete rectangular structure
   bib <- lapply(bib, function(x) {
