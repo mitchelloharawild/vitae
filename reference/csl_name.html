@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>A list of names conforming to the CSL schema — csl_name • vitae</title>
+<title>A name variable conforming to the CSL schema — csl_name • vitae</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -42,7 +42,7 @@
 
 
 
-<meta property="og:title" content="A list of names conforming to the CSL schema — csl_name" />
+<meta property="og:title" content="A name variable conforming to the CSL schema — csl_name" />
 <meta property="og:description" content="This class provides helper utilities to display, sort, and select attributes
 from a name in the CSL format." />
 <meta property="og:image" content="/logo.png" />
@@ -135,8 +135,8 @@ from a name in the CSL format." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>A list of names conforming to the CSL schema</h1>
-    <small class="dont-index">Source: <a href='https://github.com/mitchelloharawild/vitae/blob/master/R/csl_types.R'><code>R/csl_types.R</code></a></small>
+    <h1>A name variable conforming to the CSL schema</h1>
+    <small class="dont-index">Source: <a href='https://github.com/mitchelloharawild/vitae/blob/master/R/csl_name.R'><code>R/csl_name.R</code></a></small>
     <div class="hidden name"><code>csl_name.Rd</code></div>
     </div>
 
@@ -145,14 +145,33 @@ from a name in the CSL format." />
 from a name in the CSL format.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>csl_name</span>(<span class='no'>x</span>)</pre>
+    <pre class="usage"><span class='fu'>csl_name</span>(
+  <span class='kw'>family</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>given</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>dropping_particle</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>non_dropping_particle</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>suffix</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>comma_suffix</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>static_ordering</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>literal</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>parse_names</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>x</th>
-      <td><p>A list of names conforming to the structure outlined in the CSL schema</p></td>
+      <th>family</th>
+      <td><p>The family name</p></td>
+    </tr>
+    <tr>
+      <th>given</th>
+      <td><p>The given name</p></td>
+    </tr>
+    <tr>
+      <th>dropping_particle, non_dropping_particle, comma_suffix, static_ordering, literal, parse_names</th>
+      <td><p>Additional
+name variable properties as described in the schema.</p></td>
     </tr>
     </table>
 
