@@ -155,7 +155,11 @@ from a name in the CSL format.</p>
   <span class='kw'>static_ordering</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>literal</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>parse_names</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
-)</pre>
+)
+
+<span class='fu'>csl_names</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>())
+
+<span class='fu'>list_of_csl_names</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>())</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -169,9 +173,14 @@ from a name in the CSL format.</p>
       <td><p>The given name</p></td>
     </tr>
     <tr>
-      <th>dropping_particle, non_dropping_particle, comma_suffix, static_ordering, literal, parse_names</th>
+      <th>dropping_particle, non_dropping_particle, suffix, comma_suffix, static_ordering, literal, parse_names</th>
       <td><p>Additional
 name variable properties as described in the schema.</p></td>
+    </tr>
+    <tr>
+      <th>x</th>
+      <td><p>For <code>csl_name()</code>, <code>x</code> should be a list of <code>csl_name()</code>. For
+<code>list_of_csl_names()</code>, <code>x</code> should be a list of <code>csl_names()</code>.</p></td>
     </tr>
     </table>
 

@@ -145,7 +145,12 @@ bibliography entries in extension of the rmarkdown::pdf_document() format." />
 bibliography entries in extension of the <code><a href='https://rdrr.io/pkg/rmarkdown/man/pdf_document.html'>rmarkdown::pdf_document()</a></code> format.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>cv_document</span>(<span class='no'>...</span>, <span class='kw'>pandoc_args</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>pandoc_vars</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>cv_document</span>(
+  <span class='no'>...</span>,
+  <span class='kw'>pandoc_args</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>pandoc_vars</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>base_format</span> <span class='kw'>=</span> <span class='kw pkg'>rmarkdown</span><span class='kw ns'>::</span><span class='no'><a href='https://rdrr.io/pkg/rmarkdown/man/pdf_document.html'>pdf_document</a></span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -161,6 +166,10 @@ bibliography entries in extension of the <code><a href='https://rdrr.io/pkg/rmar
     <tr>
       <th>pandoc_vars</th>
       <td><p>Pandoc variables to be passed to the template.</p></td>
+    </tr>
+    <tr>
+      <th>base_format</th>
+      <td><p>An output format function to be used as the base format.</p></td>
     </tr>
     </table>
 

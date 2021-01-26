@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Twenty Seconds CV template — twentyseconds • vitae</title>
+<title>Eliseo Papa's markdown-cv template — markdowncv • vitae</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -42,13 +42,9 @@
 
 
 
-<meta property="og:title" content="Twenty Seconds CV template — twentyseconds" />
-<meta property="og:description" content="A curriculum vitae, otherwise known as a CV or résumé, is a document used by
-individuals to communicate their work history, education and skill set. This
-is a style template for your curriculum written in LaTex. The main goal of
-this template is to provide a curriculum that is able to survive to the
-résumés screening of &quot;twenty seconds&quot;:
-https://github.com/spagnuolocarmine/TwentySecondsCurriculumVitae-LaTex" />
+<meta property="og:title" content="Eliseo Papa's markdown-cv template — markdowncv" />
+<meta property="og:description" content="Produces a CV in the HTML format using various styles of the markdown-cv
+template: https://github.com/elipapa/markdown-cv" />
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -139,21 +135,17 @@ https://github.com/spagnuolocarmine/TwentySecondsCurriculumVitae-LaTex" />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Twenty Seconds CV template</h1>
-    <small class="dont-index">Source: <a href='https://github.com/mitchelloharawild/vitae/blob/master/R/twentyseconds.R'><code>R/twentyseconds.R</code></a></small>
-    <div class="hidden name"><code>twentyseconds.Rd</code></div>
+    <h1>Eliseo Papa's markdown-cv template</h1>
+    <small class="dont-index">Source: <a href='https://github.com/mitchelloharawild/vitae/blob/master/R/markdowncv.R'><code>R/markdowncv.R</code></a></small>
+    <div class="hidden name"><code>markdowncv.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>A curriculum vitae, otherwise known as a CV or résumé, is a document used by
-individuals to communicate their work history, education and skill set. This
-is a style template for your curriculum written in LaTex. The main goal of
-this template is to provide a curriculum that is able to survive to the
-résumés screening of "twenty seconds":
-https://github.com/spagnuolocarmine/TwentySecondsCurriculumVitae-LaTex</p>
+    <p>Produces a CV in the HTML format using various styles of the markdown-cv
+template: https://github.com/elipapa/markdown-cv</p>
     </div>
 
-    <pre class="usage"><span class='fu'>twentyseconds</span>(<span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>markdowncv</span>(<span class='no'>...</span>, <span class='kw'>theme</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"kjhealy"</span>, <span class='st'>"blmoore"</span>, <span class='st'>"davewhipp"</span>))</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -161,6 +153,14 @@ https://github.com/spagnuolocarmine/TwentySecondsCurriculumVitae-LaTex</p>
     <tr>
       <th>...</th>
       <td><p>Arguments passed to <code><a href='cv_document.html'>cv_document</a></code>.</p></td>
+    </tr>
+    <tr>
+      <th>theme</th>
+      <td><p>The style used in the CV (matches the prefix of CSS files). The
+"kjhealy" theme is inspired by <a href='https://github.com/kjhealy/kjh-vita'>@kjhealy's vita template</a>,
+"blmoore" is from <a href='https://github.com/blmoore/md-cv'>@blmoore's md-cv template</a>, and
+"davewhipp" is <a href='https://github.com/davewhipp/markdown-cv'>@davewhipp's theme</a> which
+notably has dates right aligned.</p></td>
     </tr>
     </table>
 
@@ -171,7 +171,7 @@ https://github.com/spagnuolocarmine/TwentySecondsCurriculumVitae-LaTex</p>
 
     
 
-<p><img src='figures/preview_twentyseconds.png' alt='Template preview' /></p>
+<p><img src='figures/preview_markdowncv.png' alt='Template preview' /></p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
@@ -183,8 +183,8 @@ https://github.com/spagnuolocarmine/TwentySecondsCurriculumVitae-LaTex</p>
     </ul>
 
     <h2>Author</h2>
-    <p>Mitchell O'Hara-Wild, theme by Carmine Spagnuolo
-(<a href='https://github.com/spagnuolocarmine'>@spagnuolocarmine</a>)</p>
+    <p>Mitchell O'Hara-Wild, theme by Eliseo Papa
+(<a href='https://github.com/elipapa'>@elipapa</a>)</p>
   </div>
 </div>
 
