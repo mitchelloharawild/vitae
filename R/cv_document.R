@@ -8,7 +8,8 @@
 #' @param pandoc_vars Pandoc variables to be passed to the template.
 #'
 #' @export
-cv_document <- function(..., pandoc_args = NULL, pandoc_vars = NULL) {
+cv_document <- function(..., pandoc_args = NULL, pandoc_vars = NULL,
+                        base_format = rmarkdown::pdf_document) {
   for (i in seq_along(pandoc_vars)){
     pandoc_args <- c(pandoc_args, rmarkdown::pandoc_variable_arg(names(pandoc_vars)[[i]], pandoc_vars[[i]]))
   }
@@ -30,7 +31,7 @@ Please update pandoc if you have any issues knitting bibliographies (this can be
     pandoc_args
   )
 
-  out <- rmarkdown::pdf_document(..., pandoc_args = pandoc_args)
+  out <- base_format(..., pandoc_args = pandoc_args)
   pre <- out$pre_processor
   out$pre_processor <- function (metadata, input_file, runtime, knit_meta,
                                  files_dir, output_dir){

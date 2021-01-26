@@ -4,7 +4,12 @@
 \alias{cv_document}
 \title{Output format for vitae}
 \usage{
-cv_document(..., pandoc_args = NULL, pandoc_vars = NULL)
+cv_document(
+  ...,
+  pandoc_args = NULL,
+  pandoc_vars = NULL,
+  base_format = rmarkdown::pdf_document
+)
 }
 \arguments{
 \item{...}{Arguments passed to rmarkdown::pdf_document().}
