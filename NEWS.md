@@ -1,5 +1,11 @@
 # vitae (development version)
 
+## New templates
+
+* Added the `vitae::markdowncv` template, which is the markdown-cv template in
+  various themes by Eliseo Papa (@elipapa). This is the first HTML template 
+  available in the package.
+
 ## Improvements
 
 * Screenshot previews of the output formats can now be found in the README and 
