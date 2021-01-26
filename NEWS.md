@@ -5,6 +5,9 @@
 * Screenshot previews of the output formats can now be found in the README and 
   in the documentation for each output format (#72).
 * Added tibble header to describe the output type in the document.
+* Rewrote `bibliography_entries()` intermediate data format to better follow
+  the CSL-JSON schema. This includes `csl_name()` and `csl_date()` helpers for
+  parsing and manipulating bibliography data.
 
 ## Bug fixes
 
