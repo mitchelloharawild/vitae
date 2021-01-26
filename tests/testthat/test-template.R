@@ -8,7 +8,7 @@ expect_knit <- function(template){
     expect_message(
       rmarkdown::render(
         system.file("rmarkdown", "templates", template, "skeleton", "skeleton.Rmd", package = "vitae"),
-        output_file = sprintf("%s-test.pdf", template),
+        output_file = sprintf("%s-test", template),
         output_dir = file.path(getwd(), "rendered")),
     "Output created"),
   "pandoc")
