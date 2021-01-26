@@ -41,7 +41,7 @@ markdowncv_entries <- new_entry_formats(
   },
   detailed = function(what, when, with, where, why){
     why <- lapply(why, function(x) {
-      if(rlang::is_empty(x)) return("")
+      if(is_empty(x)) return("")
       x <- paste("<li>", x, "</li>", collapse = "\n")
       paste0("<ul>\n", x, "</ul>")
     })

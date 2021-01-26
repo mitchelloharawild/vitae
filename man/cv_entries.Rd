@@ -41,7 +41,7 @@ All non-data inputs are optional, and will result in an empty space if omitted.
 \examples{
 packages_used <- tibble::tribble(
   ~ package, ~ date, ~ language, ~ timezone, ~ details,
-  "vitae", Sys.Date(), "R", Sys.timezone(), c("Making my CV with vitae.", "Producing multiple entries for the why section."),
+  "vitae", Sys.Date(), "R", Sys.timezone(), c("Making my CV with vitae.", "Multiple why entries."),
   "rmarkdown", Sys.Date()-10, "R", Sys.timezone(), "Writing reproducible, dynamic reports using R."
 )
 packages_used \%>\%

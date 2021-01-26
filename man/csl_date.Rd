@@ -2,6 +2,7 @@
 % Please edit documentation in R/csl_date.R
 \name{csl_date}
 \alias{csl_date}
+\alias{csl_dates}
 \title{A date conforming to the CSL schema}
 \usage{
 csl_date(
@@ -12,6 +13,8 @@ csl_date(
   raw = NULL,
   edtf = NULL
 )
+
+csl_dates(x = list())
 }
 \arguments{
 \item{date_parts}{A list containing one or two dates in a list. Each date is
@@ -23,6 +26,8 @@ interval.}
 
 \item{season, circa, literal, raw, edtf}{Additional date variable properties as
 described in the schema.}
+
+\item{x}{A list of \code{csl_date()} values.}
 }
 \description{
 This class provides helper utilities to display, sort, and select attributes

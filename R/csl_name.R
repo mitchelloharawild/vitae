@@ -3,9 +3,11 @@
 #' This class provides helper utilities to display, sort, and select attributes
 #' from a name in the CSL format.
 #'
+#' @param x For `csl_name()`, `x` should be a list of `csl_name()`. For
+#'   `list_of_csl_names()`, `x` should be a list of `csl_names()`.
 #' @param family The family name
 #' @param given The given name
-#' @param dropping_particle,non_dropping_particle,comma_suffix,static_ordering,literal,parse_names Additional
+#' @param dropping_particle,non_dropping_particle,suffix,comma_suffix,static_ordering,literal,parse_names Additional
 #'   name variable properties as described in the schema.
 #'
 #' @seealso
@@ -28,7 +30,6 @@ csl_name <- function(family = NULL, given = NULL, dropping_particle = NULL,
 csl_name_fields <- c("family", "given", "dropping-particle", "non-dropping-particle",
                      "suffix", "comma-suffix", "static-ordering", "literal", "parse-names")
 
-#' @export
 new_csl_name <- function(x, validate = TRUE) {
   if(!validate || all(names(x) %in% csl_name_fields)) {
     structure(x, class = "csl_name")
@@ -49,9 +50,10 @@ print.csl_name <- function(x, ...) {
   cat(format(x, ...))
 }
 
+#' @rdname csl_name
 #' @export
-csl_names <- function(x = list(), validate = TRUE) {
-  vctrs::new_vctr(lapply(x, new_csl_name, validate = validate), class = "csl_names")
+csl_names <- function(x = list()) {
+  vctrs::new_vctr(lapply(x, new_csl_name), class = "csl_names")
 }
 
 #' @export
@@ -59,6 +61,7 @@ format.csl_names <- function(x, ...) {
   vapply(x, format, character(1L), ...)
 }
 
+#' @rdname csl_name
 #' @export
 list_of_csl_names <- function(x = list()) {
   new_list_of(x, csl_names(), class = "list_of_csl_names")

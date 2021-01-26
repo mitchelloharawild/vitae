@@ -8,8 +8,6 @@ twentyseconds(...)
 }
 \arguments{
 \item{\dots}{Arguments passed to \code{\link[vitae]{cv_document}}.}
-
-\item{theme}{The theme used for the template (previews in link above).}
 }
 \value{
 An R Markdown output format object.

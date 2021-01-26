@@ -25,7 +25,7 @@
 #' @examples
 #' packages_used <- tibble::tribble(
 #'   ~ package, ~ date, ~ language, ~ timezone, ~ details,
-#'   "vitae", Sys.Date(), "R", Sys.timezone(), c("Making my CV with vitae.", "Producing multiple entries for the why section."),
+#'   "vitae", Sys.Date(), "R", Sys.timezone(), c("Making my CV with vitae.", "Multiple why entries."),
 #'   "rmarkdown", Sys.Date()-10, "R", Sys.timezone(), "Writing reproducible, dynamic reports using R."
 #' )
 #' packages_used %>%
@@ -42,7 +42,7 @@ detailed_entries <- function(data, what, when, with, where, why, .protect = TRUE
     why = enquo(why) %missing% NA_character_
   )
 
-  edu_vars <- dplyr::as_tibble(map(edu_exprs[-5], rlang::eval_tidy, data = data))
+  edu_vars <- dplyr::as_tibble(map(edu_exprs[-5], eval_tidy, data = data))
   data[names(edu_vars)] <- edu_vars
   data <- dplyr::group_by(data, !!!syms(names(edu_vars)))
   out <- dplyr::distinct(data, !!!syms(names(edu_exprs)[-5]))

@@ -3,6 +3,7 @@
 #' This class provides helper utilities to display, sort, and select attributes
 #' from a date in the CSL format.
 #'
+#' @param x A list of `csl_date()` values.
 #' @param date_parts A list containing one or two dates in a list. Each date is
 #'   also represented using lists in the format of `list(year, month, day)`.
 #'   Different precision can be achieved by providing an incomplete list:
@@ -30,7 +31,6 @@ csl_date <- function(date_parts = list(), season = NULL, circa = NULL, literal =
 
 csl_date_fields <- c("date-parts", "season", "circa", "literal", "raw", "edtf")
 
-#' @export
 new_csl_date <- function(x, validate = TRUE) {
   if(!validate || all(names(x) %in% csl_date_fields)) {
     structure(x, class = "csl_date")
@@ -64,9 +64,10 @@ as.Date.csl_date <- function(x, to, ...) {
   as.Date(paste(out, collapse = "-"))
 }
 
+#' @rdname csl_date
 #' @export
-csl_dates <- function(x = list(), validate = TRUE) {
-  vctrs::new_vctr(lapply(x, new_csl_date, validate = validate), class = "csl_dates")
+csl_dates <- function(x = list()) {
+  vctrs::new_vctr(lapply(x, new_csl_date), class = "csl_dates")
 }
 
 #' @export

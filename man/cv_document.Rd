@@ -17,6 +17,8 @@ cv_document(
 \item{pandoc_args}{Additional command line options to pass to pandoc}
 
 \item{pandoc_vars}{Pandoc variables to be passed to the template.}
+
+\item{base_format}{An output format function to be used as the base format.}
 }
 \description{
 This output format provides support for including LaTeX dependencies and

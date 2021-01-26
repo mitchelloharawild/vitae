@@ -5,7 +5,7 @@ preserve_attributes <- function(fn) {
     out <- NextMethod()
     if (any(miss_col <- !(.data %@% "key" %in% colnames(out)))) {
       miss_nm <- colnames(.data)[miss_col]
-      rlang::warn(glue(
+      warn(glue(
         "This function lost the ",
         glue_collapse(miss_nm, sep = ", ", last = " and "),
         " columns! These values will be removed from the report."
