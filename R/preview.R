@@ -22,13 +22,12 @@ render_preview_screenshot <- function(input, template) {
   output <- rmarkdown::render(
     input, output_dir = tempdir()
   )
-
   outfile <- file.path("man", "figures", paste0("preview_", template, ".png"))
 
   # Output is html based
   if(grepl("html$", output)) {
-    require_package("pagedown")
-    pagedown::chrome_print(output, output = outfile)
+    require_package("webshot")
+    webshot::webshot(output, outfile, vwidth = 595)
   } else {
     require_package("pdftools")
     pdftools::pdf_convert(output, "png", pages = 1, filenames = outfile)
