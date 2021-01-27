@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset=utf-8 />
+  $for(author-meta)$<meta name="author" content="$author-meta$" />$endfor$
+  $if(date-meta)$<meta name="date" content="$date-meta$" />$endif$
+  <title>$if(title-prefix)$$title-prefix$ - $endif$$pagetitle$</title>
+
+  $if(math)$
+  $if(mathjax)$
+  <!-- dynamically load mathjax for compatibility with self-contained -->
+  <script>
+  (function() {
+    // Retrieve previous config object if defined
+    window.PagedConfig = window.PagedConfig || {};
+    let beforePaged = PagedConfig.before;
+    window.PagedConfig.before = async () => {
+      if (beforePaged) await beforePaged();
+      return new Promise((resolve, reject) => {
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        var src = `$mathjaxurl$` + "?config=TeX-MML-AM_CHTML";
+        if (location.protocol !== "file:" && /^https?:/.test(src))
+          src = src.replace(/^https?:/, '');
+        script.src = src;
+        window.MathJax = {
+          AuthorInit: () => {
+            MathJax.Hub.Register.StartupHook("Begin", () => {
+              MathJax.Hub.Queue(resolve);
+            });
+          }
+        };
+        document.getElementsByTagName("head")[0].appendChild(script);
+      });
+    };
+  })();
+  </script>
+  $endif$
+  $endif$
+
+  $for(header-includes)$
+  $header-includes$
+  $endfor$
+
+  $for(css)$
+  <link rel="stylesheet" href="$css$" $if(html5)$$else$type="text/css" $endif$/>
+  $endfor$
+  <link href="media/$theme$-screen.css" type="text/css" rel="stylesheet" media="screen">
+  <link href="media/$theme$-print.css" type="text/css" rel="stylesheet" media="print">
+</head>
+<body>
+  $for(include-before)$
+  $include-before$
+  $endfor$
+  <div id="main">
+    <div id="content">
+      <h1>$name$ $surname$</h1>
+      $if(position)$<p>$position$</p>$endif$
+      $if(address)$<p>$address$</p>$endif$
+
+      <div id="webaddress">
+      |
+      $if(phone)$<i class="fa fa-phone"></i> $phone$ |$endif$
+      $if(www)$<i class="fa fa-globe"></i> <a href="https://$www$">$www$</a> |$endif$
+      $if(email)$<i class="fa fa-envelope"></i> $email$ |$endif$
+      $if(twitter)$<i class="fa fa-twitter"></i> <a href="https://twitter.com/$twitter$">$twitter$</a> |$endif$
+      $if(github)$<i class="fa fa-github"></i> <a href="https://github.com/$github$">$github$</a> |$endif$
+      $if(linkedin)$<i class="fa fa-linkedin"></i> <a href="https://www.linkedin.com/in/$linkedin$/">$linkedin$</a> |$endif$
+      </div>
+
+      $body$
+    </div>
+  </div>
+$for(include-after)$
+$include-after$
+$endfor$
+</body>
+</html>
