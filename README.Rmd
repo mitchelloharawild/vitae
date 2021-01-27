@@ -24,7 +24,7 @@ knitr::opts_chunk$set(
 ```{r list-previews, echo = FALSE}
 template_preview <- list.files(file.path("man", "figures"), pattern = "^preview", 
                        full.names = TRUE)
-template_name <- stringr::str_match(basename(template_preview), "preview_(.+?)\\.png")[,2]
+template_name <- stringr::str_match(basename(template_preview), "preview-(.+?)\\.png")[,2]
 ```
 The *vitae* package makes creating and maintaining a Résumé or CV with R Markdown simple. It provides a collection of LaTeX and HTML templates, with helpful functions to add content to the documents. There are currently `r length(template_name)` templates available in this package:
 

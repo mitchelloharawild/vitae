@@ -24,7 +24,7 @@ template: https://github.com/elipapa/markdown-cv
 }
 \section{Preview}{
 
-\figure{preview_markdowncv.png}{Template preview}
+\figure{preview-markdowncv.png}{Template preview}
 }
 
 \author{

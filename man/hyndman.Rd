@@ -18,7 +18,7 @@ https://robjhyndman.com/hyndsight/cv/
 }
 \section{Preview}{
 
-\figure{preview_hyndman.png}{Template preview}
+\figure{preview-hyndman.png}{Template preview}
 }
 
 \author{

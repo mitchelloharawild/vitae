@@ -20,7 +20,7 @@ and resumes: https://github.com/jankapunkt/latexcv
 }
 \section{Preview}{
 
-\figure{preview_latexcv.png}{Template preview}
+\figure{preview-latexcv.png}{Template preview}
 }
 
 \author{

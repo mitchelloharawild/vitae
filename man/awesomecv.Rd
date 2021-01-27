@@ -22,7 +22,7 @@ https://github.com/posquit0/Awesome-CV
 }
 \section{Preview}{
 
-\figure{preview_awesomecv.png}{Template preview}
+\figure{preview-awesomecv.png}{Template preview}
 }
 
 \author{

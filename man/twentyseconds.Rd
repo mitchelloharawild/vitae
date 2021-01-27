@@ -22,7 +22,7 @@ https://github.com/spagnuolocarmine/TwentySecondsCurriculumVitae-LaTex
 }
 \section{Preview}{
 
-\figure{preview_twentyseconds.png}{Template preview}
+\figure{preview-twentyseconds.png}{Template preview}
 }
 
 \author{

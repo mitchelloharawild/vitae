@@ -3,7 +3,7 @@
 #' @param input Path to the CV's template rmd file
 #' @keywords internal
 insert_preview <- function(template) {
-  preview <- paste0("preview_", template, ".png")
+  preview <- paste0("preview-", template, ".png")
   if(!file.exists(file.path("man", "figures", preview))) {
     input <- file.path("inst", "rmarkdown", "templates", template, "skeleton", "skeleton.Rmd")
     render_preview_screenshot(input, template)
@@ -22,7 +22,7 @@ render_preview_screenshot <- function(input, template) {
   output <- rmarkdown::render(
     input, output_dir = tempdir()
   )
-  outfile <- file.path("man", "figures", paste0("preview_", template, ".png"))
+  outfile <- file.path("man", "figures", paste0("preview-", template, ".png"))
 
   # Output is html based
   if(grepl("html$", output)) {

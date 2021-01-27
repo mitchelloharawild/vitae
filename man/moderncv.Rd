@@ -29,7 +29,7 @@ fancy): https://github.com/xdanaux/moderncv
 }
 \section{Preview}{
 
-\figure{preview_moderncv.png}{Template preview}
+\figure{preview-moderncv.png}{Template preview}
 }
 
 \author{
