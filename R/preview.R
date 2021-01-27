@@ -27,7 +27,7 @@ render_preview_screenshot <- function(input, template) {
   # Output is html based
   if(grepl("html$", output)) {
     require_package("webshot")
-    webshot::webshot(output, outfile, vwidth = 595)
+    webshot::webshot(output, outfile, vwidth = 595, vheight = 842)
   } else {
     require_package("pdftools")
     pdftools::pdf_convert(output, "png", pages = 1, filenames = outfile)
