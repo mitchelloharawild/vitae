@@ -7,7 +7,6 @@
 #' @inheritParams bookdown::pdf_document2
 #' @param ... Arguments passed to rmarkdown::pdf_document().
 #' @param pandoc_vars Pandoc variables to be passed to the template.
-#' @para
 #'
 #' @export
 cv_document <- function(..., pandoc_args = NULL, pandoc_vars = NULL,
