@@ -9,7 +9,6 @@
 #'   "blmoore" is from [@blmoore's md-cv template](https://github.com/blmoore/md-cv), and
 #'   "davewhipp" is [@davewhipp's theme](https://github.com/davewhipp/markdown-cv) which
 #'   notably has dates right aligned.
-#' @inheritParams rmarkdown::pdf_document
 #'
 #' @section Preview:
 #' `r insert_preview("markdowncv")`

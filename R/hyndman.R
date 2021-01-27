@@ -4,7 +4,6 @@
 #' https://robjhyndman.com/hyndsight/cv/
 #'
 #' @param \dots Arguments passed to \code{\link[vitae]{cv_document}}.
-#' @inheritParams rmarkdown::pdf_document
 #'
 #' @section Preview:
 #' `r insert_preview("hyndman")`

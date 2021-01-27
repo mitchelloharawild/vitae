@@ -8,7 +8,6 @@
 #' https://github.com/spagnuolocarmine/TwentySecondsCurriculumVitae-LaTex
 #'
 #' @param \dots Arguments passed to \code{\link[vitae]{cv_document}}.
-#' @inheritParams rmarkdown::pdf_document
 #'
 #' @section Preview:
 #' `r insert_preview("twentyseconds")`

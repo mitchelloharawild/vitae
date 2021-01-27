@@ -5,7 +5,6 @@
 #'
 #' @param theme The theme used for the template (previews in link above).
 #' @param \dots Arguments passed to \code{\link[vitae]{cv_document}}.
-#' @inheritParams rmarkdown::pdf_document
 #'
 #' @section Preview:
 #' `r insert_preview("latexcv")`
