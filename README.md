@@ -10,7 +10,7 @@ status](https://www.r-pkg.org/badges/version/vitae)](https://cran.r-project.org/
 ![Check
 status](https://github.com/mitchelloharawild/vitae/workflows/R-CMD-check/badge.svg)
 [![Lifecycle:
-maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
+maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html#maturing)
 [![Downloads](https://cranlogs.r-pkg.org/badges/vitae)](https://cran.r-project.org/package=vitae)
 
 ## Templates and tools for making a Résumé/CV

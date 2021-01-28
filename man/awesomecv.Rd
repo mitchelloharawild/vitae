@@ -17,7 +17,7 @@ An R Markdown output format object.
 }
 \description{
 Awesome CV is LaTeX template for a CV or Résumé inspired by
-\href{https://www.sharelatex.com/templates/cv-or-resume/fancy-cv}{Fancy CV}:
+\href{https://www.overleaf.com/latex/templates/friggeri-cv-template/hmnchbfmjgqh}{Fancy CV}:
 https://github.com/posquit0/Awesome-CV
 }
 \section{Preview}{

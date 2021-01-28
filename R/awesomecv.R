@@ -1,7 +1,7 @@
 #' Awesome CV template
 #'
 #' Awesome CV is LaTeX template for a CV or Résumé inspired by
-#' [Fancy CV](https://www.sharelatex.com/templates/cv-or-resume/fancy-cv):
+#' [Fancy CV](https://www.overleaf.com/latex/templates/friggeri-cv-template/hmnchbfmjgqh):
 #' https://github.com/posquit0/Awesome-CV
 #'
 #' @param \dots Arguments passed to \code{\link[vitae]{cv_document}}.
