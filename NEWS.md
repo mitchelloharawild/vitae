@@ -1,5 +1,9 @@
 # vitae 0.4.0
 
+This release adds the first HTML template to the package, using the improved
+templating system. The `bibliography_entires()` intermediate tibble output is
+rewritten, which now fully represents the CSL-JSON schema.
+
 ## New templates
 
 * Added the `vitae::markdowncv` template, which is the markdown-cv template in
