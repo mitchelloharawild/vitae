@@ -74,9 +74,9 @@ The main content from an `rmarkdown` document is also included using Pandoc vari
 
 Placement of these variables can be found by looking at other template files provided in the package. The conversion of the moderncv template into a Pandoc template for `vitae` can be found on [GitHub](https://github.com/mitchelloharawild/vitae/blob/master/inst/rmarkdown/templates/moderncv/resources/moderncv.tex).
 
-### Adding LaTeX macros for displaying CV entries
+### Adding template specific code for displaying CV entries
 
-The interface for producing entries in a CV varies greatly between templates. To support these various formats, LaTeX macros are used to transfer the format provided by `vitae` into a format suitable for each template.
+The interface for producing entries in a CV varies greatly between templates. To support these various formats, template specific R functions are used to convert the `vitae` format of *what, when, with, where, and why* to output suitable for each template. These functions are specified using the `set_entry_formats()` function, which accepts output from `new_entry_formats()`.
 
 The moderncv template provides many different layouts, of which I have selected the two that best suit `brief_entries` and `detailed_entries`.
 
@@ -88,50 +88,54 @@ The moderncv template `\cvitem` command generates an appropriate layout for brie
 \cvitem{Title}{Description}
 ```
 
-The `vitae` package returns `brief_entries` in this format:
+An appropriate function for creating these items could be:
 
-```
-\briefsection{
-  \briefitem{what}{when}{with}
-}
-```
-
-So in our Pandoc template's header, we need to define macros for `\briefsection` and `\briefitem` that produce an appropriately structured `\cvitem`. The `\briefitem` provides 3 inputs, and `\cventry` expects 2, so we will need to combine two of the `\briefitem` inputs. A suitable LaTeX macro could be defined as:
-
-```
-% Templates for brief entries
-% Arguments: what when with
-\def\briefitem#1#2#3{\cvitem{#2}{#1. #3}}
-\def\briefsection#1{\nopagebreak#1}
+```r
+moderncv_cv_entries <- new_entry_formats(
+  brief = function(what, when, with){
+    paste0(
+      "\t\\cvitem{", when, "}{", what, ". ", with, "}",
+      collapse = "\n"
+    )
+  },
+  detailed = ... # See below
+)
 ```
 
-Here the `\briefsection` macro is essentially doing nothing (other than ensuring there will be no page break). Other CV templates use special environments for entries, where this macro is more useful (such as `twentyseconds`). The `\briefitem` macro is mapping `when` to the `Title` of the item (as this is more consistently formatted with `detailed_items`), and combining `what` and `with` to form the item's `Description`.
+Note that `what`, `when` and `with` may contain more than one entry. This 
+function combines each `\cvitem{}` into a single string by separating each entry
+with a new line.
 
 #### detailed_entries
 
-For detailed CV entries, the moderncv `\cventry` command is reasonable. It expects inputs in this format:
+For detailed CV entries, the moderncv `\cventry` command is appropriate. It expects inputs in this format:
 
 ```
 \cventry{Year}{Degree}{Institution}{City}{Grade}{Description}
 ```
 
-The `vitae` package returns `detailed_entries` in this format:
+A function that can produce these entries is as follows:
+```r
+moderncv_cv_entries <- new_entry_formats(
+  brief = ...,
+  detailed = function(what, when, with, where, why){
+    # Combine why inputs into a bullet list
+    why <- lapply(why, function(x) {
+      if(length(x) == 0) return("\\empty")
+      paste(c(
+        "\\begin{itemize}%",
+        paste0("\\item ", x, "%"),
+        "\\end{itemize}"
+      ), collapse = "\n")
+    })
 
-```
-\detailedsection{
-  \detaileditem{what}{when}{with}{where}{\item{why1}\item{why2}...}
-}
-```
-
-The `\detaileditem` provides 5 inputs, and `\cventry` expects 6, so we will leave the `Grade` section blank, as it is better suited in the "why" argument for the `vitae` package. The code below shows how the order of inputs to `\detaileditem` can be mapped onto the inputs of `\cventry`. To appropriately format the list of `why` items, we are conditionally wrapping this input in an `itemize` environment.
-
-```
-% Templates for detailed entries
-% Arguments: what when with where why
-\usepackage{etoolbox}
-\def\detaileditem#1#2#3#4#5{
-	\cventry{#2}{#1}{#3}{#4}{}{{\ifx#5\empty\else{\begin{itemize}#5\end{itemize}}\fi}}}
-\def\detailedsection#1{\nopagebreak#1}
+    # Combine inputs into \cventry{} output
+    paste0(
+      paste0("\t\\cventry{", when, "}{", what, "}{", with, "}{", where, "}{}{", why, "}"),
+      collapse = "\n"
+    )
+  }
+)
 ```
 
 ### Using the template with rmarkdown
@@ -154,9 +158,9 @@ Adding your template to the package can be done with:
 
 ```{r add-template, eval = FALSE}
 usethis::use_rmarkdown_template(
-  template_name = "Curriculum Vitae (ModernCV format)",
+  template_name = "Curriculum Vitae (My custom format)",
   template_dir = "my_template",
-  template_description = "The ModernCV template (https://github.com/xdanaux/moderncv) for vitae",
+  template_description = "The custom vitae template made by me!",
   template_create_dir = TRUE)
 ```
 
@@ -167,11 +171,13 @@ Once that is done, we can create a new `rmarkdown` output format that uses your 
 ```{r}
 #' @rdname cv_formats
 #' @export
-moderncv <- function(...) {
+my_template <- function(...) {
   template <- system.file("rmarkdown", "templates", "my_template",
-                          "resources", "moderncv.tex", package="vitae")
+                          "resources", "my_template.tex", package="vitae")
+  
+  set_entry_formats(moderncv_cv_entries)
   copy_supporting_files("my_template")
-  cv_document(..., template = template, citation_package="biblatex", latex_engine="xelatex")
+  cv_document(..., template = template)
 }
 ```
 
