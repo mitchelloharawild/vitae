@@ -38,7 +38,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">vitae</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.0</span>
       </span>
     </div>
 
@@ -154,43 +154,54 @@ output: vitae::awesomecv</code></pre>
 </ul>
 <p>Placement of these variables can be found by looking at other template files provided in the package. The conversion of the moderncv template into a Pandoc template for <code>vitae</code> can be found on <a href="https://github.com/mitchelloharawild/vitae/blob/master/inst/rmarkdown/templates/moderncv/resources/moderncv.tex">GitHub</a>.</p>
 </div>
-<div id="adding-latex-macros-for-displaying-cv-entries" class="section level3">
+<div id="adding-template-specific-code-for-displaying-cv-entries" class="section level3">
 <h3 class="hasAnchor">
-<a href="#adding-latex-macros-for-displaying-cv-entries" class="anchor"></a>Adding LaTeX macros for displaying CV entries</h3>
-<p>The interface for producing entries in a CV varies greatly between templates. To support these various formats, LaTeX macros are used to transfer the format provided by <code>vitae</code> into a format suitable for each template.</p>
+<a href="#adding-template-specific-code-for-displaying-cv-entries" class="anchor"></a>Adding template specific code for displaying CV entries</h3>
+<p>The interface for producing entries in a CV varies greatly between templates. To support these various formats, template specific R functions are used to convert the <code>vitae</code> format of <em>what, when, with, where, and why</em> to output suitable for each template. These functions are specified using the <code>set_entry_formats()</code> function, which accepts output from <code>new_entry_formats()</code>.</p>
 <p>The moderncv template provides many different layouts, of which I have selected the two that best suit <code>brief_entries</code> and <code>detailed_entries</code>.</p>
 <div id="brief_entries" class="section level4">
 <h4 class="hasAnchor">
 <a href="#brief_entries" class="anchor"></a>brief_entries</h4>
 <p>The moderncv template <code>\cvitem</code> command generates an appropriate layout for brief entries. It expects inputs in this format:</p>
 <pre><code>\cvitem{Title}{Description}</code></pre>
-<p>The <code>vitae</code> package returns <code>brief_entries</code> in this format:</p>
-<pre><code>\briefsection{
-  \briefitem{what}{when}{with}
-}</code></pre>
-<p>So in our Pandoc template’s header, we need to define macros for <code>\briefsection</code> and <code>\briefitem</code> that produce an appropriately structured <code>\cvitem</code>. The <code>\briefitem</code> provides 3 inputs, and <code>\cventry</code> expects 2, so we will need to combine two of the <code>\briefitem</code> inputs. A suitable LaTeX macro could be defined as:</p>
-<pre><code>% Templates for brief entries
-% Arguments: what when with
-\def\briefitem#1#2#3{\cvitem{#2}{#1. #3}}
-\def\briefsection#1{\nopagebreak#1}</code></pre>
-<p>Here the <code>\briefsection</code> macro is essentially doing nothing (other than ensuring there will be no page break). Other CV templates use special environments for entries, where this macro is more useful (such as <code>twentyseconds</code>). The <code>\briefitem</code> macro is mapping <code>when</code> to the <code>Title</code> of the item (as this is more consistently formatted with <code>detailed_items</code>), and combining <code>what</code> and <code>with</code> to form the item’s <code>Description</code>.</p>
+<p>An appropriate function for creating these items could be:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>moderncv_cv_entries &lt;-<span class="st"> </span><span class="kw">new_entry_formats</span>(</span>
+<span id="cb3-2"><a href="#cb3-2"></a>  <span class="dt">brief =</span> <span class="cf">function</span>(what, when, with){</span>
+<span id="cb3-3"><a href="#cb3-3"></a>    <span class="kw"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span>(</span>
+<span id="cb3-4"><a href="#cb3-4"></a>      <span class="st">"</span><span class="ch">\t\\</span><span class="st">cvitem{"</span>, when, <span class="st">"}{"</span>, what, <span class="st">". "</span>, with, <span class="st">"}"</span>,</span>
+<span id="cb3-5"><a href="#cb3-5"></a>      <span class="dt">collapse =</span> <span class="st">"</span><span class="ch">\n</span><span class="st">"</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a>    )</span>
+<span id="cb3-7"><a href="#cb3-7"></a>  },</span>
+<span id="cb3-8"><a href="#cb3-8"></a>  <span class="dt">detailed =</span> ... <span class="co"># See below</span></span>
+<span id="cb3-9"><a href="#cb3-9"></a>)</span></code></pre></div>
+<p>Note that <code>what</code>, <code>when</code> and <code>with</code> may contain more than one entry. This function combines each <code>\cvitem{}</code> into a single string by separating each entry with a new line.</p>
 </div>
 <div id="detailed_entries" class="section level4">
 <h4 class="hasAnchor">
 <a href="#detailed_entries" class="anchor"></a>detailed_entries</h4>
-<p>For detailed CV entries, the moderncv <code>\cventry</code> command is reasonable. It expects inputs in this format:</p>
+<p>For detailed CV entries, the moderncv <code>\cventry</code> command is appropriate. It expects inputs in this format:</p>
 <pre><code>\cventry{Year}{Degree}{Institution}{City}{Grade}{Description}</code></pre>
-<p>The <code>vitae</code> package returns <code>detailed_entries</code> in this format:</p>
-<pre><code>\detailedsection{
-  \detaileditem{what}{when}{with}{where}{\item{why1}\item{why2}...}
-}</code></pre>
-<p>The <code>\detaileditem</code> provides 5 inputs, and <code>\cventry</code> expects 6, so we will leave the <code>Grade</code> section blank, as it is better suited in the “why” argument for the <code>vitae</code> package. The code below shows how the order of inputs to <code>\detaileditem</code> can be mapped onto the inputs of <code>\cventry</code>. To appropriately format the list of <code>why</code> items, we are conditionally wrapping this input in an <code>itemize</code> environment.</p>
-<pre><code>% Templates for detailed entries
-% Arguments: what when with where why
-\usepackage{etoolbox}
-\def\detaileditem#1#2#3#4#5{
-    \cventry{#2}{#1}{#3}{#4}{}{{\ifx#5\empty\else{\begin{itemize}#5\end{itemize}}\fi}}}
-\def\detailedsection#1{\nopagebreak#1}</code></pre>
+<p>A function that can produce these entries is as follows:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>moderncv_cv_entries &lt;-<span class="st"> </span><span class="kw">new_entry_formats</span>(</span>
+<span id="cb5-2"><a href="#cb5-2"></a>  <span class="dt">brief =</span> ...,</span>
+<span id="cb5-3"><a href="#cb5-3"></a>  <span class="dt">detailed =</span> <span class="cf">function</span>(what, when, with, where, why){</span>
+<span id="cb5-4"><a href="#cb5-4"></a>    <span class="co"># Combine why inputs into a bullet list</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a>    why &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span>(why, <span class="cf">function</span>(x) {</span>
+<span id="cb5-6"><a href="#cb5-6"></a>      <span class="cf">if</span>(<span class="kw"><a href="https://rdrr.io/r/base/length.html">length</a></span>(x) <span class="op">==</span><span class="st"> </span><span class="dv">0</span>) <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span>(<span class="st">"</span><span class="ch">\\</span><span class="st">empty"</span>)</span>
+<span id="cb5-7"><a href="#cb5-7"></a>      <span class="kw"><a href="https://rdrr.io/r/base/paste.html">paste</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(</span>
+<span id="cb5-8"><a href="#cb5-8"></a>        <span class="st">"</span><span class="ch">\\</span><span class="st">begin{itemize}%"</span>,</span>
+<span id="cb5-9"><a href="#cb5-9"></a>        <span class="kw"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span>(<span class="st">"</span><span class="ch">\\</span><span class="st">item "</span>, x, <span class="st">"%"</span>),</span>
+<span id="cb5-10"><a href="#cb5-10"></a>        <span class="st">"</span><span class="ch">\\</span><span class="st">end{itemize}"</span></span>
+<span id="cb5-11"><a href="#cb5-11"></a>      ), <span class="dt">collapse =</span> <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span>
+<span id="cb5-12"><a href="#cb5-12"></a>    })</span>
+<span id="cb5-13"><a href="#cb5-13"></a></span>
+<span id="cb5-14"><a href="#cb5-14"></a>    <span class="co"># Combine inputs into \cventry{} output</span></span>
+<span id="cb5-15"><a href="#cb5-15"></a>    <span class="kw"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span>(</span>
+<span id="cb5-16"><a href="#cb5-16"></a>      <span class="kw"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span>(<span class="st">"</span><span class="ch">\t\\</span><span class="st">cventry{"</span>, when, <span class="st">"}{"</span>, what, <span class="st">"}{"</span>, with, <span class="st">"}{"</span>, where, <span class="st">"}{}{"</span>, why, <span class="st">"}"</span>),</span>
+<span id="cb5-17"><a href="#cb5-17"></a>      <span class="dt">collapse =</span> <span class="st">"</span><span class="ch">\n</span><span class="st">"</span></span>
+<span id="cb5-18"><a href="#cb5-18"></a>    )</span>
+<span id="cb5-19"><a href="#cb5-19"></a>  }</span>
+<span id="cb5-20"><a href="#cb5-20"></a>)</span></code></pre></div>
 </div>
 </div>
 <div id="using-the-template-with-rmarkdown" class="section level3">
@@ -208,21 +219,23 @@ output: vitae::awesomecv</code></pre>
 <a href="#contributing-to-the-vitae-package" class="anchor"></a>Contributing to the vitae package</h2>
 <p>If you’ve gone to the effort of successfully creating a new template with the <code>vitae</code> package, you may be interested in making it available for others to use. You can contribute to this package by <a href="https://r-pkgs.org/git.html">submitting a pull request</a> that adds your template to the package.</p>
 <p>Adding your template to the package can be done with:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>usethis<span class="op">::</span><span class="kw">use_rmarkdown_template</span>(</span>
-<span id="cb9-2"><a href="#cb9-2"></a>  <span class="dt">template_name =</span> <span class="st">"Curriculum Vitae (ModernCV format)"</span>,</span>
-<span id="cb9-3"><a href="#cb9-3"></a>  <span class="dt">template_dir =</span> <span class="st">"my_template"</span>,</span>
-<span id="cb9-4"><a href="#cb9-4"></a>  <span class="dt">template_description =</span> <span class="st">"The ModernCV template (https://github.com/xdanaux/moderncv) for vitae"</span>,</span>
-<span id="cb9-5"><a href="#cb9-5"></a>  <span class="dt">template_create_dir =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>usethis<span class="op">::</span><span class="kw">use_rmarkdown_template</span>(</span>
+<span id="cb7-2"><a href="#cb7-2"></a>  <span class="dt">template_name =</span> <span class="st">"Curriculum Vitae (My custom format)"</span>,</span>
+<span id="cb7-3"><a href="#cb7-3"></a>  <span class="dt">template_dir =</span> <span class="st">"my_template"</span>,</span>
+<span id="cb7-4"><a href="#cb7-4"></a>  <span class="dt">template_description =</span> <span class="st">"The custom vitae template made by me!"</span>,</span>
+<span id="cb7-5"><a href="#cb7-5"></a>  <span class="dt">template_create_dir =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
 <p>Then by navigating to the package’s <code>inst/rmarkdown/templates/my_template</code> folder, you can add your Pandoc template to the <code>resources</code> folder, and your <code>.cls</code> and <code>.sty</code> files to the <code>skeleton</code> folder.</p>
 <p>Once that is done, we can create a new <code>rmarkdown</code> output format that uses your template. These are added to the “R/formats.R” file, and will usually follow the same structure as other templates. The template argument to <code>cv_document</code> is a link to your Pandoc template in the package (accessed using <code>system.file</code>), and it is recommended that the supporting <code>.cls</code> and <code>.sty</code> files are copied using <code>copy_supporting_files</code>.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="co">#' @rdname cv_formats</span></span>
-<span id="cb10-2"><a href="#cb10-2"></a><span class="co">#' @export</span></span>
-<span id="cb10-3"><a href="#cb10-3"></a>moderncv &lt;-<span class="st"> </span><span class="cf">function</span>(...) {</span>
-<span id="cb10-4"><a href="#cb10-4"></a>  template &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span>(<span class="st">"rmarkdown"</span>, <span class="st">"templates"</span>, <span class="st">"my_template"</span>,</span>
-<span id="cb10-5"><a href="#cb10-5"></a>                          <span class="st">"resources"</span>, <span class="st">"moderncv.tex"</span>, <span class="dt">package=</span><span class="st">"vitae"</span>)</span>
-<span id="cb10-6"><a href="#cb10-6"></a>  <span class="kw">copy_supporting_files</span>(<span class="st">"my_template"</span>)</span>
-<span id="cb10-7"><a href="#cb10-7"></a>  <span class="kw"><a href="../reference/cv_document.html">cv_document</a></span>(..., <span class="dt">template =</span> template, <span class="dt">citation_package=</span><span class="st">"biblatex"</span>, <span class="dt">latex_engine=</span><span class="st">"xelatex"</span>)</span>
-<span id="cb10-8"><a href="#cb10-8"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co">#' @rdname cv_formats</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="co">#' @export</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a>my_template &lt;-<span class="st"> </span><span class="cf">function</span>(...) {</span>
+<span id="cb8-4"><a href="#cb8-4"></a>  template &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span>(<span class="st">"rmarkdown"</span>, <span class="st">"templates"</span>, <span class="st">"my_template"</span>,</span>
+<span id="cb8-5"><a href="#cb8-5"></a>                          <span class="st">"resources"</span>, <span class="st">"my_template.tex"</span>, <span class="dt">package=</span><span class="st">"vitae"</span>)</span>
+<span id="cb8-6"><a href="#cb8-6"></a>  </span>
+<span id="cb8-7"><a href="#cb8-7"></a>  <span class="kw">set_entry_formats</span>(moderncv_cv_entries)</span>
+<span id="cb8-8"><a href="#cb8-8"></a>  <span class="kw">copy_supporting_files</span>(<span class="st">"my_template"</span>)</span>
+<span id="cb8-9"><a href="#cb8-9"></a>  <span class="kw"><a href="../reference/cv_document.html">cv_document</a></span>(..., <span class="dt">template =</span> template)</span>
+<span id="cb8-10"><a href="#cb8-10"></a>}</span></code></pre></div>
 <p>The automatically generated <code>skeleton.Rmd</code> document in the <code>skeleton</code> folder should be modified to be a basic example of using your template. Examples of this file can be found in other templates, and this template file can act as a useful test for your template!</p>
 <p>All done! You should now be able to install your new version of the package with <code>devtools::install()</code>, and test out your new output format with:</p>
 <pre><code>output:
