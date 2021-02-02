@@ -10,7 +10,3 @@ This submission resolves issues in the CRAN check results.
 ## R CMD check results
 
 0 errors | 0 warnings | 0 notes
-
-## Resubmission
-
-This submission fixes the redirected URLs identified by r-devel-linux-x86_64-debian-gcc.
