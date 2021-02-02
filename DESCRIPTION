@@ -26,9 +26,7 @@ Suggests:
     rorcid,
     testthat,
     stringr,
-    htmltools,
-    webshot,
-    pdftools
+    htmltools
 License: GPL-3
 Encoding: UTF-8
 BugReports: https://github.com/mitchelloharawild/vitae/issues
