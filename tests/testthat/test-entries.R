@@ -54,7 +54,7 @@ test_that("detailed_entries", {
   expect_match(print, as.character(Sys.Date() - 10))
 })
 
-
+skip_if_not(rmarkdown::pandoc_available("2.7"))
 
 test_that("bibliography_entries", {
   tmpbib <- tempfile(fileext = ".bib")
