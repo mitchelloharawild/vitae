@@ -1,6 +1,6 @@
 Package: vitae
 Title: Curriculum Vitae for R Markdown
-Version: 0.4.0
+Version: 0.4.0.9000
 Authors@R: c(
   person("Mitchell", "O'Hara-Wild", role=c("aut", "cre"), email = "mail@mitchelloharawild.com", comment=c(ORCID = "0000-0001-6729-7695")),
   person("Rob", "Hyndman", email="Rob.Hyndman@monash.edu", role=c("aut"), comment = c(ORCID = "0000-0002-2140-5352")),

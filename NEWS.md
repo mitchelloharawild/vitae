@@ -1,3 +1,5 @@
+# vitae (development version)
+
 # vitae 0.4.0
 
 This release adds the first HTML template to the package, using the improved
