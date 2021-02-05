@@ -23,7 +23,7 @@ Please update pandoc if you have any issues knitting bibliographies (this can be
   }
   cat(
     gsub("<<PANDOC_PATH>>", rmarkdown::find_pandoc()$dir, fixed = TRUE,
-         readLines(system.file("multiple-bibliographies.lua", package = "vitae", mustWork = TRUE))),
+         readLines(system.file("multiple-bibliographies.lua", package = "vitae", mustWork = TRUE), encoding = "UTF-8")),
     file = mult_bib, sep = "\n"
   )
 
