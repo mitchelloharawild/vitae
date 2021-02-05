@@ -78,7 +78,7 @@ for one or more types of bib entry." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">vitae</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.1</span>
       </span>
     </div>
 
@@ -175,30 +175,30 @@ generating a reference section in a document.</p>
 <span class='no'>bib</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempfile</a></span>(<span class='kw'>fileext</span> <span class='kw'>=</span> <span class='st'>".bib"</span>)
 <span class='kw pkg'>knitr</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/write_bib.html'>write_bib</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"vitae"</span>, <span class='st'>"tibble"</span>), <span class='no'>bib</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: no date field in DESCRIPTION file of package ‘vitae’</span></div><div class='output co'>#&gt; <span class='warning'>Warning: could not determine year for ‘vitae’ from package DESCRIPTION file</span></div><div class='input'>
 <span class='co'># Import the bibliography entries into a CV</span>
-<span class='fu'>bibliography_entries</span>(<span class='no'>bib</span>)</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble:   2 x 8</span><span>
-#&gt; </span><span style='color: #555555;'># vitae type: bibliography entries</span><span>
+<span class='fu'>bibliography_entries</span>(<span class='no'>bib</span>)</div><div class='output co'>#&gt; # A tibble:   2 x 8
+#&gt; # vitae type: bibliography entries
 #&gt;   URL       author        id    issued note         title    `title-short` type 
-#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;list&lt;csl_na&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;csl_&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>         </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span> https://… Kirill Mülle… R-ti…   2021 R package v… Tibble:… Tibble        book 
-#&gt; </span><span style='color: #555555;'>2</span><span> </span><span style='color: #BB0000;'>NA</span><span>        Mitchell O’H… R-vi…   2021 https://pkg… Vitae: … Vitae         book </div><div class='input'>
+#&gt;   &lt;chr&gt;     &lt;list&lt;csl_na&gt; &lt;chr&gt; &lt;csl_&gt; &lt;chr&gt;        &lt;chr&gt;    &lt;chr&gt;         &lt;chr&gt;
+#&gt; 1 https://… Kirill Mülle… R-ti…   2021 R package v… Tibble:… Tibble        book 
+#&gt; 2 &lt;NA&gt;      Mitchell O’H… R-vi…   2021 https://pkg… Vitae: … Vitae         book </div><div class='input'>
 <span class='co'># The order of these entries can be customised using `dplyr::arrange()`</span>
 <span class='fu'>bibliography_entries</span>(<span class='no'>bib</span>) <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/arrange.html'>arrange</a></span>(<span class='fu'>desc</span>(<span class='no'>title</span>))</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble:   2 x 8</span><span>
-#&gt; </span><span style='color: #555555;'># vitae type: bibliography entries</span><span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/arrange.html'>arrange</a></span>(<span class='fu'>desc</span>(<span class='no'>title</span>))</div><div class='output co'>#&gt; # A tibble:   2 x 8
+#&gt; # vitae type: bibliography entries
 #&gt;   URL       author        id    issued note         title    `title-short` type 
-#&gt; </span><span style='color: #555555;'>*</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;list&lt;csl_na&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;csl_&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>         </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span> </span><span style='color: #BB0000;'>NA</span><span>        Mitchell O’H… R-vi…   2021 https://pkg… Vitae: … Vitae         book 
-#&gt; </span><span style='color: #555555;'>2</span><span> https://… Kirill Mülle… R-ti…   2021 R package v… Tibble:… Tibble        book </div><div class='input'>
+#&gt; * &lt;chr&gt;     &lt;list&lt;csl_na&gt; &lt;chr&gt; &lt;csl_&gt; &lt;chr&gt;        &lt;chr&gt;    &lt;chr&gt;         &lt;chr&gt;
+#&gt; 1 &lt;NA&gt;      Mitchell O’H… R-vi…   2021 https://pkg… Vitae: … Vitae         book 
+#&gt; 2 https://… Kirill Mülle… R-ti…   2021 R package v… Tibble:… Tibble        book </div><div class='input'>
 <span class='co'># For more complex fields like author, you can also sort by component fields.</span>
 <span class='co'># For example, use `author$family` to sort by family names.</span>
 <span class='fu'>bibliography_entries</span>(<span class='no'>bib</span>) <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/arrange.html'>arrange</a></span>(<span class='fu'>desc</span>(<span class='no'>author</span>$<span class='no'>family</span>))</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble:   2 x 8</span><span>
-#&gt; </span><span style='color: #555555;'># vitae type: bibliography entries</span><span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/arrange.html'>arrange</a></span>(<span class='fu'>desc</span>(<span class='no'>author</span>$<span class='no'>family</span>))</div><div class='output co'>#&gt; # A tibble:   2 x 8
+#&gt; # vitae type: bibliography entries
 #&gt;   URL       author        id    issued note         title    `title-short` type 
-#&gt; </span><span style='color: #555555;'>*</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;list&lt;csl_na&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;csl_&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>         </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span> </span><span style='color: #BB0000;'>NA</span><span>        Mitchell O’H… R-vi…   2021 https://pkg… Vitae: … Vitae         book 
-#&gt; </span><span style='color: #555555;'>2</span><span> https://… Kirill Mülle… R-ti…   2021 R package v… Tibble:… Tibble        book </div><div class='input'>
-</div></span></pre>
+#&gt; * &lt;chr&gt;     &lt;list&lt;csl_na&gt; &lt;chr&gt; &lt;csl_&gt; &lt;chr&gt;        &lt;chr&gt;    &lt;chr&gt;         &lt;chr&gt;
+#&gt; 1 &lt;NA&gt;      Mitchell O’H… R-vi…   2021 https://pkg… Vitae: … Vitae         book 
+#&gt; 2 https://… Kirill Mülle… R-ti…   2021 R package v… Tibble:… Tibble        book </div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
