@@ -1,3 +1,7 @@
+# vitae 0.4.2
+
+Small patch to resolve CRAN checks.
+
 # vitae 0.4.1
 
 This patch release reduces the suggested package dependencies and adds further
