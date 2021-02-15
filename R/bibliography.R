@@ -10,9 +10,10 @@
 #' @return A dataset representing the bibliographic entries, suitable for
 #' generating a reference section in a document.
 #'
-#' @author Rob J Hyndman & Mitchell O'Hara-Wild
+#' @author Mitchell O'Hara-Wild & Rob J Hyndman
 #'
 #' @examples
+#' if (rmarkdown::pandoc_available("2.7")) {
 #'
 #' # Create a bibliography from a set of packages
 #' bib <- tempfile(fileext = ".bib")
@@ -30,6 +31,7 @@
 #' bibliography_entries(bib) %>%
 #'   arrange(desc(author$family))
 #'
+#' }
 #' @export
 bibliography_entries <- function(file, startlabel = NULL, endlabel = NULL) {
   if(!is.null(startlabel)){
