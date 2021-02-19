@@ -76,7 +76,11 @@ $endif$
 
 
 %define page styles using geometry
+$if(geometry)$
+\usepackage[$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
+$else$
 \usepackage[a4paper]{geometry}
+$endif$
 
 % for example, change the margins to 2 inches all round
 \geometry{top=1.25cm, bottom=-.6cm, left=1.5cm, right=1.5cm}
