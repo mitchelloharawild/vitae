@@ -103,37 +103,7 @@
 <div id="templates-and-tools-for-making-a-résumécv" class="section level2">
 <h2 class="hasAnchor">
 <a href="#templates-and-tools-for-making-a-r%C3%A9sum%C3%A9cv" class="anchor"></a>Templates and tools for making a Résumé/CV</h2>
-<p>The <em>vitae</em> package makes creating and maintaining a Résumé or CV with R Markdown simple. It provides a collection of LaTeX and HTML templates, with helpful functions to add content to the documents. There are currently 6 templates available in this package:</p>
-<table class="table">
-<thead><tr class="header">
-<th align="left"><a href="https://pkg.mitchelloharawild.com/vitae/reference/awesomecv.html"><strong>vitae::awesomecv</strong></a></th>
-<th align="left"><a href="https://pkg.mitchelloharawild.com/vitae/reference/hyndman.html"><strong>vitae::hyndman</strong></a></th>
-</tr></thead>
-<tbody><tr class="odd">
-<td align="left"><a href="https://pkg.mitchelloharawild.com/vitae/reference/awesomecv.html"><img src="reference/figures/preview-awesomecv.png" width="415" alt="Preview of awesomecv"></a></td>
-<td align="left"><a href="https://pkg.mitchelloharawild.com/vitae/reference/hyndman.html"><img src="reference/figures/preview-hyndman.png" width="415" alt="Preview of hyndman"></a></td>
-</tr></tbody>
-</table>
-<table class="table">
-<thead><tr class="header">
-<th align="left"><a href="https://pkg.mitchelloharawild.com/vitae/reference/latexcv.html"><strong>vitae::latexcv</strong></a></th>
-<th align="left"><a href="https://pkg.mitchelloharawild.com/vitae/reference/markdowncv.html"><strong>vitae::markdowncv</strong></a></th>
-</tr></thead>
-<tbody><tr class="odd">
-<td align="left"><a href="https://pkg.mitchelloharawild.com/vitae/reference/latexcv.html"><img src="reference/figures/preview-latexcv.png" width="415" alt="Preview of latexcv"></a></td>
-<td align="left"><a href="https://pkg.mitchelloharawild.com/vitae/reference/markdowncv.html"><img src="reference/figures/preview-markdowncv.png" width="415" alt="Preview of markdowncv"></a></td>
-</tr></tbody>
-</table>
-<table class="table">
-<thead><tr class="header">
-<th align="left"><a href="https://pkg.mitchelloharawild.com/vitae/reference/moderncv.html"><strong>vitae::moderncv</strong></a></th>
-<th align="left"><a href="https://pkg.mitchelloharawild.com/vitae/reference/twentyseconds.html"><strong>vitae::twentyseconds</strong></a></th>
-</tr></thead>
-<tbody><tr class="odd">
-<td align="left"><a href="https://pkg.mitchelloharawild.com/vitae/reference/moderncv.html"><img src="reference/figures/preview-moderncv.png" width="415" alt="Preview of moderncv"></a></td>
-<td align="left"><a href="https://pkg.mitchelloharawild.com/vitae/reference/twentyseconds.html"><img src="reference/figures/preview-twentyseconds.png" width="415" alt="Preview of twentyseconds"></a></td>
-</tr></tbody>
-</table>
+<p>The <em>vitae</em> package makes creating and maintaining a Résumé or CV with R Markdown simple. It provides a collection of LaTeX and HTML templates, with helpful functions to add content to the documents.</p>
 </div>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
@@ -150,7 +120,8 @@
 <div id="getting-started" class="section level2">
 <h2 class="hasAnchor">
 <a href="#getting-started" class="anchor"></a>Getting started</h2>
-<p>The <em>vitae</em> package currently supports 6 popular CV templates, and adding more is a relatively simple process (details in the <a href="https://pkg.mitchelloharawild.com/vitae/articles/extending.html">creating vitae templates</a> vignette).</p>
+<p>The <em>vitae</em> package currently supports 6 popular CV templates. You can see some previews of the available templates <a href="#templates">below</a>.</p>
+<p>If you prefer a guided introduction in video form, check out <a href="https://github.com/tallguyjenks">Bryan Jenks</a>’ <a href="https://github.com/freeCodeCamp/freeCodeCamp">freeCodeCamp</a> <a href="https://youtu.be/cMlRAiQUdD8">tech talk</a>: <a href="https://youtu.be/cMlRAiQUdD8"><img src="reference/figures/freecodecamp.jpg"></a></p>
 <p>Creating a new CV with <code>vitae</code> can be done using the RStudio R Markdown template selector: <img src="reference/figures/template_gui.png"></p>
 <p>These templates leverage the strength of rmarkdown to include common information in the YAML header (name, position, social links…) and extended information in the main body. The main body of the CV is written using markdown, and allows for data-driven generation of entries using the <a href="https://pkg.mitchelloharawild.com/vitae/reference/cventries.html"><code>*_entries</code> functions</a>. This allows you to import your working history from other sources (such as ORCID, Google Scholar, or a maintained dataset), and include them programmatically into your CV.</p>
 <p>For example, the <a href="https://github.com/ropensci/rorcid">rorcid package</a> can be used to extract <a href="https://orcid.org/0000-0002-2140-5352">Rob Hyndman</a>’s education history:</p>
@@ -184,6 +155,42 @@
 <span id="cb6-7"><a href="#cb6-7"></a>  )</span></code></pre></div>
 <p><img src="reference/figures/education.png"></p>
 <p>Additional examples of using this package can be found in the slides presented at <a href="https://ozunconf18.ropensci.org/">ozunconf2018</a>: <a href="https://slides.mitchelloharawild.com/vitae/" class="uri">https://slides.mitchelloharawild.com/vitae/</a></p>
+</div>
+<div id="templates" class="section level2">
+<h2 class="hasAnchor">
+<a href="#templates" class="anchor"></a>Templates</h2>
+<p>There are currently 6 templates available in this package:</p>
+<table class="table">
+<thead><tr class="header">
+<th align="left"><a href="https://pkg.mitchelloharawild.com/vitae/reference/awesomecv.html"><strong>vitae::awesomecv</strong></a></th>
+<th align="left"><a href="https://pkg.mitchelloharawild.com/vitae/reference/hyndman.html"><strong>vitae::hyndman</strong></a></th>
+</tr></thead>
+<tbody><tr class="odd">
+<td align="left"><a href="https://pkg.mitchelloharawild.com/vitae/reference/awesomecv.html"><img src="reference/figures/preview-awesomecv.png" width="415" alt="Preview of awesomecv"></a></td>
+<td align="left"><a href="https://pkg.mitchelloharawild.com/vitae/reference/hyndman.html"><img src="reference/figures/preview-hyndman.png" width="415" alt="Preview of hyndman"></a></td>
+</tr></tbody>
+</table>
+<table class="table">
+<thead><tr class="header">
+<th align="left"><a href="https://pkg.mitchelloharawild.com/vitae/reference/latexcv.html"><strong>vitae::latexcv</strong></a></th>
+<th align="left"><a href="https://pkg.mitchelloharawild.com/vitae/reference/markdowncv.html"><strong>vitae::markdowncv</strong></a></th>
+</tr></thead>
+<tbody><tr class="odd">
+<td align="left"><a href="https://pkg.mitchelloharawild.com/vitae/reference/latexcv.html"><img src="reference/figures/preview-latexcv.png" width="415" alt="Preview of latexcv"></a></td>
+<td align="left"><a href="https://pkg.mitchelloharawild.com/vitae/reference/markdowncv.html"><img src="reference/figures/preview-markdowncv.png" width="415" alt="Preview of markdowncv"></a></td>
+</tr></tbody>
+</table>
+<table class="table">
+<thead><tr class="header">
+<th align="left"><a href="https://pkg.mitchelloharawild.com/vitae/reference/moderncv.html"><strong>vitae::moderncv</strong></a></th>
+<th align="left"><a href="https://pkg.mitchelloharawild.com/vitae/reference/twentyseconds.html"><strong>vitae::twentyseconds</strong></a></th>
+</tr></thead>
+<tbody><tr class="odd">
+<td align="left"><a href="https://pkg.mitchelloharawild.com/vitae/reference/moderncv.html"><img src="reference/figures/preview-moderncv.png" width="415" alt="Preview of moderncv"></a></td>
+<td align="left"><a href="https://pkg.mitchelloharawild.com/vitae/reference/twentyseconds.html"><img src="reference/figures/preview-twentyseconds.png" width="415" alt="Preview of twentyseconds"></a></td>
+</tr></tbody>
+</table>
+<p>Extending the package to add new templates is a somewhat simple process (details in the <a href="https://pkg.mitchelloharawild.com/vitae/articles/extending.html">creating vitae templates</a> vignette).</p>
 </div>
 <div id="examples-of-using-vitae" class="section level2">
 <h2 class="hasAnchor">
