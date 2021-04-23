@@ -26,24 +26,7 @@ template_preview <- list.files(file.path("man", "figures"), pattern = "^preview"
                        full.names = TRUE)
 template_name <- stringr::str_match(basename(template_preview), "preview-(.+?)\\.png")[,2]
 ```
-The *vitae* package makes creating and maintaining a Résumé or CV with R Markdown simple. It provides a collection of LaTeX and HTML templates, with helpful functions to add content to the documents. There are currently `r length(template_name)` templates available in this package:
-
-```{r show-previews, echo = FALSE, results='asis'}
-preview_url <- sprintf("https://pkg.mitchelloharawild.com/vitae/reference/%s.html", template_name)
-preview_title <- sprintf("[**vitae::%s**](%s)", template_name, preview_url)
-preview_image <- sprintf("[![Preview of %s](%s){width=415px}](%s)", template_name, template_preview, preview_url)
-
-preview_row <- (seq_along(preview_title)+1)%/%2
-for(i in split(seq_along(preview_title), preview_row)) {
-  print(
-    knitr::kable(
-      tibble::new_tibble(setNames(as.list(preview_image[i]), preview_title[i]), nrow = 1),
-      escape = FALSE
-    )
-  )
-}
-```
-
+The *vitae* package makes creating and maintaining a Résumé or CV with R Markdown simple. It provides a collection of LaTeX and HTML templates, with helpful functions to add content to the documents. 
 
 ## Installation
 
@@ -68,10 +51,12 @@ install.packages('tinytex')
 tinytex::install_tinytex()
 ```
 
-
 ## Getting started
 
-The *vitae* package currently supports `r length(list.dirs("inst/rmarkdown/templates/", recursive = FALSE))` popular CV templates, and adding more is a relatively simple process (details in the [creating vitae templates](https://pkg.mitchelloharawild.com/vitae/articles/extending.html) vignette).
+The *vitae* package currently supports `r length(list.dirs("inst/rmarkdown/templates/", recursive = FALSE))` popular CV templates. You can see some previews of the available templates [below](#templates).
+
+If you prefer a guided introduction in video form, check out [Bryan Jenks](https://github.com/tallguyjenks)' [freeCodeCamp](https://github.com/freeCodeCamp/freeCodeCamp) [tech talk](https://youtu.be/cMlRAiQUdD8):
+[![](man/figures/freecodecamp.jpg)](https://youtu.be/cMlRAiQUdD8)
 
 Creating a new CV with `vitae` can be done using the RStudio R Markdown template selector:
 ![](man/figures/template_gui.png)
@@ -114,6 +99,27 @@ orcid_data %>%
 ![](man/figures/education.png)
 
 Additional examples of using this package can be found in the slides presented at [ozunconf2018](https://ozunconf18.ropensci.org/): [https://slides.mitchelloharawild.com/vitae/](https://slides.mitchelloharawild.com/vitae/)
+
+## Templates
+
+There are currently `r length(template_name)` templates available in this package:
+
+```{r show-previews, echo = FALSE, results='asis'}
+preview_url <- sprintf("https://pkg.mitchelloharawild.com/vitae/reference/%s.html", template_name)
+preview_title <- sprintf("[**vitae::%s**](%s)", template_name, preview_url)
+preview_image <- sprintf("[![Preview of %s](%s){width=415px}](%s)", template_name, template_preview, preview_url)
+
+preview_row <- (seq_along(preview_title)+1)%/%2
+for(i in split(seq_along(preview_title), preview_row)) {
+  print(
+    knitr::kable(
+      tibble::new_tibble(setNames(as.list(preview_image[i]), preview_title[i]), nrow = 1),
+      escape = FALSE
+    )
+  )
+}
+```
+Extending the package to add new templates is a somewhat simple process (details in the [creating vitae templates](https://pkg.mitchelloharawild.com/vitae/articles/extending.html) vignette).
 
 ## Examples of using vitae
 
