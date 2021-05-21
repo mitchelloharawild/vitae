@@ -25,7 +25,7 @@ The vitae package makes creating and maintaining a Résumé or CV with R Markdow
 
 If using RStudio, a new CV document can be easily produced from one of the templates provided in the package. This using the RStudio R Markdown template selector, accessible via `File` > `New File` > `R Markdown...`, and lastly `From Template`. This will show a list of R Markdown templates provided by all installed packages, and you should be able to find some templates from the vitae package to use.
 
-If not using RStudio, you can create a new `*.Rmd` document and use an output format that is provided by the package. A list of output formats provided by the package can be found with `?cv_formats`. Examples of a YAML header that use one of these output formats is shown below.
+If not using RStudio, you can create a new `*.Rmd` document and use an output format that is provided by the package. A list of output formats provided by the package can be found on the package website: https://pkg.mitchelloharawild.com/vitae/#templates. Examples of a YAML header that use one of these output formats is shown below.
 
 Like other R Markdown documents, the file is split into two sections: the YAML header, and the main body.
 
