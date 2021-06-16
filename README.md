@@ -159,6 +159,7 @@ vignette).
 -   [Lampros Sp. Mouselimis](https://github.com/mlampros/My.CVitae)
     (using Github Actions and a docker image to programmatically
     generate the CV file)
+-   [Adam Kirosingh](https://github.com/akirosingh/CV)
 
 Add your vitae to the list using a PR.
 
