@@ -10,7 +10,7 @@ awesomecv(..., latex_engine = "xelatex")
 \item{\dots}{Arguments passed to \code{\link[vitae]{cv_document}}.}
 
 \item{latex_engine}{LaTeX engine for producing PDF output. Options are
-"pdflatex", "lualatex", and "xelatex".}
+"pdflatex", "lualatex", "xelatex" and "tectonic".}
 }
 \value{
 An R Markdown output format object.

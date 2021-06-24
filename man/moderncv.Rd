@@ -16,7 +16,7 @@ moderncv(
 \item{theme}{The theme used for the template.}
 
 \item{latex_engine}{LaTeX engine for producing PDF output. Options are
-"pdflatex", "lualatex", and "xelatex".}
+"pdflatex", "lualatex", "xelatex" and "tectonic".}
 }
 \value{
 An R Markdown output format object.
