@@ -41,9 +41,19 @@ bibliography_entries <- function(file, startlabel = NULL, endlabel = NULL) {
     warning("The `endlabel` argument is defunct and will be removed in the next release.\n. Please use a different approach to including labels.")
   }
 
+  # Parse bib file
   bib <- rmarkdown::pandoc_citeproc_convert(file)
 
-  bib_ptype <- csl_fields[unique(vec_c(!!!lapply(bib, names)))]
+
+  # Produce prototype
+  bib_schema <- unique(vec_c(!!!lapply(bib, names)))
+
+  ## Add missing fields to schema
+  csl_idx <- match(bib_schema, names(csl_fields))
+  csl_fields[bib_schema[which(is.na(csl_idx))]] <- character()
+
+  ## Use schema as prototype
+  bib_ptype <- csl_fields[bib_schema]
   bib_ptype <- vctrs::vec_init(bib_ptype, 1)
 
   # Add missing values to complete rectangular structure

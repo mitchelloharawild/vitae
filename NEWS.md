@@ -1,5 +1,9 @@
 # vitae (development version)
 
+## Improvements
+
+* Fixed issue with bibliographies containing 'other-ids' (#174)
+
 # vitae 0.4.2
 
 Small patch to resolve CRAN checks.
