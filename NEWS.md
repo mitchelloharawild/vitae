@@ -2,7 +2,8 @@
 
 ## Improvements
 
-* Fixed issue with bibliographies containing 'other-ids' (#174)
+* Fixed issue with bibliographies containing 'other-ids' (#174).
+* Fixed encoding issues with `bibliography_entries()` on Windows (#158).
 
 # vitae 0.4.2
 
