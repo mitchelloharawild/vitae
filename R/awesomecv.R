@@ -6,6 +6,7 @@
 #'
 #' @param \dots Arguments passed to \code{\link[vitae]{cv_document}}.
 #' @inheritParams rmarkdown::pdf_document
+#' @param page_total If TRUE, the total number of pages is shown in the footer.
 #'
 #' @section Preview:
 #' `r insert_preview("awesomecv")`
@@ -16,14 +17,17 @@
 #' ([@posquit0](https://github.com/posquit0))
 #'
 #' @export
-awesomecv <- function(..., latex_engine = "xelatex") {
+awesomecv <- function(..., latex_engine = "xelatex", page_total = FALSE) {
   template <- system.file("rmarkdown", "templates", "awesomecv",
                           "resources", "awesome-cv.tex",
                           package = "vitae"
   )
   set_entry_formats(awesome_cv_entries)
   copy_supporting_files("awesomecv")
-  cv_document(..., template = template, latex_engine = latex_engine)
+  pandoc_vars <- list()
+  if(page_total) pandoc_vars$page_total <- TRUE
+  cv_document(..., pandoc_vars = pandoc_vars,
+              template = template, latex_engine = latex_engine)
 }
 
 awesome_cv_entries <- new_entry_formats(

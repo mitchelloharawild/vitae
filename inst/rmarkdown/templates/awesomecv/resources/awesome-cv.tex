@@ -160,7 +160,7 @@ $endfor$
 \makecvfooter
   {$date$}
     {$name$$if(surname)$ $surname$$endif$~~~·~~~$if(docname)$$docname$$else$Curriculum Vitae$endif$}
-  {\thepage}
+  {\thepage$if(page_total)$~ of \pageref{LastPage}~$endif$}
 
 
 %-------------------------------------------------------------------------------
@@ -181,4 +181,6 @@ $body$
 $for(include-after)$
 $include-after$
 $endfor$
+
+$if(page_total)$\label{LastPage}~$endif$
 \end{document}

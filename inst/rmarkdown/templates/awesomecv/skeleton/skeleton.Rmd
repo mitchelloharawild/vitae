@@ -10,7 +10,9 @@ twitter: mariecurie
 github: mariecurie
 linkedin: mariecurie
 date: "`r format(Sys.time(), '%B %Y')`"
-output: vitae::awesomecv
+output: 
+  vitae::awesomecv:
+    page_total: true
 ---
 
 ```{r setup, include=FALSE}

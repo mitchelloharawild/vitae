@@ -4,13 +4,15 @@
 \alias{awesomecv}
 \title{Awesome CV template}
 \usage{
-awesomecv(..., latex_engine = "xelatex")
+awesomecv(..., latex_engine = "xelatex", page_total = FALSE)
 }
 \arguments{
 \item{\dots}{Arguments passed to \code{\link[vitae]{cv_document}}.}
 
 \item{latex_engine}{LaTeX engine for producing PDF output. Options are
 "pdflatex", "lualatex", "xelatex" and "tectonic".}
+
+\item{page_total}{If TRUE, the total number of pages is shown in the footer.}
 }
 \value{
 An R Markdown output format object.
