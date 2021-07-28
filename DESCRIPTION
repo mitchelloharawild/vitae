@@ -20,7 +20,8 @@ Imports:
     yaml,
     tibble,
     vctrs (>= 0.3.3),
-    pillar
+    pillar,
+    jsonlite
 Suggests:
     covr,
     rorcid,

@@ -42,8 +42,10 @@ bibliography_entries <- function(file, startlabel = NULL, endlabel = NULL) {
   }
 
   # Parse bib file
-  bib <- rmarkdown::pandoc_citeproc_convert(file)
-
+  # Set system() output encoding as UTF-8 to fix Windows issue (rmarkdown#2195)
+  bib <- rmarkdown::pandoc_citeproc_convert(file, type = "json")
+  Encoding(bib) <- "UTF-8"
+  bib <- jsonlite::fromJSON(bib, simplifyVector = FALSE)
 
   # Produce prototype
   bib_schema <- unique(vec_c(!!!lapply(bib, names)))
