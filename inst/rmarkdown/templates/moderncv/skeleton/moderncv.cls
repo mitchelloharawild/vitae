@@ -320,9 +320,13 @@
 \newcommand*{\stackoverflowsocialsymbol} {}
 \newcommand*{\orcidsocialsymbol}   {}
 \newcommand*{\researchgatesocialsymbol}{}
-\newcommand*{\researchidsocialsymbol}{}
+\newcommand*{\researcheridsocialsymbol}{}
 \newcommand*{\googlescholarsocialsymbol}{}
 \newcommand*{\telegramsocialsymbol}{}
+\newcommand*{\whatsappsocialsymbol}{}
+\newcommand*{\signalsocialsymbol}{}
+\newcommand*{\matrixsocialsymbol}{}
+\newcommand*{\bornsymbol}{}
 
 % other
 %------
