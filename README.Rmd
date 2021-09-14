@@ -40,8 +40,8 @@ You can install the **development** version from
 [GitHub](https://github.com/mitchelloharawild/vitae).
 
 ```{r gh-installation, eval = FALSE}
-# install.packages("devtools")
-devtools::install_github("mitchelloharawild/vitae")
+# install.packages("remotes")
+remotes::install_github("mitchelloharawild/vitae")
 ```
 
 This package requires LaTeX to be installed on your computer. If you're encountering issues, please check that LaTeX is installed. The [tinytex package](https://github.com/yihui/tinytex) makes it easy to setup LaTeX within R:

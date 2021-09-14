@@ -31,8 +31,8 @@ You can install the **development** version from
 [GitHub](https://github.com/mitchelloharawild/vitae).
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("mitchelloharawild/vitae")
+# install.packages("remotes")
+remotes::install_github("mitchelloharawild/vitae")
 ```
 
 This package requires LaTeX to be installed on your computer. If you’re
