@@ -12,9 +12,7 @@
 #'
 #' @author Mitchell O'Hara-Wild & Rob J Hyndman
 #'
-#' @examples
-#' if (rmarkdown::pandoc_available("2.7")) {
-#'
+#' @examplesIf rmarkdown::pandoc_available("2.7")
 #' # Create a bibliography from a set of packages
 #' bib <- tempfile(fileext = ".bib")
 #' knitr::write_bib(c("vitae", "tibble"), bib)
@@ -30,8 +28,6 @@
 #' # For example, use `author$family` to sort by family names.
 #' bibliography_entries(bib) %>%
 #'   arrange(desc(author$family))
-#'
-#' }
 #' @export
 bibliography_entries <- function(file, startlabel = NULL, endlabel = NULL) {
   if(!is.null(startlabel)){
