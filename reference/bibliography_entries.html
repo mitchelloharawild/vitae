@@ -17,23 +17,27 @@
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -46,7 +50,6 @@
 <meta property="og:description" content="Given a bibliography file, this function will generate bibliographic entries
 for one or more types of bib entry." />
 <meta property="og:image" content="/logo.png" />
-<meta name="twitter:card" content="summary" />
 
 
 
@@ -64,7 +67,7 @@ for one or more types of bib entry." />
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -117,7 +120,7 @@ for one or more types of bib entry." />
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/mitchelloharawild/vitae">
+  <a href="https://github.com/mitchelloharawild/vitae/">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -145,7 +148,7 @@ for one or more types of bib entry." />
 for one or more types of bib entry.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>bibliography_entries</span>(<span class='no'>file</span>, <span class='kw'>startlabel</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>endlabel</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>bibliography_entries</span><span class='op'>(</span><span class='va'>file</span>, startlabel <span class='op'>=</span> <span class='cn'>NULL</span>, endlabel <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -168,43 +171,32 @@ for one or more types of bib entry.</p>
 
     <p>A dataset representing the bibliographic entries, suitable for
 generating a reference section in a document.</p>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Mitchell O'Hara-Wild &amp; Rob J Hyndman</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='kw pkg'>rmarkdown</span><span class='kw ns'>::</span><span class='fu'><a href='https://pkgs.rstudio.com/rmarkdown/reference/pandoc_available.html'>pandoc_available</a></span>(<span class='st'>"2.7"</span>)) {
-
-<span class='co'># Create a bibliography from a set of packages</span>
-<span class='no'>bib</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempfile</a></span>(<span class='kw'>fileext</span> <span class='kw'>=</span> <span class='st'>".bib"</span>)
-<span class='kw pkg'>knitr</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/write_bib.html'>write_bib</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"vitae"</span>, <span class='st'>"tibble"</span>), <span class='no'>bib</span>)
-
+    <pre class="examples"><div class='input'><span class='co'># Create a bibliography from a set of packages</span>
+<span class='va'>bib</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempfile</a></span><span class='op'>(</span>fileext <span class='op'>=</span> <span class='st'>".bib"</span><span class='op'>)</span>
+<span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/write_bib.html'>write_bib</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"vitae"</span>, <span class='st'>"tibble"</span><span class='op'>)</span>, <span class='va'>bib</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='warning'>Warning: no date field in DESCRIPTION file of package ‘vitae’</span></div><div class='input'>
 <span class='co'># Import the bibliography entries into a CV</span>
-<span class='fu'>bibliography_entries</span>(<span class='no'>bib</span>)
-
+<span class='fu'>bibliography_entries</span><span class='op'>(</span><span class='va'>bib</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='warning'>Warning: running command '/usr/bin/pandoc-citeproc --bib2json /tmp/RtmpJ8fXeL/file2f9b75786a58.bib' had status 1</span></div><div class='output co'>#&gt; </div><div class='output co'>#&gt; <span class='error'>Error in rmarkdown::pandoc_citeproc_convert(file, type = "json"): Error 1 occurred building shared library.</span></div><div class='input'>
 <span class='co'># The order of these entries can be customised using `dplyr::arrange()`</span>
-<span class='fu'>bibliography_entries</span>(<span class='no'>bib</span>) <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/arrange.html'>arrange</a></span>(<span class='fu'>desc</span>(<span class='no'>title</span>))
-
+<span class='fu'>bibliography_entries</span><span class='op'>(</span><span class='va'>bib</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/arrange.html'>arrange</a></span><span class='op'>(</span><span class='fu'>desc</span><span class='op'>(</span><span class='va'>title</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='warning'>Warning: running command '/usr/bin/pandoc-citeproc --bib2json /tmp/RtmpJ8fXeL/file2f9b75786a58.bib' had status 1</span></div><div class='output co'>#&gt; </div><div class='output co'>#&gt; <span class='error'>Error in rmarkdown::pandoc_citeproc_convert(file, type = "json"): Error 1 occurred building shared library.</span></div><div class='input'>
 <span class='co'># For more complex fields like author, you can also sort by component fields.</span>
 <span class='co'># For example, use `author$family` to sort by family names.</span>
-<span class='fu'>bibliography_entries</span>(<span class='no'>bib</span>) <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/arrange.html'>arrange</a></span>(<span class='fu'>desc</span>(<span class='no'>author</span>$<span class='no'>family</span>))
-
-}</div><div class='output co'>#&gt; <span class='warning'>Warning: no date field in DESCRIPTION file of package ‘vitae’</span></div><div class='output co'>#&gt; <span class='warning'>Warning: could not determine year for ‘vitae’ from package DESCRIPTION file</span></div><div class='output co'>#&gt; # A tibble:   2 × 8
-#&gt; # vitae type: bibliography entries
-#&gt;   URL       author        id    issued note         title    `title-short` type 
-#&gt; * &lt;chr&gt;     &lt;list&lt;csl_na&gt; &lt;chr&gt; &lt;csl_&gt; &lt;chr&gt;        &lt;chr&gt;    &lt;chr&gt;         &lt;chr&gt;
-#&gt; 1 &lt;NA&gt;      Mitchell O’H… R-vi…   2021 https://pkg… Vitae: … Vitae         book 
-#&gt; 2 https://… Kirill Mülle… R-ti…   2021 R package v… Tibble:… Tibble        book </div></pre>
+<span class='fu'>bibliography_entries</span><span class='op'>(</span><span class='va'>bib</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/arrange.html'>arrange</a></span><span class='op'>(</span><span class='fu'>desc</span><span class='op'>(</span><span class='va'>author</span><span class='op'>$</span><span class='va'>family</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='warning'>Warning: running command '/usr/bin/pandoc-citeproc --bib2json /tmp/RtmpJ8fXeL/file2f9b75786a58.bib' had status 1</span></div><div class='output co'>#&gt; </div><div class='output co'>#&gt; <span class='error'>Error in rmarkdown::pandoc_citeproc_convert(file, type = "json"): Error 1 occurred building shared library.</span></div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#value">Value</a></li>
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
-    <h2>Author</h2>
-    <p>Mitchell O'Hara-Wild &amp; Rob J Hyndman</p>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 
@@ -215,7 +207,7 @@ generating a reference section in a document.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

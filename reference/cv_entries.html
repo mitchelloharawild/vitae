@@ -17,23 +17,27 @@
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -47,7 +51,6 @@
 into a suitable format for the template used. The inputs can also involve
 further calculations, which will be done using the provided data." />
 <meta property="og:image" content="/logo.png" />
-<meta name="twitter:card" content="summary" />
 
 
 
@@ -65,7 +68,7 @@ further calculations, which will be done using the provided data." />
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -118,7 +121,7 @@ further calculations, which will be done using the provided data." />
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/mitchelloharawild/vitae">
+  <a href="https://github.com/mitchelloharawild/vitae/">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -147,9 +150,9 @@ into a suitable format for the template used. The inputs can also involve
 further calculations, which will be done using the provided data.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>brief_entries</span>(<span class='no'>data</span>, <span class='no'>what</span>, <span class='no'>when</span>, <span class='no'>with</span>, <span class='kw'>.protect</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+    <pre class="usage"><span class='fu'>brief_entries</span><span class='op'>(</span><span class='va'>data</span>, <span class='va'>what</span>, <span class='va'>when</span>, <span class='va'>with</span>, .protect <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
 
-<span class='fu'>detailed_entries</span>(<span class='no'>data</span>, <span class='no'>what</span>, <span class='no'>when</span>, <span class='no'>with</span>, <span class='no'>where</span>, <span class='no'>why</span>, <span class='kw'>.protect</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+<span class='fu'>detailed_entries</span><span class='op'>(</span><span class='va'>data</span>, <span class='va'>what</span>, <span class='va'>when</span>, <span class='va'>with</span>, <span class='va'>where</span>, <span class='va'>why</span>, .protect <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -194,29 +197,26 @@ into a list.</p></td>
     <p>All non-data inputs are optional, and will result in an empty space if omitted.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>packages_used</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>tibble</span><span class='kw ns'>::</span><span class='fu'><a href='https://tibble.tidyverse.org/reference/tribble.html'>tribble</a></span>(
-  ~ <span class='no'>package</span>, ~ <span class='no'>date</span>, ~ <span class='no'>language</span>, ~ <span class='no'>timezone</span>, ~ <span class='no'>details</span>,
-  <span class='st'>"vitae"</span>, <span class='fu'><a href='https://rdrr.io/r/base/Sys.time.html'>Sys.Date</a></span>(), <span class='st'>"R"</span>, <span class='fu'><a href='https://rdrr.io/r/base/timezones.html'>Sys.timezone</a></span>(), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"Making my CV with vitae."</span>, <span class='st'>"Multiple why entries."</span>),
-  <span class='st'>"rmarkdown"</span>, <span class='fu'><a href='https://rdrr.io/r/base/Sys.time.html'>Sys.Date</a></span>()-<span class='fl'>10</span>, <span class='st'>"R"</span>, <span class='fu'><a href='https://rdrr.io/r/base/timezones.html'>Sys.timezone</a></span>(), <span class='st'>"Writing reproducible, dynamic reports using R."</span>
-)
-<span class='no'>packages_used</span> <span class='kw'>%&gt;%</span>
-  <span class='fu'>detailed_entries</span>(<span class='kw'>what</span> <span class='kw'>=</span> <span class='no'>package</span>, <span class='kw'>when</span> <span class='kw'>=</span> <span class='no'>date</span>, <span class='kw'>with</span> <span class='kw'>=</span> <span class='no'>language</span>, <span class='kw'>where</span> <span class='kw'>=</span> <span class='no'>timezone</span>, <span class='kw'>why</span> <span class='kw'>=</span> <span class='no'>details</span>)</div><div class='output co'>#&gt; # A tibble:   2 × 5
-#&gt; # Groups:     what, when, with, where [2]
-#&gt; # vitae type: detailed entries
+    <pre class="examples"><div class='input'><span class='va'>packages_used</span> <span class='op'>&lt;-</span> <span class='fu'>tibble</span><span class='fu'>::</span><span class='fu'><a href='https://tibble.tidyverse.org/reference/tribble.html'>tribble</a></span><span class='op'>(</span>
+  <span class='op'>~</span> <span class='va'>package</span>, <span class='op'>~</span> <span class='va'>date</span>, <span class='op'>~</span> <span class='va'>language</span>, <span class='op'>~</span> <span class='va'>timezone</span>, <span class='op'>~</span> <span class='va'>details</span>,
+  <span class='st'>"vitae"</span>, <span class='fu'><a href='https://rdrr.io/r/base/Sys.time.html'>Sys.Date</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='st'>"R"</span>, <span class='fu'><a href='https://rdrr.io/r/base/timezones.html'>Sys.timezone</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Making my CV with vitae."</span>, <span class='st'>"Multiple why entries."</span><span class='op'>)</span>,
+  <span class='st'>"rmarkdown"</span>, <span class='fu'><a href='https://rdrr.io/r/base/Sys.time.html'>Sys.Date</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>-</span><span class='fl'>10</span>, <span class='st'>"R"</span>, <span class='fu'><a href='https://rdrr.io/r/base/timezones.html'>Sys.timezone</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='st'>"Writing reproducible, dynamic reports using R."</span>
+<span class='op'>)</span>
+<span class='va'>packages_used</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>detailed_entries</span><span class='op'>(</span>what <span class='op'>=</span> <span class='va'>package</span>, when <span class='op'>=</span> <span class='va'>date</span>, with <span class='op'>=</span> <span class='va'>language</span>, where <span class='op'>=</span> <span class='va'>timezone</span>, why <span class='op'>=</span> <span class='va'>details</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble:   2 × 5</span>
+#&gt; <span style='color: #949494;'># Groups:     what, when, with, where [2]</span>
+#&gt; <span style='color: #949494;'># vitae type: detailed entries</span>
 #&gt;   what      when       with  where why      
-#&gt; * &lt;chr&gt;     &lt;date&gt;     &lt;chr&gt; &lt;chr&gt; &lt;list&gt;   
-#&gt; 1 vitae     2021-07-28 R     UTC   &lt;chr [2]&gt;
-#&gt; 2 rmarkdown 2021-07-18 R     UTC   &lt;chr [1]&gt;</div><div class='input'>
+#&gt; <span style='color: #BCBCBC;'>*</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;list&gt;</span>   
+#&gt; <span style='color: #BCBCBC;'>1</span> vitae     2021-09-14 R     UTC   <span style='color: #949494;'>&lt;chr [2]&gt;</span>
+#&gt; <span style='color: #BCBCBC;'>2</span> rmarkdown 2021-09-04 R     UTC   <span style='color: #949494;'>&lt;chr [1]&gt;</span></div><div class='input'>
 </div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#details">Details</a></li>
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 
@@ -227,7 +227,7 @@ into a list.</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
