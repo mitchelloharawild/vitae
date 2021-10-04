@@ -136,6 +136,7 @@ Extending the package to add new templates is a somewhat simple process (details
 - [Lorena Abad](https://github.com/loreabad6/R-CV)
 - [Lampros Sp. Mouselimis](https://github.com/mlampros/My.CVitae) (using Github Actions and a docker image to programmatically generate the CV file)
 - [Adam Kirosingh](https://github.com/akirosingh/CV)
+- [Marco Lombardi](https://github.com/mlombardi6/awesome-template)
 
 Add your vitae to the list using a PR.
 
