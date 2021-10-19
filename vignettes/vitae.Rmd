@@ -35,14 +35,15 @@ The YAML header contains general entries that are common across many templates, 
 
 `r htmltools::pre(htmltools::code(paste0(readLines("sample.txt")[1:11],collapse = "\n")))`
 
-You can also see that the output is set to `vitae::awesomecv`, which indicates that this CV uses the [Awesome CV](https://github.com/posquit0/Awesome-CV) template. Some of the templates allow for the choosing of a theme.  For example, the `moderncv` template allows for the selection of one of five themes:  "casual", "classic", "oldstyle", "banking" or "fancy". An author selecting a theme, other than the default, might modify the YAML header to:
+You can also see that the output is set to `vitae::awesomecv`, which indicates that this CV uses the [Awesome CV](https://github.com/posquit0/Awesome-CV) template. Some of the templates allow for the choosing of a theme, or changing other options. These options can be found in the help file for each output format (say `?moderncv)`.  For example, the `moderncv` template allows for the selection of one of five themes:  "casual", "classic", "oldstyle", "banking" or "fancy".
+To change default options of output formats you can modify the yaml as follows:
 
-```{r Output-theme, eval=F}
-#choose theme
+````yaml
+# Choose a theme and pass other arguments
 output:
   vitae::moderncv:
-    banking
-```
+    theme: banking
+````
 
 
 Currently, the YAML header allows these fields to be specified:
