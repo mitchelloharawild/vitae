@@ -66,6 +66,11 @@ tbl_sum.vitae_detailed <- function(x) {
 #' @importFrom knitr knit_print
 #' @export
 knit_print.vitae_detailed <- function(x, options) {
+  if(is.null(entry_format_functions$format)) {
+    warn("Detailed entry formatter is not defined for this output format.")
+    return(knit_print(tibble::as_tibble(x)))
+  }
+
   x[is.na(x)] <- ""
 
   if(!(x%@%"protect")){
