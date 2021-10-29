@@ -240,21 +240,21 @@ $if(position)$\\[0.1cm]\large $position$\\[0.6cm]$else$\\[0.7cm]$endif$
 % Make nicer bullets
 \renewcommand{\labelitemi}{\ding{228}}
 
-\usepackage{booktabs,fontawesome}
+\usepackage{booktabs,fontawesome5}
 %\usepackage[t1,scale=0.86]{sourcecodepro}
 
 \name{$name$$if(surname)$ $surname$$endif$}
 \def\imagetop#1{\vtop{\null\hbox{#1}}}
 \info{%
-$if(address)$\raisebox{-0.05cm}{\imagetop{\faicon{map-marker}}} &  \imagetop{\begin{tabular}{@{}l@{}}$address$\end{tabular}}\\$endif$ %
-$if(www)$\faicon{home} & \href{http://$www$}{$www$}\\$endif$% %
-$if(phone)$\faicon{phone} & $phone$\\$endif$%
-$if(email)$\faicon{envelope} & $email$\\$endif$%
-$if(twitter)$\faicon{twitter} & \href{https://twitter.com/$twitter$}{@$twitter$}\\$endif$%
-$if(github)$\faicon{github} & \href{https://github.com/$github$}{$github$}\\$endif$%
-$if(linkedin)$\faicon{linkedin} & \href{https://www.linkedin.com/in/$linkedin$}{$linkedin$}\\$endif$%
-$if(scholar)$\faicon{google} & \href{https://scholar.google.com/citations?user=$scholar$}{$scholar$}\\$endif$%
-$if(orcid)$\faicon{openid} & \href{https://orcid.org/$orcid$}{$orcid$}\\$endif$%
+$if(address)$\raisebox{-0.05cm}{\imagetop{\faIcon{map-marker-alt}}} &  \imagetop{\begin{tabular}{@{}l@{}}$address$\end{tabular}}\\$endif$ %
+$if(www)$\faIcon{home} & \href{http://$www$}{$www$}\\$endif$% %
+$if(phone)$\faIcon{phone-alt} & $phone$\\$endif$%
+$if(email)$\faIcon{envelope} & $email$\\$endif$%
+$if(twitter)$\faIcon{twitter} & \href{https://twitter.com/$twitter$}{@$twitter$}\\$endif$%
+$if(github)$\faIcon{github} & \href{https://github.com/$github$}{$github$}\\$endif$%
+$if(linkedin)$\faIcon{linkedin} & \href{https://www.linkedin.com/in/$linkedin$}{$linkedin$}\\$endif$%
+$if(scholar)$\faIcon{google} & \href{https://scholar.google.com/citations?user=$scholar$}{$scholar$}\\$endif$%
+$if(orcid)$\faIcon{orcid} & \href{https://orcid.org/$orcid$}{$orcid$}\\$endif$%
 }
 
 
