@@ -1,4 +1,6 @@
-# vitae (development version)
+# vitae 0.5.1
+
+# vitae 0.5.0
 
 ## Improvements
 
