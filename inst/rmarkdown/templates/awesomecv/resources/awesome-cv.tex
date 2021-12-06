@@ -20,10 +20,16 @@
 % CONFIGURATIONS
 %-------------------------------------------------------------------------------
 % A4 paper size by default, use 'letterpaper' for US letter
-\documentclass[11pt, a4paper]{awesome-cv}
+\documentclass[$if(fontsize)$$fontsize$$else$11pt$endif$,$if(lang)$$babel-lang$,$endif$$if(papersize)$$papersize$$else$a4paper$endif$,$for(classoption)$$classoption$$sep$,$endfor$]{awesome-cv}
 
 % Configure page margins with geometry
+$if(geometry)$
+\usepackage[$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
+$else$
+\usepackage{geometry}
 \geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
+$endif$
+
 
 % Specify the location of the included fonts
 \fontdir[fonts/]

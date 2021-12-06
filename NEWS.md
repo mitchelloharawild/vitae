@@ -4,7 +4,8 @@
 
 * Fixed issue with bibliographies containing 'other-ids' (#174).
 * Fixed encoding issues with `bibliography_entries()` on Windows (#158).
-* Add fallback entry formatter as tibble
+* Add fallback entry formatter as tibble.
+* Added document and geometry options for `vitae::awesomecv` (#186).
 
 # vitae 0.4.2
 
