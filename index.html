@@ -26,6 +26,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -38,18 +40,12 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">vitae</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.2.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.4.2.9000</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li>
   <a href="articles/vitae.html">Get started</a>
 </li>
@@ -77,7 +73,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/mitchelloharawild/vitae/">
+  <a href="https://github.com/mitchelloharawild/vitae/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -94,43 +90,42 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-<div id="vitae-" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#vitae-" class="anchor"></a>vitae <img src="reference/figures/logo.png" align="right">
+<div class="section level1">
+<div class="page-header"><h1 id="vitae-">vitae <img src="reference/figures/logo.png" align="right"><a class="anchor" aria-label="anchor" href="#vitae-"></a>
 </h1></div>
 <p><em>/ˈviːteɪ/</em></p>
-<p><a href="https://cran.r-project.org/package=vitae"><img src="https://www.r-pkg.org/badges/version/vitae" alt="CRAN status"></a> <img src="https://github.com/mitchelloharawild/vitae/workflows/R-CMD-check/badge.svg" alt="Check status"><a href="https://lifecycle.r-lib.org/articles/stages.html#maturing"><img src="https://img.shields.io/badge/lifecycle-maturing-blue.svg" alt="Lifecycle: maturing"></a> <a href="https://cran.r-project.org/package=vitae"><img src="https://cranlogs.r-pkg.org/badges/vitae" alt="Downloads"></a></p>
-<div id="templates-and-tools-for-making-a-résumécv" class="section level2">
-<h2 class="hasAnchor">
-<a href="#templates-and-tools-for-making-a-r%C3%A9sum%C3%A9cv" class="anchor"></a>Templates and tools for making a Résumé/CV</h2>
+<p><a href="https://cran.r-project.org/package=vitae" class="external-link"><img src="https://www.r-pkg.org/badges/version/vitae" alt="CRAN status"></a> <img src="https://github.com/mitchelloharawild/vitae/workflows/R-CMD-check/badge.svg" alt="Check status"><a href="https://lifecycle.r-lib.org/articles/stages.html#maturing" class="external-link"><img src="https://img.shields.io/badge/lifecycle-maturing-blue.svg" alt="Lifecycle: maturing"></a> <a href="https://cran.r-project.org/package=vitae" class="external-link"><img src="https://cranlogs.r-pkg.org/badges/vitae" alt="Downloads"></a></p>
+<div class="section level2">
+<h2 id="templates-and-tools-for-making-a-résumécv">Templates and tools for making a Résumé/CV<a class="anchor" aria-label="anchor" href="#templates-and-tools-for-making-a-r%C3%A9sum%C3%A9cv"></a>
+</h2>
 <p>The <em>vitae</em> package makes creating and maintaining a Résumé or CV with R Markdown simple. It provides a collection of LaTeX and HTML templates, with helpful functions to add content to the documents.</p>
 </div>
-<div id="installation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h2>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
 <p>You can install the <strong>release</strong> version from CRAN.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">'vitae'</span><span class="op">)</span></code></pre></div>
-<p>You can install the <strong>development</strong> version from <a href="https://github.com/mitchelloharawild/vitae">GitHub</a>.</p>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">'vitae'</span><span class="op">)</span></code></pre></div>
+<p>You can install the <strong>development</strong> version from <a href="https://github.com/mitchelloharawild/vitae" class="external-link">GitHub</a>.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># install.packages("remotes")</span>
 <span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"mitchelloharawild/vitae"</span><span class="op">)</span></code></pre></div>
-<p>This package requires LaTeX to be installed on your computer. If you’re encountering issues, please check that LaTeX is installed. The <a href="https://github.com/yihui/tinytex">tinytex package</a> makes it easy to setup LaTeX within R:</p>
+<p>This package requires LaTeX to be installed on your computer. If you’re encountering issues, please check that LaTeX is installed. The <a href="https://github.com/yihui/tinytex" class="external-link">tinytex package</a> makes it easy to setup LaTeX within R:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">'tinytex'</span><span class="op">)</span>
-<span class="fu">tinytex</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tinytex/man/install_tinytex.html">install_tinytex</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">'tinytex'</span><span class="op">)</span>
+<span class="fu">tinytex</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tinytex/man/install_tinytex.html" class="external-link">install_tinytex</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="getting-started" class="section level2">
-<h2 class="hasAnchor">
-<a href="#getting-started" class="anchor"></a>Getting started</h2>
+<div class="section level2">
+<h2 id="getting-started">Getting started<a class="anchor" aria-label="anchor" href="#getting-started"></a>
+</h2>
 <p>The <em>vitae</em> package currently supports 6 popular CV templates. You can see some previews of the available templates <a href="#templates">below</a>.</p>
-<p>If you prefer a guided introduction in video form, check out <a href="https://github.com/tallguyjenks">Bryan Jenks</a>’ <a href="https://github.com/freeCodeCamp/freeCodeCamp">freeCodeCamp</a> <a href="https://youtu.be/cMlRAiQUdD8">tech talk</a>: <a href="https://youtu.be/cMlRAiQUdD8"><img src="reference/figures/freecodecamp.jpg"></a></p>
+<p>If you prefer a guided introduction in video form, check out <a href="https://github.com/tallguyjenks" class="external-link">Bryan Jenks</a>’ <a href="https://github.com/freeCodeCamp/freeCodeCamp" class="external-link">freeCodeCamp</a> <a href="https://youtu.be/cMlRAiQUdD8" class="external-link">tech talk</a>: <a href="https://youtu.be/cMlRAiQUdD8" class="external-link"><img src="reference/figures/freecodecamp.jpg"></a></p>
 <p>Creating a new CV with <code>vitae</code> can be done using the RStudio R Markdown template selector: <img src="reference/figures/template_gui.png"></p>
-<p>These templates leverage the strength of rmarkdown to include common information in the YAML header (name, position, social links…) and extended information in the main body. The main body of the CV is written using markdown, and allows for data-driven generation of entries using the <a href="https://pkg.mitchelloharawild.com/vitae/reference/cventries.html"><code>*_entries</code> functions</a>. This allows you to import your working history from other sources (such as ORCID, Google Scholar, or a maintained dataset), and include them programmatically into your CV.</p>
-<p>For example, the <a href="https://github.com/ropensci/rorcid">rorcid package</a> can be used to extract <a href="https://orcid.org/0000-0002-2140-5352">Rob Hyndman</a>’s education history:</p>
+<p>These templates leverage the strength of rmarkdown to include common information in the YAML header (name, position, social links…) and extended information in the main body. The main body of the CV is written using markdown, and allows for data-driven generation of entries using the <a href="https://pkg.mitchelloharawild.com/vitae/reference/cventries.html" class="external-link"><code>*_entries</code> functions</a>. This allows you to import your working history from other sources (such as ORCID, Google Scholar, or a maintained dataset), and include them programmatically into your CV.</p>
+<p>For example, the <a href="https://github.com/ropensci/rorcid" class="external-link">rorcid package</a> can be used to extract <a href="https://orcid.org/0000-0002-2140-5352" class="external-link">Rob Hyndman</a>’s education history:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">orcid_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/do.call.html">do.call</a></span><span class="op">(</span><span class="st">"rbind"</span>,
-  <span class="fu">rorcid</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/rorcid/reference/orcid_educations.html">orcid_educations</a></span><span class="op">(</span><span class="st">"0000-0002-2140-5352"</span><span class="op">)</span><span class="op">$</span><span class="va">`0000-0002-2140-5352`</span><span class="op">$</span><span class="va">`affiliation-group`</span><span class="op">$</span><span class="va">summaries</span>
+<code class="sourceCode R"><span class="va">orcid_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/do.call.html" class="external-link">do.call</a></span><span class="op">(</span><span class="st">"rbind"</span>,
+  <span class="fu">rorcid</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/rorcid/reference/orcid_educations.html" class="external-link">orcid_educations</a></span><span class="op">(</span><span class="st">"0000-0002-2140-5352"</span><span class="op">)</span><span class="op">$</span><span class="va">`0000-0002-2140-5352`</span><span class="op">$</span><span class="va">`affiliation-group`</span><span class="op">$</span><span class="va">summaries</span>
 <span class="op">)</span></code></pre></div>
 <div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co">#&gt; </span></span>
 <span id="cb5-2"><a href="#cb5-2"></a><span class="co">#&gt; Attaching package: 'dplyr'</span></span>
@@ -151,129 +146,140 @@
 <span id="cb5-17"><a href="#cb5-17"></a><span class="co">#&gt; 2                                   Melbourne</span></span></code></pre></div>
 <p>The package provides two types of entries from data, which are <code>detailed_entries</code> and <code>brief_entries</code>. Both functions provide sections for <code>what</code>, <code>when</code>, and <code>with</code>, and the <code>detailed_entries</code> additionally supports <code>where</code> and <code>why</code>. These arguments support operations, so for this example, we have used <code>glue</code> to combine the start and end years for our <code>when</code> input. Excluding any inputs is also okay (as is done for <code>why</code>), it will just be left blank in the CV.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">orcid_data</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="reference/brief_entries.html">detailed_entries</a></span><span class="op">(</span>
+<code class="sourceCode R"><span class="va">orcid_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="fu"><a href="reference/cv_entries.html">detailed_entries</a></span><span class="op">(</span>
     what <span class="op">=</span> <span class="va">`education-summary.role-title`</span>,
-    when <span class="op">=</span> <span class="fu">glue</span><span class="fu">::</span><span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html">glue</a></span><span class="op">(</span><span class="st">"{`education-summary.start-date.year.value`} - {`education-summary.end-date.year.value`}"</span><span class="op">)</span>,
+    when <span class="op">=</span> <span class="fu">glue</span><span class="fu">::</span><span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html" class="external-link">glue</a></span><span class="op">(</span><span class="st">"{`education-summary.start-date.year.value`} - {`education-summary.end-date.year.value`}"</span><span class="op">)</span>,
     with <span class="op">=</span> <span class="va">`education-summary.organization.name`</span>,
     where <span class="op">=</span> <span class="va">`education-summary.organization.address.city`</span>
   <span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/education.png"></p>
-<p>Additional examples of using this package can be found in the slides presented at <a href="https://ozunconf18.ropensci.org/">ozunconf2018</a>: <a href="https://slides.mitchelloharawild.com/vitae/" class="uri">https://slides.mitchelloharawild.com/vitae/</a></p>
+<p>Additional examples of using this package can be found in the slides presented at <a href="https://ozunconf18.ropensci.org/" class="external-link">ozunconf2018</a>: <a href="https://slides.mitchelloharawild.com/vitae/" class="external-link uri">https://slides.mitchelloharawild.com/vitae/</a></p>
 </div>
-<div id="templates" class="section level2">
-<h2 class="hasAnchor">
-<a href="#templates" class="anchor"></a>Templates</h2>
+<div class="section level2">
+<h2 id="templates">Templates<a class="anchor" aria-label="anchor" href="#templates"></a>
+</h2>
 <p>There are currently 6 templates available in this package:</p>
 <table class="table">
 <thead><tr class="header">
-<th align="left"><a href="https://pkg.mitchelloharawild.com/vitae/reference/awesomecv.html"><strong>vitae::awesomecv</strong></a></th>
-<th align="left"><a href="https://pkg.mitchelloharawild.com/vitae/reference/hyndman.html"><strong>vitae::hyndman</strong></a></th>
+<th align="left"><a href="https://pkg.mitchelloharawild.com/vitae/reference/awesomecv.html" class="external-link"><strong>vitae::awesomecv</strong></a></th>
+<th align="left"><a href="https://pkg.mitchelloharawild.com/vitae/reference/hyndman.html" class="external-link"><strong>vitae::hyndman</strong></a></th>
 </tr></thead>
 <tbody><tr class="odd">
-<td align="left"><a href="https://pkg.mitchelloharawild.com/vitae/reference/awesomecv.html"><img src="reference/figures/preview-awesomecv.png" width="415" alt="Preview of awesomecv"></a></td>
-<td align="left"><a href="https://pkg.mitchelloharawild.com/vitae/reference/hyndman.html"><img src="reference/figures/preview-hyndman.png" width="415" alt="Preview of hyndman"></a></td>
+<td align="left"><a href="https://pkg.mitchelloharawild.com/vitae/reference/awesomecv.html" class="external-link"><img src="reference/figures/preview-awesomecv.png" width="415" alt="Preview of awesomecv"></a></td>
+<td align="left"><a href="https://pkg.mitchelloharawild.com/vitae/reference/hyndman.html" class="external-link"><img src="reference/figures/preview-hyndman.png" width="415" alt="Preview of hyndman"></a></td>
 </tr></tbody>
 </table>
 <table class="table">
 <thead><tr class="header">
-<th align="left"><a href="https://pkg.mitchelloharawild.com/vitae/reference/latexcv.html"><strong>vitae::latexcv</strong></a></th>
-<th align="left"><a href="https://pkg.mitchelloharawild.com/vitae/reference/markdowncv.html"><strong>vitae::markdowncv</strong></a></th>
+<th align="left"><a href="https://pkg.mitchelloharawild.com/vitae/reference/latexcv.html" class="external-link"><strong>vitae::latexcv</strong></a></th>
+<th align="left"><a href="https://pkg.mitchelloharawild.com/vitae/reference/markdowncv.html" class="external-link"><strong>vitae::markdowncv</strong></a></th>
 </tr></thead>
 <tbody><tr class="odd">
-<td align="left"><a href="https://pkg.mitchelloharawild.com/vitae/reference/latexcv.html"><img src="reference/figures/preview-latexcv.png" width="415" alt="Preview of latexcv"></a></td>
-<td align="left"><a href="https://pkg.mitchelloharawild.com/vitae/reference/markdowncv.html"><img src="reference/figures/preview-markdowncv.png" width="415" alt="Preview of markdowncv"></a></td>
+<td align="left"><a href="https://pkg.mitchelloharawild.com/vitae/reference/latexcv.html" class="external-link"><img src="reference/figures/preview-latexcv.png" width="415" alt="Preview of latexcv"></a></td>
+<td align="left"><a href="https://pkg.mitchelloharawild.com/vitae/reference/markdowncv.html" class="external-link"><img src="reference/figures/preview-markdowncv.png" width="415" alt="Preview of markdowncv"></a></td>
 </tr></tbody>
 </table>
 <table class="table">
 <thead><tr class="header">
-<th align="left"><a href="https://pkg.mitchelloharawild.com/vitae/reference/moderncv.html"><strong>vitae::moderncv</strong></a></th>
-<th align="left"><a href="https://pkg.mitchelloharawild.com/vitae/reference/twentyseconds.html"><strong>vitae::twentyseconds</strong></a></th>
+<th align="left"><a href="https://pkg.mitchelloharawild.com/vitae/reference/moderncv.html" class="external-link"><strong>vitae::moderncv</strong></a></th>
+<th align="left"><a href="https://pkg.mitchelloharawild.com/vitae/reference/twentyseconds.html" class="external-link"><strong>vitae::twentyseconds</strong></a></th>
 </tr></thead>
 <tbody><tr class="odd">
-<td align="left"><a href="https://pkg.mitchelloharawild.com/vitae/reference/moderncv.html"><img src="reference/figures/preview-moderncv.png" width="415" alt="Preview of moderncv"></a></td>
-<td align="left"><a href="https://pkg.mitchelloharawild.com/vitae/reference/twentyseconds.html"><img src="reference/figures/preview-twentyseconds.png" width="415" alt="Preview of twentyseconds"></a></td>
+<td align="left"><a href="https://pkg.mitchelloharawild.com/vitae/reference/moderncv.html" class="external-link"><img src="reference/figures/preview-moderncv.png" width="415" alt="Preview of moderncv"></a></td>
+<td align="left"><a href="https://pkg.mitchelloharawild.com/vitae/reference/twentyseconds.html" class="external-link"><img src="reference/figures/preview-twentyseconds.png" width="415" alt="Preview of twentyseconds"></a></td>
 </tr></tbody>
 </table>
-<p>Extending the package to add new templates is a somewhat simple process (details in the <a href="https://pkg.mitchelloharawild.com/vitae/articles/extending.html">creating vitae templates</a> vignette).</p>
+<p>Extending the package to add new templates is a somewhat simple process (details in the <a href="https://pkg.mitchelloharawild.com/vitae/articles/extending.html" class="external-link">creating vitae templates</a> vignette).</p>
 </div>
-<div id="examples-of-using-vitae" class="section level2">
-<h2 class="hasAnchor">
-<a href="#examples-of-using-vitae" class="anchor"></a>Examples of using vitae</h2>
+<div class="section level2">
+<h2 id="examples-of-using-vitae">Examples of using vitae<a class="anchor" aria-label="anchor" href="#examples-of-using-vitae"></a>
+</h2>
 <ul>
-<li><a href="https://github.com/mitchelloharawild/CV">Mitchell O’Hara-Wild</a></li>
-<li><a href="https://github.com/robjhyndman/CV">Rob Hyndman</a></li>
-<li><a href="https://github.com/Aariq/curriculum-vitae">Eric R. Scott</a></li>
-<li><a href="http://chrisumphlett.com/posts/vitae-package/">Chris Umphlett</a></li>
-<li><a href="https://github.com/natbprice/cv">Nat Price</a></li>
+<li><a href="https://github.com/mitchelloharawild/CV" class="external-link">Mitchell O’Hara-Wild</a></li>
+<li><a href="https://github.com/robjhyndman/CV" class="external-link">Rob Hyndman</a></li>
+<li><a href="https://github.com/Aariq/curriculum-vitae" class="external-link">Eric R. Scott</a></li>
+<li><a href="http://chrisumphlett.com/posts/vitae-package/" class="external-link">Chris Umphlett</a></li>
+<li><a href="https://github.com/natbprice/cv" class="external-link">Nat Price</a></li>
 <li>
-<a href="https://github.com/seabbs/cv">Sam Abbott</a> (automatic deployment!)</li>
+<a href="https://github.com/seabbs/cv" class="external-link">Sam Abbott</a> (automatic deployment!)</li>
 <li>
-<a href="https://github.com/jooyoungseo/jy_CV">JooYoung Seo</a> (printing multiple bibliographic entries according to a given csl file)</li>
-<li><a href="https://github.com/diogocamacho/CV">Diogo M. Camacho</a></li>
+<a href="https://github.com/jooyoungseo/jy_CV" class="external-link">JooYoung Seo</a> (printing multiple bibliographic entries according to a given csl file)</li>
+<li><a href="https://github.com/diogocamacho/CV" class="external-link">Diogo M. Camacho</a></li>
 <li>
-<a href="https://github.com/HanZhang-psych/CV">Han Zhang</a> (custom csl files)</li>
-<li><a href="https://github.com/tallguyjenks/CV">Bryan Jenks</a></li>
-<li><a href="https://github.com/loreabad6/R-CV">Lorena Abad</a></li>
+<a href="https://github.com/HanZhang-psych/CV" class="external-link">Han Zhang</a> (custom csl files)</li>
+<li><a href="https://github.com/tallguyjenks/CV" class="external-link">Bryan Jenks</a></li>
+<li><a href="https://github.com/loreabad6/R-CV" class="external-link">Lorena Abad</a></li>
 <li>
-<a href="https://github.com/mlampros/My.CVitae">Lampros Sp. Mouselimis</a> (using Github Actions and a docker image to programmatically generate the CV file)</li>
-<li><a href="https://github.com/akirosingh/CV">Adam Kirosingh</a></li>
-<li><a href="https://github.com/mlombardi6/awesome-template">Marco Lombardi</a></li>
+<a href="https://github.com/mlampros/My.CVitae" class="external-link">Lampros Sp. Mouselimis</a> (using Github Actions and a docker image to programmatically generate the CV file)</li>
+<li><a href="https://github.com/akirosingh/CV" class="external-link">Adam Kirosingh</a></li>
+<li><a href="https://github.com/mlombardi6/awesome-template" class="external-link">Marco Lombardi</a></li>
 </ul>
 <p>Add your vitae to the list using a PR.</p>
 <hr>
-<p>Please note that the ‘vitae’ project is released with a <a href="https://github.com/mitchelloharawild/vitae/blob/master/.github/CODE_OF_CONDUCT.md">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
-<p>The vitae project began as at <a href="https://ropensci.org/">rOpenSci</a>’s <a href="https://ozunconf18.ropensci.org/">OzUnconf 2018</a>. A big thank you to rOpenSci and the event organisers for their work, which has played a big role in the formation of this package.</p>
+<p>Please note that the ‘vitae’ project is released with a <a href="https://github.com/mitchelloharawild/vitae/blob/master/.github/CODE_OF_CONDUCT.md" class="external-link">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
+<p>The vitae project began as at <a href="https://ropensci.org/" class="external-link">rOpenSci</a>’s <a href="https://ozunconf18.ropensci.org/" class="external-link">OzUnconf 2018</a>. A big thank you to rOpenSci and the event organisers for their work, which has played a big role in the formation of this package.</p>
 </div>
 </div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
-<h2>Links</h2>
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=vitae">https://​cloud.r-project.org/​package=vitae</a>
-</li>
-<li>Browse source code at <br><a href="https://github.com/mitchelloharawild/vitae/">https://​github.com/​mitchelloharawild/​vitae/​</a>
-</li>
-<li>Report a bug at <br><a href="https://github.com/mitchelloharawild/vitae/issues">https://​github.com/​mitchelloharawild/​vitae/​issues</a>
-</li>
+<li><a href="https://cloud.r-project.org/package=vitae" class="external-link">View on CRAN</a></li>
+<li><a href="https://github.com/mitchelloharawild/vitae/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/mitchelloharawild/vitae/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
+
 <div class="license">
-<h2>License</h2>
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
-<li><a href="https://www.r-project.org/Licenses/GPL-3">GPL-3</a></li>
+<li><a href="https://www.r-project.org/Licenses/GPL-3" class="external-link">GPL-3</a></li>
 </ul>
 </div>
+
 <div class="community">
-<h2>Community</h2>
+<h2 data-toc-skip>Community</h2>
 <ul class="list-unstyled">
 <li><a href="CONTRIBUTING.html">Contributing guide</a></li>
 <li><a href="CODE_OF_CONDUCT.html">Code of conduct</a></li>
 </ul>
 </div>
-<div class="developers">
-<h2>Developers</h2>
+
+<div class="citation">
+<h2 data-toc-skip>Citation</h2>
 <ul class="list-unstyled">
-<li>
-<a href="http://mitchelloharawild.com">Mitchell O'Hara-Wild</a> <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0001-6729-7695" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
-<li>
-<a href="http://robjhyndman.com">Rob Hyndman</a> <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0002-2140-5352" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
-<li><a href="authors.html">All authors...</a></li>
+<li><a href="authors.html#citation">Citing vitae</a></li>
 </ul>
 </div>
+
+<div class="developers">
+<h2 data-toc-skip>Developers</h2>
+<ul class="list-unstyled">
+<li>
+<a href="http://mitchelloharawild.com" class="external-link">Mitchell O'Hara-Wild</a> <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0001-6729-7695" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>
+<a href="http://robjhyndman.com" class="external-link">Rob Hyndman</a> <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0002-2140-5352" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li><a href="authors.html">More about authors...</a></li>
+</ul>
+</div>
+
+
 
   </div>
 </div>
 
 
       <footer><div class="copyright">
-  <p>Developed by <a href="http://mitchelloharawild.com">Mitchell O'Hara-Wild</a>, <a href="http://robjhyndman.com">Rob Hyndman</a>.</p>
+  <p></p>
+<p>Developed by <a href="http://mitchelloharawild.com" class="external-link">Mitchell O’Hara-Wild</a>, <a href="http://robjhyndman.com" class="external-link">Rob Hyndman</a>.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
 </div>
 
       </footer>
@@ -281,6 +287,8 @@
 
   
 
+
+  
 
   </body>
 </html>
