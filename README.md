@@ -64,7 +64,7 @@ information in the YAML header (name, position, social links…) and
 extended information in the main body. The main body of the CV is
 written using markdown, and allows for data-driven generation of entries
 using the [`*_entries`
-functions](https://pkg.mitchelloharawild.com/vitae/reference/cventries.html).
+functions](https://pkg.mitchelloharawild.com/vitae/reference/cv_entries.html).
 This allows you to import your working history from other sources (such
 as ORCID, Google Scholar, or a maintained dataset), and include them
 programmatically into your CV.
@@ -147,7 +147,7 @@ vignette).
 -   [Mitchell O’Hara-Wild](https://github.com/mitchelloharawild/CV)
 -   [Rob Hyndman](https://github.com/robjhyndman/CV)
 -   [Eric R. Scott](https://github.com/Aariq/curriculum-vitae)
--   [Chris Umphlett](http://chrisumphlett.com/posts/vitae-package/)
+-   [Chris Umphlett](https://chrisumphlett.com/posts/vitae-package/)
 -   [Nat Price](https://github.com/natbprice/cv)
 -   [Sam Abbott](https://github.com/seabbs/cv) (automatic deployment!)
 -   [JooYoung Seo](https://github.com/jooyoungseo/jy_CV) (printing

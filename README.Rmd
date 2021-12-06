@@ -61,7 +61,7 @@ If you prefer a guided introduction in video form, check out [Bryan Jenks](https
 Creating a new CV with `vitae` can be done using the RStudio R Markdown template selector:
 ![](man/figures/template_gui.png)
 
-These templates leverage the strength of rmarkdown to include common information in the YAML header (name, position, social links...) and extended information in the main body. The main body of the CV is written using markdown, and allows for data-driven generation of entries using the [`*_entries` functions](https://pkg.mitchelloharawild.com/vitae/reference/cventries.html). This allows you to import your working history from other sources (such as ORCID, Google Scholar, or a maintained dataset), and include them programmatically into your CV.
+These templates leverage the strength of rmarkdown to include common information in the YAML header (name, position, social links...) and extended information in the main body. The main body of the CV is written using markdown, and allows for data-driven generation of entries using the [`*_entries` functions](https://pkg.mitchelloharawild.com/vitae/reference/cv_entries.html). This allows you to import your working history from other sources (such as ORCID, Google Scholar, or a maintained dataset), and include them programmatically into your CV.
 
 For example, the [rorcid package](https://github.com/ropensci/rorcid) can be used to extract [Rob Hyndman](https://orcid.org/0000-0002-2140-5352)'s education history:
 
@@ -126,7 +126,7 @@ Extending the package to add new templates is a somewhat simple process (details
 - [Mitchell O'Hara-Wild](https://github.com/mitchelloharawild/CV)
 - [Rob Hyndman](https://github.com/robjhyndman/CV)
 - [Eric R. Scott](https://github.com/Aariq/curriculum-vitae)
-- [Chris Umphlett](http://chrisumphlett.com/posts/vitae-package/)
+- [Chris Umphlett](https://chrisumphlett.com/posts/vitae-package/)
 - [Nat Price](https://github.com/natbprice/cv)
 - [Sam Abbott](https://github.com/seabbs/cv) (automatic deployment!)
 - [JooYoung Seo](https://github.com/jooyoungseo/jy_CV) (printing multiple bibliographic entries according to a given csl file)
