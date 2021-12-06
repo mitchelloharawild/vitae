@@ -22,6 +22,7 @@
 #' # Date interval
 #' csl_date(date_parts = list(list(2020,03,05), list(2020,08,25)))
 #'
+#' @keywords internal
 #' @export
 csl_date <- function(date_parts = list(), season = NULL, circa = NULL, literal = NULL, raw = NULL, edtf = NULL) {
   x <- list(`date-parts` = date_parts, season = season, circa = circa,

@@ -13,6 +13,7 @@
 #' @seealso
 #' <https://citeproc-js.readthedocs.io/en/latest/csl-json/markup.html#name-fields>
 #'
+#' @keywords internal
 #' @export
 csl_name <- function(family = NULL, given = NULL, dropping_particle = NULL,
                      non_dropping_particle = NULL, suffix = NULL,
