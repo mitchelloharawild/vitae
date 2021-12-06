@@ -147,7 +147,6 @@ vignette).
 -   [Mitchell O’Hara-Wild](https://github.com/mitchelloharawild/CV)
 -   [Rob Hyndman](https://github.com/robjhyndman/CV)
 -   [Eric R. Scott](https://github.com/Aariq/curriculum-vitae)
--   [Chris Umphlett](https://chrisumphlett.com/posts/vitae-package/)
 -   [Nat Price](https://github.com/natbprice/cv)
 -   [Sam Abbott](https://github.com/seabbs/cv) (automatic deployment!)
 -   [JooYoung Seo](https://github.com/jooyoungseo/jy_CV) (printing

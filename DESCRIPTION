@@ -33,7 +33,6 @@ License: GPL-3
 Encoding: UTF-8
 BugReports: https://github.com/mitchelloharawild/vitae/issues
 URL: https://pkg.mitchelloharawild.com/vitae/, https://github.com/mitchelloharawild/vitae
-LazyData: true
 Roxygen: list(markdown = TRUE, roclets=c('rd', 'collate', 'namespace'))
 RoxygenNote: 7.1.2
 VignetteBuilder: knitr
