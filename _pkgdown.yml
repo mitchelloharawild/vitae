@@ -9,8 +9,12 @@ reference:
   desc: >
     CV templates made available in the vitae package.
   contents:
-    - cv_formats
-    - cv_document
+    - awesomecv
+    - hyndman
+    - latexcv
+    - markdowncv
+    - moderncv
+    - twentyseconds
 - title: Entries
   desc: >
     Include your experiencies, skills, achievements and publications with these functions.
