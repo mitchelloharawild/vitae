@@ -24,3 +24,4 @@ cv_document(
 This output format provides support for including LaTeX dependencies and
 bibliography entries in extension of the \code{rmarkdown::pdf_document()} format.
 }
+\keyword{internal}
