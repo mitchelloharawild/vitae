@@ -13,6 +13,9 @@
 % Adapted to be an Rmarkdown template by Rob J Hyndman
 % 23 November 2018
 %
+% Adapted to use the skills section by Jay Sumners
+% 18 December 2021
+%
 % License:
 % The MIT License (see included LICENSE file)
 %
@@ -111,9 +114,12 @@ $if(linkedin)$\cvlinkedin{\href{https://www.linkedin.com/in/$linkedin$}{$linkedi
 
 % Skill bar section, each skill must have a value between 0 an 6 (float)
 %\skills{{pursuer of rabbits/5.8},{good manners/4},{outgoing/4.3},{polite/4},{Java/0.01}}
+\skills{$if(skills)$$skills$$endif$}
 
 % Skill text section, each skill must have a value between 0 an 6
+% TODO: Not implemented yet as it will force printing profile section regardless of data.
 %\skillstext{{lovely/4},{narcissistic/3}}
+%\skillstext{$if(skillstext)$$skillstext$$endif$}
 
 \makeprofile % Print the sidebar
 
