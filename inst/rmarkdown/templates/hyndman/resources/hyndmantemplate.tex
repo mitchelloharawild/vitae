@@ -17,6 +17,13 @@ $else$
 \definecolor{headcolor}{HTML}{990000}
 $endif$
 
+% Change headboxcolor color to $headcolor$
+$if(headboxcolor)$
+\definecolor{headboxcolor}{HTML}{$headboxcolor$}
+$else$
+\definecolor{headboxcolor}{HTML}{$headcolor$}
+$endif$
+
 \usepackage{ifxetex,ifluatex}
 \usepackage{fixltx2e} % provides \textsubscript
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
@@ -204,7 +211,7 @@ $endfor$
 \def\maketitle{
 \thispagestyle{plain}
 \vspace*{-1.4cm}
-\shadebox[0.9]{\headerboxwidth}{\sf\color{headcolor}\hfil
+\shadebox[0.9]{\headerboxwidth}{\sf\color{headboxcolor}\hfil
 \hbox to 0.98\textwidth{\begin{tabular}{l}
 \\[-0.3cm]
 \LARGE\textbf{\@name}
