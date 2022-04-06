@@ -73,7 +73,12 @@ https://github.com/posquit0/Awesome-CV</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">awesomecv</span><span class="op">(</span><span class="va">...</span>, latex_engine <span class="op">=</span> <span class="st">"xelatex"</span>, page_total <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">awesomecv</span><span class="op">(</span>
+  <span class="va">...</span>,
+  latex_engine <span class="op">=</span> <span class="st">"xelatex"</span>,
+  page_total <span class="op">=</span> <span class="cn">FALSE</span>,
+  show_footer <span class="op">=</span> <span class="cn">TRUE</span>
+<span class="op">)</span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -85,6 +90,8 @@ https://github.com/posquit0/Awesome-CV</p>
 "pdflatex", "lualatex", "xelatex" and "tectonic".</p></dd>
 <dt>page_total</dt>
 <dd><p>If TRUE, the total number of pages is shown in the footer.</p></dd>
+<dt>show_footer</dt>
+<dd><p>If TRUE, a footer showing your name, document name, and page number.</p></dd>
 </dl></div>
     <div id="value">
     <h2>Value</h2>
