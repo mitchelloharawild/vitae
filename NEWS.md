@@ -1,5 +1,9 @@
 # vitae (development version)
 
+## Improvements
+
+* Added option to remove footer from awesomecv template (#182, #200).
+
 # vitae 0.5.1
 
 ## Improvements

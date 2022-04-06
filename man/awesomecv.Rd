@@ -4,7 +4,12 @@
 \alias{awesomecv}
 \title{Awesome CV template}
 \usage{
-awesomecv(..., latex_engine = "xelatex", page_total = FALSE)
+awesomecv(
+  ...,
+  latex_engine = "xelatex",
+  page_total = FALSE,
+  show_footer = TRUE
+)
 }
 \arguments{
 \item{\dots}{Arguments passed to \code{\link[vitae]{cv_document}}.}
@@ -13,6 +18,8 @@ awesomecv(..., latex_engine = "xelatex", page_total = FALSE)
 "pdflatex", "lualatex", "xelatex" and "tectonic".}
 
 \item{page_total}{If TRUE, the total number of pages is shown in the footer.}
+
+\item{show_footer}{If TRUE, a footer showing your name, document name, and page number.}
 }
 \value{
 An R Markdown output format object.
