@@ -80,6 +80,9 @@ $if(email)$\cvmail{$email$}$else$\cvmail{}$endif$ % Email address
 $if(twitter)$\cvtwitter{\href{https://twitter.com/$twitter$}{$twitter$}}$else$\cvtwitter{}$endif$
 $if(github)$\cvgithub{\href{https://github.com/$github$}{$github$}}$else$\cvgithub{}$endif$
 $if(linkedin)$\cvlinkedin{\href{https://www.linkedin.com/in/$linkedin$}{$linkedin$}}$else$\cvlinkedin{}$endif$
+$if(orcid)$\cvorcid{\href{https://orcid.org/$orcid$}{$orcid$}}$else$\cvorcid{}$endif$
+$if(scholar)$\cvscholar{\href{https://scholar.google.com/citations?user=$scholar$}{$scholar$}}$else$\cvscholar{}$endif$
+$if(researchgate)$\cvresearchgate{\href{https://www.researchgate.net/profile/$researchgate$}{$researchgate$}}$else$\cvresearchgate{}$endif$
 
 \lfoot{\sf $if(docname)$$docname$$else$Curriculum Vitae$endif$: $name$$if(surname)$ $surname$$endif$}
 \rfoot{\sf\thepage}
