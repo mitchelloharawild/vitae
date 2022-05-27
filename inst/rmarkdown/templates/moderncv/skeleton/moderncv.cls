@@ -273,6 +273,7 @@
       \ifthenelse{\equal{#1}{bitbucket}}{\collectionadd[bitbucket]{socials}{\protect\httpslink[#3]{www.bitbucket.org/#3}}}   {}%
       \ifthenelse{\equal{#1}{orcid}}   {\collectionadd[orcid]{socials}   {\protect\httpslink[#3]{orcid.org/#3}}}   {}%
       \ifthenelse{\equal{#1}{researchgate}}   {\collectionadd[researchgate]{socials}   {\protect\httpslink[#3]{www.researchgate.net/profile/#3}}}   {}%
+      \ifthenelse{\equal{#1}{googlescholar}}   {\collectionadd[googlescholar]{socials}   {\protect\httpslink[#3]{scholar.google.com/citations?user=#3}}}   {}%
       \ifthenelse{\equal{#1}{researcherid}}   {\collectionadd[researcherid]{socials}   {\protect\httpslink[#3]{www.researcherid.com/rid/#3}}}   {}%
     }
     {\collectionadd[#1]{socials}{\protect\httplink[#3]{#2}}}}
@@ -321,7 +322,7 @@
 \newcommand*{\orcidsocialsymbol}   {}
 \newcommand*{\researchgatesocialsymbol}{}
 \newcommand*{\researcheridsocialsymbol}{}
-\newcommand*{\googlescholarsocialsymbol}{}
+\newcommand*{\googlescholarsocialsymbol}{\faGoogle~}
 \newcommand*{\telegramsocialsymbol}{}
 \newcommand*{\whatsappsocialsymbol}{}
 \newcommand*{\signalsocialsymbol}{}
@@ -370,7 +371,7 @@
 % usage: \moderncvcolor{<color scheme name>}
 \newcommand*{\moderncvcolor}[1]{%
   \RequirePackage{moderncvcolor#1}}
-  
+
 % loads an icons set
 % usage: \moderncvicons{<icon set name>}
 \newcommand*{\moderncvicons}[1]{%
