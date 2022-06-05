@@ -1,12 +1,5 @@
-%% Start of file `awesome-cv.cls'.
-% Awesome CV Class File
-%
-% This class has been downloaded from:
-% https://github.com/posquit0/Awesome-CV
-%
-% Author:
-% Claud D. Park <posquit0.bj@gmail.com>
-% http://www.posquit0.com
+%% Start of file `plain-cv.cls'.
+% Plain CV Class File
 %
 % Notes:
 % 1) This class file defines the structure and layout of the template file (cv.tex, resume.tex).
@@ -21,7 +14,7 @@
 %-------------------------------------------------------------------------------
 %                Identification
 %-------------------------------------------------------------------------------
-\ProvidesClass{awesome-cv}[2017/02/05 v1.6.1 Awesome Curriculum Vitae Class]
+\ProvidesClass{plain-cv}[2017/02/05 v1.6.1 Plain Curriculum Vitae Class]
 \NeedsTeXFormat{LaTeX2e}
 
 
@@ -66,9 +59,9 @@
 \RequirePackage{etoolbox}
 % Needed to change line spacing in specific environment
 \RequirePackage{setspace}
-% Needed to use icons from font-awesome
-% (https://github.com/posquit0/latex-fontawesome)
-\RequirePackage{fontawesome}
+% Needed to use icons from font-plain
+% (https://github.com/posquit0/latex-fontplain)
+\RequirePackage{fontplain}
 % Add support of academia icons
 \usepackage{academicons}
 % Default font
@@ -134,22 +127,22 @@
 \colorlet{text}{darkgray}
 \colorlet{graytext}{gray}
 \colorlet{lighttext}{lightgray}
-% Awesome colors
-\definecolor{awesome-emerald}{HTML}{00A388}
-\definecolor{awesome-skyblue}{HTML}{0395DE}
-\definecolor{awesome-red}{HTML}{000000}
-\definecolor{awesome-pink}{HTML}{EF4089}
-\definecolor{awesome-orange}{HTML}{FF6138}
-\definecolor{awesome-nephritis}{HTML}{27AE60}
-\definecolor{awesome-concrete}{HTML}{95A5A6}
-\definecolor{awesome-darknight}{HTML}{131A28}
-\colorlet{awesome}{awesome-red}
+% Plain colors
+\definecolor{plain-emerald}{HTML}{00A388}
+\definecolor{plain-skyblue}{HTML}{0395DE}
+\definecolor{plain-red}{HTML}{000000}
+\definecolor{plain-pink}{HTML}{EF4089}
+\definecolor{plain-orange}{HTML}{FF6138}
+\definecolor{plain-nephritis}{HTML}{27AE60}
+\definecolor{plain-concrete}{HTML}{95A5A6}
+\definecolor{plain-darknight}{HTML}{131A28}
+\colorlet{plain}{plain-red}
 
 % Boolean value to switch section color highlighting
 \newbool{acvSectionColorHighlight}
 \setbool{acvSectionColorHighlight}{true}
 
-% Awesome section color
+% Plain section color
 \def\@sectioncolor#1#2#3{%
   \ifbool{acvSectionColorHighlight}{#1#2#3}{#1#2#3}%
 }
@@ -162,7 +155,7 @@
 % For fundamental structures
 \newcommand*{\headerfirstnamestyle}[1]{{\Huge\color{graytext} #1}}
 \newcommand*{\headerlastnamestyle}[1]{{\Huge\bfseries\color{text} #1}}
-\newcommand*{\headerpositionstyle}[1]{{\scshape\color{awesome} #1}}
+\newcommand*{\headerpositionstyle}[1]{{\scshape\color{plain} #1}}
 \newcommand*{\headeraddressstyle}[1]{{\itshape\color{lighttext} #1}}
 \newcommand*{\headersocialstyle}[1]{{\color{text} #1}}
 \newcommand*{\headerquotestyle}[1]{{\itshape\color{darktext} #1}}
@@ -175,21 +168,21 @@
 \newcommand*{\entrytitlestyle}[1]{{\bfseries\color{darktext} #1}}
 \newcommand*{\entrypositionstyle}[1]{{\slshape\color{graytext} #1}}
 \newcommand*{\entrydatestyle}[1]{{\slshape\color{graytext} #1}}
-\newcommand*{\entrylocationstyle}[1]{{\slshape\color{awesome} #1}}
+\newcommand*{\entrylocationstyle}[1]{{\slshape\color{plain} #1}}
 \newcommand*{\descriptionstyle}[1]{{\upshape\color{text} #1}}
 
 % For elements of subentry
 \newcommand*{\subentrytitlestyle}[1]{{\mdseries\color{graytext} #1}}
 \newcommand*{\subentrypositionstyle}[1]{{\scshape\color{graytext} #1}}
 \newcommand*{\subentrydatestyle}[1]{{\slshape\color{graytext} #1}}
-\newcommand*{\subentrylocationstyle}[1]{{\slshape\color{awesome} #1}}
+\newcommand*{\subentrylocationstyle}[1]{{\slshape\color{plain} #1}}
 \newcommand*{\subdescriptionstyle}[1]{{\upshape\color{text} #1}}
 
 % For elements of honor
 \newcommand*{\honortitlestyle}[1]{{\color{graytext} #1}}
 \newcommand*{\honorpositionstyle}[1]{{\bfseries\color{darktext} #1}}
 \newcommand*{\honordatestyle}[1]{{\color{graytext} #1}}
-\newcommand*{\honorlocationstyle}[1]{{\slshape\color{awesome} #1}}
+\newcommand*{\honorlocationstyle}[1]{{\slshape\color{plain} #1}}
 
 % For elements of skill
 \newcommand*{\skilltypestyle}[1]{{\bfseries\color{darktext} #1}}

@@ -1,14 +1,6 @@
 %!TEX TS-program = xelatex
 %!TEX encoding = UTF-8 Unicode
-% Awesome CV LaTeX Template for CV/Resume
-%
-% This template has been downloaded from:
-% https://github.com/posquit0/Awesome-CV
-%
-% Author:
-% Claud D. Park <posquit0.bj@gmail.com>
-% http://www.posquit0.com
-%
+% Plain CV LaTeX Template for CV/Resume
 %
 % Adapted to be an Rmarkdown template by Mitchell O'Hara-Wild
 % 23 November 2018
@@ -20,7 +12,7 @@
 % CONFIGURATIONS
 %-------------------------------------------------------------------------------
 % A4 paper size by default, use 'letterpaper' for US letter
-\documentclass[$if(fontsize)$$fontsize$$else$11pt$endif$,$if(lang)$$babel-lang$,$endif$$if(papersize)$$papersize$$else$a4paper$endif$,$for(classoption)$$classoption$$sep$,$endfor$]{awesome-cv}
+\documentclass[$if(fontsize)$$fontsize$$else$11pt$endif$,$if(lang)$$babel-lang$,$endif$$if(papersize)$$papersize$$else$a4paper$endif$,$for(classoption)$$classoption$$sep$,$endfor$]{plain-cv}
 
 % Configure page margins with geometry
 $if(geometry)$
@@ -35,13 +27,13 @@ $endif$
 \fontdir[fonts/]
 
 % Color for highlights
-% Awesome Colors: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange
-%                 awesome-nephritis, awesome-concrete, awesome-darknight
+% Plain Colors: plain-emerald, plain-skyblue, plain-red, plain-pink, plain-orange
+%                 plain-nephritis, plain-concrete, plain-darknight
 
 $if(headcolor)$
-\definecolor{awesome}{HTML}{$headcolor$}
+\definecolor{plain}{HTML}{$headcolor$}
 $else$
-\colorlet{awesome}{awesome-red}
+\colorlet{plain}{plain-red}
 $endif$
 
 % Colors for text
@@ -51,7 +43,7 @@ $endif$
 % \definecolor{graytext}{HTML}{5D5D5D}
 % \definecolor{lighttext}{HTML}{999999}
 
-% Set false if you don't want to highlight section with awesome color
+% Set false if you don't want to highlight section with plain color
 \setbool{acvSectionColorHighlight}{true}
 
 % If you would like to change the social information separator from a pipe (|) to something else
