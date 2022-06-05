@@ -16,10 +16,6 @@
 #' ([@posquit0](https://github.com/posquit0))
 #'
 #' @export
-academicl <- function(...) {
-  template <- system.file("rmarkdown", "templates", "academicl", "resources", "academicl.tex",
-    package = "vitae")
-  set_entry_formats(academicl_cv_entries)
-  copy_supporting_files("academicl")
-  cv_document(..., template = template)
+academicl <- function(..., template = system.file("rmarkdown", "templates", "academicl", "resources", "academicl.tex", package = "vitae")) {
+  pdf_document(..., template = template)
 }
