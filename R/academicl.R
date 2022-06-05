@@ -17,5 +17,5 @@
 #'
 #' @export
 academicl <- function(..., template = system.file("rmarkdown", "templates", "academicl", "resources", "academicl.tex", package = "vitae")) {
-  pdf_document(..., template = template)
+  rmarkdown::pdf_document(..., template = template)
 }
