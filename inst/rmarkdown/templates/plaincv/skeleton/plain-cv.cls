@@ -60,8 +60,8 @@
 % Needed to change line spacing in specific environment
 \RequirePackage{setspace}
 % Needed to use icons from font-plain
-% (https://github.com/posquit0/latex-fontplain)
-\RequirePackage{fontplain}
+% (https://github.com/posquit0/latex-fontawesome)
+\RequirePackage{fontawesome}
 % Add support of academia icons
 \usepackage{academicons}
 % Default font
