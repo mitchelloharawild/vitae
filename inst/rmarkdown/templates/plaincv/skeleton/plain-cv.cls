@@ -64,11 +64,6 @@
 \RequirePackage{fontawesome}
 % Add support of academia icons
 \usepackage{academicons}
-% Default font
-\usepackage{lmodern}
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage{microtype}
 % Needed for the photo ID
 \RequirePackage[skins]{tcolorbox}
 % Needed to deal a paragraphs
