@@ -25,6 +25,15 @@ $endif$
 \usepackage{microtype}
 \urlstyle{same} % disable monospaced font for URLs
 
+$if(fontfamily)$
+\usepackage[$for(fontfamilyoptions)$$fontfamilyoptions$$sep$,$endfor$]{$fontfamily$}
+$else$
+\usepackage{lmodern}
+$endif$
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
 
 % Color for highlights
 % Plain Colors: plain-emerald, plain-skyblue, plain-red, plain-pink, plain-orange
