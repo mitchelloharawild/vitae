@@ -160,6 +160,7 @@ vignette).
     generate the CV file)
 -   [Adam Kirosingh](https://github.com/akirosingh/CV)
 -   [Marco Lombardi](https://github.com/mlombardi6/awesome-template)
+- 	[Jasdeep Singh](https://github.com/jasdeep/JasdeepSinghCV)
 
 Add your vitae to the list using a PR.
 
