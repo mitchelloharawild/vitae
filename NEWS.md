@@ -2,7 +2,8 @@
 
 ## Improvements
 
-* Added option to remove footer from awesomecv template (#182, #200).
+* Added option to remove footer from `awesomecv` template (#182, #200).
+* Match font style of text for bibliography entries in `awesomecv` template.
 
 # vitae 0.5.1
 

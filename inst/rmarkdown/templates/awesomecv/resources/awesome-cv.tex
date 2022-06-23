@@ -136,7 +136,7 @@ $endfor$
 \newlength{\cslhangindent}
 \setlength{\cslhangindent}{1.5em}
 \newlength{\csllabelwidth}
-\setlength{\csllabelwidth}{3em}
+\setlength{\csllabelwidth}{2em}
 \newenvironment{CSLReferences}[3] % #1 hanging-ident, #2 entry spacing
  {% don't indent paragraphs
   \setlength{\parindent}{0pt}
@@ -150,8 +150,8 @@ $endfor$
  {}
 \usepackage{calc}
 \newcommand{\CSLBlock}[1]{#1\hfill\break}
-\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
-\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{\honortitlestyle{#1}}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\honordatestyle{#1}}}
 \newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 
 \begin{document}
