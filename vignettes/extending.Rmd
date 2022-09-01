@@ -152,7 +152,7 @@ You will also need to copy all of the LaTeX class (`.cls`) and style (`.sty`) fi
 
 ## Contributing to the vitae package
 
-If you've gone to the effort of successfully creating a new template with the `vitae` package, you may be interested in making it available for others to use. You can contribute to this package by [submitting a pull request](https://r-pkgs.org/git.html) that adds your template to the package.
+If you've gone to the effort of successfully creating a new template with the `vitae` package, you may be interested in making it available for others to use. You can contribute to this package by submitting a pull request that adds your template to the package.
 
 Adding your template to the package can be done with:
 

@@ -40,8 +40,8 @@ remotes::install_github("mitchelloharawild/vitae")
 
 This package requires LaTeX to be installed on your computer. If you’re
 encountering issues, please check that LaTeX is installed. The [tinytex
-package](https://github.com/yihui/tinytex) makes it easy to setup LaTeX
-within R:
+package](https://github.com/rstudio/tinytex) makes it easy to setup
+LaTeX within R:
 
 ``` r
 install.packages('tinytex')
