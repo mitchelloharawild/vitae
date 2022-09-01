@@ -5,10 +5,10 @@
 ^README\.Rmd$
 ^vitae\.Rproj$
 ^\.Rproj\.user$
-hex
-presentation
-njtierney
+^hex$
 ^\.httr-oauth$
 ^_pkgdown\.yml$
 ^CRAN-RELEASE$
 ^data-raw$
+^CRAN-SUBMISSION$
+^revdep$
