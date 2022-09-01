@@ -14,10 +14,12 @@ knitr::opts_chunk$set(
 # vitae <img src="man/figures/logo.png" align="right" />
 */ˈviːteɪ/*
 
+<!-- badges: start -->
 [![CRAN status](https://www.r-pkg.org/badges/version/vitae)](https://cran.r-project.org/package=vitae)
-![Check status](https://github.com/mitchelloharawild/vitae/workflows/R-CMD-check/badge.svg)
+[![R check status](https://github.com/mitchelloharawild/vitae/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/mitchelloharawild/vitae/actions/workflows/R-CMD-check.yaml)
 [![Lifecycle: maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html#maturing)
 [![Downloads](https://cranlogs.r-pkg.org/badges/vitae)](https://cran.r-project.org/package=vitae)
+<!-- badges: end -->
 
 ## Templates and tools for making a Résumé/CV
 
