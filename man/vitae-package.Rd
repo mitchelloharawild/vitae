@@ -6,7 +6,7 @@
 \alias{vitae-package}
 \title{vitae: Curriculum Vitae for R Markdown}
 \description{
-\if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
+\if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
 Provides templates and functions to simplify the production and maintenance of curriculum vitae.
 }
