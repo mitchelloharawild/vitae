@@ -112,9 +112,9 @@
 </h3>
 <p>Most elements that are included in the YAML header of an <code>rmarkdown</code> document are passed to your template via Pandoc variables. Pandoc variables can be included in your template file by surrounding the variable with <code>$</code>. These can be used to fill in basic CV details such as your name, occupation, and social links.</p>
 <p>For example, suppose your document contains this YAML header:</p>
-<pre><code><span class="va">name</span><span class="op">:</span> <span class="st">"Mitchell O'Hara-Wild"</span>
-<span class="va">position</span><span class="op">:</span> <span class="st">"vitae maintainer"</span>
-<span class="va">output</span><span class="op">:</span> <span class="fu">vitae</span><span class="fu">::</span><span class="va"><a href="../reference/awesomecv.html">awesomecv</a></span></code></pre>
+<pre><code><span><span class="va">name</span><span class="op">:</span> <span class="st">"Mitchell O'Hara-Wild"</span></span>
+<span><span class="va">position</span><span class="op">:</span> <span class="st">"vitae maintainer"</span></span>
+<span><span class="va">output</span><span class="op">:</span> <span class="fu">vitae</span><span class="fu">::</span><span class="va"><a href="../reference/awesomecv.html">awesomecv</a></span></span></code></pre>
 <p>The <code>$name$</code> variable in the template would be substituted with <code>Mitchell O'Hara-Wild</code> and similarly, <code>$position$</code> would become <code>vitae maintainer</code>. Many templates won’t follow this same structure exactly (some may split the name into first and last names), but most of the time there is a reasonable place for these variables. It is recommended that a consistent set of variables are used to make switching between templates easy.</p>
 <p>The current list of variables used in the <code>vitae</code> templates are:</p>
 <ul>
@@ -162,15 +162,15 @@
 <pre><code>\cvitem{Title}{Description}</code></pre>
 <p>An appropriate function for creating these items could be:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">moderncv_cv_entries</span> <span class="op">&lt;-</span> <span class="fu">new_entry_formats</span><span class="op">(</span>
-  brief <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">what</span>, <span class="va">when</span>, <span class="va">with</span><span class="op">)</span><span class="op">{</span>
-    <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span>
-      <span class="st">"\t\\cvitem{"</span>, <span class="va">when</span>, <span class="st">"}{"</span>, <span class="va">what</span>, <span class="st">". "</span>, <span class="va">with</span>, <span class="st">"}"</span>,
-      collapse <span class="op">=</span> <span class="st">"\n"</span>
-    <span class="op">)</span>
-  <span class="op">}</span>,
-  detailed <span class="op">=</span> <span class="va">...</span> <span class="co"># See below</span>
-<span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">moderncv_cv_entries</span> <span class="op">&lt;-</span> <span class="fu">new_entry_formats</span><span class="op">(</span></span>
+<span>  brief <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">what</span>, <span class="va">when</span>, <span class="va">with</span><span class="op">)</span><span class="op">{</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span></span>
+<span>      <span class="st">"\t\\cvitem{"</span>, <span class="va">when</span>, <span class="st">"}{"</span>, <span class="va">what</span>, <span class="st">". "</span>, <span class="va">with</span>, <span class="st">"}"</span>,</span>
+<span>      collapse <span class="op">=</span> <span class="st">"\n"</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">}</span>,</span>
+<span>  detailed <span class="op">=</span> <span class="va">...</span> <span class="co"># See below</span></span>
+<span><span class="op">)</span></span></code></pre></div>
 <p>Note that <code>what</code>, <code>when</code> and <code>with</code> may contain more than one entry. This function combines each <code>\cvitem{}</code> into a single string by separating each entry with a new line.</p>
 </div>
 <div class="section level4">
@@ -180,35 +180,35 @@
 <pre><code>\cventry{Year}{Degree}{Institution}{City}{Grade}{Description}</code></pre>
 <p>A function that can produce these entries is as follows:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">moderncv_cv_entries</span> <span class="op">&lt;-</span> <span class="fu">new_entry_formats</span><span class="op">(</span>
-  brief <span class="op">=</span> <span class="va">...</span>,
-  detailed <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">what</span>, <span class="va">when</span>, <span class="va">with</span>, <span class="va">where</span>, <span class="va">why</span><span class="op">)</span><span class="op">{</span>
-    <span class="co"># Combine why inputs into a bullet list</span>
-    <span class="va">why</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="va">why</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span>
-      <span class="kw">if</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">==</span> <span class="fl">0</span><span class="op">)</span> <span class="kw"><a href="https://rdrr.io/r/base/function.html" class="external-link">return</a></span><span class="op">(</span><span class="st">"\\empty"</span><span class="op">)</span>
-      <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>
-        <span class="st">"\\begin{itemize}%"</span>,
-        <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"\\item "</span>, <span class="va">x</span>, <span class="st">"%"</span><span class="op">)</span>,
-        <span class="st">"\\end{itemize}"</span>
-      <span class="op">)</span>, collapse <span class="op">=</span> <span class="st">"\n"</span><span class="op">)</span>
-    <span class="op">}</span><span class="op">)</span>
-
-    <span class="co"># Combine inputs into \cventry{} output</span>
-    <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span>
-      <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"\t\\cventry{"</span>, <span class="va">when</span>, <span class="st">"}{"</span>, <span class="va">what</span>, <span class="st">"}{"</span>, <span class="va">with</span>, <span class="st">"}{"</span>, <span class="va">where</span>, <span class="st">"}{}{"</span>, <span class="va">why</span>, <span class="st">"}"</span><span class="op">)</span>,
-      collapse <span class="op">=</span> <span class="st">"\n"</span>
-    <span class="op">)</span>
-  <span class="op">}</span>
-<span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">moderncv_cv_entries</span> <span class="op">&lt;-</span> <span class="fu">new_entry_formats</span><span class="op">(</span></span>
+<span>  brief <span class="op">=</span> <span class="va">...</span>,</span>
+<span>  detailed <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">what</span>, <span class="va">when</span>, <span class="va">with</span>, <span class="va">where</span>, <span class="va">why</span><span class="op">)</span><span class="op">{</span></span>
+<span>    <span class="co"># Combine why inputs into a bullet list</span></span>
+<span>    <span class="va">why</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="va">why</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
+<span>      <span class="kw">if</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">==</span> <span class="fl">0</span><span class="op">)</span> <span class="kw"><a href="https://rdrr.io/r/base/function.html" class="external-link">return</a></span><span class="op">(</span><span class="st">"\\empty"</span><span class="op">)</span></span>
+<span>      <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
+<span>        <span class="st">"\\begin{itemize}%"</span>,</span>
+<span>        <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"\\item "</span>, <span class="va">x</span>, <span class="st">"%"</span><span class="op">)</span>,</span>
+<span>        <span class="st">"\\end{itemize}"</span></span>
+<span>      <span class="op">)</span>, collapse <span class="op">=</span> <span class="st">"\n"</span><span class="op">)</span></span>
+<span>    <span class="op">}</span><span class="op">)</span></span>
+<span></span>
+<span>    <span class="co"># Combine inputs into \cventry{} output</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span></span>
+<span>      <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"\t\\cventry{"</span>, <span class="va">when</span>, <span class="st">"}{"</span>, <span class="va">what</span>, <span class="st">"}{"</span>, <span class="va">with</span>, <span class="st">"}{"</span>, <span class="va">where</span>, <span class="st">"}{}{"</span>, <span class="va">why</span>, <span class="st">"}"</span><span class="op">)</span>,</span>
+<span>      collapse <span class="op">=</span> <span class="st">"\n"</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">}</span></span>
+<span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
 <div class="section level3">
 <h3 id="using-the-template-with-rmarkdown">Using the template with rmarkdown<a class="anchor" aria-label="anchor" href="#using-the-template-with-rmarkdown"></a>
 </h3>
 <p>Once the Pandoc variables and LaTeX CV entry macros are set in the template, it is ready for use with the <code>vitae</code> package. The package provides the <code>cv_document</code> output format, which is suitable for use with custom templates. To use the custom template, your <code>rmarkdown</code> document’s YAML header would look like this:</p>
-<pre><code><span class="va">output</span><span class="op">:</span>
-  <span class="fu">vitae</span><span class="fu">::</span><span class="va"><a href="../reference/cv_document.html">cv_document</a></span><span class="op">:</span>
-    <span class="va">template</span><span class="op">:</span> <span class="va">my_custom_template.tex</span></code></pre>
+<pre><code><span><span class="va">output</span><span class="op">:</span></span>
+<span>  <span class="fu">vitae</span><span class="fu">::</span><span class="va"><a href="../reference/cv_document.html">cv_document</a></span><span class="op">:</span></span>
+<span>    <span class="va">template</span><span class="op">:</span> <span class="va">my_custom_template.tex</span></span></code></pre>
 <p>You will also need to copy all of the LaTeX class (<code>.cls</code>) and style (<code>.sty</code>) files provided with the template into the same folder as your <code>rmarkdown</code> document. Once that is done, your new template should be ready to use with the <code>vitae</code> package.</p>
 </div>
 </div>
@@ -218,28 +218,28 @@
 <p>If you’ve gone to the effort of successfully creating a new template with the <code>vitae</code> package, you may be interested in making it available for others to use. You can contribute to this package by <a href="https://r-pkgs.org/git.html" class="external-link">submitting a pull request</a> that adds your template to the package.</p>
 <p>Adding your template to the package can be done with:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">usethis</span><span class="fu">::</span><span class="fu">use_rmarkdown_template</span><span class="op">(</span>
-  template_name <span class="op">=</span> <span class="st">"Curriculum Vitae (My custom format)"</span>,
-  template_dir <span class="op">=</span> <span class="st">"my_template"</span>,
-  template_description <span class="op">=</span> <span class="st">"The custom vitae template made by me!"</span>,
-  template_create_dir <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu">use_rmarkdown_template</span><span class="op">(</span></span>
+<span>  template_name <span class="op">=</span> <span class="st">"Curriculum Vitae (My custom format)"</span>,</span>
+<span>  template_dir <span class="op">=</span> <span class="st">"my_template"</span>,</span>
+<span>  template_description <span class="op">=</span> <span class="st">"The custom vitae template made by me!"</span>,</span>
+<span>  template_create_dir <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <p>Then by navigating to the package’s <code>inst/rmarkdown/templates/my_template</code> folder, you can add your Pandoc template to the <code>resources</code> folder, and your <code>.cls</code> and <code>.sty</code> files to the <code>skeleton</code> folder.</p>
 <p>Once that is done, we can create a new <code>rmarkdown</code> output format that uses your template. These are added to the “R/formats.R” file, and will usually follow the same structure as other templates. The template argument to <code>cv_document</code> is a link to your Pandoc template in the package (accessed using <code>system.file</code>), and it is recommended that the supporting <code>.cls</code> and <code>.sty</code> files are copied using <code>copy_supporting_files</code>.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#' @rdname cv_formats</span>
-<span class="co">#' @export</span>
-<span class="va">my_template</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">...</span><span class="op">)</span> <span class="op">{</span>
-  <span class="va">template</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"rmarkdown"</span>, <span class="st">"templates"</span>, <span class="st">"my_template"</span>,
-                          <span class="st">"resources"</span>, <span class="st">"my_template.tex"</span>, package<span class="op">=</span><span class="st">"vitae"</span><span class="op">)</span>
-  
-  <span class="fu">set_entry_formats</span><span class="op">(</span><span class="va">moderncv_cv_entries</span><span class="op">)</span>
-  <span class="fu">copy_supporting_files</span><span class="op">(</span><span class="st">"my_template"</span><span class="op">)</span>
-  <span class="fu"><a href="../reference/cv_document.html">cv_document</a></span><span class="op">(</span><span class="va">...</span>, template <span class="op">=</span> <span class="va">template</span><span class="op">)</span>
-<span class="op">}</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">#' @rdname cv_formats</span></span>
+<span><span class="co">#' @export</span></span>
+<span><span class="va">my_template</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">...</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">template</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"rmarkdown"</span>, <span class="st">"templates"</span>, <span class="st">"my_template"</span>,</span>
+<span>                          <span class="st">"resources"</span>, <span class="st">"my_template.tex"</span>, package<span class="op">=</span><span class="st">"vitae"</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="fu">set_entry_formats</span><span class="op">(</span><span class="va">moderncv_cv_entries</span><span class="op">)</span></span>
+<span>  <span class="fu">copy_supporting_files</span><span class="op">(</span><span class="st">"my_template"</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="../reference/cv_document.html">cv_document</a></span><span class="op">(</span><span class="va">...</span>, template <span class="op">=</span> <span class="va">template</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre></div>
 <p>The automatically generated <code>skeleton.Rmd</code> document in the <code>skeleton</code> folder should be modified to be a basic example of using your template. Examples of this file can be found in other templates, and this template file can act as a useful test for your template!</p>
 <p>All done! You should now be able to install your new version of the package with <code>devtools::install()</code>, and test out your new output format with:</p>
-<pre><code><span class="va">output</span><span class="op">:</span>
-  <span class="fu">vitae</span><span class="fu">::</span><span class="va">my_template</span></code></pre>
+<pre><code><span><span class="va">output</span><span class="op">:</span></span>
+<span>  <span class="fu">vitae</span><span class="fu">::</span><span class="va">my_template</span></span></code></pre>
 </div>
   </div>
 
@@ -260,7 +260,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer>

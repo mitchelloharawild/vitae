@@ -108,29 +108,17 @@
 <li>Filter CV entries by keywords relevant to the current job</li>
 <li>Include your academic publications</li>
 </ul>
-<div class="section level3">
-<h3 id="creating-a-cv">Creating a CV<a class="anchor" aria-label="anchor" href="#creating-a-cv"></a>
-</h3>
+<div class="section level2">
+<h2 id="creating-a-cv">Creating a CV<a class="anchor" aria-label="anchor" href="#creating-a-cv"></a>
+</h2>
 <p>If using RStudio, a new CV document can be easily produced from one of the templates provided in the package. This using the RStudio R Markdown template selector, accessible via <code>File</code> &gt; <code>New File</code> &gt; <code>R Markdown...</code>, and lastly <code>From Template</code>. This will show a list of R Markdown templates provided by all installed packages, and you should be able to find some templates from the vitae package to use.</p>
 <p>If not using RStudio, you can create a new <code>*.Rmd</code> document and use an output format that is provided by the package. A list of output formats provided by the package can be found on the package website: <a href="https://pkg.mitchelloharawild.com/vitae/#templates" class="external-link uri">https://pkg.mitchelloharawild.com/vitae/#templates</a>. Examples of a YAML header that use one of these output formats is shown below.</p>
 <p>Like other R Markdown documents, the file is split into two sections: the YAML header, and the main body.</p>
-<div class="section level4">
-<h4 id="the-yaml-header">The YAML header<a class="anchor" aria-label="anchor" href="#the-yaml-header"></a>
-</h4>
+<div class="section level3">
+<h3 id="the-yaml-header">The YAML header<a class="anchor" aria-label="anchor" href="#the-yaml-header"></a>
+</h3>
 <p>The YAML header contains general entries that are common across many templates, such as your name, address and social media profiles. This is also where the output format (the CV template used) is specified, along with any options that the template supports. An example of what this header may look like is shown below:</p>
-<pre>
-<code>---
-name: Mitchell O'Hara-Wild
-date: "`r format(Sys.time(), '%B, %Y')`"
-profilepic: pic.jpg
-www: mitchelloharawild.com
-github: mitchelloharawild
-linkedin: mitchelloharawild
-twitter: mitchoharawild
-headcolor: 414141
-docname: CV/Resume
-output: vitae::awesomecv</code>
-</pre>
+<p><code>&lt;pre&gt; &lt;code&gt;--- name: Mitchell O'Hara-Wild date: "</code>r format(Sys.time(), ‘%B, %Y’)" profilepic: pic.jpg www: mitchelloharawild.com github: mitchelloharawild linkedin: mitchelloharawild twitter: mitchoharawild headcolor: 414141 docname: CV/Resume output: vitae::awesomecv </p>
 <p>You can also see that the output is set to <code><a href="../reference/awesomecv.html">vitae::awesomecv</a></code>, which indicates that this CV uses the <a href="https://github.com/posquit0/Awesome-CV" class="external-link">Awesome CV</a> template. Some of the templates allow for the choosing of a theme, or changing other options. These options can be found in the help file for each output format (say <code>?moderncv)</code>. For example, the <code>moderncv</code> template allows for the selection of one of five themes: “casual”, “classic”, “oldstyle”, “banking” or “fancy”. To change default options of output formats you can modify the yaml as follows:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Choose a theme and pass other arguments</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="fu">output</span><span class="kw">:</span></span>
@@ -168,56 +156,55 @@ output: vitae::awesomecv</code>
 <code>docname</code>: Control the document name (typically curriculum vitae, or résumé)</li>
 </ul>
 </div>
-<div class="section level4">
-<h4 id="the-document-body">The document body<a class="anchor" aria-label="anchor" href="#the-document-body"></a>
-</h4>
+<div class="section level3">
+<h3 id="the-document-body">The document body<a class="anchor" aria-label="anchor" href="#the-document-body"></a>
+</h3>
 <p>Like other R Markdown documents, the body allows you to mix R code with markdown to create the main content for your document. Below is an example of the start for a typical CV:</p>
+`
 <pre>
 <code>```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 library(vitae)
-</code></pre>
-</div>
-</div>
-<div class="section level2">
-<h2 id="professional-summary">Professional Summary<a class="anchor" aria-label="anchor" href="#professional-summary"></a>
-</h2>
-This is a good opportunity to introduce yourself professionally and summarise why your skills are well suited to the job you are applying for!")
+```
 
-<pre><code>
+# Professional Summary
 
-The setup chunk is useful to load in any packages that you may use, and also prevent R code and warnings/notes from appearing in your CV. The above code also includes a professional summary using markdown syntax, which will appear in the final CV.
-
-Unlike other R markdown formats, the vitae package and its templates support functions to generate CV entries from data: `detailed_entries()` and `brief_entries()`. Both functions provide sections for `what`, `when`, and `with`, and the `detailed_entries()` additionally supports `where` and `why`. They use an interface similar to [dplyr](https://CRAN.R-project.org/package=dplyr), in that the data can be piped (`%&gt;%`) into these functions, and the arguments can involve some calculations.
-
-#### Detailed entries
-
-Let's add to the main body with some education history. These details are available on [ORCID](https://orcid.org) with my ID of  [0000-0001-6729-7695](https://orcid.org/0000-0001-6729-7695), which can be dynamically accessed using the [rorcid](https://CRAN.R-project.org/package=rorcid) package.
-
-
-```{=html}
-&lt;pre&gt;
-&lt;code&gt;# Education
+This is a good opportunity to introduce yourself professionally and summarise
+why your skills are well suited to the job you are applying for!")</code>
+</pre>
+<p>`{=html}</p>
+<p>The setup chunk is useful to load in any packages that you may use, and also prevent R code and warnings/notes from appearing in your CV. The above code also includes a professional summary using markdown syntax, which will appear in the final CV.</p>
+<p>Unlike other R markdown formats, the vitae package and its templates support functions to generate CV entries from data: <code><a href="../reference/cv_entries.html">detailed_entries()</a></code> and <code><a href="../reference/cv_entries.html">brief_entries()</a></code>. Both functions provide sections for <code>what</code>, <code>when</code>, and <code>with</code>, and the <code><a href="../reference/cv_entries.html">detailed_entries()</a></code> additionally supports <code>where</code> and <code>why</code>. They use an interface similar to <a href="https://CRAN.R-project.org/package=dplyr" class="external-link">dplyr</a>, in that the data can be piped (<code>%&gt;%</code>) into these functions, and the arguments can involve some calculations.</p>
+<div class="section level4">
+<h4 id="detailed-entries">Detailed entries<a class="anchor" aria-label="anchor" href="#detailed-entries"></a>
+</h4>
+<p>Let’s add to the main body with some education history. These details are available on <a href="https://orcid.org" class="external-link">ORCID</a> with my ID of <a href="https://orcid.org/0000-0001-6729-7695" class="external-link">0000-0001-6729-7695</a>, which can be dynamically accessed using the <a href="https://CRAN.R-project.org/package=rorcid" class="external-link">rorcid</a> package.</p>
+`
+<pre>
+<code># Education
 
 ```{r education}
 library(vitae)
-edu &amp;lt;- do.call("rbind",
+edu &lt;- do.call("rbind",
   rorcid::orcid_educations("0000-0001-6729-7695")$`0000-0001-6729-7695`$`affiliation-group`$summaries
 )
-edu %&amp;gt;%
+edu %&gt;%
   detailed_entries(
     what = `education-summary.role-title`,
     when = glue::glue("{`education-summary.start-date.year.value`} - {`education-summary.end-date.year.value`}"),
     with = `education-summary.organization.name`,
     where = `education-summary.organization.address.city`
   )
-```&lt;/code&gt;
-&lt;/pre&gt;</code></pre>
+```</code>
+</pre>
+<p>`{=html}</p>
 <p>In the example above, the <a href="https://CRAN.R-project.org/package=glue" class="external-link">glue</a> package has been used to combine the start and end years for our <code>when</code> input. Excluding any arguments is also okay (as is done for <code>why</code>), it will just be left blank in the CV.</p>
-<div class="section level5">
-<h5 id="brief-entries">Brief entries<a class="anchor" aria-label="anchor" href="#brief-entries"></a>
-</h5>
+</div>
+<div class="section level4">
+<h4 id="brief-entries">Brief entries<a class="anchor" aria-label="anchor" href="#brief-entries"></a>
+</h4>
 <p>Brief entries can be included with the same interface as <code><a href="../reference/cv_entries.html">detailed_entries()</a></code>, and is appropriate for entries that do not need as much detail (such as skills). Another application of this is to include a list of R packages that you have published to CRAN using the <a href="https://CRAN.R-project.org/package=pkgsearch" class="external-link">pkgsearch</a> package.</p>
+`
 <pre>
 <code># R Packages
 
@@ -232,17 +219,16 @@ pkgsearch::ps("O'Hara-Wild",size = 100) %&gt;%
   )
 ```</code>
 </pre>
+<p>`{=html}</p>
 <p>This example also uses several other packages to prepare the data: - <a href="https://CRAN.R-project.org/package=dplyr" class="external-link">dplyr</a> to <code><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter()</a></code> my contributed packages, and <code><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange()</a></code> the data by downloads - <a href="https://CRAN.R-project.org/package=purrr" class="external-link">purrr</a> to map over <code>package_data</code> column to find packages I’ve contributed to - <a href="https://CRAN.R-project.org/package=lubridate" class="external-link">lubridate</a> to display only the year from the <code>date</code> column</p>
 </div>
-<div class="section level5">
-<h5 id="bibliography-entries">Bibliography entries<a class="anchor" aria-label="anchor" href="#bibliography-entries"></a>
-</h5>
+<div class="section level4">
+<h4 id="bibliography-entries">Bibliography entries<a class="anchor" aria-label="anchor" href="#bibliography-entries"></a>
+</h4>
 <p>The package also supports bibliography entries from a <code>*.bib</code> file using the <code><a href="../reference/bibliography_entries.html">bibliography_entries()</a></code> function. This outputs the contents of a bibliography using a citation style, and is suitable for CVs containing publications.</p>
-<pre>
-<code>```{r publications}
-bibliography_entries("publications.bib", "Publications")
-```</code>
-</pre>
+<p></p>
+<pre> <code>```{r publications} bibliography_entries("publications.bib", "Publications") ```</code> </pre>
+</div>
 </div>
 </div>
   </div>
@@ -264,7 +250,7 @@ bibliography_entries("publications.bib", "Publications")
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer>

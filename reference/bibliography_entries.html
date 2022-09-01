@@ -71,7 +71,7 @@ for one or more types of bib entry.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">bibliography_entries</span><span class="op">(</span><span class="va">file</span>, startlabel <span class="op">=</span> <span class="cn">NULL</span>, endlabel <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">bibliography_entries</span><span class="op">(</span><span class="va">file</span>, startlabel <span class="op">=</span> <span class="cn">NULL</span>, endlabel <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -102,29 +102,29 @@ generating a reference section in a document.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># Create a bibliography from a set of packages</span></span>
-<span class="r-in"><span class="va">bib</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempfile</a></span><span class="op">(</span>fileext <span class="op">=</span> <span class="st">".bib"</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/write_bib.html" class="external-link">write_bib</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"vitae"</span>, <span class="st">"tibble"</span><span class="op">)</span>, <span class="va">bib</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Create a bibliography from a set of packages</span></span></span>
+<span class="r-in"><span><span class="va">bib</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempfile</a></span><span class="op">(</span>fileext <span class="op">=</span> <span class="st">".bib"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/write_bib.html" class="external-link">write_bib</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"vitae"</span>, <span class="st">"tibble"</span><span class="op">)</span>, <span class="va">bib</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>no date field in DESCRIPTION file of package ‘vitae’</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># Import the bibliography entries into a CV</span></span>
-<span class="r-in"><span class="fu">bibliography_entries</span><span class="op">(</span><span class="va">bib</span><span class="op">)</span></span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>running command '/usr/bin/pandoc-citeproc --bib2json /tmp/RtmpeZtMXD/file36c8f34d554.bib' had status 1</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Import the bibliography entries into a CV</span></span></span>
+<span class="r-in"><span><span class="fu">bibliography_entries</span><span class="op">(</span><span class="va">bib</span><span class="op">)</span></span></span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>running command '/usr/bin/pandoc-citeproc --bib2json /tmp/RtmpbQ0k2g/file3843352d13d9.bib' had status 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in rmarkdown::pandoc_citeproc_convert(file, type = "json"):</span> Error 1 occurred building shared library.</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># The order of these entries can be customised using `dplyr::arrange()`</span></span>
-<span class="r-in"><span class="fu">bibliography_entries</span><span class="op">(</span><span class="va">bib</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="fu">desc</span><span class="op">(</span><span class="va">title</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>running command '/usr/bin/pandoc-citeproc --bib2json /tmp/RtmpeZtMXD/file36c8f34d554.bib' had status 1</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># The order of these entries can be customised using `dplyr::arrange()`</span></span></span>
+<span class="r-in"><span><span class="fu">bibliography_entries</span><span class="op">(</span><span class="va">bib</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="fu">desc</span><span class="op">(</span><span class="va">title</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>running command '/usr/bin/pandoc-citeproc --bib2json /tmp/RtmpbQ0k2g/file3843352d13d9.bib' had status 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in rmarkdown::pandoc_citeproc_convert(file, type = "json"):</span> Error 1 occurred building shared library.</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># For more complex fields like author, you can also sort by component fields.</span></span>
-<span class="r-in"><span class="co"># For example, use `author$family` to sort by family names.</span></span>
-<span class="r-in"><span class="fu">bibliography_entries</span><span class="op">(</span><span class="va">bib</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="fu">desc</span><span class="op">(</span><span class="va">author</span><span class="op">$</span><span class="va">family</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>running command '/usr/bin/pandoc-citeproc --bib2json /tmp/RtmpeZtMXD/file36c8f34d554.bib' had status 1</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># For more complex fields like author, you can also sort by component fields.</span></span></span>
+<span class="r-in"><span><span class="co"># For example, use `author$family` to sort by family names.</span></span></span>
+<span class="r-in"><span><span class="fu">bibliography_entries</span><span class="op">(</span><span class="va">bib</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="fu">desc</span><span class="op">(</span><span class="va">author</span><span class="op">$</span><span class="va">family</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>running command '/usr/bin/pandoc-citeproc --bib2json /tmp/RtmpbQ0k2g/file3843352d13d9.bib' had status 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in rmarkdown::pandoc_citeproc_convert(file, type = "json"):</span> Error 1 occurred building shared library.</span>
 </code></pre></div>
@@ -141,7 +141,7 @@ generating a reference section in a document.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>
