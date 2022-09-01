@@ -1,11 +1,11 @@
 This submission resolves issues in the CRAN check results.
 
 ## Test environments
-* local kubuntu 20.04 install, R 4.0.2
-* ubuntu 16.04 (on GitHub actions), R-devel, R 4.0.0, R 3.6.3, R 3.5.3
-* macOS (on GitHub actions), R 4.0.0
-* windows (on GitHub actions), R 4.0.0
-* win-builder, R-devel, R-release, R-oldrelease
+* local ubuntu 20.04 install, R 4.1.2
+* ubuntu-latest (on GitHub actions), R-devel, R-release, R-oldrel
+* macOS (on GitHub actions), R-release
+* windows (on GitHub actions), R-release
+* win-builder, R-devel
 
 ## R CMD check results
 
