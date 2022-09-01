@@ -88,7 +88,7 @@
 
       
 
-      </header><script src="vitae_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+      </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Introduction to vitae</h1>
@@ -120,10 +120,10 @@
 <p>The YAML header contains general entries that are common across many templates, such as your name, address and social media profiles. This is also where the output format (the CV template used) is specified, along with any options that the template supports. An example of what this header may look like is shown below:</p>
 <p><code>&lt;pre&gt; &lt;code&gt;--- name: Mitchell O'Hara-Wild date: "</code>r format(Sys.time(), ‘%B, %Y’)" profilepic: pic.jpg www: mitchelloharawild.com github: mitchelloharawild linkedin: mitchelloharawild twitter: mitchoharawild headcolor: 414141 docname: CV/Resume output: vitae::awesomecv </p>
 <p>You can also see that the output is set to <code><a href="../reference/awesomecv.html">vitae::awesomecv</a></code>, which indicates that this CV uses the <a href="https://github.com/posquit0/Awesome-CV" class="external-link">Awesome CV</a> template. Some of the templates allow for the choosing of a theme, or changing other options. These options can be found in the help file for each output format (say <code>?moderncv)</code>. For example, the <code>moderncv</code> template allows for the selection of one of five themes: “casual”, “classic”, “oldstyle”, “banking” or “fancy”. To change default options of output formats you can modify the yaml as follows:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Choose a theme and pass other arguments</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">output</span><span class="kw">:</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="at">  vitae:</span><span class="fu">:moderncv</span><span class="kw">:</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> banking</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Choose a theme and pass other arguments</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="at">  vitae:</span><span class="fu">:moderncv</span><span class="kw">:</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> banking</span></span></code></pre></div>
 <p>Currently, the YAML header allows these fields to be specified:</p>
 <ul>
 <li>

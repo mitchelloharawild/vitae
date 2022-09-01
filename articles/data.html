@@ -88,7 +88,7 @@
 
       
 
-      </header><script src="data_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+      </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Data sources for vitae</h1>
@@ -108,11 +108,11 @@
 <h2 id="spreadsheets-and-data-sets">Spreadsheets and data sets<a class="anchor" aria-label="anchor" href="#spreadsheets-and-data-sets"></a>
 </h2>
 <p>The simplest source of entries for vitae are maintained dataset(s) of past experiences and achievements. Just like any dataset, these entries can be loaded into the document as a <code>data.frame</code> or <code>tibble</code> using functions from base R or the <a href="https://readr.tidyverse.org/" class="external-link"><code>readr</code> package</a>.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>readr<span class="op">::</span><span class="kw">read_csv</span>(<span class="st">"employment.csv"</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="st">  </span><span class="kw">detailed_entries</span>(???)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"employment.csv"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">detailed_entries</span>(???)</span></code></pre></div>
 <p>It is also possible to load in data from excel using the <a href="https://readxl.tidyverse.org/" class="external-link"><code>readxl</code> package</a> or from Google Sheets using the <a href="https://github.com/jennybc/googlesheets" class="external-link"><code>googlesheets</code> package</a>.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>readxl<span class="op">::</span><span class="kw">read_excel</span>(<span class="st">"awards.xlsx"</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="st">  </span><span class="kw">brief_entries</span>(???)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>readxl<span class="sc">::</span><span class="fu">read_excel</span>(<span class="st">"awards.xlsx"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">brief_entries</span>(???)</span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="orcid">ORCID<a class="anchor" aria-label="anchor" href="#orcid"></a>
@@ -156,8 +156,8 @@
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/bibliography_entries.html">bibliography_entries</a></span><span class="op">(</span><span class="st">"publications.bib"</span><span class="op">)</span></span></code></pre></div>
 <p>It is also possible to display the contents of your bibliography using template specific entries formats.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">bibliography_entries</span>(<span class="st">"publications.bib"</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="st">  </span><span class="kw">detailed_entries</span>(???)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bibliography_entries</span>(<span class="st">"publications.bib"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">detailed_entries</span>(???)</span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="r-packages">R packages<a class="anchor" aria-label="anchor" href="#r-packages"></a>
