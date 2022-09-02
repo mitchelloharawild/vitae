@@ -1,3 +1,12 @@
+url: https://pkg.mitchelloharawild.com/vitae
+
+template:
+  params:
+    bootswatch: cosmo
+
+development:
+  mode: auto
+
 authors:
   Mitchell O'Hara-Wild:
     href: http://mitchelloharawild.com
