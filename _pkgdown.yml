@@ -3,6 +3,9 @@ url: https://pkg.mitchelloharawild.com/vitae
 template:
   params:
     bootswatch: cosmo
+  includes:
+    in_header: |
+      <script defer data-domain="pkg.mitchelloharawild.com/vitae" src="https://track.mitchelloharawild.com/js/plausible.js"></script>
 
 development:
   mode: auto
