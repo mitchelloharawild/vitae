@@ -1,0 +1,12 @@
+pandoc: 2.14.2
+pkgdown: 2.0.6
+pkgdown_sha: ~
+articles:
+  data: data.html
+  extending: extending.html
+  vitae: vitae.html
+last_built: 2022-09-02T01:35Z
+urls:
+  reference: https://pkg.mitchelloharawild.com/vitae/reference
+  article: https://pkg.mitchelloharawild.com/vitae/articles
+
