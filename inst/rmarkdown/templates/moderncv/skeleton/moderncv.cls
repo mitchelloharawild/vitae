@@ -245,6 +245,10 @@
 % usage: \homepage{<url>}
 \newcommand*{\homepage}[1]{\def\@homepage{#1}}
 
+% define's one's pronouns (optional)
+% usage: \pronouns{<pronouns>}
+\newcommand*{\pronouns}[1]{\def\@pronouns{#1}}
+
 % adds a fixed/mobile/fax number to one's personal information (optional)
 % usage: \phone[<optional type>]{<number>}
 % where <optional type> should be either "fixed" (default), "mobile" or "fax
@@ -305,6 +309,7 @@
 % other symbols
 \newcommand*{\listitemsymbol}      {\labelitemi~}
 \newcommand*{\addresssymbol}       {}
+\newcommand*{\pronounssymbol}      {}
 \newcommand*{\mobilephonesymbol}   {}
 \newcommand*{\fixedphonesymbol}    {}
 \newcommand*{\faxphonesymbol}      {}
@@ -370,7 +375,7 @@
 % usage: \moderncvcolor{<color scheme name>}
 \newcommand*{\moderncvcolor}[1]{%
   \RequirePackage{moderncvcolor#1}}
-  
+
 % loads an icons set
 % usage: \moderncvicons{<icon set name>}
 \newcommand*{\moderncvicons}[1]{%
