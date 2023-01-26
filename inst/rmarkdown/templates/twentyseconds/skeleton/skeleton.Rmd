@@ -4,6 +4,7 @@ surname: Curie
 position: "Professor"
 address: "School of Physics & Chemistry, École Normale Supérieure"
 phone: +1 22 3333 4444
+pronouns: she/her
 profilepic: mariecurie.jpg
 www: mariecurie.com
 email: "Marie.Curie@ens.fr"
