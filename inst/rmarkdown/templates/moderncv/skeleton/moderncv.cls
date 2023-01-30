@@ -309,7 +309,7 @@
 % other symbols
 \newcommand*{\listitemsymbol}      {\labelitemi~}
 \newcommand*{\addresssymbol}       {}
-\newcommand*{\pronounssymbol}      {}
+\newcommand*{\pronounssymbol}      {{\small\faComment}~}
 \newcommand*{\mobilephonesymbol}   {}
 \newcommand*{\fixedphonesymbol}    {}
 \newcommand*{\faxphonesymbol}      {}
