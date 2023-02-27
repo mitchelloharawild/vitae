@@ -6,6 +6,7 @@
 
 * Added option to remove footer from `awesomecv` template (#182, #200).
 * Match font style of text for bibliography entries in `awesomecv` template.
+* Added support for pronouns in the all templates (@isabelle-greco, #204, #228) 
 
 # vitae 0.5.1
 

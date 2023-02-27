@@ -2,6 +2,7 @@
 name: Marie
 surname: Curie
 position: "Professor"
+pronouns: she/her
 address: "School of Physics & Chemistry, École Normale Supérieure"
 phone: +1 22 3333 4444
 www: mariecurie.com
@@ -10,7 +11,7 @@ twitter: mariecurie
 github: mariecurie
 linkedin: mariecurie
 date: "`r format(Sys.time(), '%B %Y')`"
-output: 
+output:
   vitae::awesomecv:
     page_total: true
 ---
@@ -35,7 +36,7 @@ tribble(
   "Informal studies", "1889-91", "Flying University", "Warsaw, Poland",
   "Master of Physics", "1893", "Sorbonne Université", "Paris, France",
   "Master of Mathematics", "1894", "Sorbonne Université", "Paris, France"
-) %>% 
+) %>%
   detailed_entries(Degree, Year, Institution, Where)
 ```
 
@@ -46,10 +47,10 @@ tribble(
   ~Year, ~Type, ~Desc,
   1903, "Physics", "Awarded for her work on radioactivity with Pierre Curie and Henri Becquerel",
   1911, "Chemistry", "Awarded for the discovery of radium and polonium"
-) %>% 
+) %>%
   brief_entries(
     glue::glue("Nobel Prize in {Type}"),
-    Year, 
+    Year,
     Desc
   )
 ```
@@ -63,4 +64,3 @@ knitr::write_bib(c("vitae", "tibble"), "packages.bib")
 bibliography_entries("packages.bib") %>%
   arrange(desc(author$family), issued)
 ```
-
