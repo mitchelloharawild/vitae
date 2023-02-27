@@ -63,13 +63,16 @@
       <small>Source: <a href="https://github.com/mitchelloharawild/vitae/blob/HEAD/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
-    <div class="section level2"><h2 class="page-header" data-toc-text="development version" id="vitae-development-version">vitae (development version)<a class="anchor" aria-label="anchor" href="#vitae-development-version"></a></h2></div>
+    <div class="section level2">
+<h2 class="page-header" data-toc-text="development version" id="vitae-development-version">vitae (development version)<a class="anchor" aria-label="anchor" href="#vitae-development-version"></a></h2>
+</div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.5.2" id="vitae-052">vitae 0.5.2<small>2022-09-01</small><a class="anchor" aria-label="anchor" href="#vitae-052"></a></h2>
 <div class="section level3">
 <h3 id="improvements-0-5-2">Improvements<a class="anchor" aria-label="anchor" href="#improvements-0-5-2"></a></h3>
 <ul><li>Added option to remove footer from <code>awesomecv</code> template (<a href="https://github.com/mitchelloharawild/vitae/issues/182" class="external-link">#182</a>, <a href="https://github.com/mitchelloharawild/vitae/issues/200" class="external-link">#200</a>).</li>
 <li>Match font style of text for bibliography entries in <code>awesomecv</code> template.</li>
+<li>Added support for pronouns in the all templates (<a href="https://github.com/isabelle-greco" class="external-link">@isabelle-greco</a>, <a href="https://github.com/mitchelloharawild/vitae/issues/204" class="external-link">#204</a>, <a href="https://github.com/mitchelloharawild/vitae/issues/228" class="external-link">#228</a>)</li>
 </ul></div>
 </div>
     <div class="section level2">
@@ -96,7 +99,8 @@
 <p>This release adds the first HTML template to the package, using the improved templating system. The <code>bibliography_entires()</code> intermediate tibble output is rewritten, which now fully represents the CSL-JSON schema.</p>
 <div class="section level3">
 <h3 id="new-templates-0-4-0">New templates<a class="anchor" aria-label="anchor" href="#new-templates-0-4-0"></a></h3>
-<ul><li>Added the <code><a href="../reference/markdowncv.html">vitae::markdowncv</a></code> template, which is the markdown-cv template in various themes by Eliseo Papa (<a href="https://github.com/elipapa" class="external-link">@elipapa</a>). This is the first HTML template available in the package.</li></ul></div>
+<ul><li>Added the <code><a href="../reference/markdowncv.html">vitae::markdowncv</a></code> template, which is the markdown-cv template in various themes by Eliseo Papa (<a href="https://github.com/elipapa" class="external-link">@elipapa</a>). This is the first HTML template available in the package.</li>
+</ul></div>
 <div class="section level3">
 <h3 id="improvements-0-4-0">Improvements<a class="anchor" aria-label="anchor" href="#improvements-0-4-0"></a></h3>
 <ul><li>Screenshot previews of the output formats can now be found in the README and in the documentation for each output format (<a href="https://github.com/mitchelloharawild/vitae/issues/72" class="external-link">#72</a>).</li>
@@ -120,7 +124,8 @@
 <div class="section level3">
 <h3 id="breaking-changes-0-3-0">Breaking changes<a class="anchor" aria-label="anchor" href="#breaking-changes-0-3-0"></a></h3>
 <ul><li>The <code>startlabel</code> and <code>endlabel</code> arguments of <code><a href="../reference/bibliography_entries.html">bibliography_entries()</a></code> are now defunct.</li>
-<li>The column names and structure of the <code>bibliography_entires()</code> tibble have changed for consistency with the CSL-JSON format. The mapping of commonly used column names are:<ul><li>bibtype -&gt; type (note that the values are converted to CSL-JSON format)</li>
+<li>The column names and structure of the <code>bibliography_entires()</code> tibble have changed for consistency with the CSL-JSON format. The mapping of commonly used column names are:
+<ul><li>bibtype -&gt; type (note that the values are converted to CSL-JSON format)</li>
 <li>key -&gt; id</li>
 <li>year -&gt; issued</li>
 </ul></li>
@@ -138,7 +143,8 @@
 <h2 class="page-header" data-toc-text="0.2.2" id="vitae-022">vitae 0.2.2<small>2020-04-27</small><a class="anchor" aria-label="anchor" href="#vitae-022"></a></h2>
 <div class="section level3">
 <h3 id="bug-fixes-0-2-2">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-0-2-2"></a></h3>
-<ul><li>This patch resolves knit issues introduced by tibble v3.0.0.</li></ul></div>
+<ul><li>This patch resolves knit issues introduced by tibble v3.0.0.</li>
+</ul></div>
 </div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.2.1" id="vitae-021">vitae 0.2.1<small>2019-12-15</small><a class="anchor" aria-label="anchor" href="#vitae-021"></a></h2>
@@ -152,7 +158,8 @@
 <h2 class="page-header" data-toc-text="0.2.0" id="vitae-020">vitae 0.2.0<small>2019-07-12</small><a class="anchor" aria-label="anchor" href="#vitae-020"></a></h2>
 <div class="section level3">
 <h3 id="breaking-changes-0-2-0">Breaking changes<a class="anchor" aria-label="anchor" href="#breaking-changes-0-2-0"></a></h3>
-<ul><li>Simplified <code>bibliography_entries</code> entries by removing <code>title</code> and <code>sorting</code> arguments. The title can be included using markdown, and sorting now respects the order of the tibble created by the function.</li></ul></div>
+<ul><li>Simplified <code>bibliography_entries</code> entries by removing <code>title</code> and <code>sorting</code> arguments. The title can be included using markdown, and sorting now respects the order of the tibble created by the function.</li>
+</ul></div>
 <div class="section level3">
 <h3 id="improvements-0-2-0">Improvements<a class="anchor" aria-label="anchor" href="#improvements-0-2-0"></a></h3>
 <ul><li>Added theme support for <code>moderncv</code>: classic, banking, oldstyle, fancy.</li>
@@ -184,7 +191,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>
