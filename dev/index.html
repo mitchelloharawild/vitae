@@ -124,39 +124,7 @@
 <p>If you prefer a guided introduction in video form, check out <a href="https://github.com/tallguyjenks" class="external-link">Bryan Jenks</a>’ <a href="https://github.com/freeCodeCamp/freeCodeCamp" class="external-link">freeCodeCamp</a> <a href="https://youtu.be/cMlRAiQUdD8" class="external-link">tech talk</a>: <a href="https://youtu.be/cMlRAiQUdD8" class="external-link"><img src="reference/figures/freecodecamp.jpg"></a></p>
 <p>Creating a new CV with <code>vitae</code> can be done using the RStudio R Markdown template selector: <img src="reference/figures/template_gui.png"></p>
 <p>These templates leverage the strength of rmarkdown to include common information in the YAML header (name, position, social links…) and extended information in the main body. The main body of the CV is written using markdown, and allows for data-driven generation of entries using the <a href="https://pkg.mitchelloharawild.com/vitae/reference/cv_entries.html"><code>*_entries</code> functions</a>. This allows you to import your working history from other sources (such as ORCID, Google Scholar, or a maintained dataset), and include them programmatically into your CV.</p>
-<p>For example, the <a href="https://github.com/ropensci/rorcid" class="external-link">rorcid package</a> can be used to extract <a href="https://orcid.org/0000-0002-2140-5352" class="external-link">Rob Hyndman</a>’s education history:</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">orcid_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/do.call.html" class="external-link">do.call</a></span><span class="op">(</span><span class="st">"rbind"</span>,</span>
-<span>  <span class="fu">rorcid</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/rorcid/man/orcid_educations.html" class="external-link">orcid_educations</a></span><span class="op">(</span><span class="st">"0000-0002-2140-5352"</span><span class="op">)</span><span class="op">$</span><span class="va">`0000-0002-2140-5352`</span><span class="op">$</span><span class="va">`affiliation-group`</span><span class="op">$</span><span class="va">summaries</span></span>
-<span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Attaching package: 'dplyr'</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; The following objects are masked from 'package:stats':</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     filter, lag</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; The following objects are masked from 'package:base':</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     intersect, setdiff, setequal, union</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    education-summary.role-title education-summary.start-date.year.value</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1                           PhD                                    1990</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 Bachelor of Science (Honours)                                    1985</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   education-summary.end-date.year.value education-summary.organization.name</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1                                  1992             University of Melbourne</span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2                                  1988             University of Melbourne</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   education-summary.organization.address.city</span></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1                                   Melbourne</span></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2                                   Melbourne</span></span></code></pre></div>
-<p>The package provides two types of entries from data, which are <code>detailed_entries</code> and <code>brief_entries</code>. Both functions provide sections for <code>what</code>, <code>when</code>, and <code>with</code>, and the <code>detailed_entries</code> additionally supports <code>where</code> and <code>why</code>. These arguments support operations, so for this example, we have used <code>glue</code> to combine the start and end years for our <code>when</code> input. Excluding any inputs is also okay (as is done for <code>why</code>), it will just be left blank in the CV.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">orcid_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="reference/cv_entries.html">detailed_entries</a></span><span class="op">(</span></span>
-<span>    what <span class="op">=</span> <span class="va">`education-summary.role-title`</span>,</span>
-<span>    when <span class="op">=</span> <span class="fu">glue</span><span class="fu">::</span><span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html" class="external-link">glue</a></span><span class="op">(</span><span class="st">"{`education-summary.start-date.year.value`} - {`education-summary.end-date.year.value`}"</span><span class="op">)</span>,</span>
-<span>    with <span class="op">=</span> <span class="va">`education-summary.organization.name`</span>,</span>
-<span>    where <span class="op">=</span> <span class="va">`education-summary.organization.address.city`</span></span>
-<span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/education.png"></p>
-<p>Additional examples of using this package can be found in the slides presented at <a href="https://ozunconf18.ropensci.org/" class="external-link">ozunconf2018</a>: <a href="https://slides.mitchelloharawild.com/vitae/" class="external-link uri">https://slides.mitchelloharawild.com/vitae/</a></p>
+<p>Examples of using this package can be found in the list below and in the slides presented at <a href="https://ozunconf18.ropensci.org/" class="external-link">ozunconf2018</a>: <a href="https://slides.mitchelloharawild.com/vitae/" class="external-link uri">https://slides.mitchelloharawild.com/vitae/</a></p>
 </div>
 <div class="section level2">
 <h2 id="templates">Templates<a class="anchor" aria-label="anchor" href="#templates"></a>

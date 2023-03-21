@@ -206,7 +206,8 @@ library(vitae)
 # Professional Summary
 
 This is a good opportunity to introduce yourself professionally and summarise
-why your skills are well suited to the job you are applying for!")</code>
+why your skills are well suited to the job you are applying for!
+</code>
 </pre>
 <p>`{=html}</p>
 <p>The setup chunk is useful to load in any packages that you may use,
@@ -225,28 +226,12 @@ functions, and the arguments can involve some calculations.</p>
 <div class="section level4">
 <h4 id="detailed-entries">Detailed entries<a class="anchor" aria-label="anchor" href="#detailed-entries"></a>
 </h4>
-<p>Let’s add to the main body with some education history. These details
-are available on <a href="https://orcid.org" class="external-link">ORCID</a> with my ID of <a href="https://orcid.org/0000-0001-6729-7695" class="external-link">0000-0001-6729-7695</a>,
-which can be dynamically accessed using the <a href="https://CRAN.R-project.org/package=rorcid" class="external-link">rorcid</a> package.</p>
-`
-<pre>
-<code># Education
-
-```{r education}
-library(vitae)
-edu &lt;- do.call("rbind",
-  rorcid::orcid_educations("0000-0001-6729-7695")$`0000-0001-6729-7695`$`affiliation-group`$summaries
-)
-edu %&gt;%
-  detailed_entries(
-    what = `education-summary.role-title`,
-    when = glue::glue("{`education-summary.start-date.year.value`} - {`education-summary.end-date.year.value`}"),
-    with = `education-summary.organization.name`,
-    where = `education-summary.organization.address.city`
-  )
-```</code>
-</pre>
-<p>`{=html}</p>
+<p>Let’s add to the main body with some education history. I’m creating
+a dataset in R to do this, although you can read in the data from excel,
+or if you have it documented somewhere online like <a href="https://orcid.org" class="external-link">ORCID</a> you can dynamically access it via
+their API.</p>
+<p></p>
+<pre> <code> ```{r education} library(vitae) edu &lt;- tribble(   ~ degree, ~ start, ~ end, ~ institution, ~ location,   "Bachelor of Commerce (Honours) (Econometrics)", 2013, 2017, "Monash University", "Clayton",   "Bachelor of Science (Mathematical Statistics and Computational Science)", 2013, 2016, "Monash University", "Clayton", ) edu %&gt;%   detailed_entries(     what = degree,     when = glue::glue("{start} - {end}"),     with = institution,     where = location   ) ```</code> </pre>
 <p>In the example above, the <a href="https://CRAN.R-project.org/package=glue" class="external-link">glue</a> package has been
 used to combine the start and end years for our <code>when</code> input.
 Excluding any arguments is also okay (as is done for <code>why</code>),
