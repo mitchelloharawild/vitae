@@ -25,7 +25,6 @@ Imports:
     jsonlite
 Suggests:
     covr,
-    rorcid,
     testthat,
     stringr,
     htmltools

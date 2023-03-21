@@ -19,21 +19,23 @@ library(vitae)
 # Professional Summary
 
 This is a good opportunity to introduce yourself professionally and summarise
-why your skills are well suited to the job you are applying for!")
+why your skills are well suited to the job you are applying for!
 
 # Education
 
 ```{r education}
 library(vitae)
-edu <- do.call("rbind",
-  rorcid::orcid_educations("0000-0001-6729-7695")$`0000-0001-6729-7695`$`affiliation-group`$summaries
+edu <- tribble(
+  ~ degree, ~ start, ~ end, ~ institution, ~ location,
+  "Bachelor of Commerce (Honours) (Econometrics)", 2013, 2017, "Monash University", "Clayton",
+  "Bachelor of Science (Mathematical Statistics and Computational Science)", 2013, 2016, "Monash University", "Clayton",
 )
 edu %>%
   detailed_entries(
-    what = `education-summary.role-title`,
-    when = glue::glue("{`education-summary.start-date.year.value`} - {`education-summary.end-date.year.value`}"),
-    with = `education-summary.organization.name`,
-    where = `education-summary.organization.address.city`
+    what = degree,
+    when = glue::glue("{start} - {end}"),
+    with = institution,
+    where = location
   )
 ```
 

@@ -36,29 +36,6 @@ readxl::read_excel("awards.xlsx") %>%
   brief_entries(???)
 ```
 
-## ORCID
-
-If you maintain an [ORCID](https://orcid.org/) profile, this information can be accessed using the [`rorcid` package](https://github.com/ropensci/rorcid). It will require an ORCID authentication token to be setup, as rendering the CV is done non-interactively. From the `rorcid` documentation:
-
-> The token is a alphanumeric UUID, e.g. dc0a6b6b-b4d4-4276-bc89-78c1e9ede56e. You can get this token by running orcid_auth(), then storing that key (the uuid alone, not the "Bearer " part) either as en environment variable in your .Renviron file in your home directory, or as an R option in your .Rprofile file. See ?Startup for more information. Either an environment variable or R option work. If we don't find either we do the next option.
-
-Essentially, use `rorcid::orcid_auth()` to obtain a token, which is added to either the `.Renviron` (`usethis::edit_r_environ()`) or `.Rprofile` (`usethis::edit_r_profile()`) using `ORCID_TOKEN=<YOUR TOKEN HERE>`.
-
-With the token setup, it is now possible to pull data from ORCID. As an example, here I source and display my education history using my ORCID ID of `"0000-0001-6729-7695"`.
-
-```r
-edu <- do.call("rbind",
-  rorcid::orcid_educations("0000-0001-6729-7695")$`0000-0001-6729-7695`$`affiliation-group`$summaries
-)
-edu %>%
-  detailed_entries(
-    what = `education-summary.role-title`,
-    when = glue::glue("{`education-summary.start-date.year.value`} - {`education-summary.end-date.year.value`}"),
-    with = `education-summary.organization.name`,
-    where = `education-summary.organization.address.city`
-  )
-```
-
 ## Google scholar
 
 Google Scholar does not require authentication to extract publications. Using the [`scholar` package](https://github.com/jkeirstead/scholar), it is easy to extract a user's publications from their Google Scholar ID. To obtain publications for an individual, you would first find your ID which is accessible from your profile URL. For example, Rob Hyndman's ID would be `"vamErfkAAAAJ"` (https://scholar.google.com/citations?user=vamErfkAAAAJ&hl=en).
