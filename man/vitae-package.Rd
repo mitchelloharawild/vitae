@@ -32,6 +32,7 @@ Other contributors:
   \item Yihui Xie (\href{https://orcid.org/0000-0003-0645-5666}{ORCID}) [contributor]
   \item Albert Krewinkel (Multiple bibliographies lua filter) [copyright holder]
   \item JooYoung Seo (\href{https://orcid.org/0000-0002-4064-6012}{ORCID}) [contributor]
+  \item Isabelle Greco (\href{https://orcid.org/0000-0003-1604-6639}{ORCID}) [contributor]
 }
 
 }

@@ -80,7 +80,7 @@ tbl_sum.vitae_bibliography <- function(x) {
 
 #' @importFrom knitr knit_print
 #' @export
-knit_print.vitae_bibliography <- function(x, options = knitr::opts_current$get()) {
+knit_print.vitae_bibliography <- function(x, options = knitr::opts_current$get(), ...) {
   # Reconstruct yaml from tibble
   yml <- lapply(
     dplyr::group_split(dplyr::rowwise(x)),

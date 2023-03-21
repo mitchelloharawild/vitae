@@ -55,7 +55,7 @@ print.csl_date <- function(x, ...) {
 }
 
 #' @export
-vec_ptype_abbr.csl_dates <- function(x) "csl_date"
+vec_ptype_abbr.csl_dates <- function(x, ..., prefix_named = FALSE, suffix_shape = TRUE) "csl_date"
 
 #' @export
 as.Date.csl_date <- function(x, to, ...) {
@@ -87,7 +87,7 @@ vec_cast.Date.csl_dates <- function(x, to, ...) {
 }
 
 #' @export
-xtfrm.csl_dates <- function(x) {
+xtfrm.csl_dates <- function(x, ...) {
   xtfrm(as.Date(x))
 }
 

@@ -25,7 +25,7 @@ tbl_sum.vitae_brief <- function(x) {
 
 #' @importFrom knitr knit_print
 #' @export
-knit_print.vitae_brief <- function(x, options) {
+knit_print.vitae_brief <- function(x, options, ...) {
   if(is.null(entry_format_functions$format)) {
     warn("Brief entry formatter is not defined for this output format.")
     return(knit_print(tibble::as_tibble(x)))

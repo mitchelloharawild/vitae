@@ -91,7 +91,7 @@ vec_cast.character.list_of_csl_names <- function(x, to, ...) {
 }
 
 #' @export
-xtfrm.list_of_csl_names <- function(x) {
+xtfrm.list_of_csl_names <- function(x, ...) {
   xtfrm(format(x))
 }
 
