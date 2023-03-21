@@ -5,7 +5,7 @@ articles:
   data: data.html
   extending: extending.html
   vitae: vitae.html
-last_built: 2023-02-27T04:40Z
+last_built: 2023-03-21T10:46Z
 urls:
   reference: https://pkg.mitchelloharawild.com/vitae/reference
   article: https://pkg.mitchelloharawild.com/vitae/articles
