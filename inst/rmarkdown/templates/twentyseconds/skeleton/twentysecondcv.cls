@@ -81,6 +81,9 @@
 \newcommand{\cvtwitter}[1]{\renewcommand{\cvtwitter}{#1}}
 \newcommand{\cvlinkedin}[1]{\renewcommand{\cvlinkedin}{#1}}
 \newcommand{\cvgithub}[1]{\renewcommand{\cvgithub}{#1}}
+\newcommand{\cvorcid}[1]{\renewcommand{\cvorcid}{#1}}
+\newcommand{\cvscholar}[1]{\renewcommand{\cvscholar}{#1}}
+\newcommand{\cvresearchgate}[1]{\renewcommand{\cvresearchgate}{#1}}
 \newcommand{\cvnumberphone}[1]{\renewcommand{\cvnumberphone}{#1}}
 \newcommand{\cvpronouns}[1]{\renewcommand{\cvpronouns}{#1}}
 \newcommand{\cvaddress}[1]{\renewcommand{\cvaddress}{#1}}
@@ -164,6 +167,9 @@
 			\ifthenelse{\equal{\cvtwitter}{}}{}{\Large\faicon{twitter} & \cvtwitter\\}
 			\ifthenelse{\equal{\cvgithub}{}}{}{\Large\faicon{github} & \cvgithub\\}
 			\ifthenelse{\equal{\cvlinkedin}{}}{}{\Large\faicon{linkedin} & \cvlinkedin}
+			\ifthenelse{\equal{\cvorcid}{}}{}{\Large\faicon{orcid} & \cvorcid}
+			\ifthenelse{\equal{\cvscholar}{}}{}{\Large\faicon{google} & \cvscholar}
+			\ifthenelse{\equal{\cvresearchgate}{}}{}{\Large\faicon{researchgate} & \cvresearchgate}
 		\end{tabular}
 
 		%------------------------------------------------
