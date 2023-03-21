@@ -12,18 +12,18 @@
 <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="apple-touch-icon-120x120.png">
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="apple-touch-icon-76x76.png">
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="apple-touch-icon-60x60.png">
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="bootstrap-toc.css">
 <script src="bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
 <script src="pkgdown.js"></script><meta property="og:title" content="Curriculum Vitae for R Markdown">
 <meta property="og:description" content="Provides templates and functions to simplify the production and maintenance of curriculum vitae.">
-<meta property="og:image" content="/logo.png">
+<meta property="og:image" content="https://pkg.mitchelloharawild.com/vitae/logo.png">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
+<![endif]--><script defer data-domain="pkg.mitchelloharawild.com/vitae" src="https://track.mitchelloharawild.com/js/plausible.js"></script>
 </head>
 <body data-spy="scroll" data-target="#toc">
     
@@ -40,7 +40,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">vitae</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.5.2.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.3</span>
       </span>
     </div>
 
@@ -95,6 +95,7 @@
 </h1></div>
 <p><em>/ˈviːteɪ/</em></p>
 <!-- badges: start -->
+
 <div class="section level2">
 <h2 id="templates-and-tools-for-making-a-résumécv">Templates and tools for making a Résumé/CV<a class="anchor" aria-label="anchor" href="#templates-and-tools-for-making-a-r%C3%A9sum%C3%A9cv"></a>
 </h2>
@@ -121,76 +122,56 @@
 <p>The <em>vitae</em> package currently supports 6 popular CV templates. You can see some previews of the available templates <a href="#templates">below</a>.</p>
 <p>If you prefer a guided introduction in video form, check out <a href="https://github.com/tallguyjenks" class="external-link">Bryan Jenks</a>’ <a href="https://github.com/freeCodeCamp/freeCodeCamp" class="external-link">freeCodeCamp</a> <a href="https://youtu.be/cMlRAiQUdD8" class="external-link">tech talk</a>: <a href="https://youtu.be/cMlRAiQUdD8" class="external-link"><img src="reference/figures/freecodecamp.jpg"></a></p>
 <p>Creating a new CV with <code>vitae</code> can be done using the RStudio R Markdown template selector: <img src="reference/figures/template_gui.png"></p>
-<p>These templates leverage the strength of rmarkdown to include common information in the YAML header (name, position, social links…) and extended information in the main body. The main body of the CV is written using markdown, and allows for data-driven generation of entries using the <a href="https://pkg.mitchelloharawild.com/vitae/reference/cv_entries.html" class="external-link"><code>*_entries</code> functions</a>. This allows you to import your working history from other sources (such as ORCID, Google Scholar, or a maintained dataset), and include them programmatically into your CV.</p>
-<p>For example, the <a href="https://github.com/ropensci/rorcid" class="external-link">rorcid package</a> can be used to extract <a href="https://orcid.org/0000-0002-2140-5352" class="external-link">Rob Hyndman</a>’s education history:</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">orcid_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/do.call.html" class="external-link">do.call</a></span><span class="op">(</span><span class="st">"rbind"</span>,</span>
-<span>  <span class="fu">rorcid</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/rorcid/reference/orcid_educations.html" class="external-link">orcid_educations</a></span><span class="op">(</span><span class="st">"0000-0002-2140-5352"</span><span class="op">)</span><span class="op">$</span><span class="va">`0000-0002-2140-5352`</span><span class="op">$</span><span class="va">`affiliation-group`</span><span class="op">$</span><span class="va">summaries</span></span>
-<span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Attaching package: 'dplyr'</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; The following objects are masked from 'package:stats':</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     filter, lag</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; The following objects are masked from 'package:base':</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     intersect, setdiff, setequal, union</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    education-summary.role-title education-summary.start-date.year.value</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1                           PhD                                    1990</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 Bachelor of Science (Honours)                                    1985</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   education-summary.end-date.year.value education-summary.organization.name</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1                                  1992             University of Melbourne</span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2                                  1988             University of Melbourne</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   education-summary.organization.address.city</span></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1                                   Melbourne</span></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2                                   Melbourne</span></span></code></pre></div>
-<p>The package provides two types of entries from data, which are <code>detailed_entries</code> and <code>brief_entries</code>. Both functions provide sections for <code>what</code>, <code>when</code>, and <code>with</code>, and the <code>detailed_entries</code> additionally supports <code>where</code> and <code>why</code>. These arguments support operations, so for this example, we have used <code>glue</code> to combine the start and end years for our <code>when</code> input. Excluding any inputs is also okay (as is done for <code>why</code>), it will just be left blank in the CV.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">orcid_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="reference/cv_entries.html">detailed_entries</a></span><span class="op">(</span></span>
-<span>    what <span class="op">=</span> <span class="va">`education-summary.role-title`</span>,</span>
-<span>    when <span class="op">=</span> <span class="fu">glue</span><span class="fu">::</span><span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html" class="external-link">glue</a></span><span class="op">(</span><span class="st">"{`education-summary.start-date.year.value`} - {`education-summary.end-date.year.value`}"</span><span class="op">)</span>,</span>
-<span>    with <span class="op">=</span> <span class="va">`education-summary.organization.name`</span>,</span>
-<span>    where <span class="op">=</span> <span class="va">`education-summary.organization.address.city`</span></span>
-<span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/education.png"></p>
-<p>Additional examples of using this package can be found in the slides presented at <a href="https://ozunconf18.ropensci.org/" class="external-link">ozunconf2018</a>: <a href="https://slides.mitchelloharawild.com/vitae/" class="external-link uri">https://slides.mitchelloharawild.com/vitae/</a></p>
+<p>These templates leverage the strength of rmarkdown to include common information in the YAML header (name, position, social links…) and extended information in the main body. The main body of the CV is written using markdown, and allows for data-driven generation of entries using the <a href="https://pkg.mitchelloharawild.com/vitae/reference/cv_entries.html"><code>*_entries</code> functions</a>. This allows you to import your working history from other sources (such as ORCID, Google Scholar, or a maintained dataset), and include them programmatically into your CV.</p>
+<p>Examples of using this package can be found in the list below and in the slides presented at <a href="https://ozunconf18.ropensci.org/" class="external-link">ozunconf2018</a>: <a href="https://slides.mitchelloharawild.com/vitae/" class="external-link uri">https://slides.mitchelloharawild.com/vitae/</a></p>
 </div>
 <div class="section level2">
 <h2 id="templates">Templates<a class="anchor" aria-label="anchor" href="#templates"></a>
 </h2>
 <p>There are currently 6 templates available in this package:</p>
 <table class="table">
+<colgroup>
+<col width="51%">
+<col width="48%">
+</colgroup>
 <thead><tr class="header">
-<th align="left"><a href="https://pkg.mitchelloharawild.com/vitae/reference/awesomecv.html" class="external-link"><strong>vitae::awesomecv</strong></a></th>
-<th align="left"><a href="https://pkg.mitchelloharawild.com/vitae/reference/hyndman.html" class="external-link"><strong>vitae::hyndman</strong></a></th>
+<th><a href="https://pkg.mitchelloharawild.com/vitae/reference/awesomecv.html"><strong>vitae::awesomecv</strong></a></th>
+<th><a href="https://pkg.mitchelloharawild.com/vitae/reference/hyndman.html"><strong>vitae::hyndman</strong></a></th>
 </tr></thead>
 <tbody><tr class="odd">
-<td align="left"><a href="https://pkg.mitchelloharawild.com/vitae/reference/awesomecv.html" class="external-link"><img src="reference/figures/preview-awesomecv.png" width="415" alt="Preview of awesomecv"></a></td>
-<td align="left"><a href="https://pkg.mitchelloharawild.com/vitae/reference/hyndman.html" class="external-link"><img src="reference/figures/preview-hyndman.png" width="415" alt="Preview of hyndman"></a></td>
+<td><a href="https://pkg.mitchelloharawild.com/vitae/reference/awesomecv.html"><img src="reference/figures/preview-awesomecv.png" width="415" alt="Preview of awesomecv"></a></td>
+<td><a href="https://pkg.mitchelloharawild.com/vitae/reference/hyndman.html"><img src="reference/figures/preview-hyndman.png" width="415" alt="Preview of hyndman"></a></td>
 </tr></tbody>
 </table>
 <table class="table">
+<colgroup>
+<col width="48%">
+<col width="51%">
+</colgroup>
 <thead><tr class="header">
-<th align="left"><a href="https://pkg.mitchelloharawild.com/vitae/reference/latexcv.html" class="external-link"><strong>vitae::latexcv</strong></a></th>
-<th align="left"><a href="https://pkg.mitchelloharawild.com/vitae/reference/markdowncv.html" class="external-link"><strong>vitae::markdowncv</strong></a></th>
+<th><a href="https://pkg.mitchelloharawild.com/vitae/reference/latexcv.html"><strong>vitae::latexcv</strong></a></th>
+<th><a href="https://pkg.mitchelloharawild.com/vitae/reference/markdowncv.html"><strong>vitae::markdowncv</strong></a></th>
 </tr></thead>
 <tbody><tr class="odd">
-<td align="left"><a href="https://pkg.mitchelloharawild.com/vitae/reference/latexcv.html" class="external-link"><img src="reference/figures/preview-latexcv.png" width="415" alt="Preview of latexcv"></a></td>
-<td align="left"><a href="https://pkg.mitchelloharawild.com/vitae/reference/markdowncv.html" class="external-link"><img src="reference/figures/preview-markdowncv.png" width="415" alt="Preview of markdowncv"></a></td>
+<td><a href="https://pkg.mitchelloharawild.com/vitae/reference/latexcv.html"><img src="reference/figures/preview-latexcv.png" width="415" alt="Preview of latexcv"></a></td>
+<td><a href="https://pkg.mitchelloharawild.com/vitae/reference/markdowncv.html"><img src="reference/figures/preview-markdowncv.png" width="415" alt="Preview of markdowncv"></a></td>
 </tr></tbody>
 </table>
 <table class="table">
+<colgroup>
+<col width="47%">
+<col width="52%">
+</colgroup>
 <thead><tr class="header">
-<th align="left"><a href="https://pkg.mitchelloharawild.com/vitae/reference/moderncv.html" class="external-link"><strong>vitae::moderncv</strong></a></th>
-<th align="left"><a href="https://pkg.mitchelloharawild.com/vitae/reference/twentyseconds.html" class="external-link"><strong>vitae::twentyseconds</strong></a></th>
+<th><a href="https://pkg.mitchelloharawild.com/vitae/reference/moderncv.html"><strong>vitae::moderncv</strong></a></th>
+<th><a href="https://pkg.mitchelloharawild.com/vitae/reference/twentyseconds.html"><strong>vitae::twentyseconds</strong></a></th>
 </tr></thead>
 <tbody><tr class="odd">
-<td align="left"><a href="https://pkg.mitchelloharawild.com/vitae/reference/moderncv.html" class="external-link"><img src="reference/figures/preview-moderncv.png" width="415" alt="Preview of moderncv"></a></td>
-<td align="left"><a href="https://pkg.mitchelloharawild.com/vitae/reference/twentyseconds.html" class="external-link"><img src="reference/figures/preview-twentyseconds.png" width="415" alt="Preview of twentyseconds"></a></td>
+<td><a href="https://pkg.mitchelloharawild.com/vitae/reference/moderncv.html"><img src="reference/figures/preview-moderncv.png" width="415" alt="Preview of moderncv"></a></td>
+<td><a href="https://pkg.mitchelloharawild.com/vitae/reference/twentyseconds.html"><img src="reference/figures/preview-twentyseconds.png" width="415" alt="Preview of twentyseconds"></a></td>
 </tr></tbody>
 </table>
-<p>Extending the package to add new templates is a somewhat simple process (details in the <a href="https://pkg.mitchelloharawild.com/vitae/articles/extending.html" class="external-link">creating vitae templates</a> vignette).</p>
+<p>Extending the package to add new templates is a somewhat simple process (details in the <a href="https://pkg.mitchelloharawild.com/vitae/articles/extending.html">creating vitae templates</a> vignette).</p>
 </div>
 <div class="section level2">
 <h2 id="examples-of-using-vitae">Examples of using vitae<a class="anchor" aria-label="anchor" href="#examples-of-using-vitae"></a>
@@ -267,15 +248,7 @@
 </ul>
 </div>
 
-<div class="dev-status">
-<h2 data-toc-skip>Dev status</h2>
-<ul class="list-unstyled">
-<li><a href="https://cran.r-project.org/package=vitae" class="external-link"><img src="https://www.r-pkg.org/badges/version/vitae" alt="CRAN status"></a></li>
-<li><a href="https://github.com/mitchelloharawild/vitae/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/mitchelloharawild/vitae/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R check status"></a></li>
-<li><a href="https://lifecycle.r-lib.org/articles/stages.html#maturing" class="external-link"><img src="https://img.shields.io/badge/lifecycle-maturing-blue.svg" alt="Lifecycle: maturing"></a></li>
-<li><a href="https://cran.r-project.org/package=vitae" class="external-link"><img src="https://cranlogs.r-pkg.org/badges/vitae" alt="Downloads"></a></li>
-</ul>
-</div>
+
 
   </div>
 </div>
@@ -288,7 +261,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer>
