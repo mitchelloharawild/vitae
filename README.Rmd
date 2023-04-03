@@ -106,6 +106,7 @@ Extending the package to add new templates is a somewhat simple process (details
 - [Adam Kirosingh](https://github.com/akirosingh/CV)
 - [Marco Lombardi](https://github.com/mlombardi6/awesome-template)
 - [Anthony Romero](https://github.com/ganthonyr/CV)
+- [Igor Granado](https://github.com/GranadoIgor/CV)
 
 Add your vitae to the list using a PR.
 
