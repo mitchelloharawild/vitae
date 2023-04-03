@@ -116,6 +116,7 @@ vignette).
 - [Adam Kirosingh](https://github.com/akirosingh/CV)
 - [Marco Lombardi](https://github.com/mlombardi6/awesome-template)
 - [Anthony Romero](https://github.com/ganthonyr/CV)
+- [Igor Granado](https://github.com/GranadoIgor/CV)
 
 Add your vitae to the list using a PR.
 
