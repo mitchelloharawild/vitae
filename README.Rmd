@@ -65,8 +65,6 @@ Creating a new CV with `vitae` can be done using the RStudio R Markdown template
 
 These templates leverage the strength of rmarkdown to include common information in the YAML header (name, position, social links...) and extended information in the main body. The main body of the CV is written using markdown, and allows for data-driven generation of entries using the [`*_entries` functions](https://pkg.mitchelloharawild.com/vitae/reference/cv_entries.html). This allows you to import your working history from other sources (such as ORCID, Google Scholar, or a maintained dataset), and include them programmatically into your CV.
 
-Examples of using this package can be found in the list below and in the slides presented at [ozunconf2018](https://ozunconf18.ropensci.org/): [https://slides.mitchelloharawild.com/vitae/](https://slides.mitchelloharawild.com/vitae/)
-
 ## Templates
 
 There are currently `r length(template_name)` templates available in this package:

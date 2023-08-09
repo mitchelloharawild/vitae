@@ -72,10 +72,6 @@ This allows you to import your working history from other sources (such
 as ORCID, Google Scholar, or a maintained dataset), and include them
 programmatically into your CV.
 
-Examples of using this package can be found in the list below and in the
-slides presented at [ozunconf2018](https://ozunconf18.ropensci.org/):
-<https://slides.mitchelloharawild.com/vitae/>
-
 ## Templates
 
 There are currently 6 templates available in this package:
