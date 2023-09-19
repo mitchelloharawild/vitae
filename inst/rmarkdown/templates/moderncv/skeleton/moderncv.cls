@@ -327,6 +327,7 @@
 \newcommand*{\orcidsocialsymbol}   {}
 \newcommand*{\researchgatesocialsymbol}{}
 \newcommand*{\researcheridsocialsymbol}{}
+\newcommand*{\researchidsocialsymbol}{}
 \newcommand*{\googlescholarsocialsymbol}{\faGoogle~}
 \newcommand*{\telegramsocialsymbol}{}
 \newcommand*{\whatsappsocialsymbol}{}
