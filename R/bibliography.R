@@ -100,9 +100,6 @@ knit_print.vitae_bibliography <- function(x, options = knitr::opts_current$get()
   startlabel <- x %@% "startlabel"
   endlabel <- x %@% "endlabel"
 
-  # Convert file separator to format expected by citeproc
-  # file <- gsub("\\", "/", file, fixed = TRUE)
-
   out <- glue(
     '
 
@@ -112,5 +109,9 @@ knit_print.vitae_bibliography <- function(x, options = knitr::opts_current$get()
     ',
     .open = "<<", .close = ">>"
   )
+
+  # Convert file separator to format expected by pandoc-citeproc on Windows
+  file <- gsub("\\", "/", file, fixed = TRUE)
+
   knitr::asis_output(out, meta = list(structure(list(file = file, id = x$id), class = "vitae_nocite")))
 }
