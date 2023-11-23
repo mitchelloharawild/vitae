@@ -16,20 +16,8 @@ cv_document <- function(..., pandoc_args = NULL, pandoc_vars = NULL,
     pandoc_args <- c(pandoc_args, rmarkdown::pandoc_variable_arg(names(pandoc_vars)[[i]], pandoc_vars[[i]]))
   }
 
-  # Inject multiple-bibliographies lua filter
-  mult_bib <- file.path(tempdir(), "multiple-bibliographies.lua")
-  if(rmarkdown::pandoc_version() <= package_version("2.7.3")) {
-    warn(sprintf("Detected pandoc version %s, which may cause issues with bibliography_entries().
-Please update pandoc if you have any issues knitting bibliographies (this can be done by updating RStudio).", rmarkdown::pandoc_version()))
-  }
-  cat(
-    gsub("<<PANDOC_PATH>>", rmarkdown::find_pandoc()$dir, fixed = TRUE,
-         readLines(system.file("multiple-bibliographies.lua", package = "vitae", mustWork = TRUE), encoding = "UTF-8")),
-    file = mult_bib, sep = "\n"
-  )
-
   pandoc_args <- c(
-    c(rbind("--lua-filter", mult_bib)),
+    c(rbind("--lua-filter", system.file("multiple-bibliographies.lua", package = "vitae", mustWork = TRUE))),
     pandoc_args
   )
 
@@ -41,8 +29,15 @@ Please update pandoc if you have any issues knitting bibliographies (this can be
                files_dir, output_dir)
 
     # Add citations to front matter yaml, there may be a better way to do this.
+    # For example, @* wildcard. Keeping as is to avoid unintended side effects.
     meta_nocite <- vapply(knit_meta, inherits, logical(1L), "vitae_nocite")
-    metadata$nocite <- c(metadata$nocite, paste0("@", do.call(c, knit_meta[meta_nocite]), collapse = ", "))
+
+    bib_files <- lapply(knit_meta[meta_nocite], function(x) x$file)
+    names(bib_files) <- vapply(bib_files, rlang::hash_file, character(1L))
+    metadata$bibliography <- bib_files
+
+    bib_ids <- unique(unlist(lapply(knit_meta[meta_nocite], function(x) x$id)))
+    metadata$nocite <- c(metadata$nocite, paste0("@", bib_ids, collapse = ", "))
     if(is.null(metadata$csl)) metadata$csl <- system.file("vitae.csl", package = "vitae", mustWork = TRUE)
 
     body <- partition_yaml_front_matter(xfun::read_utf8(input_file))$body
