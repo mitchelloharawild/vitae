@@ -1,4 +1,4 @@
-# vitae (development version)
+# vitae 0.5.4
 
 * Fixed `bibliography_entries()` failing to render PDF outputs with recent 
   versions of pandoc (#246).
