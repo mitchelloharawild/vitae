@@ -7,7 +7,7 @@
 insert_preview(template)
 }
 \arguments{
-\item{input}{Path to the CV's template rmd file}
+\item{template}{Name of the template}
 }
 \description{
 Include a preview of the CV template output for documentation
