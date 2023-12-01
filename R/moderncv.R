@@ -19,7 +19,7 @@
 #'
 #' @export
 moderncv <- function(..., theme = c("casual", "classic", "oldstyle", "banking", "fancy"),
-                     latex_engine = "pdflatex") {
+                     latex_engine = "xelatex") {
   theme <- match.arg(theme)
   template <- system.file("rmarkdown", "templates", "moderncv",
                           "resources", "moderncv.tex",
