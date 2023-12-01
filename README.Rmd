@@ -90,20 +90,21 @@ Extending the package to add new templates is a somewhat simple process (details
 
 ## Examples of using vitae
 
-- [Mitchell O'Hara-Wild](https://github.com/mitchelloharawild/CV)
-- [Rob Hyndman](https://github.com/robjhyndman/CV)
-- [Eric R. Scott](https://github.com/Aariq/curriculum-vitae)
-- [Nat Price](https://github.com/natbprice/cv)
-- [Sam Abbott](https://github.com/seabbs/cv) (automatic deployment!)
-- [JooYoung Seo](https://github.com/jooyoungseo/jy_CV) (printing multiple bibliographic entries according to a given csl file)
-- [Diogo M. Camacho](https://github.com/diogocamacho/CV)
-- [Han Zhang](https://github.com/HanZhang-psych/CV) (custom csl files)
-- [Bryan Jenks](https://github.com/tallguyjenks/CV)
 - [Lorena Abad](https://github.com/loreabad6/R-CV)
-- [Lampros Sp. Mouselimis](https://github.com/mlampros/My.CVitae) (using Github Actions and a docker image to programmatically generate the CV file)
+- [Sam Abbott](https://github.com/seabbs/cv) (automatic deployment!)
+- [Diogo M. Camacho](https://github.com/diogocamacho/CV)
+- [Rob Hyndman](https://github.com/robjhyndman/CV)
+- [Bryan Jenks](https://github.com/tallguyjenks/CV)
 - [Adam Kirosingh](https://github.com/akirosingh/CV)
 - [Marco Lombardi](https://github.com/mlombardi6/awesome-template)
+- [Lampros Sp. Mouselimis](https://github.com/mlampros/My.CVitae) (using Github Actions and a docker image to - [Mitchell O'Hara-Wild](https://github.com/mitchelloharawild/CV)
+- [Antonio Páez](https://github.com/paezha/Official-CV)
+- [Nat Price](https://github.com/natbprice/cv)
 - [Anthony Romero](https://github.com/ganthonyr/CV)
+- [Eric R. Scott](https://github.com/Aariq/curriculum-vitae)
+- [JooYoung Seo](https://github.com/jooyoungseo/jy_CV) (printing multiple bibliographic entries according to a given csl file)
+- [Han Zhang](https://github.com/HanZhang-psych/CV) (custom csl files)
+programmatically generate the CV file)
 
 Add your vitae to the list using a PR.
 
