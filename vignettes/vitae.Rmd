@@ -63,6 +63,9 @@ Currently, the YAML header allows these fields to be specified:
 - `headcolor`: A featured colour for the template
 - `docname`: Control the document name (typically curriculum vitae, or résumé)
 
+The `vitae::twentyseconds` template has an additional argument `skills` that is a list of skills as a character in the format "Skill/Value" with the value ranging from 0 to 6.
+
+`r htmltools::pre(htmltools::code(paste0(readLines("sample.txt")[1:15],collapse = "\n")))`
 
 ### The document body
 

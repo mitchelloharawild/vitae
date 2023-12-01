@@ -183,12 +183,25 @@
 
 		%------------------------------------------------
 
-%		\profilesection{Skills}
-
-%		\skills
-%		\skillstext
-%		\scriptsize
-%		(*)[The skill scale is from 0 (Fundamental Awareness) to 6 (Expert).]
+		\setbox0=\vbox{\hbox{%
+			\skills%
+		}}
+		
+		\ifdim\ht0>0.0pt\relax
+			\profilesection{Skills}
+				
+				\skills
+		\fi
+		
+		% Original Design (prints profile section regardless of data)
+		%\profilesection{Skills}
+	
+		%\skills
+		
+		%\skillstext
+		
+		%\scriptsize
+		%(*)[The skill scale is from 0 (Fundamental Awareness) to 6 (Expert).]
 
 		%------------------------------------------------
 

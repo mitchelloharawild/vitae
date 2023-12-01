@@ -1,0 +1,15 @@
+---
+name: Mitchell O'Hara-Wild
+date: "`r format(Sys.time(), '%B, %Y')`"
+profilepic: pic.jpg
+www: mitchelloharawild.com
+github: mitchelloharawild
+linkedin: mitchelloharawild
+twitter: mitchoharawild
+headcolor: 414141
+docname: CV/Resume
+skills:
+    - "Skill/3.2"
+    - "Skill/5.0"
+output: vitae::twentyseconds
+---
