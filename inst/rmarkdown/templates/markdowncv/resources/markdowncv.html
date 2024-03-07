@@ -5,6 +5,19 @@
   $for(author-meta)$<meta name="author" content="$author-meta$" />$endfor$
   $if(date-meta)$<meta name="date" content="$date-meta$" />$endif$
   <title>$if(title-prefix)$$title-prefix$ - $endif$$pagetitle$</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.1/css/all.css">
+  <link rel="stylesheet" type="text/css" href="media/academicons.min.css">
+
+  <style type="text/css">
+    :root {
+      --headcolor: $headcolor$;
+      --addresscolor: $addresscolor$;
+      --codecolor: $codecolor$;
+      --backcolor: $backcolor$;
+      --textcolor: $textcolor$;
+      --namecolor: $namecolor$;
+    }
+  </style>
 
   $if(math)$
   $if(mathjax)$
@@ -54,22 +67,22 @@
   $endfor$
   <div id="main">
     <div id="content">
-      <h1>$name$ $surname$</h1>
+      <h1>$if(namecolor)$<span style="color: var(--namecolor)">$name$</span>$else$$name$$endif$ $surname$</h1>
       $if(position)$<p>$position$</p>$endif$
       $if(address)$<p>$address$</p>$endif$
 
       <div id="webaddress">
-      |
-      $if(pronouns)$<i class="fa fa-comment"></i> $pronouns$ |$endif$
-      $if(phone)$<i class="fa fa-phone"></i> $phone$ |$endif$
-      $if(www)$<i class="fa fa-globe"></i> <a href="https://$www$">$www$</a> |$endif$
-      $if(email)$<i class="fa fa-envelope"></i> $email$ |$endif$
-      $if(twitter)$<i class="fa fa-twitter"></i> <a href="https://twitter.com/$twitter$">$twitter$</a> |$endif$
-      $if(github)$<i class="fa fa-github"></i> <a href="https://github.com/$github$">$github$</a> |$endif$
-      $if(linkedin)$<i class="fa fa-linkedin"></i> <a href="https://www.linkedin.com/in/$linkedin$/">$linkedin$</a> |$endif$
-      $if(orcid)$<i class="fa fa-orcid"></i> <a href="https://orcid.org/$orcid$">$orcid$</a> |$endif$
-      $if(scholar)$<i class="fa fa-google"></i> <a href="https://scholar.google.com/citations?user=$scholar$">$scholar$</a> |$endif$
-      $if(researchgate)$<i class="fa fa-researchgate"></i> <a href="https://www.researchgate.net/profile/$researchgate$">$researchgate$</a> |$endif$
+        |
+        $if(pronouns)$<i class="fa fa-comment"></i> $pronouns$ |$endif$
+        $if(phone)$<i class="fa fa-phone"></i> $phone$ |$endif$
+        $if(www)$<i class="fa fa-globe"></i> <a href="https://$www$">$www$</a> |$endif$
+        $if(email)$<i class="fa fa-envelope"></i> $email$ |$endif$
+        $if(twitter)$<i class="fab fa-twitter"></i> <a href="https://twitter.com/$twitter$">$twitter$</a> |$endif$
+        $if(github)$<i class="fab fa-github"></i> <a href="https://github.com/$github$">$github$</a> |$endif$
+        $if(linkedin)$<i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/$linkedin$/">$linkedin$</a> |$endif$
+        $if(orcid)$<i class="ai ai-orcid"></i> <a href="https://orcid.org/$orcid$">$orcid$</a> |$endif$
+        $if(scholar)$<i class="ai ai-google-scholar"></i> <a href="https://scholar.google.com/citations?user=$scholar$">$scholar$</a> |$endif$
+        $if(researchgate)$<i class="ai ai-researchgate"></i> <a href="https://www.researchgate.net/profile/$researchgate$">$researchgate$</a> |$endif$
       </div>
 
       $body$
