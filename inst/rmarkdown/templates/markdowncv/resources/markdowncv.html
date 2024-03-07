@@ -15,6 +15,7 @@
       --codecolor: $codecolor$;
       --backcolor: $backcolor$;
       --textcolor: $textcolor$;
+      --namecolor: $namecolor$;
     }
   </style>
 
@@ -66,7 +67,7 @@
   $endfor$
   <div id="main">
     <div id="content">
-      <h1>$if(namecolor)$<span style="color: $namecolor$">$name$</span>$else$$name$$endif$ $surname$</h1>
+      <h1>$if(namecolor)$<span style="color: var(--namecolor)">$name$</span>$else$$name$$endif$ $surname$</h1>
       $if(position)$<p>$position$</p>$endif$
       $if(address)$<p>$address$</p>$endif$
 
