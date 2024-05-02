@@ -104,6 +104,7 @@ Extending the package to add new templates is a somewhat simple process (details
 - [Adam Kirosingh](https://github.com/akirosingh/CV)
 - [Marco Lombardi](https://github.com/mlombardi6/awesome-template)
 - [Anthony Romero](https://github.com/ganthonyr/CV)
+- [André Calero Valdez](https://github.com/sumidu/acv) This version uses a database to manage the content and automatically updates the content once a week using Github actions. PDF is then added as a release after rendering. Also uses a forked version of the package to remove the trailing dot in brief entries.
 
 Add your vitae to the list using a PR.
 
