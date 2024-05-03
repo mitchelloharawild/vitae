@@ -78,15 +78,21 @@ There are currently 6 templates available in this package:
 
 | [**vitae::awesomecv**](https://pkg.mitchelloharawild.com/vitae/reference/awesomecv.html)         | [**vitae::hyndman**](https://pkg.mitchelloharawild.com/vitae/reference/hyndman.html)         |
 |--------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
-| [<img src="man/figures/preview-awesomecv.png" width="415" alt="Preview of awesomecv" />](https://pkg.mitchelloharawild.com/vitae/reference/awesomecv.html)  | [<img src="man/figures/preview-hyndman.png" width="415" alt="Preview of hyndman" />](https://pkg.mitchelloharawild.com/vitae/reference/hyndman.html)  |
+| [<img src="man/figures/preview-awesomecv.png" width="415"                                        
+ alt="Preview of awesomecv" />](https://pkg.mitchelloharawild.com/vitae/reference/awesomecv.html)  | [<img src="man/figures/preview-hyndman.png" width="415"                                      
+                                                                                                    alt="Preview of hyndman" />](https://pkg.mitchelloharawild.com/vitae/reference/hyndman.html)  |
 
 | [**vitae::latexcv**](https://pkg.mitchelloharawild.com/vitae/reference/latexcv.html)         | [**vitae::markdowncv**](https://pkg.mitchelloharawild.com/vitae/reference/markdowncv.html)         |
 |----------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
-| [<img src="man/figures/preview-latexcv.png" width="415" alt="Preview of latexcv" />](https://pkg.mitchelloharawild.com/vitae/reference/latexcv.html)  | [<img src="man/figures/preview-markdowncv.png" width="415" alt="Preview of markdowncv" />](https://pkg.mitchelloharawild.com/vitae/reference/markdowncv.html)  |
+| [<img src="man/figures/preview-latexcv.png" width="415"                                      
+ alt="Preview of latexcv" />](https://pkg.mitchelloharawild.com/vitae/reference/latexcv.html)  | [<img src="man/figures/preview-markdowncv.png" width="415"                                         
+                                                                                                alt="Preview of markdowncv" />](https://pkg.mitchelloharawild.com/vitae/reference/markdowncv.html)  |
 
 | [**vitae::moderncv**](https://pkg.mitchelloharawild.com/vitae/reference/moderncv.html)         | [**vitae::twentyseconds**](https://pkg.mitchelloharawild.com/vitae/reference/twentyseconds.html)         |
 |------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
-| [<img src="man/figures/preview-moderncv.png" width="415" alt="Preview of moderncv" />](https://pkg.mitchelloharawild.com/vitae/reference/moderncv.html)  | [<img src="man/figures/preview-twentyseconds.png" width="415" alt="Preview of twentyseconds" />](https://pkg.mitchelloharawild.com/vitae/reference/twentyseconds.html)  |
+| [<img src="man/figures/preview-moderncv.png" width="415"                                       
+ alt="Preview of moderncv" />](https://pkg.mitchelloharawild.com/vitae/reference/moderncv.html)  | [<img src="man/figures/preview-twentyseconds.png" width="415"                                            
+                                                                                                  alt="Preview of twentyseconds" />](https://pkg.mitchelloharawild.com/vitae/reference/twentyseconds.html)  |
 
 Extending the package to add new templates is a somewhat simple process
 (details in the [creating vitae
@@ -112,6 +118,11 @@ vignette).
 - [Adam Kirosingh](https://github.com/akirosingh/CV)
 - [Marco Lombardi](https://github.com/mlombardi6/awesome-template)
 - [Anthony Romero](https://github.com/ganthonyr/CV)
+- [André Calero Valdez](https://github.com/sumidu/acv) This version uses
+  a database to manage the content and automatically updates the content
+  once a week using Github actions. PDF is then added as a release after
+  rendering. Also uses a forked version of the package to remove the
+  trailing dot in brief entries.
 
 Add your vitae to the list using a PR.
 
