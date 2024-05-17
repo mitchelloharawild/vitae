@@ -1,15 +1,6 @@
 ---
-output: github_document
+format: gfm
 ---
-
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-
-```{r setup, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>"
-)
-```
 
 # vitae <img src="man/figures/logo.png" align="right" />
 */ˈviːteɪ/*
@@ -58,9 +49,11 @@ tinytex::install_tinytex()
 The *vitae* package currently supports `r length(list.dirs("inst/rmarkdown/templates/", recursive = FALSE))` popular CV templates. You can see some previews of the available templates [below](#templates).
 
 If you prefer a guided introduction in video form, check out [Bryan Jenks](https://github.com/tallguyjenks)' [freeCodeCamp](https://github.com/freeCodeCamp/freeCodeCamp) [tech talk](https://youtu.be/cMlRAiQUdD8):
+
 [![](man/figures/freecodecamp.jpg)](https://youtu.be/cMlRAiQUdD8)
 
 Creating a new CV with `vitae` can be done using the RStudio R Markdown template selector:
+
 ![](man/figures/template_gui.png)
 
 These templates leverage the strength of rmarkdown to include common information in the YAML header (name, position, social links...) and extended information in the main body. The main body of the CV is written using markdown, and allows for data-driven generation of entries using the [`*_entries` functions](https://pkg.mitchelloharawild.com/vitae/reference/cv_entries.html). This allows you to import your working history from other sources (such as ORCID, Google Scholar, or a maintained dataset), and include them programmatically into your CV.
@@ -72,7 +65,7 @@ There are currently `r length(template_name)` templates available in this packag
 ```{r show-previews, echo = FALSE, results = "asis"}
 preview_url <- sprintf("https://pkg.mitchelloharawild.com/vitae/reference/%s.html", template_name)
 preview_title <- sprintf("[**vitae::%s**](%s)", template_name, preview_url)
-preview_image <- sprintf("[![Preview of %s](%s){width=415px}](%s)", template_name, template_preview, preview_url)
+preview_image <- sprintf("[<img src=\"%s\" width=\"415\" alt=\"%s\" />](%s)", template_preview, template_name, preview_url)
 
 preview_row <- (seq_along(preview_title)+1)%/%2
 tables <- lapply(split(seq_along(preview_title), preview_row), function(i){
@@ -84,7 +77,7 @@ tables <- lapply(split(seq_along(preview_title), preview_row), function(i){
     ""
   )
 })
-cat(do.call(c, tables), sep = "\n")
+cat(c("```{=markdown}", unlist(tables), "```"), sep = "\n")
 ```
 Extending the package to add new templates is a somewhat simple process (details in the [creating vitae templates](https://pkg.mitchelloharawild.com/vitae/articles/extending.html) vignette).
 
@@ -104,6 +97,7 @@ Extending the package to add new templates is a somewhat simple process (details
 - [Adam Kirosingh](https://github.com/akirosingh/CV)
 - [Marco Lombardi](https://github.com/mlombardi6/awesome-template)
 - [Anthony Romero](https://github.com/ganthonyr/CV)
+- [André Calero Valdez](https://github.com/sumidu/acv) This version uses a database to manage the content and automatically updates the content once a week using Github actions. PDF is then added as a release after rendering. Also uses a forked version of the package to remove the trailing dot in brief entries.
 
 Add your vitae to the list using a PR.
 

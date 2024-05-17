@@ -65,5 +65,5 @@ test_that("bibliography_entries", {
   expect_s3_class(entries, "vitae_bibliography")
   print <- knitr::knit_print(entries)
 
-  expect_match(print, "{#bibliography}", fixed = TRUE)
+  expect_match(print, "{#refs-", fixed = TRUE)
 })

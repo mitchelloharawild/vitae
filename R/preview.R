@@ -1,6 +1,7 @@
 #' Include a preview of the CV template output for documentation
 #'
-#' @param input Path to the CV's template rmd file
+#' @param template Name of the template
+#'
 #' @keywords internal
 insert_preview <- function(template) {
   preview <- paste0("preview-", template, ".png")
