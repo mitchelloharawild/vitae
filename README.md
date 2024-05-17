@@ -119,6 +119,7 @@ vignette).
   once a week using Github actions. PDF is then added as a release after
   rendering. Also uses a forked version of the package to remove the
   trailing dot in brief entries.
+- [Jessica Gorzo](https://github.com/dendroica/cv) This is an example using a custom template based on awesomecv by incorporating the comment solution in Issue 108
 
 Add your vitae to the list using a PR.
 
