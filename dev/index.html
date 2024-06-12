@@ -12,7 +12,7 @@
 <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="apple-touch-icon-120x120.png">
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="apple-touch-icon-76x76.png">
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="apple-touch-icon-60x60.png">
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="bootstrap-toc.css">
 <script src="bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
@@ -41,7 +41,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">vitae</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.5.3.9000</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.5.4.9000</span>
       </span>
     </div>
 
@@ -121,8 +121,10 @@
 <h2 id="getting-started">Getting started<a class="anchor" aria-label="anchor" href="#getting-started"></a>
 </h2>
 <p>The <em>vitae</em> package currently supports 6 popular CV templates. You can see some previews of the available templates <a href="#templates">below</a>.</p>
-<p>If you prefer a guided introduction in video form, check out <a href="https://github.com/tallguyjenks" class="external-link">Bryan Jenks</a>’ <a href="https://github.com/freeCodeCamp/freeCodeCamp" class="external-link">freeCodeCamp</a> <a href="https://youtu.be/cMlRAiQUdD8" class="external-link">tech talk</a>: <a href="https://youtu.be/cMlRAiQUdD8" class="external-link"><img src="reference/figures/freecodecamp.jpg"></a></p>
-<p>Creating a new CV with <code>vitae</code> can be done using the RStudio R Markdown template selector: <img src="reference/figures/template_gui.png"></p>
+<p>If you prefer a guided introduction in video form, check out <a href="https://github.com/tallguyjenks" class="external-link">Bryan Jenks</a>’ <a href="https://github.com/freeCodeCamp/freeCodeCamp" class="external-link">freeCodeCamp</a> <a href="https://youtu.be/cMlRAiQUdD8" class="external-link">tech talk</a>:</p>
+<p><a href="https://youtu.be/cMlRAiQUdD8" class="external-link"><img src="reference/figures/freecodecamp.jpg"></a></p>
+<p>Creating a new CV with <code>vitae</code> can be done using the RStudio R Markdown template selector:</p>
+<p><img src="reference/figures/template_gui.png"></p>
 <p>These templates leverage the strength of rmarkdown to include common information in the YAML header (name, position, social links…) and extended information in the main body. The main body of the CV is written using markdown, and allows for data-driven generation of entries using the <a href="https://pkg.mitchelloharawild.com/vitae/reference/cv_entries.html"><code>*_entries</code> functions</a>. This allows you to import your working history from other sources (such as ORCID, Google Scholar, or a maintained dataset), and include them programmatically into your CV.</p>
 </div>
 <div class="section level2">
@@ -139,8 +141,8 @@
 <th><a href="https://pkg.mitchelloharawild.com/vitae/reference/hyndman.html"><strong>vitae::hyndman</strong></a></th>
 </tr></thead>
 <tbody><tr class="odd">
-<td><a href="https://pkg.mitchelloharawild.com/vitae/reference/awesomecv.html"><img src="reference/figures/preview-awesomecv.png" width="415" alt="Preview of awesomecv"></a></td>
-<td><a href="https://pkg.mitchelloharawild.com/vitae/reference/hyndman.html"><img src="reference/figures/preview-hyndman.png" width="415" alt="Preview of hyndman"></a></td>
+<td><a href="https://pkg.mitchelloharawild.com/vitae/reference/awesomecv.html"><img src="reference/figures/preview-awesomecv.png" width="415" alt="awesomecv"></a></td>
+<td><a href="https://pkg.mitchelloharawild.com/vitae/reference/hyndman.html"><img src="reference/figures/preview-hyndman.png" width="415" alt="hyndman"></a></td>
 </tr></tbody>
 </table>
 <table class="table">
@@ -153,8 +155,8 @@
 <th><a href="https://pkg.mitchelloharawild.com/vitae/reference/markdowncv.html"><strong>vitae::markdowncv</strong></a></th>
 </tr></thead>
 <tbody><tr class="odd">
-<td><a href="https://pkg.mitchelloharawild.com/vitae/reference/latexcv.html"><img src="reference/figures/preview-latexcv.png" width="415" alt="Preview of latexcv"></a></td>
-<td><a href="https://pkg.mitchelloharawild.com/vitae/reference/markdowncv.html"><img src="reference/figures/preview-markdowncv.png" width="415" alt="Preview of markdowncv"></a></td>
+<td><a href="https://pkg.mitchelloharawild.com/vitae/reference/latexcv.html"><img src="reference/figures/preview-latexcv.png" width="415" alt="latexcv"></a></td>
+<td><a href="https://pkg.mitchelloharawild.com/vitae/reference/markdowncv.html"><img src="reference/figures/preview-markdowncv.png" width="415" alt="markdowncv"></a></td>
 </tr></tbody>
 </table>
 <table class="table">
@@ -167,8 +169,8 @@
 <th><a href="https://pkg.mitchelloharawild.com/vitae/reference/twentyseconds.html"><strong>vitae::twentyseconds</strong></a></th>
 </tr></thead>
 <tbody><tr class="odd">
-<td><a href="https://pkg.mitchelloharawild.com/vitae/reference/moderncv.html"><img src="reference/figures/preview-moderncv.png" width="415" alt="Preview of moderncv"></a></td>
-<td><a href="https://pkg.mitchelloharawild.com/vitae/reference/twentyseconds.html"><img src="reference/figures/preview-twentyseconds.png" width="415" alt="Preview of twentyseconds"></a></td>
+<td><a href="https://pkg.mitchelloharawild.com/vitae/reference/moderncv.html"><img src="reference/figures/preview-moderncv.png" width="415" alt="moderncv"></a></td>
+<td><a href="https://pkg.mitchelloharawild.com/vitae/reference/twentyseconds.html"><img src="reference/figures/preview-twentyseconds.png" width="415" alt="twentyseconds"></a></td>
 </tr></tbody>
 </table>
 <p>Extending the package to add new templates is a somewhat simple process (details in the <a href="https://pkg.mitchelloharawild.com/vitae/articles/extending.html">creating vitae templates</a> vignette).</p>
@@ -195,6 +197,8 @@
 <li><a href="https://github.com/akirosingh/CV" class="external-link">Adam Kirosingh</a></li>
 <li><a href="https://github.com/mlombardi6/awesome-template" class="external-link">Marco Lombardi</a></li>
 <li><a href="https://github.com/ganthonyr/CV" class="external-link">Anthony Romero</a></li>
+<li>
+<a href="https://github.com/sumidu/acv" class="external-link">André Calero Valdez</a> This version uses a database to manage the content and automatically updates the content once a week using Github actions. PDF is then added as a release after rendering. Also uses a forked version of the package to remove the trailing dot in brief entries.</li>
 </ul>
 <p>Add your vitae to the list using a PR.</p>
 <hr>
@@ -251,10 +255,10 @@
 <div class="dev-status">
 <h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://cran.r-project.org/package=vitae" class="external-link"><img src="https://www.r-pkg.org/badges/version/vitae" alt="CRAN status"></a></li>
+<li><a href="https://cran.r-project.org/package=vitae" class="external-link"><img src="https://www.r-pkg.org/badges/version/vitae.png" alt="CRAN status"></a></li>
 <li><a href="https://github.com/mitchelloharawild/vitae/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/mitchelloharawild/vitae/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R check status"></a></li>
 <li><a href="https://lifecycle.r-lib.org/articles/stages.html#maturing" class="external-link"><img src="https://img.shields.io/badge/lifecycle-maturing-blue.svg" alt="Lifecycle: maturing"></a></li>
-<li><a href="https://cran.r-project.org/package=vitae" class="external-link"><img src="https://cranlogs.r-pkg.org/badges/vitae" alt="Downloads"></a></li>
+<li><a href="https://cran.r-project.org/package=vitae" class="external-link"><img src="https://cranlogs.r-pkg.org/badges/vitae.png" alt="Downloads"></a></li>
 </ul>
 </div>
 
@@ -269,7 +273,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.9.</p>
 </div>
 
       </footer>
