@@ -1,5 +1,10 @@
 # vitae (development version)
 
+## Bug fixes
+
+* Fixed issue with multiple `brief_entries()` producing overlapping text in 
+  `awesomecv` (#258).
+
 # vitae 0.5.4
 
 * Fixed `bibliography_entries()` failing to render PDF outputs with recent 
