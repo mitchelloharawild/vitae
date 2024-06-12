@@ -4,7 +4,7 @@
 \alias{markdowncv}
 \title{Eliseo Papa's markdown-cv template}
 \usage{
-markdowncv(..., theme = c("kjhealy", "blmoore", "davewhipp"))
+markdowncv(..., theme = c("kjhealy", "blmoore", "davewhipp", "ccbaumler"))
 }
 \arguments{
 \item{\dots}{Arguments passed to \code{\link[vitae]{cv_document}}.}

@@ -7,7 +7,7 @@
 moderncv(
   ...,
   theme = c("casual", "classic", "oldstyle", "banking", "fancy"),
-  latex_engine = "pdflatex"
+  latex_engine = "xelatex"
 )
 }
 \arguments{
