@@ -13,6 +13,7 @@
 
 * Fixed issue with multiple `brief_entries()` producing overlapping text in 
   `awesomecv` (#258).
+* Fixed the body of the document being duplicated since knitr v1.46 (#254).
 
 # vitae 0.5.4
 

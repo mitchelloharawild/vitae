@@ -21,32 +21,40 @@ cv_document <- function(..., pandoc_args = NULL, pandoc_vars = NULL,
     pandoc_args
   )
 
-  out <- base_format(..., pandoc_args = pandoc_args)
-  pre <- out$pre_processor
-  out$pre_processor <- function (metadata, input_file, runtime, knit_meta,
-                                 files_dir, output_dir){
-    pre(metadata, input_file, runtime, knit_meta,
-               files_dir, output_dir)
+  base <- base_format(...)
+  rmarkdown::output_format(
+    knitr = rmarkdown::knitr_options(),
+    pandoc = rmarkdown::pandoc_options(
+      to = base$pandoc$to,
+      args = pandoc_args,
+      latex_engine = base$pandoc$latex_engine
+    ),
 
-    # Add citations to front matter yaml, there may be a better way to do this.
-    # For example, @* wildcard. Keeping as is to avoid unintended side effects.
-    meta_nocite <- vapply(knit_meta, inherits, logical(1L), "vitae_nocite")
+    pre_processor = function (metadata, input_file, runtime, knit_meta,
+                              files_dir, output_dir) {
+      # Add citations to front matter yaml, there may be a better way to do this.
+      # For example, @* wildcard. Keeping as is to avoid unintended side effects.
+      meta_nocite <- vapply(knit_meta, inherits, logical(1L), "vitae_nocite")
 
-    bib_files <- lapply(knit_meta[meta_nocite], function(x) x$file)
-    names(bib_files) <- vapply(bib_files, rlang::hash_file, character(1L))
-    metadata$bibliography <- bib_files
+      bib_files <- lapply(knit_meta[meta_nocite], function(x) x$file)
+      names(bib_files) <- vapply(bib_files, rlang::hash_file, character(1L))
+      metadata$bibliography <- bib_files
 
-    bib_ids <- unique(unlist(lapply(knit_meta[meta_nocite], function(x) x$id)))
-    metadata$nocite <- c(metadata$nocite, paste0("@", bib_ids, collapse = ", "))
-    if(is.null(metadata$csl)) metadata$csl <- system.file("vitae.csl", package = "vitae", mustWork = TRUE)
+      bib_ids <- unique(unlist(lapply(knit_meta[meta_nocite], function(x) x$id)))
+      metadata$nocite <- c(metadata$nocite, paste0("@", bib_ids, collapse = ", "))
+      if(is.null(metadata$csl)) metadata$csl <- system.file("vitae.csl", package = "vitae", mustWork = TRUE)
 
-    body <- partition_yaml_front_matter(xfun::read_utf8(input_file))$body
-    xfun::write_utf8(
-      c("---", yaml::as.yaml(metadata), "---", body),
-      input_file
-    )
-  }
-  out
+      body <- partition_yaml_front_matter(xfun::read_utf8(input_file))$body
+      xfun::write_utf8(
+        c("---", yaml::as.yaml(metadata), "---", body),
+        input_file
+      )
+
+      return(NULL)
+    },
+
+    base_format = base
+  )
 }
 
 copy_supporting_files <- function(template) {
