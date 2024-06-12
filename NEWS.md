@@ -1,13 +1,13 @@
-# vitae (development version)
+# vitae 0.6.0
+
+## New features
+
+* Added the ccbaumler template for `markdowncv` (@ccbaumler, #250).
 
 ## Improvements
 
 * Updated `markdowncv` academicons version (@ccbaumler, #250).
 * Added more yaml front matter configuration options for `markdowncv` (@ccbaumler, #250).
-
-## New features
-
-* Added the ccbaumler template for `markdowncv` (@ccbaumler, #250).
 
 ## Bug fixes
 
