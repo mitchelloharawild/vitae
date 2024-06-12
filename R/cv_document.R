@@ -12,6 +12,11 @@
 #' @export
 cv_document <- function(..., pandoc_args = NULL, pandoc_vars = NULL,
                         base_format = rmarkdown::pdf_document) {
+  pandoc_vars <- c(
+    pandoc_vars,
+    csl_list = rmarkdown::pandoc_version() >= "3.1.8"
+  )
+
   for (i in seq_along(pandoc_vars)){
     pandoc_args <- c(pandoc_args, rmarkdown::pandoc_variable_arg(names(pandoc_vars)[[i]], pandoc_vars[[i]]))
   }
