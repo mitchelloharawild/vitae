@@ -1,5 +1,14 @@
 # vitae (development version)
 
+## Improvements
+
+* Updated `markdowncv` academicons version (@ccbaumler, #250).
+* Added more yaml front matter configuration options for `markdowncv` (@ccbaumler, #250).
+
+## New features
+
+* Added the ccbaumler template for `markdowncv` (@ccbaumler, #250).
+
 ## Bug fixes
 
 * Fixed issue with multiple `brief_entries()` producing overlapping text in 

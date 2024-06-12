@@ -19,7 +19,7 @@
 #' ([@elipapa](https://github.com/elipapa))
 #'
 #' @export
-markdowncv <- function(..., theme = c("kjhealy", "blmoore", "davewhipp")) {
+markdowncv <- function(..., theme = c("kjhealy", "blmoore", "davewhipp", "ccbaumler")) {
   theme <- match.arg(theme)
   template <- system.file("rmarkdown", "templates", "markdowncv",
                           "resources", "markdowncv.html",
