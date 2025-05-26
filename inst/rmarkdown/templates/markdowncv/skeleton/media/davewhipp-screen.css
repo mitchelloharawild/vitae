@@ -30,7 +30,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
-	background-color: white;
+	background-color: var(--backcolor, white);
 }
 ol, ul {
 	list-style: none;
@@ -58,6 +58,7 @@ body {
 	line-height: 1.5em;
 	/*also written as...  font: normal normal 400 100%/1.5em;*/
 	font-family: Avenir,Verdana,sans-serif;
+	color: var(--textcolor, black);
 	margin-top: 1em;
 	margin-left: 1em;
 }
@@ -91,7 +92,7 @@ code {
 	font-size: 90%;
 	/*line-height: 1em;*/
 	font-family: Monaco,Menlo,monospace,sans-serif;
-	color: #aaa;
+	color: var(--codecolor, #aaa);
 }
 
 p code {
@@ -152,7 +153,7 @@ h1+p {
 
 h2 {
 	font-size: 1.1em;
-	color: #bc412b;
+	color: var(--headcolor, #bc412b);
 	margin-top: 3em;
 	position: relative;
 	top: 1.4em;
@@ -182,7 +183,7 @@ a:hover {
 	margin-top: 1em;
 	position: relative;
 	left: 25%;
-	color: #bc412b;
+	color: var(--addresscolor, #bc412b);
 	font-family: Monaco,Menlo,monospace,sans-serif;
 	font-size: 100%;
 }
