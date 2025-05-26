@@ -57,6 +57,8 @@ body {
 	line-height: 1.35em;
 	/*also written as...  font: normal normal 400 100%/1.5em;*/
 	font-family: Avenir,Verdana,sans-serif;
+	color: var(--textcolor, black);
+	background-color: var(--backcolor, white);
 	/*margin-top: 1em;
 	margin-left: 1em;*/
 }
@@ -91,7 +93,7 @@ code {
 	font-size: 90%;
 	/*line-height: 1em;*/
 	font-family: Monaco,Menlo,monospace,sans-serif;
-	color: #ccc;
+	color: var(--codecolor, #ccc);
 }
 
 p code {
@@ -152,7 +154,7 @@ h1+p {
 
 h2 {
 	font-size: 1.1em;
-	color: #a00;
+	color: var(--headcolor, #a00);
 	margin-top: 2em;
 	position: relative;
 	top: 1.2em;
@@ -184,7 +186,7 @@ a:hover {
 	margin-top: 1em;
 	position: relative;
 	left: 25%;
-	color: #ccc;
+	color: var(--addresscolor, #ccc);
 	font-family: Monaco,Menlo,monospace,sans-serif;
 	font-size: 90%;
 }
