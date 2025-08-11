@@ -31,15 +31,7 @@ awesomecv <- function(...,
   )
   set_entry_formats(awesome_cv_entries)
   copy_supporting_files("awesomecv")
-
-  if (!isTRUE(all.equal(font_scale, 1))) {
-    cls_path <- "awesome-cv.cls"
-    if (!file.exists(cls_path)) {
-      stop("Expected 'awesome-cv.cls' in the working directory after copy_supporting_files().")
-    }
-    font_size_scaling(scale = font_scale, file_path = cls_path)
-  }
-
+  font_size_scaling(scale = font_scale)
   pandoc_vars <- list()
   if(page_total) pandoc_vars$page_total <- TRUE
   if(show_footer) pandoc_vars$show_footer <- TRUE
@@ -80,6 +72,10 @@ awesome_cv_entries <- new_entry_formats(
 # Strategy: inject \usepackage{xfp} and \newcommand\ACVscale{<scale>},
 # then convert \fontsize{<n>pt}{...} -> \fontsize{\fpeval{<n>*\ACVscale}pt}{...}
 font_size_scaling <- function(scale = 1, file_path = "awesome-cv.cls") {
+  if (!file.exists(file_path)) {
+    stop("Expected 'awesome-cv.cls' in the working directory after copy_supporting_files().")
+  }
+
   stopifnot(is.numeric(scale), length(scale) == 1, scale > 0)
   if (!file.exists(file_path)) stop("File not found: ", file_path)
 
