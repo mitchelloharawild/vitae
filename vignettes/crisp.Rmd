@@ -1,0 +1,245 @@
+---
+title: "Using the Crisp Template"
+author: "Zhenguo Zhang"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Using the Crisp Template}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# Introduction
+
+The `crisp` template is a clean, modern resume template with customizable typography and layout options. It provides a clean, professional layout with tighter margins and spacing for creating concise resumes. This vignette demonstrates how to use the template with various entry types.
+
+## Template Features
+
+- Monochrome output (no colors, except for the section titles)
+- Customize the color of first 3 characters in section title with 'headcolor'
+- Compact layout with tighter margins
+- Flexible entry types (detailed, brief, honors, skills)
+- Customizable spacing after section title using 'spacing_after_section_title'
+- Header with inline contact information
+- Choose from the font family: Roboto, Times New Roman
+- All other header options in awesomecv, such as `address`, `email`, etc.
+
+## Basic Setup
+
+First, load the required packages:
+
+```{r setup}
+library(vitae)
+library(tibble)
+library(dplyr)
+```
+
+## Creating a Resume
+
+### Document Header
+
+Create your resume by setting up an R Markdown document with the following YAML header:
+
+```yaml
+---
+title: "Your Name"
+author: Your Name
+date: "`r Sys.Date()`"
+output: vitae::crisp
+position: "Data Scientist"
+address: "123 Main Street, City, Country"
+phone: "+1 234 567 8900"
+email: "email@example.com"
+github: "fortune9"
+linkedin: "username"
+headcolor: "0000FF"      # Blue color for the 3 characters in section title
+spacing_after_section_title: "-1mm"  # Compress section spacing
+---
+```
+
+### Using Different Entry Types
+
+#### Detailed Entries
+
+Use `detailed_entries()` for experience sections like work history or education:
+
+```{r eval=FALSE}
+tribble(
+  ~title, ~unit, ~loc, ~dates, ~details,
+  "Ph.D.", "University of Statistics", "California", "2020-2024",
+  c("Thesis: Statistical Analysis of Data",
+    "Published 3 papers in top journals",
+    "Received Excellence Award"),
+  "M.Sc.", "College of Data", "New York", "2018-2020",
+  c("Focus on Machine Learning",
+    "GPA: 4.0/4.0")
+) %>%
+  detailed_entries(
+    what = title,
+    when = dates,
+    with = unit,
+    where = loc,
+    why = details
+  )
+```
+
+#### Brief Entries
+
+Use `brief_entries()` for shorter items like publications or certifications:
+
+```{r eval=FALSE}
+tribble(
+  ~role, ~year, ~inst,
+  "Best Paper Award", "2023", "Statistics Conference",
+  "R Programming Certificate", "2022", "DataCamp"
+) %>%
+  brief_entries(
+    what = role,
+    when = year,
+    with = inst
+  )
+```
+
+#### Honor Entries
+
+The new `honor_entries()` function is perfect for achievements and awards:
+
+```{r eval=FALSE}
+tribble(
+  ~award, ~year, ~org, ~location,
+  "Outstanding Researcher", "2023", "Science Foundation", "National",
+  "Teaching Excellence", "2022", "University", "Department"
+) %>%
+  honor_entries(
+    what = award,
+    when = year,
+    with = org,
+    where = location
+  )
+```
+
+#### Skill Entries
+
+Use `skill_entries()` to showcase your expertise:
+
+```{r eval=FALSE}
+tribble(
+  ~category, ~details,
+  "Programming", "R, Python, SQL, Julia",
+  "Statistics", "Regression, Time Series, Machine Learning",
+  "Languages", "English (Native), Spanish (Fluent)"
+) %>%
+  skill_entries(
+    type = category,
+    details = details
+  )
+```
+
+## Complete Example
+
+Here's a minimal working example combining all entry types:
+
+```{r eval=FALSE}
+---
+title: "Professional Resume"
+author: Jane Doe
+output: vitae::crisp
+position: "Data Scientist"
+email: "jane.doe@email.com"
+github: "janedoe"
+spacing_after_section_title: "-1mm"
+headcolor: "00FF00" # green
+---
+
+# Education
+
+```{r}
+tribble(
+  ~degree, ~uni, ~loc, ~dates, ~details,
+  "Ph.D.", "Stats University", "USA", "2020-2024", c("Thesis on Advanced Analytics"),
+  "B.S in Biology", "Biology University", "USA", "2016-2020", c("Thesis on Biology")
+) %>% 
+  detailed_entries(
+    what = degree,
+    when = dates,
+    with = uni,
+    where = loc,
+    why = details
+  )
+```
+
+# Skills
+
+```{r}
+tribble(
+  ~category, ~details,
+  "Analysis", "Statistics, Machine Learning, Data Mining",
+  "Programming", "R, Python, SQL",
+  "Reserch", "Biology, Genetics",
+  "Visualization", "Rmarkdown, streamlit, shiny",
+  "DevOps", "Github, AWS, GCP, docker, nextflow"
+) %>%
+  skill_entries(
+    type = category,
+    details = details
+  )
+```
+
+# Honors
+
+```{r}
+tribble(
+  ~award, ~year, ~org, ~loc,
+  "Best Paper1", "2023", "Conference4", "International",
+  "Best Paper2", "2022", "Conference3", "International",
+  "Best Paper3", "2021", "Conference2", "International",
+  "Best Paper4", "2020", "Conference1", "International"
+) %>%
+  honor_entries(
+    what = award,
+    when = year,
+    with = org,
+    where = loc
+  )
+```
+
+# Publications
+
+```{r}
+tribble(
+  ~title, ~year, ~journal,
+  "Amazing Research Paper", "2023", "Journal of Data Science",
+  "Bioinformatics Paper", "2022", "Journal of Bioinformatics",
+  "Genetics Paper","2020","Journal of Genetics"
+) %>%
+  brief_entries(
+    what = title,
+    when = year,
+    with = journal
+  )
+```
+```
+
+## Customization Tips
+
+1. **Section Spacing**: Adjust vertical space between sections using `spacing_after_section_title` in YAML header
+2. **Monochrome Output**: Set `headcolor: "000000"` in YAML header
+3. **Entry Spacing**: Each entry type has built-in spacing optimized for compact layout
+4. **Protection**: Use `.protect = TRUE` (default) to handle LaTeX special characters
+
+## Common Issues and Solutions
+
+1. **LaTeX Errors**: Ensure you have a complete TeX distribution installed
+2. **Font Issues**: The template uses specific fonts that should be installed with the package
+3. **Spacing**: Fine-tune using `spacing_after_section_title` and LaTeX spacing commands if needed
+
+## Conclusion
+
+The `crisp` template provides a professional, compact layout suitable for most resume needs. By combining different entry types (`detailed_entries`, `brief_entries`, `honor_entries`, and `skill_entries`), you can create a well-structured and comprehensive resume.

@@ -29,6 +29,29 @@ If not using RStudio, you can create a new `*.Rmd` document and use an output fo
 
 Like other R Markdown documents, the file is split into two sections: the YAML header, and the main body.
 
+### Available Templates
+
+The package includes several CV templates:
+
+* `hyndman`: Inspired by Rob Hyndman's CV
+* `awesomecv`: Based on the LaTeX CV template Awesome-CV
+* `crisp`: A clean, modern template with customizable typography (Source Sans Pro, Times, Roboto)
+* `moderncv`: Classic and modern style CVs
+* `twentyseconds`: A one-page, two-column CV
+* `latexcv`: Various CV styles from the LaTeX CV project
+* `markdowncv`: A markdown CV template
+
+### Entry Types
+
+The package provides several entry types to structure your CV content:
+
+* `detailed_entries()`: For comprehensive entries like work experience or education
+* `brief_entries()`: For shorter items like publications or certifications
+* `honor_entries()`: For awards and achievements (available in crisp)
+* `skill_entries()`: For listing skills and expertise (available in crisp)
+
+Each entry type is designed for specific content and formatting needs. The `crisp` template supports all entry types, with `honor_entries()` and `skill_entries()` specifically optimized for compact, professional presentation.
+
 ### The YAML header
 
 The YAML header contains general entries that are common across many templates, such as your name, address and social media profiles. This is also where the output format (the CV template used) is specified, along with any options that the template supports. An example of what this header may look like is shown below:
