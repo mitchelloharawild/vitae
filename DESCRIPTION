@@ -34,5 +34,5 @@ Encoding: UTF-8
 BugReports: https://github.com/mitchelloharawild/vitae/issues
 URL: https://pkg.mitchelloharawild.com/vitae/, https://github.com/mitchelloharawild/vitae
 Roxygen: list(markdown = TRUE, roclets=c('rd', 'collate', 'namespace'))
-RoxygenNote: 7.3.1
+RoxygenNote: 7.3.3
 VignetteBuilder: knitr
