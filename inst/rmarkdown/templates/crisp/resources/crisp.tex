@@ -1,0 +1,340 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+% Crisp LaTeX Template for CV/Resume
+%
+% A clean, modern resume template with customizable typography
+% Modified by Zhenguo Zhang for the vitae R package
+%
+%-------------------------------------------------------------------------------
+% CONFIGURATIONS
+%-------------------------------------------------------------------------------
+% A4 paper size by default, use 'letterpaper' for US letter
+\documentclass[$if(fontsize)$$fontsize$$else$11pt$endif$,$if(lang)$$babel-lang$,$endif$$if(papersize)$$papersize$$else$a4paper$endif$,$for(classoption)$$classoption$$sep$,$endfor$]{crisp}
+
+% Configure page margins with geometry (crisp defaults)
+$if(geometry)$
+\usepackage{geometry}
+\geometry{$for(geometry)$$geometry$$sep$,$endfor$}
+$else$
+\usepackage{geometry}
+% Requested margins: left/right = 0.5in, top/bottom = 0.66in
+\geometry{left=0.5in, top=0.66in, right=0.5in, bottom=0.66in, footskip=.5cm}
+$endif$
+
+
+% Specify the location of the included fonts
+\fontdir[fonts/]
+
+% Force monochrome: set the main highlight color to black and turn off
+% section color highlighting. We also override common text colors to black.
+$if(headcolor)$
+\definecolor{awesome}{HTML}{$headcolor$}
+$else$
+%\definecolor{awesome}{HTML}{000000}
+\colorlet{text}{black}
+\colorlet{graytext}{black}
+\colorlet{lighttext}{black}
+\colorlet{awesome-emerald}{black}
+\colorlet{awesome-skyblue}{black}
+\colorlet{awesome-red}{black}
+\colorlet{awesome-pink}{black}
+\colorlet{awesome-orange}{black}
+\colorlet{awesome-nephritis}{black}
+\colorlet{awesome-concrete}{black}
+\colorlet{awesome-darknight}{black}
+$endif$
+
+% Disable section color highlighting
+\setbool{acvSectionColorHighlight}{true} % enable again to restore color highlights
+
+% Color for highlights (left in but set to black above)
+
+%-------------------------------------------------------------------
+% PERSONAL INFORMATION
+%-------------------------------------------------------------------
+% Available options: circle|rectangle,edge/noedge,left/right
+
+$if(profilepic)$
+\photo{$profilepic$}
+$endif$
+% name takes two arguments: firstname and lastname (surname optional)
+% consider the situations that users may provide the full name in 'name' field or separately in 'firstname' and 'surname' fields
+$if(name)$
+    \fullname{$name$}%
+    %\name{\@firstname}{\@lastname}%
+$else$
+    \name{$firstname$}{$if(surname)$$surname$$else$$endif$}%
+$endif$
+
+$if(position)$
+\position{$position$}
+$endif$
+$if(address)$
+\address{$address$}
+$endif$
+$if(pronouns)$
+\pronouns{$pronouns$}
+$endif$
+$if(phone)$
+\mobile{$phone$}
+$endif$
+$if(email)$
+\email{$email$}
+$endif$
+$if(www)$
+\homepage{$www$}
+$endif$
+$if(orcid)$
+\orcid{$orcid$}
+$endif$
+$if(publons)$
+\publons{$publons$}
+$endif$
+$if(googlescholar)$
+\googlescholar{$googlescholar$}
+$endif$
+$if(researchgate)$
+\researchgate{$researchgate$}
+$endif$
+$if(github)$
+\github{$github$}
+$endif$
+$if(linkedin)$
+\linkedin{$linkedin$}
+$endif$
+$if(twitter)$
+\twitter{$twitter$}
+$endif$
+
+$if(aboutme)$
+\quote{$aboutme$}
+$endif$
+
+\usepackage{booktabs}
+
+\providecommand{\tightlist}{%
+\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+%------------------------------------------------------------------------------
+
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+
+$for(header-includes)$
+$header-includes$
+$endfor$
+
+% ------------------------------------------------------------------
+% Compact layout overrides (reduce whitespace for denser resumes)
+% These provide reasonable defaults but can be tuned via YAML variables.
+\setlength{\parskip}{0pt}
+% reduce list spacing
+\RequirePackage{enumitem}
+\setlist[itemize]{noitemsep, topsep=0pt, parsep=0pt, partopsep=0pt}
+\setlist[enumerate]{noitemsep, topsep=0pt}
+
+% reduce header spacing (values in mm - small positive numbers)
+\renewcommand{\acvHeaderAfterNameSkip}{0mm}
+\renewcommand{\acvHeaderAfterPositionSkip}{0mm}
+\renewcommand{\acvHeaderAfterAddressSkip}{0mm}
+\renewcommand{\acvHeaderAfterSocialSkip}{2.0mm}
+\renewcommand{\acvHeaderAfterQuoteSkip}{1mm}
+\renewcommand{\acvSectionTopSkip}{1mm}
+
+% Allow YAML variable `spacing_after_section_title` (LaTeX length, e.g. '-1mm' or '0.5mm')
+% to adjust spacing after section titles
+$if(spacing_after_section_title)$
+\makeatletter
+\let\origsection\section
+\renewcommand{\section}[1]{\origsection{#1}\vspace{$spacing_after_section_title$}}
+\makeatother
+$endif$
+
+% Compact typography: reduce sizes used in header, sections and entries, adjust font sizes
+\makeatletter
+\providecommand{\awrs@smallskip}{-1.5mm}
+\renewcommand*{\headerfirstnamestyle}[1]{{\fontsize{20pt}{1em}\headerfontlight\color{graytext} #1}}
+\renewcommand*{\headerlastnamestyle}[1]{{\fontsize{20pt}{1em}\headerfont\bfseries\color{text} #1}}
+\renewcommand*{\sectionstyle}[1]{{\fontsize{14pt}{1em}\bodyfont\bfseries\color{text}\@sectioncolor #1}}
+\renewcommand*{\subsectionstyle}[1]{{\fontsize{10pt}{1em}\bodyfont\scshape\textcolor{text}{#1}}}
+\renewcommand*{\headerpositionstyle}[1]{{\fontsize{7.6pt}{1em}\bodyfont\scshape\color{text} #1}}
+\renewcommand*{\headeraddressstyle}[1]{{\fontsize{8pt}{1em}\headerfont\itshape\color{lighttext} #1}}
+\renewcommand*{\headersocialstyle}[1]{{\fontsize{7pt}{1em}\headerfont\color{text} #1}}
+\renewcommand*{\headerquotestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\itshape\color{darktext} #1}}
+\renewcommand*{\footerstyle}[1]{{\fontsize{8pt}{1em}\footerfont\scshape\color{lighttext} #1}}
+\renewcommand*{\paragraphstyle}{\fontsize{9pt}{1em}\bodyfontlight\upshape\color{text}}
+
+% for elements of entry
+\renewcommand*{\entrytitlestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
+\renewcommand*{\entrypositionstyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\itshape\color{graytext} #1}}
+\renewcommand*{\entrydatestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\slshape\color{graytext} #1}}
+\renewcommand*{\entrylocationstyle}[1]{{\fontsize{10pt}{1em}\bodyfont\slshape\color{text} #1}}
+\renewcommand*{\descriptionstyle}[1]{{\fontsize{10pt}{1em}\bodyfont\upshape\color{text} #1}}
+
+% For elements of skill
+\renewcommand*{\skilltypestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
+\renewcommand*{\skillsetstyle}[1]{{\fontsize{10pt}{1em}\bodyfont\color{text} #1}}
+
+% For elements of honor
+\renewcommand*{\honortitlestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\color{graytext} #1}}
+\renewcommand*{\honorpositionstyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
+\renewcommand*{\honordatestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\color{graytext} #1}}
+\renewcommand*{\honorlocationstyle}[1]{{\fontsize{10pt}{1em}\bodyfont\slshape\color{text} #1}}
+
+% define new enviroment for cventries so that we can adjust spacing, depending on whether description is present
+\newcommand{\acvEntriesBottomSkip}{1mm}
+% Define an environment for cventry
+\RenewDocumentEnvironment{cventries}{o}{
+    \vspace{\acvSectionContentTopSkip}
+    \begin{center}
+}{
+    \end{center}
+    \ifstrequal{#1}{bottomspace}{\vspace{\acvEntriesBottomSkip}}{}
+}
+
+% Change the definition of \cventry to reduce spacing among sub-sections
+% Usage: \cventry{<position>}{<title>}{<location>}{<date>}{<description>}
+\renewcommand*{\cventry}[5]{
+%  \vspace{-2.0mm}
+  \setlength\tabcolsep{0pt}%
+  \setlength{\extrarowheight}{0pt}%
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}%
+    \ifempty{#2#3}{\entrypositionstyle{#1} & \entrydatestyle{#4}}%
+      {\entrytitlestyle{#2} & \entrylocationstyle{#3} \\%
+      \entrypositionstyle{#1} & \entrydatestyle{#4}}%
+    % check if description is empty, otherwise output nothing
+    \ifempty{#5}{}{\\ \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}}}%
+  \end{tabular*}%
+  % adjust this value to change spacing after each entry
+  \ifempty{#5}{\vspace{0.1mm}}{\vspace{-1.8mm}}
+}
+
+% Modify the environment cvskill to allow more space after the section title
+\renewenvironment{cvskills}{%
+  \vspace{\acvSectionContentTopSkip}
+  \vspace{-0.2mm}
+  \begin{center}
+    \setlength\tabcolsep{1ex}
+    \setlength{\extrarowheight}{0pt}
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} r L{\textwidth * \real{0.9}}}
+}{%
+    \end{tabular*}
+  \end{center}
+  \vspace{\acvEntriesBottomSkip}
+}
+
+% Modify the environment cvhonors to allow more space after the section title and auto stretching in cells
+\renewenvironment{cvhonors}{%
+  \vspace{\acvSectionContentTopSkip}
+  \vspace{-0.2mm}
+  \begin{center}
+    \setlength\tabcolsep{0pt}
+    \setlength{\extrarowheight}{0pt}
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} c l r}
+}{%
+    \end{tabular*}
+  \end{center}
+}
+
+% add space between #1 and #2
+% Usage: \cvhonor{<institution>}{<award>}{<location>}{<date>}
+\renewcommand*{\cvhonor}[4]{%
+  \honordatestyle{#4}\hspace{1em} & \honorpositionstyle{#2} \ifempty{#1}{}{,\quad\honortitlestyle{#1}} & \honorlocationstyle{#3} \\
+}
+
+
+% Reduce spacing inside entries
+\setlength{\parskip}{0pt}
+\setlength{\itemsep}{0pt}
+\setlength{\parsep}{0pt}
+\makeatother
+
+% Pandoc CSL macros
+$if(csl-refs)$
+% definitions for citeproc citations
+\NewDocumentCommand\citeproctext{}{}
+\NewDocumentCommand\citeproc{mm}{%
+  \begingroup\def\citeproctext{#2}\cite{#1}\endgroup}
+\makeatletter
+ % allow citations to break across lines
+ \let\@cite@ofmt\@firstofone
+ % avoid brackets around text for \cite:
+ \def\@biblabel#1{}
+ \def\@cite#1#2{{#1\if@tempswa , #2\fi}}
+\makeatother
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[2] % #1 hanging-indent, #2 entry-spacing
+$if(csl_list)$
+ {\begin{list}{}{%
+  \setlength{\itemindent}{0pt}
+  \setlength{\leftmargin}{0pt}
+  \setlength{\parsep}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+   \setlength{\leftmargin}{\cslhangindent}
+   \setlength{\itemindent}{-1\cslhangindent}
+  \fi
+  % set entry spacing
+  \setlength{\itemsep}{#2\baselineskip}}}
+ {\end{list}}
+$else$
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1 \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces\fi
+  % set entry spacing
+  \ifnum #2 > 0
+  \setlength{\parskip}{#2\baselineskip}
+  \fi
+ }%
+ {}
+$endif$
+
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{\hfill\break\parbox[t]{\linewidth}{\strut\ignorespaces#1\strut}}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+$endif$
+
+\begin{document}
+
+% Print the header with above personal informations
+% Give optional argument to change alignment(C: center, L: left, R: right)
+\makecvheader
+
+% Print the footer with 3 arguments(<left>, <center>, <right>)
+% Leave any of these blank if they are not needed
+% 2019-02-14 Chris Umphlett - add flexibility to the document name in footer, rather than have it be static Curriculum Vitae
+$if(show_footer)$
+\makecvfooter
+  {$date$}
+    {$name$$if(surname)$ $surname$$endif$~~~·~~~$if(docname)$$docname$$else$Curriculum Vitae$endif$}
+  {\thepage$if(page_total)$~ of \pageref{LastPage}~$endif$}
+$endif$
+
+
+%-------------------------------------------------------------------------------
+%	CV/RESUME CONTENT
+%-------------------------------------------------------------------------------
+
+$if(linestretch)$
+\setstretch{$linestretch$}
+$endif$
+
+$for(include-before)$
+$include-before$
+$endfor$
+
+$body$
+
+$for(include-after)$
+$include-after$
+$endfor$
+
+$if(page_total)$\label{LastPage}~$endif$
+\end{document}

@@ -1,0 +1,8 @@
+name: crisp
+description: >
+  A clean, modern resume template with customizable typography and layout.
+  Features include font choices (Source Sans Pro, Times, Roboto), 
+  specialized entry types (honor_entries, skill_entries),
+  customizable section spacing, monochrome design, and optimized margins.
+  Perfect for creating concise, professional resumes.
+create_dir: true

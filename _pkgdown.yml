@@ -22,6 +22,7 @@ reference:
     CV templates made available in the vitae package.
   contents:
     - awesomecv
+    - crisp
     - hyndman
     - latexcv
     - markdowncv

@@ -35,7 +35,7 @@ cv_document <- function(..., pandoc_args = NULL, pandoc_vars = NULL,
       latex_engine = base$pandoc$latex_engine
     ),
 
-    pre_processor = function (metadata, input_file, runtime, knit_meta,
+    pre_processor = function(metadata, input_file, runtime, knit_meta,
                               files_dir, output_dir) {
       # Add citations to front matter yaml, there may be a better way to do this.
       # For example, @* wildcard. Keeping as is to avoid unintended side effects.
@@ -67,8 +67,21 @@ copy_supporting_files <- function(template) {
   files <- list.files(path)
   # Copy class and style files
   for (f in files[files != "skeleton.Rmd"]) {
-    if (!file.exists(f)) {
-      file.copy(file.path(path, f), ".", recursive = TRUE)
+    source <- file.path(path, f)
+    target <- f
+    if (file_different(source, target)) {
+      file.copy(source, ".", recursive = TRUE)
     }
   }
+}
+
+# a function to test whether target file exists; if yes, is it different from source file?
+file_different <- function(source, target) {
+  if (!file.exists(target)) {
+    return(TRUE)
+  }
+  # check mtime and size for quick difference
+  mtime_diff <- file.mtime(source) != file.mtime(target)
+  size_diff <- file.size(source) != file.size(target)
+  mtime_diff || size_diff
 }

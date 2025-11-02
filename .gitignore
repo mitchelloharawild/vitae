@@ -7,3 +7,6 @@ cv
 .httr-oauth
 docs
 revdep
+
+/.quarto/
+**/*.quarto_ipynb
