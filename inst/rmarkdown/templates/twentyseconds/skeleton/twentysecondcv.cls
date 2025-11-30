@@ -166,10 +166,10 @@
 			\ifthenelse{\equal{\cvmail}{}}{}{\Large\faicon{envelope} & \cvmail\\}
 			\ifthenelse{\equal{\cvtwitter}{}}{}{\Large\faicon{twitter} & \cvtwitter\\}
 			\ifthenelse{\equal{\cvgithub}{}}{}{\Large\faicon{github} & \cvgithub\\}
-			\ifthenelse{\equal{\cvlinkedin}{}}{}{\Large\faicon{linkedin} & \cvlinkedin}
-			\ifthenelse{\equal{\cvorcid}{}}{}{\Large\faicon{orcid} & \cvorcid}
-			\ifthenelse{\equal{\cvscholar}{}}{}{\Large\faicon{google} & \cvscholar}
-			\ifthenelse{\equal{\cvresearchgate}{}}{}{\Large\faicon{researchgate} & \cvresearchgate}
+			\ifthenelse{\equal{\cvlinkedin}{}}{}{\Large\faicon{linkedin} & \cvlinkedin\\}
+			\ifthenelse{\equal{\cvorcid}{}}{}{\Large\faicon{orcid} & \cvorcid\\}
+			\ifthenelse{\equal{\cvscholar}{}}{}{\Large\faicon{google} & \cvscholar\\}
+			\ifthenelse{\equal{\cvresearchgate}{}}{}{\Large\faicon{researchgate} & \cvresearchgate\\}
 		\end{tabular}
 
 		%------------------------------------------------
