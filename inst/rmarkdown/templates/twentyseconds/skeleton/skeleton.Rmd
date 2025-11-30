@@ -20,7 +20,15 @@ sidebarsubtitletextcolor: "\000000"
 headercolor1: "B9B9B9"
 headercolor2: "\0E5484"
 headertextcolor: "FFFFFF"
-output: vitae::twentyseconds
+# Default pdflatex engine
+output:
+  vitae::twentyseconds
+# You can use XeLaTeX (and its font features) also
+#output:
+  #vitae::twentyseconds:
+    #latex_engine: xelatex
+#mainfont: "Roboto Light"
+#sansfont: "Roboto Light"
 ---
 
 ```{r setup, include=FALSE}

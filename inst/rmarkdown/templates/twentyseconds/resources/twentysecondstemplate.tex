@@ -24,11 +24,29 @@
 
 \documentclass[$if(fontsize)$$fontsize$$else$10pt$endif$,$if(lang)$$babel-lang$,$endif$$if(papersize)$$papersize$$else$a4paper$endif$,$for(classoption)$$classoption$$sep$,$endfor$]{twentysecondcv}
 
-$if(fontfamily)$
-\usepackage[$for(fontfamilyoptions)$$fontfamilyoptions$$sep$,$endfor$]{$fontfamily$}
-$else$
-\usepackage[scaled=0.86]{DejaVuSansMono}
-$endif$
+\usepackage{iftex}
+
+\ifPDFTeX
+  $if(fontfamily)$
+    \usepackage[$for(fontfamilyoptions)$$fontfamilyoptions$$sep$,$endfor$]{$fontfamily$}
+  $else$
+    \usepackage[scaled=0.86]{DejaVuSansMono}
+  $endif$
+\else
+  % XeLaTeX/LuaLaTeX branch
+  \usepackage{fontspec}
+  $if(mainfont)$
+    \setmainfont{$mainfont$}
+  $else$
+    \setmainfont{DejaVu Sans}
+  $endif$
+  $if(sansfont)$
+    \setsansfont{$sansfont$}
+  $endif$
+  $if(monofont)$
+    \setmonofont{$monofont$}
+  $endif$
+\fi
 
 \usepackage{ifxetex,ifluatex}
 \usepackage{fixltx2e} % provides \textsubscript

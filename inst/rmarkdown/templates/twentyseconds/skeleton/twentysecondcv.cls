@@ -10,7 +10,11 @@
 %	 REQUIRED PACKAGES
 %----------------------------------------------------------------------------------------
 
-\RequirePackage[sfdefault]{ClearSans}
+\usepackage{iftex}
+% Font becomes too thin for some engines Like XeLaTeX, but fine for pdflatex
+\ifPDFTeX
+  \RequirePackage[sfdefault]{ClearSans}
+\fi
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[T1]{fontenc}
 \RequirePackage{tikz}
