@@ -34,12 +34,8 @@
 
 \definecolor{white}{RGB}{255,255,255}
 \definecolor{gray}{HTML}{4D4D4D}
-\definecolor{sidecolor}{HTML}{E7E7E7}
 \definecolor{mainblue}{HTML}{0E5484}
 \definecolor{maingray}{HTML}{B9B9B9}
-\definecolor{headercolor1}{HTML}{B9B9B9}
-\definecolor{headercolor2}{HTML}{0E5484}
-\definecolor{headertextcolor}{HTML}{FFFFFF}
 
 %----------------------------------------------------------------------------------------
 %	 MISC CONFIGURATIONS
@@ -138,6 +134,8 @@
 
 	\begin{textblock}{6}(0.5, 0.2)
 
+		{\color{sidebartextcolor}
+
 		%------------------------------------------------
 
 		\ifthenelse{\equal{\profilepic}{}}{\vspace*{0.5cm}}{
@@ -155,7 +153,7 @@
 
 		%------------------------------------------------
 
-		{\Large\color{black!80}\cvjobtitle}
+		{\Large\color{sidebarsubtitletextcolor!80!white}\cvjobtitle}
 
 		\ifthenelse{\equal{\cvdate}{}}{}{\cvdate}
 		\vspace*{0.4cm}
@@ -195,6 +193,7 @@
 %		(*)[The skill scale is from 0 (Fundamental Awareness) to 6 (Expert).]
 
 		%------------------------------------------------
+		} % end text color
 
 	\end{textblock}
 	%\AddThispageHook{\newpage\restoregeometry}

@@ -62,15 +62,35 @@ $endfor$
 
 $if(sidecolor)$
     \definecolor{sidecolor}{HTML}{$sidecolor$}
+$else$
+  \definecolor{sidecolor}{HTML}{E7E7E7}
 $endif$
 $if(headercolor1)$
     \definecolor{headercolor1}{HTML}{$headercolor1$}
+$else$
+  \definecolor{headercolor1}{HTML}{B9B9B9}
 $endif$
 $if(headercolor2)$
     \definecolor{headercolor2}{HTML}{$headercolor2$}
+$else$
+  \definecolor{headercolor2}{HTML}{0E5484}
 $endif$
 $if(headertextcolor)$
     \definecolor{headertextcolor}{HTML}{$headertextcolor$}
+$else$
+  \definecolor{headertextcolor}{HTML}{FFFFFF}
+$endif$
+% Sidebar text color from YAML
+$if(sidebartextcolor)$
+  \definecolor{sidebartextcolor}{HTML}{$sidebartextcolor$}
+$else$
+  \definecolor{sidebartextcolor}{HTML}{000000}
+$endif$
+$endif$
+$if(sidebarsubtitletextcolor)$
+  \definecolor{sidebarsubtitletextcolor}{HTML}{$sidebarsubtitletextcolor$}
+$else$
+  \definecolor{sidebarsubtitletextcolor}{HTML}{000000}
 $endif$
 
 %----------------------------------------------------------------------------------------
