@@ -1,9 +1,10 @@
-\ProvidesClass{twentysecondcv}[2018/11/24 CV class]
+\ProvidesClass{twentysecondcv}[2025/11/30 CV class]
 \LoadClass{article}
 \NeedsTeXFormat{LaTeX2e}
 
 % Adapted for use with the Rmarkdown template by
 % Rob J Hyndman. 24 November 2018
+% Expanded by Blake Madden. 30 November 2025
 
 %----------------------------------------------------------------------------------------
 %	 REQUIRED PACKAGES
