@@ -72,7 +72,7 @@
 	\addtolength\TotalSectionLength{-\SectionTitleLength}% Subtract the section title width from the total width
 	\addtolength\TotalSectionLength{-2.22221pt}% Modifier to remove overfull box warning
 	\vspace{8pt}% Whitespace before the section title
-	{\color{black!80} \huge #1 \rule[0.15\baselineskip]{\TotalSectionLength}{1pt}}% Print the title and auto-width rule
+	{\color{sidebartitletextcolor!80!white} \huge #1 \rule[0.15\baselineskip]{\TotalSectionLength}{1pt}}% Print the title and auto-width rule
 }
 
 % Define custom commands for CV info
@@ -149,7 +149,7 @@
 
 		%------------------------------------------------
 
-		{\raggedright\huge\bfseries\textcolor{mainblue}{\cvname}}
+		{\raggedright\huge\bfseries\textcolor{sidebartitletextcolor}{\cvname}}
 
 		%------------------------------------------------
 

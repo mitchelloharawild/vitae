@@ -61,22 +61,22 @@ $endfor$
 % -----------------------------------------------------------
 
 $if(sidecolor)$
-    \definecolor{sidecolor}{HTML}{$sidecolor$}
+  \definecolor{sidecolor}{HTML}{$sidecolor$}
 $else$
   \definecolor{sidecolor}{HTML}{E7E7E7}
 $endif$
 $if(headercolor1)$
-    \definecolor{headercolor1}{HTML}{$headercolor1$}
+  \definecolor{headercolor1}{HTML}{$headercolor1$}
 $else$
   \definecolor{headercolor1}{HTML}{B9B9B9}
 $endif$
 $if(headercolor2)$
-    \definecolor{headercolor2}{HTML}{$headercolor2$}
+  \definecolor{headercolor2}{HTML}{$headercolor2$}
 $else$
   \definecolor{headercolor2}{HTML}{0E5484}
 $endif$
 $if(headertextcolor)$
-    \definecolor{headertextcolor}{HTML}{$headertextcolor$}
+  \definecolor{headertextcolor}{HTML}{$headertextcolor$}
 $else$
   \definecolor{headertextcolor}{HTML}{FFFFFF}
 $endif$
@@ -86,6 +86,10 @@ $if(sidebartextcolor)$
 $else$
   \definecolor{sidebartextcolor}{HTML}{000000}
 $endif$
+$if(sidebartitletextcolor)$
+  \definecolor{sidebartitletextcolor}{HTML}{$sidebartitletextcolor$}
+$else$
+  \definecolor{sidebartitletextcolor}{HTML}{0E5484}
 $endif$
 $if(sidebarsubtitletextcolor)$
   \definecolor{sidebarsubtitletextcolor}{HTML}{$sidebarsubtitletextcolor$}

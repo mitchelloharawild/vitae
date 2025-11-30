@@ -16,6 +16,7 @@ aboutme: "Marie is a Polish and naturalized-French physicist and chemist who con
 sidecolor: "E7E7E7"
 sidebartextcolor: "\000000"
 sidebarsubtitletextcolor: "\000000"
+sidebartitletextcolor: "\0E5484"
 headercolor1: "B9B9B9"
 headercolor2: "\0E5484"
 headertextcolor: "FFFFFF"
