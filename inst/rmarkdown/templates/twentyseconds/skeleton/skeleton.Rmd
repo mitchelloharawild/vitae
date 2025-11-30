@@ -13,6 +13,10 @@ github: mariecurie
 linkedin: mariecurie
 date: "`r format(Sys.time(), '%B %Y')`"
 aboutme: "Marie is a Polish and naturalized-French physicist and chemist who conducts pioneering research on radioactivity."
+sidecolor: "E7E7E7"
+headercolor1: "B9B9B9"
+headercolor2: "\0E5484"
+headertextcolor: "FFFFFF"
 output: vitae::twentyseconds
 ---
 

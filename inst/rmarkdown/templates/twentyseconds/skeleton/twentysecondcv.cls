@@ -37,6 +37,9 @@
 \definecolor{sidecolor}{HTML}{E7E7E7}
 \definecolor{mainblue}{HTML}{0E5484}
 \definecolor{maingray}{HTML}{B9B9B9}
+\definecolor{headercolor1}{HTML}{B9B9B9}
+\definecolor{headercolor2}{HTML}{0E5484}
+\definecolor{headertextcolor}{HTML}{FFFFFF}
 
 %----------------------------------------------------------------------------------------
 %	 MISC CONFIGURATIONS
@@ -203,7 +206,7 @@
 
 % Command to create the rounded boxes around the first three letters of section titles
 \newcommand*\round[2]{%
-	\tikz[baseline=(char.base)]\node[anchor=north west, draw,rectangle, rounded corners, inner sep=1.6pt, minimum size=5.5mm, text height=3.6mm, fill=#2,#2,text=white](char){#1};%
+	\tikz[baseline=(char.base)]\node[anchor=north west, draw,rectangle, rounded corners, inner sep=1.6pt, minimum size=5.5mm, text height=3.6mm, fill=#2,#2,text=headertextcolor](char){#1};%
 }
 
 \newcounter{colorCounter}
@@ -211,17 +214,17 @@
 	{%
 		\round{#1}{
 			\ifcase\value{colorCounter}%
-			maingray\or%
-			mainblue\or%
-			maingray\or%
-			mainblue\or%
-			maingray\or%
-			mainblue\or%
-			maingray\or%
-			mainblue\or%
- 			maingray\or%
-			mainblue\else%
-			maingray\fi%
+			headercolor1\or%
+			headercolor2\or%
+			headercolor1\or%
+			headercolor2\or%
+			headercolor1\or%
+			headercolor2\or%
+			headercolor1\or%
+			headercolor2\or%
+ 			headercolor1\or%
+			headercolor2\else%
+			headercolor1\fi%
 		}%
 	}%
 	\stepcounter{colorCounter}%

@@ -56,6 +56,23 @@ $for(header-includes)$
 $header-includes$
 $endfor$
 
+% -----------------------------------------------------------
+% Custom colors from YAML (if provided)
+% -----------------------------------------------------------
+
+$if(sidecolor)$
+    \definecolor{sidecolor}{HTML}{$sidecolor$}
+$endif$
+$if(headercolor1)$
+    \definecolor{headercolor1}{HTML}{$headercolor1$}
+$endif$
+$if(headercolor2)$
+    \definecolor{headercolor2}{HTML}{$headercolor2$}
+$endif$
+$if(headertextcolor)$
+    \definecolor{headertextcolor}{HTML}{$headertextcolor$}
+$endif$
+
 %----------------------------------------------------------------------------------------
 %	 PERSONAL INFORMATION
 %----------------------------------------------------------------------------------------
