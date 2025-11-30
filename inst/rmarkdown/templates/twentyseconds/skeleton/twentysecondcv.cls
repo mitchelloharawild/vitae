@@ -149,7 +149,7 @@
 
 		%------------------------------------------------
 
-		{\raggedright\huge\textcolor{mainblue}{\textbf{\cvname}}}
+		{\raggedright\huge\bfseries\textcolor{mainblue}{\cvname}}
 
 		%------------------------------------------------
 
