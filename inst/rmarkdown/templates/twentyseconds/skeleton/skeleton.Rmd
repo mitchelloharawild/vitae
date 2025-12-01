@@ -28,10 +28,10 @@ headercolor2: |
   0E5484
 headertextcolor: |
   FFFFFF
-# Default pdflatex engine
+# Default pdfLaTeX engine
 output:
   vitae::twentyseconds
-# You can use XeLaTeX (and its font features) also
+# You can alternatively use XeLaTeX (and its font features)
 #output:
   #vitae::twentyseconds:
     #latex_engine: xelatex
