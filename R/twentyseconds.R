@@ -44,6 +44,7 @@ twentyseconds_cv_entries <- new_entry_formats(
     why <- lapply(why, function(x) {
       if(length(x) == 0) return("\\empty")
       paste(c(
+        "\\vspace{4pt}%",
         "\\begin{minipage}{0.7\\textwidth}%",
         "\\begin{itemize}[label={\\faIcon{angle-right}}, leftmargin=1.4em, itemsep=2pt, topsep=2pt]%",
         paste0("  \\item ", x, "%"),
