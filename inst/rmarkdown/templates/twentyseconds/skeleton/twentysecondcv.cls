@@ -256,9 +256,9 @@
 
 % New environment for the long list
 \newenvironment{twenty}{%
-	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ll}
+	\begin{tabular}{@{}p{0.2\linewidth} p{0.75\linewidth}@{}}
 }{%
-	\end{tabular*}
+	\end{tabular}
 }
 
 \newcommand{\twentyitem}[4]{%
@@ -278,9 +278,9 @@
 
 % New environment for the small list
 \newenvironment{twentyshort}{%
-	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ll}
+	\begin{tabular}{@{}p{0.2\linewidth} p{0.75\linewidth}@{}}
 }{%
-	\end{tabular*}
+	\end{tabular}
 }
 
 \newcommand{\twentyitemshort}[2]{%

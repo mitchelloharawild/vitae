@@ -56,12 +56,16 @@ library(vitae)
 library(tibble)
 tribble(
   ~ Degree, ~ Year, ~ Institution, ~ Where,
+  # If you provide "1889-\\newline 1891" for Year instead and specify FALSE for .protect,
+  # then "1889-" and "1891" will appear stacked.
   "Informal studies", "1889-91", "Flying University", "Warsaw, Poland",
   "Master of Physics", "1893", "Sorbonne Université", "Paris, France",
   "Master of Mathematics", "1894", "Sorbonne Université", "Paris, France"
-) %>% 
+) %>%
   # Change the order of these arguments to customize their layout in the output
-  detailed_entries(Degree, Year, Institution, Where)
+  detailed_entries(Degree, Year, Institution, Where
+  # Specify FALSE for .protect to use embedded LaTeX
+  )
 ```
 
 # Nobel Prizes
@@ -71,7 +75,7 @@ tribble(
   ~Year, ~Type, ~Desc,
   1903, "Physics", "Awarded for her work on radioactivity with Pierre Curie and Henri Becquerel",
   1911, "Chemistry", "Awarded for the discovery of radium and polonium"
-) %>% 
+) %>%
   brief_entries(
     glue::glue("Nobel Prize in {Type}"),
     Year, 
