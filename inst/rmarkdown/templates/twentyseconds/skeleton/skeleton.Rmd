@@ -60,6 +60,7 @@ tribble(
   "Master of Physics", "1893", "Sorbonne Université", "Paris, France",
   "Master of Mathematics", "1894", "Sorbonne Université", "Paris, France"
 ) %>% 
+  # Change the order of these arguments to customize their layout in the output
   detailed_entries(Degree, Year, Institution, Where)
 ```
 
