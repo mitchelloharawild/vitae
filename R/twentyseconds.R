@@ -45,8 +45,8 @@ twentyseconds_cv_entries <- new_entry_formats(
       if(length(x) == 0) return("\\empty")
       paste(c(
         "\\begin{minipage}{0.7\\textwidth}%",
-        "\\begin{itemize}%",
-        paste0("\\item ", x, "%"),
+        "\\begin{itemize}[label={\\faIcon{angle-right}}, leftmargin=1.4em, itemsep=2pt, topsep=2pt]%",
+        paste0("  \\item ", x, "%"),
         "\\end{itemize}%",
         "\\end{minipage}"
       ), collapse = "\n")

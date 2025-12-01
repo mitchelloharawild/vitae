@@ -20,6 +20,7 @@
 \RequirePackage{tikz}
 \RequirePackage{fontawesome5}
 \RequirePackage{academicons}
+\RequirePackage{enumitem}
 \RequirePackage{xcolor}
 \RequirePackage[absolute,overlay]{textpos}
 \RequirePackage{ragged2e}
