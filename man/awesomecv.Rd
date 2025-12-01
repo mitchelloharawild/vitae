@@ -8,7 +8,8 @@ awesomecv(
   ...,
   latex_engine = "xelatex",
   page_total = FALSE,
-  show_footer = TRUE
+  show_footer = TRUE,
+  font_scale = 1
 )
 }
 \arguments{
@@ -20,6 +21,9 @@ awesomecv(
 \item{page_total}{If TRUE, the total number of pages is shown in the footer.}
 
 \item{show_footer}{If TRUE, a footer showing your name, document name, and page number.}
+
+\item{font_scale}{Numeric multiplier applied to hard-coded font sizes in the
+Awesome‑CV class (default = 1). Use values like 0.95–1.10.}
 }
 \value{
 An R Markdown output format object.

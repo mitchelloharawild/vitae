@@ -1,3 +1,11 @@
+# vitae 0.6.0.1
+
+## New features
+
+* `awesomecv`: added a `font_scale` argument to globally scale template font sizes.
+  Scaling is applied to a temporary copy of `awesome-cv.cls` at render time; the
+  default `1` preserves existing output. (@rempsyc, #275)
+
 # vitae 0.6.0
 
 ## New features
