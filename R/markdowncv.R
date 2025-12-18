@@ -28,7 +28,14 @@ markdowncv <- function(..., theme = c("kjhealy", "blmoore", "davewhipp", "ccbaum
   copy_supporting_files("markdowncv")
   cv_document(..., pandoc_vars = list(theme = theme), mathjax = NULL,
               template = template,
-              base_format = rmarkdown::html_document)
+              base_format = html_document_notheme)
+}
+
+#' wrapper to set theme = NULL for html_document
+#' so that it doesn't fight the theme argument of markdowncv in the final pandoc render
+#' @keywords internal
+html_document_notheme <- function (...) {
+  rmarkdown::html_document(theme = NULL, ...)
 }
 
 
