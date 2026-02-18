@@ -2,6 +2,7 @@
 name: Marie
 surname: Curie
 position: "Professor"
+# Insert '\\newline ' in this string to make it multiline
 address: "School of Physics & Chemistry, École Normale Supérieure"
 phone: +1 22 3333 4444
 pronouns: she/her
@@ -13,7 +14,29 @@ github: mariecurie
 linkedin: mariecurie
 date: "`r format(Sys.time(), '%B %Y')`"
 aboutme: "Marie is a Polish and naturalized-French physicist and chemist who conducts pioneering research on radioactivity."
-output: vitae::twentyseconds
+sidecolor: |
+  E7E7E7
+sidebartextcolor: |
+  000000
+sidebartitletextcolor: |
+  0E5484
+sidebarsubtitletextcolor: |
+  000000
+headercolor1: |
+  B9B9B9
+headercolor2: |
+  0E5484
+headertextcolor: |
+  FFFFFF
+# Default pdfLaTeX engine
+output:
+  vitae::twentyseconds
+# You can alternatively use XeLaTeX (and its font features)
+#output:
+  #vitae::twentyseconds:
+    #latex_engine: xelatex
+#mainfont: "Roboto Light"
+#sansfont: "Roboto Light"
 ---
 
 ```{r setup, include=FALSE}
@@ -33,11 +56,16 @@ library(vitae)
 library(tibble)
 tribble(
   ~ Degree, ~ Year, ~ Institution, ~ Where,
+  # If you provide "1889-\\newline 1891" for Year instead and specify FALSE for .protect,
+  # then "1889-" and "1891" will appear stacked.
   "Informal studies", "1889-91", "Flying University", "Warsaw, Poland",
   "Master of Physics", "1893", "Sorbonne Université", "Paris, France",
   "Master of Mathematics", "1894", "Sorbonne Université", "Paris, France"
-) %>% 
-  detailed_entries(Degree, Year, Institution, Where)
+) %>%
+  # Change the order of these arguments to customize their layout in the output
+  detailed_entries(Degree, Year, Institution, Where
+  # Specify FALSE for .protect to use embedded LaTeX
+  )
 ```
 
 # Nobel Prizes
@@ -47,7 +75,7 @@ tribble(
   ~Year, ~Type, ~Desc,
   1903, "Physics", "Awarded for her work on radioactivity with Pierre Curie and Henri Becquerel",
   1911, "Chemistry", "Awarded for the discovery of radium and polonium"
-) %>% 
+) %>%
   brief_entries(
     glue::glue("Nobel Prize in {Type}"),
     Year, 

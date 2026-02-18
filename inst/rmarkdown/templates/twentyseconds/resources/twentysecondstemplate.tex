@@ -24,11 +24,29 @@
 
 \documentclass[$if(fontsize)$$fontsize$$else$10pt$endif$,$if(lang)$$babel-lang$,$endif$$if(papersize)$$papersize$$else$a4paper$endif$,$for(classoption)$$classoption$$sep$,$endfor$]{twentysecondcv}
 
-$if(fontfamily)$
-\usepackage[$for(fontfamilyoptions)$$fontfamilyoptions$$sep$,$endfor$]{$fontfamily$}
-$else$
-\usepackage[scaled=0.86]{DejaVuSansMono}
-$endif$
+\usepackage{iftex}
+
+\ifPDFTeX
+  $if(fontfamily)$
+    \usepackage[$for(fontfamilyoptions)$$fontfamilyoptions$$sep$,$endfor$]{$fontfamily$}
+  $else$
+    \usepackage[scaled=0.86]{DejaVuSansMono}
+  $endif$
+\else
+  % XeLaTeX/LuaLaTeX branch
+  \usepackage{fontspec}
+  $if(mainfont)$
+    \setmainfont{$mainfont$}
+  $else$
+    \setmainfont{DejaVu Sans}
+  $endif$
+  $if(sansfont)$
+    \setsansfont{$sansfont$}
+  $endif$
+  $if(monofont)$
+    \setmonofont{$monofont$}
+  $endif$
+\fi
 
 \usepackage{ifxetex,ifluatex}
 \usepackage{fixltx2e} % provides \textsubscript
@@ -36,6 +54,12 @@ $endif$
   \usepackage[$if(fontenc)$$fontenc$$else$T1$endif$]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{csquotes}
+\fi
+
+% Don't hyphenate too aggressively
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\sloppy
 
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
 \providecommand{\tightlist}{%
@@ -55,6 +79,46 @@ $endif$
 $for(header-includes)$
 $header-includes$
 $endfor$
+
+% -----------------------------------------------------------
+% Custom colors from YAML (if provided)
+% -----------------------------------------------------------
+
+$if(sidecolor)$
+  \definecolor{sidecolor}{HTML}{$sidecolor$}
+$else$
+  \definecolor{sidecolor}{HTML}{E7E7E7}
+$endif$
+$if(headercolor1)$
+  \definecolor{headercolor1}{HTML}{$headercolor1$}
+$else$
+  \definecolor{headercolor1}{HTML}{B9B9B9}
+$endif$
+$if(headercolor2)$
+  \definecolor{headercolor2}{HTML}{$headercolor2$}
+$else$
+  \definecolor{headercolor2}{HTML}{0E5484}
+$endif$
+$if(headertextcolor)$
+  \definecolor{headertextcolor}{HTML}{$headertextcolor$}
+$else$
+  \definecolor{headertextcolor}{HTML}{FFFFFF}
+$endif$
+$if(sidebartextcolor)$
+  \definecolor{sidebartextcolor}{HTML}{$sidebartextcolor$}
+$else$
+  \definecolor{sidebartextcolor}{HTML}{000000}
+$endif$
+$if(sidebartitletextcolor)$
+  \definecolor{sidebartitletextcolor}{HTML}{$sidebartitletextcolor$}
+$else$
+  \definecolor{sidebartitletextcolor}{HTML}{0E5484}
+$endif$
+$if(sidebarsubtitletextcolor)$
+  \definecolor{sidebarsubtitletextcolor}{HTML}{$sidebarsubtitletextcolor$}
+$else$
+  \definecolor{sidebarsubtitletextcolor}{HTML}{000000}
+$endif$
 
 %----------------------------------------------------------------------------------------
 %	 PERSONAL INFORMATION
