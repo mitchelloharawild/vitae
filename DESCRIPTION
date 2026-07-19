@@ -29,7 +29,7 @@ Suggests:
     stringr,
     htmltools
 SystemRequirements: pandoc (>= 2.7) - http://pandoc.org
-License: GPL-3
+License: GPL (>= 3)
 Encoding: UTF-8
 BugReports: https://github.com/mitchelloharawild/vitae/issues
 URL: https://pkg.mitchelloharawild.com/vitae/, https://github.com/mitchelloharawild/vitae

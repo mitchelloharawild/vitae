@@ -12,3 +12,4 @@
 ^data-raw$
 ^CRAN-SUBMISSION$
 ^revdep$
+^LICENSE\.md$
