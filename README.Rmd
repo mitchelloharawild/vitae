@@ -1,6 +1,8 @@
 ---
-format: gfm
+output: github_document
 ---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
 
 # vitae <img src="man/figures/logo.png" align="right" />
 */ˈviːteɪ/*

@@ -2,7 +2,7 @@
 ^codecov\.yml$
 ^\.github$
 ^\.travis\.yml$
-^README\.qmd$
+^README\.Rmd$
 ^vitae\.Rproj$
 ^\.Rproj\.user$
 ^hex$

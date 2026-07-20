@@ -1,4 +1,5 @@
 
+<!-- README.md is generated from README.Rmd. Please edit that file -->
 
 # vitae <img src="man/figures/logo.png" align="right" />
 
@@ -7,12 +8,12 @@
 <!-- badges: start -->
 
 [![CRAN
-status](https://www.r-pkg.org/badges/version/vitae.png)](https://cran.r-project.org/package=vitae)
+status](https://www.r-pkg.org/badges/version/vitae)](https://cran.r-project.org/package=vitae)
 [![R check
 status](https://github.com/mitchelloharawild/vitae/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/mitchelloharawild/vitae/actions/workflows/R-CMD-check.yaml)
 [![Lifecycle:
 maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html#maturing)
-[![Downloads](https://cranlogs.r-pkg.org/badges/vitae.png)](https://cran.r-project.org/package=vitae)
+[![Downloads](https://cranlogs.r-pkg.org/badges/vitae)](https://cran.r-project.org/package=vitae)
 <!-- badges: end -->
 
 ## Templates and tools for making a Résumé/CV
