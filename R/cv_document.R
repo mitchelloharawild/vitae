@@ -32,7 +32,8 @@ cv_document <- function(..., pandoc_args = NULL, pandoc_vars = NULL,
     pandoc = rmarkdown::pandoc_options(
       to = base$pandoc$to,
       args = pandoc_args,
-      latex_engine = base$pandoc$latex_engine
+      latex_engine = base$pandoc$latex_engine,
+      keep_tex = base$pandoc$keep_tex
     ),
 
     pre_processor = function (metadata, input_file, runtime, knit_meta,
