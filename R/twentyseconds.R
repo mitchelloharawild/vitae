@@ -2,7 +2,7 @@
 #'
 #' A curriculum vitae, otherwise known as a CV or résumé, is a document used by
 #' individuals to communicate their work history, education and skill set. This
-#' is a style template for your curriculum written in LaTex. The main goal of
+#' is a style template for your curriculum written in LaTeX. The main goal of
 #' this template is to provide a curriculum that is able to survive to the
 #' résumés screening of "twenty seconds":
 #' https://github.com/spagnuolocarmine/TwentySecondsCurriculumVitae-LaTex
@@ -44,9 +44,10 @@ twentyseconds_cv_entries <- new_entry_formats(
     why <- lapply(why, function(x) {
       if(length(x) == 0) return("\\empty")
       paste(c(
+        "\\vspace{4pt}%",
         "\\begin{minipage}{0.7\\textwidth}%",
-        "\\begin{itemize}%",
-        paste0("\\item ", x, "%"),
+        "\\begin{itemize}[label={\\faIcon{angle-right}}, leftmargin=1.4em, itemsep=2pt, topsep=2pt]%",
+        paste0("  \\item ", x, "%"),
         "\\end{itemize}%",
         "\\end{minipage}"
       ), collapse = "\n")

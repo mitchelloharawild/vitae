@@ -4,7 +4,7 @@
 #' into a suitable format for the template used. The inputs can also involve
 #' further calculations, which will be done using the provided data.
 #'
-#' All non-data inputs are optional, and will result in an empty space if omitted.
+#' All non-data (i.e., NA) inputs are optional, and will result in an empty space if omitted.
 #'
 #' @param data A `data.frame` or `tibble`.
 #' @param what The primary value of the entry (such as workplace title or degree).

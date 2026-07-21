@@ -1,19 +1,26 @@
-\ProvidesClass{twentysecondcv}[2018/11/24 CV class]
+\ProvidesClass{twentysecondcv}[2025/11/30 CV class]
 \LoadClass{article}
 \NeedsTeXFormat{LaTeX2e}
 
 % Adapted for use with the Rmarkdown template by
 % Rob J Hyndman. 24 November 2018
+% Expanded by Blake Madden. 30 November 2025
 
 %----------------------------------------------------------------------------------------
 %	 REQUIRED PACKAGES
 %----------------------------------------------------------------------------------------
 
-\RequirePackage[sfdefault]{ClearSans}
+\usepackage{iftex}
+% Font becomes too thin for some engines Like XeLaTeX, but fine for pdflatex
+\ifPDFTeX
+  \RequirePackage[sfdefault]{ClearSans}
+\fi
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[T1]{fontenc}
 \RequirePackage{tikz}
-\RequirePackage{fontawesome}
+\RequirePackage{fontawesome5}
+\RequirePackage{academicons}
+\RequirePackage{enumitem}
 \RequirePackage{xcolor}
 \RequirePackage[absolute,overlay]{textpos}
 \RequirePackage{ragged2e}
@@ -33,7 +40,6 @@
 
 \definecolor{white}{RGB}{255,255,255}
 \definecolor{gray}{HTML}{4D4D4D}
-\definecolor{sidecolor}{HTML}{E7E7E7}
 \definecolor{mainblue}{HTML}{0E5484}
 \definecolor{maingray}{HTML}{B9B9B9}
 
@@ -72,7 +78,7 @@
 	\addtolength\TotalSectionLength{-\SectionTitleLength}% Subtract the section title width from the total width
 	\addtolength\TotalSectionLength{-2.22221pt}% Modifier to remove overfull box warning
 	\vspace{8pt}% Whitespace before the section title
-	{\color{black!80} \huge #1 \rule[0.15\baselineskip]{\TotalSectionLength}{1pt}}% Print the title and auto-width rule
+	{\color{sidebartitletextcolor!80!white} \huge #1 \rule[0.15\baselineskip]{\TotalSectionLength}{1pt}}% Print the title and auto-width rule
 }
 
 % Define custom commands for CV info
@@ -134,6 +140,8 @@
 
 	\begin{textblock}{6}(0.5, 0.2)
 
+		{\color{sidebartextcolor}
+
 		%------------------------------------------------
 
 		\ifthenelse{\equal{\profilepic}{}}{\vspace*{0.5cm}}{
@@ -147,11 +155,11 @@
 
 		%------------------------------------------------
 
-		{\raggedright\huge\textcolor{mainblue}{\textbf{\cvname}}}
+		{\raggedright\huge\bfseries\textcolor{sidebartitletextcolor}{\cvname}}
 
 		%------------------------------------------------
 
-		{\Large\color{black!80}\cvjobtitle}
+		{\Large\color{sidebarsubtitletextcolor!80!white}\cvjobtitle}
 
 		\ifthenelse{\equal{\cvdate}{}}{}{\cvdate}
 		\vspace*{0.4cm}
@@ -159,17 +167,17 @@
 
 		\renewcommand{\arraystretch}{1.6}
 		\begin{tabular}{p{0.5cm} @{\hskip 0.5cm}p{5cm}}
-			\ifthenelse{\equal{\cvaddress}{}}{}{\Large\faicon{map-marker} & \cvaddress\\}
-			\ifthenelse{\equal{\cvpronouns}{}}{}{\Large\faicon{comment} & \cvpronouns\\}
-			\ifthenelse{\equal{\cvnumberphone}{}}{}{\Large\faicon{phone} & \cvnumberphone\\}
-			\ifthenelse{\equal{\cvsite}{}}{}{\Large\faicon{home} & \cvsite\\}
-			\ifthenelse{\equal{\cvmail}{}}{}{\Large\faicon{envelope} & \cvmail\\}
-			\ifthenelse{\equal{\cvtwitter}{}}{}{\Large\faicon{twitter} & \cvtwitter\\}
-			\ifthenelse{\equal{\cvgithub}{}}{}{\Large\faicon{github} & \cvgithub\\}
-			\ifthenelse{\equal{\cvlinkedin}{}}{}{\Large\faicon{linkedin} & \cvlinkedin}
-			\ifthenelse{\equal{\cvorcid}{}}{}{\Large\faicon{orcid} & \cvorcid}
-			\ifthenelse{\equal{\cvscholar}{}}{}{\Large\faicon{google} & \cvscholar}
-			\ifthenelse{\equal{\cvresearchgate}{}}{}{\Large\faicon{researchgate} & \cvresearchgate}
+			\ifthenelse{\equal{\cvaddress}{}}{}{\Large\faIcon{map-marker-alt} & \cvaddress\\}
+			\ifthenelse{\equal{\cvpronouns}{}}{}{\Large\faIcon{comment-alt} & \cvpronouns\\}
+			\ifthenelse{\equal{\cvnumberphone}{}}{}{\Large\faIcon{phone} & \cvnumberphone\\}
+			\ifthenelse{\equal{\cvsite}{}}{}{\Large\faIcon{home} & \cvsite\\}
+			\ifthenelse{\equal{\cvmail}{}}{}{\Large\faIcon{envelope} & \cvmail\\}
+			\ifthenelse{\equal{\cvtwitter}{}}{}{\Large\faIcon{twitter} & \cvtwitter\\}
+			\ifthenelse{\equal{\cvgithub}{}}{}{\Large\faIcon{github} & \cvgithub\\}
+			\ifthenelse{\equal{\cvlinkedin}{}}{}{\Large\faIcon{linkedin} & \cvlinkedin\\}
+		    \ifthenelse{\equal{\cvorcid}{}}{}{\Large\faIcon{orcid} & \cvorcid\\}
+		    \ifthenelse{\equal{\cvscholar}{}}{}{\Large\\aiGoogleScholar & \cvscholar\\}
+		    \ifthenelse{\equal{\cvresearchgate}{}}{}{\Large\faIcon{researchgate} & \cvresearchgate\\}
 		\end{tabular}
 
 		%------------------------------------------------
@@ -191,6 +199,7 @@
 %		(*)[The skill scale is from 0 (Fundamental Awareness) to 6 (Expert).]
 
 		%------------------------------------------------
+		} % end text color
 
 	\end{textblock}
 	%\AddThispageHook{\newpage\restoregeometry}
@@ -202,7 +211,7 @@
 
 % Command to create the rounded boxes around the first three letters of section titles
 \newcommand*\round[2]{%
-	\tikz[baseline=(char.base)]\node[anchor=north west, draw,rectangle, rounded corners, inner sep=1.6pt, minimum size=5.5mm, text height=3.6mm, fill=#2,#2,text=white](char){#1};%
+	\tikz[baseline=(char.base)]\node[anchor=north west, draw,rectangle, rounded corners, inner sep=1.6pt, minimum size=5.5mm, text height=3.6mm, fill=#2,#2,text=headertextcolor](char){#1};%
 }
 
 \newcounter{colorCounter}
@@ -210,17 +219,17 @@
 	{%
 		\round{#1}{
 			\ifcase\value{colorCounter}%
-			maingray\or%
-			mainblue\or%
-			maingray\or%
-			mainblue\or%
-			maingray\or%
-			mainblue\or%
-			maingray\or%
-			mainblue\or%
- 			maingray\or%
-			mainblue\else%
-			maingray\fi%
+			headercolor1\or%
+			headercolor2\or%
+			headercolor1\or%
+			headercolor2\or%
+			headercolor1\or%
+			headercolor2\or%
+			headercolor1\or%
+			headercolor2\or%
+ 			headercolor1\or%
+			headercolor2\else%
+			headercolor1\fi%
 		}%
 	}%
 	\stepcounter{colorCounter}%
@@ -248,9 +257,9 @@
 
 % New environment for the long list
 \newenvironment{twenty}{%
-	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ll}
+	\begin{tabular}{@{}p{0.2\linewidth} p{0.75\linewidth}@{}}
 }{%
-	\end{tabular*}
+	\end{tabular}
 }
 
 \newcommand{\twentyitem}[4]{%
@@ -270,9 +279,9 @@
 
 % New environment for the small list
 \newenvironment{twentyshort}{%
-	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ll}
+	\begin{tabular}{@{}p{0.2\linewidth} p{0.75\linewidth}@{}}
 }{%
-	\end{tabular*}
+	\end{tabular}
 }
 
 \newcommand{\twentyitemshort}[2]{%
