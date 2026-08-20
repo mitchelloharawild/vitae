@@ -60,6 +60,7 @@ local function resolve_doc_citations (doc)
   -- combine all bibliographies
   local meta = doc.meta
   local bibconf = meta.bibliography
+  local orig_bib = bibconf
   meta.bibliography = pandoc.MetaList{}
   if metatype(bibconf) == 'table' then
     for _, value in pairs(bibconf) do
