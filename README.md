@@ -12,9 +12,19 @@ status](https://www.r-pkg.org/badges/version/vitae)](https://cran.r-project.org/
 [![R check
 status](https://github.com/mitchelloharawild/vitae/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/mitchelloharawild/vitae/actions/workflows/R-CMD-check.yaml)
 [![Lifecycle:
-maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html#maturing)
+superseded](https://img.shields.io/badge/lifecycle-superseded-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html#superseded)
 [![Downloads](https://cranlogs.r-pkg.org/badges/vitae)](https://cran.r-project.org/package=vitae)
 <!-- badges: end -->
+
+> \[!IMPORTANT\] The *vitae* package is superseded in favour of [Quarto
+> vitae templates](https://github.com/quarto-vitae). The vitae R package
+> will continue to be maintained to fix upstream breaking changes.
+>
+> The Quarto templates allow for CV entries to be specified using any
+> programming language that produces tables (R, Python, Julia, …)
+>
+> If you’re starting a new CV, we recommend using the Quarto vitae
+> templates instead.
 
 ## Templates and tools for making a Résumé/CV
 
