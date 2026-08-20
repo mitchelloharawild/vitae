@@ -1,10 +1,28 @@
-# vitae 0.6.0.1
+# vitae 0.7.0
+
+vitae is now superseded in favour of the [Quarto vitae templates](https://github.com/quarto-vitae).
+The package will continue to be maintained to fix breaking changes from upstream
+dependencies, but new templates and features are being developed for Quarto instead.
+See the README for more details.
 
 ## New features
 
 * `awesomecv`: added a `font_scale` argument to globally scale template font sizes.
   Scaling is applied to a temporary copy of `awesome-cv.cls` at render time; the
   default `1` preserves existing output. (@rempsyc, #275)
+
+## Improvements
+
+* `cv_document()` based formats now pass `keep_tex` through to pandoc, so
+  `keep_tex: true` in the YAML header is respected for LaTeX-based templates.
+
+## Bug fixes
+
+* `markdowncv()`'s `theme` argument is no longer overridden by the default
+  Bootstrap theme applied by `rmarkdown::html_document()`. (@monicathieu, #279)
+* Fixed the multiple bibliographies lua filter discarding the document's
+  bibliography metadata after resolving citations, which could drop
+  bibliographies from rendered output.
 
 # vitae 0.6.0
 
