@@ -14,12 +14,14 @@ output: github_document
 [![Downloads](https://cranlogs.r-pkg.org/badges/vitae)](https://cran.r-project.org/package=vitae)
 <!-- badges: end -->
 
+```{=markdown}
 > [!IMPORTANT]
 > The *vitae* package is superseded in favour of [Quarto vitae templates](https://github.com/quarto-vitae). The vitae R package will continue to be maintained to fix upstream breaking changes.
 >
 > The Quarto templates allow for CV entries to be specified using any programming language that produces tables (R, Python, Julia, ...)
 > 
 > If you're starting a new CV, we recommend using the Quarto vitae templates instead.
+```
 
 ## Templates and tools for making a Résumé/CV
 
