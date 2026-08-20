@@ -17,7 +17,10 @@
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]--><script defer data-domain="pkg.mitchelloharawild.com/vitae" src="https://track.mitchelloharawild.com/js/plausible.js"></script>
+<![endif]--><!-- Privacy-friendly analytics by Plausible --><script async src="https://track.mitchelloharawild.com/js/pa-hMJNm4vrMJmtfgDWedFn0.js"></script><script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -34,7 +37,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">vitae</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.6.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.7.0</span>
       </span>
     </div>
 
@@ -90,6 +93,11 @@
 <p><em>/ˈviːteɪ/</em></p>
 <!-- badges: start -->
 
+<blockquote>
+<p>[!IMPORTANT] The <em>vitae</em> package is superseded in favour of <a href="https://github.com/quarto-vitae" class="external-link">Quarto vitae templates</a>. The vitae R package will continue to be maintained to fix upstream breaking changes.</p>
+<p>The Quarto templates allow for CV entries to be specified using any programming language that produces tables (R, Python, Julia, …)</p>
+<p>If you’re starting a new CV, we recommend using the Quarto vitae templates instead.</p>
+</blockquote>
 <div class="section level2">
 <h2 id="templates-and-tools-for-making-a-résumécv">Templates and tools for making a Résumé/CV<a class="anchor" aria-label="anchor" href="#templates-and-tools-for-making-a-r%C3%A9sum%C3%A9cv"></a>
 </h2>
@@ -129,11 +137,11 @@
 <col width="51%">
 <col width="48%">
 </colgroup>
-<thead><tr class="header">
+<thead><tr>
 <th><a href="https://pkg.mitchelloharawild.com/vitae/reference/awesomecv.html"><strong>vitae::awesomecv</strong></a></th>
 <th><a href="https://pkg.mitchelloharawild.com/vitae/reference/hyndman.html"><strong>vitae::hyndman</strong></a></th>
 </tr></thead>
-<tbody><tr class="odd">
+<tbody><tr>
 <td><a href="https://pkg.mitchelloharawild.com/vitae/reference/awesomecv.html"><img src="reference/figures/preview-awesomecv.png" width="415" alt="awesomecv"></a></td>
 <td><a href="https://pkg.mitchelloharawild.com/vitae/reference/hyndman.html"><img src="reference/figures/preview-hyndman.png" width="415" alt="hyndman"></a></td>
 </tr></tbody>
@@ -143,11 +151,11 @@
 <col width="48%">
 <col width="51%">
 </colgroup>
-<thead><tr class="header">
+<thead><tr>
 <th><a href="https://pkg.mitchelloharawild.com/vitae/reference/latexcv.html"><strong>vitae::latexcv</strong></a></th>
 <th><a href="https://pkg.mitchelloharawild.com/vitae/reference/markdowncv.html"><strong>vitae::markdowncv</strong></a></th>
 </tr></thead>
-<tbody><tr class="odd">
+<tbody><tr>
 <td><a href="https://pkg.mitchelloharawild.com/vitae/reference/latexcv.html"><img src="reference/figures/preview-latexcv.png" width="415" alt="latexcv"></a></td>
 <td><a href="https://pkg.mitchelloharawild.com/vitae/reference/markdowncv.html"><img src="reference/figures/preview-markdowncv.png" width="415" alt="markdowncv"></a></td>
 </tr></tbody>
@@ -157,11 +165,11 @@
 <col width="47%">
 <col width="52%">
 </colgroup>
-<thead><tr class="header">
+<thead><tr>
 <th><a href="https://pkg.mitchelloharawild.com/vitae/reference/moderncv.html"><strong>vitae::moderncv</strong></a></th>
 <th><a href="https://pkg.mitchelloharawild.com/vitae/reference/twentyseconds.html"><strong>vitae::twentyseconds</strong></a></th>
 </tr></thead>
-<tbody><tr class="odd">
+<tbody><tr>
 <td><a href="https://pkg.mitchelloharawild.com/vitae/reference/moderncv.html"><img src="reference/figures/preview-moderncv.png" width="415" alt="moderncv"></a></td>
 <td><a href="https://pkg.mitchelloharawild.com/vitae/reference/twentyseconds.html"><img src="reference/figures/preview-twentyseconds.png" width="415" alt="twentyseconds"></a></td>
 </tr></tbody>
@@ -214,7 +222,8 @@
 <div class="license">
 <h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
-<li><a href="https://www.r-project.org/Licenses/GPL-3" class="external-link">GPL-3</a></li>
+<li><a href="LICENSE.html">Full license</a></li>
+<li><small>GPL (&gt;= 3)</small></li>
 </ul>
 </div>
 
@@ -258,7 +267,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
 </div>
 
       </footer>

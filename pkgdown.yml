@@ -1,11 +1,11 @@
-pandoc: 3.1.11
-pkgdown: 2.1.3
+pandoc: 3.8.3
+pkgdown: 2.2.1
 pkgdown_sha: ~
 articles:
   data: data.html
   extending: extending.html
   vitae: vitae.html
-last_built: 2025-08-14T02:08Z
+last_built: 2026-08-20T15:09Z
 urls:
   reference: https://pkg.mitchelloharawild.com/vitae/reference
   article: https://pkg.mitchelloharawild.com/vitae/articles
