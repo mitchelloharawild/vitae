@@ -67,11 +67,23 @@
     </div>
 
     <div class="section level2">
-<h2 class="page-header" data-toc-text="0.6.0.1" id="vitae-0601">vitae 0.6.0.1<a class="anchor" aria-label="anchor" href="#vitae-0601"></a></h2>
+<h2 class="page-header" data-toc-text="0.7.0" id="vitae-070">vitae 0.7.0<a class="anchor" aria-label="anchor" href="#vitae-070"></a></h2>
+<p>vitae is now superseded in favour of the <a href="https://github.com/quarto-vitae" class="external-link">Quarto vitae templates</a>. The package will continue to be maintained to fix breaking changes from upstream dependencies, but new templates and features are being developed for Quarto instead. See the README for more details.</p>
 <div class="section level3">
-<h3 id="new-features-0-6-0-1">New features<a class="anchor" aria-label="anchor" href="#new-features-0-6-0-1"></a></h3>
+<h3 id="new-features-0-7-0">New features<a class="anchor" aria-label="anchor" href="#new-features-0-7-0"></a></h3>
 <ul><li>
 <code>awesomecv</code>: added a <code>font_scale</code> argument to globally scale template font sizes. Scaling is applied to a temporary copy of <code>awesome-cv.cls</code> at render time; the default <code>1</code> preserves existing output. (<a href="https://github.com/rempsyc" class="external-link">@rempsyc</a>, <a href="https://github.com/mitchelloharawild/vitae/issues/275" class="external-link">#275</a>)</li>
+</ul></div>
+<div class="section level3">
+<h3 id="improvements-0-7-0">Improvements<a class="anchor" aria-label="anchor" href="#improvements-0-7-0"></a></h3>
+<ul><li>
+<code><a href="../reference/cv_document.html">cv_document()</a></code> based formats now pass <code>keep_tex</code> through to pandoc, so <code>keep_tex: true</code> in the YAML header is respected for LaTeX-based templates.</li>
+</ul></div>
+<div class="section level3">
+<h3 id="bug-fixes-0-7-0">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-0-7-0"></a></h3>
+<ul><li>
+<code><a href="../reference/markdowncv.html">markdowncv()</a></code>’s <code>theme</code> argument is no longer overridden by the default Bootstrap theme applied by <code><a href="https://pkgs.rstudio.com/rmarkdown/reference/html_document.html" class="external-link">rmarkdown::html_document()</a></code>. (<a href="https://github.com/monicathieu" class="external-link">@monicathieu</a>, <a href="https://github.com/mitchelloharawild/vitae/issues/279" class="external-link">#279</a>)</li>
+<li>Fixed the multiple bibliographies lua filter discarding the document’s bibliography metadata after resolving citations, which could drop bibliographies from rendered output.</li>
 </ul></div>
 </div>
     <div class="section level2">
