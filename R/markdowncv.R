@@ -31,9 +31,8 @@ markdowncv <- function(..., theme = c("kjhealy", "blmoore", "davewhipp", "ccbaum
               base_format = html_document_notheme)
 }
 
-#' wrapper to set theme = NULL for html_document
-#' so that it doesn't fight the theme argument of markdowncv in the final pandoc render
-#' @keywords internal
+# wrapper to set theme = NULL for html_document
+# so that it doesn't fight the theme argument of markdowncv in the final pandoc render
 html_document_notheme <- function (...) {
   rmarkdown::html_document(theme = NULL, ...)
 }

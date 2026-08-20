@@ -7,3 +7,5 @@ cv
 .httr-oauth
 docs
 revdep
+
+/.luarc.json

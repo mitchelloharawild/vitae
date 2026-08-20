@@ -22,7 +22,7 @@ Given a bibliography file, this function will generate bibliographic entries
 for one or more types of bib entry.
 }
 \examples{
-\dontshow{if (rmarkdown::pandoc_available("2.7")) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (rmarkdown::pandoc_available("2.7")) withAutoprint(\{ # examplesIf}
 # Create a bibliography from a set of packages
 bib <- tempfile(fileext = ".bib")
 knitr::write_bib(c("vitae", "tibble"), bib)

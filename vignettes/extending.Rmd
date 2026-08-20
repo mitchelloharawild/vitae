@@ -18,7 +18,7 @@ Résumé/CV templates are abundantly available in many varieties of themes and l
 
 ## Creating a vitae template
 
-Extending `vitae` to support new templates involves a similar process to creating new `rmarkdown` document templates. An extended explanation for creating `rmarkdown` templates can be found in the [*Document Templates* chapter](https://bookdown.org/yihui/rmarkdown/document-templates.html) in ["R Markdown: The Definitive Guide"](https://bookdown.org/yihui/rmarkdown/).
+Extending `vitae` to support new templates involves a similar process to creating new `rmarkdown` document templates. An extended explanation for creating `rmarkdown` templates can be found in the [*Document Templates* chapter](https://pkg.yihui.org/rmarkdown-book/document-templates.html) in ["R Markdown: The Definitive Guide"](https://pkg.yihui.org/rmarkdown-book/).
 
 Creating a template for vitae can be broken into three parts:
 - Converting a CV into a Pandoc template
